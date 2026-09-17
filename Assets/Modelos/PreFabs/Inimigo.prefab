@@ -63,6 +63,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,9 +86,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6000600600625029956
 BoxCollider:
@@ -127,5 +131,13 @@ MonoBehaviour:
   nivel: 1
   tempoEntreAtaques: 2
   raioDeDeteccao: 5
+  voa: 1
+  alturaDeVoo: 2.5
+  amplitudeDeOscilacao: 0.4
+  velocidadeDeOscilacao: 2
+  fazInvestida: 1
+  duracaoInvestida: 0.3
+  ehBoss: 0
+  barraVidaFill: {fileID: 0}
   numCartasMin: 1
   numCartasMax: 2

@@ -1,18 +1,24 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using TMPro;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("ConfiguraÁ„o de Ataque")]
+    [Header("Configura√ß√£o de Ataque")]
     public float tempoEntreAtaques = 1f;
+
+    [Header("Proj√©til")]
+    [Tooltip("Prefab da flecha. Se vazio, o ataque √© instant√¢neo (hitscan).")]
+    public GameObject flechaPrefab;
+    [Tooltip("Velocidade da flecha (requisito do PDF: valor facilmente alter√°vel).")]
+    public float velocidadeDaFlecha = 25f;
 
     [Header("Recursos")]
     public int flechas = 10;
 
-    // A referÍncia ao texto da UI
+    // A refer√™ncia ao texto da UI
     private TextMeshProUGUI textoFlechas;
 
-    // Outras referÍncias e vari·veis de estado
+    // Outras refer√™ncias e vari√°veis de estado
     private LoopMover loopMover;
     private float tempoProximoAtaque = 0f;
     private bool emCombate = false;
@@ -35,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("AVISO: N„o foi encontrado um objeto de texto com a tag 'UI_ContadorFlechas' na cena. A UI de flechas n„o funcionar·.");
+            Debug.LogWarning("AVISO: N√£o foi encontrado um objeto de texto com a tag 'UI_ContadorFlechas' na cena. A UI de flechas n√£o funcionar√°.");
         }
 
         // Atualiza a UI com o valor inicial
@@ -56,13 +62,26 @@ public class PlayerAttack : MonoBehaviour
         if (flechas <= 0) { if (loopMover != null) loopMover.ResumirMovimento(); return; }
 
         flechas--;
-        AtualizarUIFlechas(); // Chama a atualizaÁ„o da UI
+        AtualizarUIFlechas();
 
         float danoPlayer = playerStatus.GetDano();
-        inimigoDetectado.ReceberDano(danoPlayer);
+        Vector3 direcao = (inimigoDetectado.transform.position - transform.position);
+        direcao.y = 0;
 
-        if (inimigoDetectado != null)
+        if (flechaPrefab != null)
         {
+            // Dispara um proj√©til f√≠sico com velocidade configur√°vel
+            GameObject flecha = Instantiate(flechaPrefab, transform.position + Vector3.up * 1f + direcao.normalized * 0.5f, Quaternion.identity);
+            Flecha componenteFlecha = flecha.GetComponent<Flecha>();
+            if (componenteFlecha != null)
+            {
+                componenteFlecha.Disparar(direcao, danoPlayer, velocidadeDaFlecha);
+            }
+        }
+        else
+        {
+            // Fallback: dano instant√¢neo
+            inimigoDetectado.ReceberDano(danoPlayer);
             Debug.DrawLine(transform.position, inimigoDetectado.transform.position, Color.red, 0.5f);
         }
 
@@ -70,13 +89,12 @@ public class PlayerAttack : MonoBehaviour
     }
 
     /// <summary>
-    /// Atualiza o texto de flechas no Canvas. Agora sem efeitos visuais.
+    /// Atualiza o texto de flechas no Canvas.
     /// </summary>
     private void AtualizarUIFlechas()
     {
         if (textoFlechas != null)
         {
-            // Apenas atualiza o texto diretamente.
             textoFlechas.text = "Arrows: " + flechas;
         }
     }
@@ -87,7 +105,6 @@ public class PlayerAttack : MonoBehaviour
         AtualizarUIFlechas();
     }
 
-    // O resto dos mÈtodos de controle de combate permanecem os mesmos
     public bool PodeAtacar() { return flechas > 0; }
     public void IniciarCombate(InimigoBase inimigoAlvo) { if (!emCombate) { emCombate = true; inimigoDetectado = inimigoAlvo; tempoProximoAtaque = Time.time; } }
     public void EncerrarCombate() { emCombate = false; inimigoDetectado = null; }

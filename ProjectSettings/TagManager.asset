@@ -8,6 +8,7 @@ TagManager:
   - UI_ContadorFlechas
   - UI_CampoDescricao
   - UI_BarraVida
+  - UI_ContadorLoop
   layers:
   - Default
   - TransparentFX

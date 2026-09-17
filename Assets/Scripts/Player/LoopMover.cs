@@ -1,24 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 public class LoopMover : MonoBehaviour
 {
-    [Header("Configuração do Caminho")]
+    [Header("ConfiguraÃ§Ã£o do Caminho")]
     public LoopGenerator loopGenerator;
 
     [Header("Atributos de Movimento")]
     public float moveSpeed = 3f;
     public float alturaDoSpawn = 1f;
-    [Tooltip("A velocidade com que o personagem gira para encarar a nova direção.")]
-    public float velocidadeDeRotacao = 10f; // <-- NOVA VARIÁVEL!
+    [Tooltip("A velocidade com que o personagem gira para encarar a nova direÃ§Ã£o.")]
+    public float velocidadeDeRotacao = 10f;
 
-    [Header("Detecção de Inimigo")]
-    [Tooltip("A que distância à frente o player detectará um inimigo.")]
+    [Header("DetecÃ§Ã£o de Inimigo")]
+    [Tooltip("A que distÃ¢ncia Ã  frente o player detectarÃ¡ um inimigo.")]
     public float distanciaDeDeteccao = 3f;
-    [Tooltip("A 'grossura' do raio de detecção. Use 0.5 para começar.")]
+    [Tooltip("A 'grossura' do raio de detecÃ§Ã£o. Use 0.5 para comeÃ§ar.")]
     public float raioDeDeteccaoPlayer = 0.5f;
 
-    // Referências e estado interno
+    // ReferÃªncias e estado interno
     private PlayerAttack playerAttack;
     private Rigidbody rb;
     private List<Vector3> path;
@@ -36,13 +36,13 @@ public class LoopMover : MonoBehaviour
     void Start()
     {
         if (loopGenerator == null) { loopGenerator = FindFirstObjectByType<LoopGenerator>(); }
-        if (loopGenerator == null) { Debug.LogError("ERRO CRÍTICO: LoopMover não encontrou um 'LoopGenerator'!"); this.enabled = false; return; }
+        if (loopGenerator == null) { Debug.LogError("ERRO CRÃTICO: LoopMover nÃ£o encontrou um 'LoopGenerator'!"); this.enabled = false; return; }
 
         path = loopGenerator.GetPath();
         if (path != null && path.Count > 0)
         {
             transform.position = path[0] + new Vector3(0, alturaDoSpawn, 0);
-            // Faz o player já começar olhando para o segundo ponto do caminho
+            // Faz o player jÃ¡ comeÃ§ar olhando para o segundo ponto do caminho
             Vector3 direcaoInicial = (path[1] - path[0]).normalized;
             direcaoInicial.y = 0;
             if (direcaoInicial != Vector3.zero)
@@ -68,17 +68,17 @@ public class LoopMover : MonoBehaviour
         Vector3 targetNoCaminho = path[currentIndex];
         Vector3 targetParaMovimento = new Vector3(targetNoCaminho.x, transform.position.y, targetNoCaminho.z);
 
-        // --- LÓGICA DE ROTAÇÃO ADICIONADA ---
-        // Calcula a direção para o alvo, ignorando a altura
+        // --- LÃ“GICA DE ROTAÃ‡ÃƒO ---
+        // Calcula a direÃ§Ã£o para o alvo, ignorando a altura
         Vector3 direcao = targetParaMovimento - transform.position;
         direcao.y = 0;
 
-        // Se houver uma direção para olhar (evita erros quando já chegou ao destino)
+        // Se houver uma direÃ§Ã£o para olhar (evita erros quando jÃ¡ chegou ao destino)
         if (direcao != Vector3.zero)
         {
-            // Cria a rotação que "olha" para a direção do movimento
+            // Cria a rotaÃ§Ã£o que "olha" para a direÃ§Ã£o do movimento
             Quaternion rotacaoAlvo = Quaternion.LookRotation(direcao);
-            // Interpola suavemente da rotação atual para a rotação alvo
+            // Interpola suavemente da rotaÃ§Ã£o atual para a rotaÃ§Ã£o alvo
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, velocidadeDeRotacao * Time.deltaTime);
         }
 
@@ -114,9 +114,30 @@ public class LoopMover : MonoBehaviour
         }
     }
 
-    // O resto dos seus métodos permanece igual
     public void PausarMovimento() { podeMover = false; if (rb != null) { rb.constraints = RigidbodyConstraints.FreezeAll; } if (anim != null) { anim.SetBool("correr", false); } }
-    public void ResumirMovimento() { podeMover = true; if (rb != null) { rb.constraints = RigidbodyConstraints.None; } if (anim != null) { anim.SetBool("correr", true); } if (playerAttack != null) { playerAttack.EncerrarCombate(); } }
-    public void SetCurrentIndex(int newIndex) { if (path != null && newIndex >= 0 && newIndex < path.Count) { this.currentIndex = newIndex; } }
-    void OnDrawGizmosSelected() { if (!Application.isPlaying || path == null || path.Count == 0) return; Vector3 direcao = (path[currentIndex] - transform.position).normalized; direcao.y = 0; Gizmos.color = Color.red; Gizmos.DrawWireSphere(transform.position + direcao * distanciaDeDeteccao, raioDeDeteccaoPlayer); }
+
+    public void ResumirMovimento()
+    {
+        podeMover = true;
+        if (rb != null) { rb.constraints = RigidbodyConstraints.None; }
+        if (anim != null) { anim.SetBool("correr", true); }
+        if (playerAttack != null) { playerAttack.EncerrarCombate(); }
+    }
+
+    public void SetCurrentIndex(int newIndex)
+    {
+        if (path != null && newIndex >= 0 && newIndex < path.Count)
+        {
+            currentIndex = newIndex;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (!Application.isPlaying || path == null || path.Count == 0) return;
+        Vector3 direcao = (path[currentIndex] - transform.position).normalized;
+        direcao.y = 0;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + direcao * distanciaDeDeteccao, raioDeDeteccaoPlayer);
+    }
 }

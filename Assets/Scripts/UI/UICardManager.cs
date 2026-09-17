@@ -36,7 +36,7 @@ public class UICardManager : MonoBehaviour
             campoDescricao = descObj.GetComponent<TextMeshProUGUI>();
             if (campoDescricao != null)
             {
-                campoDescricao.text = "Select a card to see its description.";
+                campoDescricao.text = "Selecione uma carta para ver a descrição.";
                 Debug.Log("<color=green>SUCESSO:</color> UI de Descrição encontrada e conectada via Tag!");
             }
         }

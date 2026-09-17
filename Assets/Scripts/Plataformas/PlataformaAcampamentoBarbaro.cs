@@ -71,6 +71,14 @@ public class PlataformaCampoBarbaro : MonoBehaviour
         pos.y = transform.position.y + alturaSpawnInimigo;
 
         GameObject novoInimigo = Instantiate(prefabInimigo, pos, Quaternion.identity);
+
+        // Debuff da floresta profunda: lobos nascem com menos vida se o efeito estiver ativo
+        InimigoBase inimigo = novoInimigo.GetComponent<InimigoBase>();
+        if (inimigo != null && PlataformaFlorestaProfunda.MultiplicadorGlobalDeVidaDosLobos != 1f)
+        {
+            inimigo.AplicarModificadorDeVida(PlataformaFlorestaProfunda.MultiplicadorGlobalDeVidaDosLobos);
+        }
+
         inimigosAtivos.Add(novoInimigo);
     }
 }

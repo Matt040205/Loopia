@@ -17,16 +17,19 @@ public class PlacementManager : MonoBehaviour
 
     public void TentarConstruirNaPlataforma(PlataformaAlvo alvo)
     {
-        // --- NOVA VERIFICAÇÃO DE SEGURANÇA ---
-        // Se o alvo tem o componente PlataformaLar, exibe uma mensagem e não faz nada.
+        // --- NOVA VERIFICAï¿½ï¿½O DE SEGURANï¿½A ---
+        // Se o alvo tem o componente PlataformaLar, exibe uma mensagem e nï¿½o faz nada.
         if (alvo.GetComponent<PlataformaLar>() != null)
         {
-            Debug.Log("A Plataforma Lar é insubstituível!");
+            Debug.Log("A Plataforma Lar ï¿½ insubstituï¿½vel!");
             return;
         }
 
         if (plataformaSelecionada != null && alvo != null)
         {
+            bool ehCartaVazio = cartaSelecionada != null && cartaSelecionada.name == "UI_Vazio";
+            Vector3 posAlvo = alvo.transform.position;
+
             StartCoroutine(SubstituirPlataforma(alvo, plataformaSelecionada));
             if (cartaSelecionada != null)
             {
@@ -34,7 +37,35 @@ public class PlacementManager : MonoBehaviour
                 cartaSelecionada = null;
             }
             plataformaSelecionada = null;
+
+            if (ehCartaVazio)
+            {
+                AplicarEfeitoVazio(posAlvo);
+            }
         }
+    }
+
+    // Carta Vazio: remove a plataforma complexa (vira base) e dobra a recompensa da proxima plataforma do caminho
+    private void AplicarEfeitoVazio(Vector3 posAlvo)
+    {
+        LoopGenerator gerador = FindFirstObjectByType<LoopGenerator>();
+        if (gerador == null) return;
+
+        Vector2Int hex = gerador.WorldToHex(posAlvo);
+        if (!gerador.EhHexDoCaminho(hex.x, hex.y)) return;
+
+        int idx = gerador.GetIndexPorPosicao(posAlvo);
+        GameObject seguinte = gerador.GetPlataformaEm(gerador.GetWorldPositionByIndex(idx + 1));
+        if (seguinte == null) return;
+
+        PlataformaFlecha flecha = seguinte.GetComponent<PlataformaFlecha>();
+        if (flecha != null) { flecha.recompensaDobrada = true; Debug.Log("[PlacementManager] Efeito Vazio: proxima recompensa de flechas DOBRADA."); return; }
+
+        PlataformaCoracao coracao = seguinte.GetComponent<PlataformaCoracao>();
+        if (coracao != null) { coracao.recompensaDobrada = true; Debug.Log("[PlacementManager] Efeito Vazio: proxima cura DOBRADA."); return; }
+
+        PlataformaMoeda moeda = seguinte.GetComponent<PlataformaMoeda>();
+        if (moeda != null) { moeda.recompensaDobrada = true; Debug.Log("[PlacementManager] Efeito Vazio: proximas moedas DOBRADAS."); }
     }
 
     private IEnumerator SubstituirPlataforma(PlataformaAlvo plataformaAntiga, GameObject prefabNovaPlataforma)
@@ -44,6 +75,12 @@ public class PlacementManager : MonoBehaviour
         Transform parent = plataformaAntiga.transform.parent;
         Destroy(plataformaAntiga.gameObject);
         yield return new WaitForEndOfFrame();
-        Instantiate(prefabNovaPlataforma, pos, rot, parent);
+        GameObject novaPlataforma = Instantiate(prefabNovaPlataforma, pos, rot, parent);
+
+        LoopGenerator gerador = FindFirstObjectByType<LoopGenerator>();
+        if (gerador != null)
+        {
+            gerador.UpdatePlatformReference(pos, novaPlataforma);
+        }
     }
 }

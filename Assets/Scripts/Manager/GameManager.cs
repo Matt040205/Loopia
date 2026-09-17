@@ -4,43 +4,43 @@ using UnityEngine.SceneManagement; // Importante para gerenciar cenas
 
 public class GameManager : MonoBehaviour
 {
-    // Singleton pattern para acesso fácil de outros scripts
+    // Singleton pattern para acesso fï¿½cil de outros scripts
     public static GameManager Instance;
 
     [Header("Estado do Jogo")]
     public int numeroDoLoop = 1;
     public float multiplicadorDeStatus = 1.0f;
-    [Tooltip("O jogador vence ao completar este número de loops.")]
+    [Tooltip("O jogador vence ao completar este nï¿½mero de loops.")]
     public int loopsParaVencer = 3;
 
-    // Variável para controlar o estado de pausa do jogo
+    // Variï¿½vel para controlar o estado de pausa do jogo
     private bool isPaused = false;
 
-    [Header("Referências UI")]
-    [Tooltip("Arraste aqui o texto do Canvas que mostrará o loop atual. Este campo exibe 'Loop: X'.")]
-    public TextMeshProUGUI textoLoop; // Referência ao TextMeshProUGUI para o loop
+    [Header("Referï¿½ncias UI")]
+    [Tooltip("Arraste aqui o texto do Canvas que mostrarï¿½ o loop atual. Este campo exibe 'Loop: X'.")]
+    public TextMeshProUGUI textoLoop; // Referï¿½ncia ao TextMeshProUGUI para o loop
 
     [Tooltip("Arraste aqui o painel (GameObject) do seu Menu de Pausa.")]
-    public GameObject pauseMenuUI; // Referência ao painel do Menu de Pausa
+    public GameObject pauseMenuUI; // Referï¿½ncia ao painel do Menu de Pausa
 
-    [Header("Configurações de Cena")]
-    [Tooltip("O nome exato do arquivo da sua cena de vitória.")]
-    public string nomeCenaVitoria = "WinScene"; // Nome da cena de vitória
+    [Header("Configuraï¿½ï¿½es de Cena")]
+    [Tooltip("O nome exato do arquivo da sua cena de vitï¿½ria.")]
+    public string nomeCenaVitoria = "WinScene"; // Nome da cena de vitï¿½ria
 
     [Tooltip("O nome exato do arquivo da sua cena do Menu Principal.")]
     public string nomeCenaMenuPrincipal = "MainMenuScene"; // Nome da cena do menu principal
 
     void Awake()
     {
-        // Garante que haja apenas uma instância do GameManager
+        // Garante que haja apenas uma instï¿½ncia do GameManager
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Mantém o GameManager ativo entre cenas
+            DontDestroyOnLoad(gameObject); // Mantï¿½m o GameManager ativo entre cenas
         }
         else
         {
-            Destroy(gameObject); // Destrói instâncias duplicadas
+            Destroy(gameObject); // Destrï¿½i instï¿½ncias duplicadas
         }
     }
 
@@ -52,16 +52,16 @@ public class GameManager : MonoBehaviour
 
     void OnDisable()
     {
-        // Desassina o evento para evitar vazamentos de memória
+        // Desassina o evento para evitar vazamentos de memï¿½ria
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void Start()
     {
-        // Tenta encontrar o TextMeshProUGUI se não estiver atribuído no Inspector (útil para a primeira cena)
+        // Tenta encontrar o TextMeshProUGUI se nï¿½o estiver atribuï¿½do no Inspector (ï¿½til para a primeira cena)
         if (textoLoop == null)
         {
-            textoLoop = FindObjectOfType<TextMeshProUGUI>();
+            textoLoop = BuscarTextoLoop();
             if (textoLoop != null)
             {
                 Debug.Log("<color=green>TextMeshProUGUI encontrado no Start.</color>");
@@ -70,38 +70,38 @@ public class GameManager : MonoBehaviour
         // Garante que o menu de pausa esteja desativado e o jogo despausado ao iniciar
         if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // Normaliza a velocidade do tempo
-        isPaused = false; // Define o estado inicial como não pausado
-        ResetGameVariables(); // Reinicia as variáveis do jogo
+        isPaused = false; // Define o estado inicial como nï¿½o pausado
+        ResetGameVariables(); // Reinicia as variï¿½veis do jogo
         AtualizarUILoop(); // Atualiza a UI do loop
     }
 
-    // Chamado sempre que uma nova cena é carregada
+    // Chamado sempre que uma nova cena ï¿½ carregada
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Se a cena carregada não é a de vitória, reinicia o jogo e reconecta a UI
+        // Se a cena carregada nï¿½o ï¿½ a de vitï¿½ria, reinicia o jogo e reconecta a UI
         if (scene.name != nomeCenaVitoria)
         {
-            Debug.Log($"<color=orange>Cena '{scene.name}' carregada. Reiniciando variáveis de jogo e buscando TextMeshProUGUI.</color>");
+            Debug.Log($"<color=orange>Cena '{scene.name}' carregada. Reiniciando variï¿½veis de jogo e buscando TextMeshProUGUI.</color>");
 
-            // Reencontra o componente TextMeshProUGUI na nova cena, pois o anterior foi destruído
-            textoLoop = FindObjectOfType<TextMeshProUGUI>();
+            // Reencontra o componente TextMeshProUGUI na nova cena, pois o anterior foi destruï¿½do
+            textoLoop = BuscarTextoLoop();
             if (textoLoop == null)
             {
-                Debug.LogError("<color=red>ERRO: TextMeshProUGUI para 'textoLoop' não encontrado na cena carregada! Certifique-se de que há um TextMeshProUGUI ativo e único na cena do jogo para o loop.</color>");
+                Debug.LogError("<color=red>ERRO: TextMeshProUGUI para 'textoLoop' nï¿½o encontrado na cena carregada! Certifique-se de que hï¿½ um TextMeshProUGUI ativo e ï¿½nico na cena do jogo para o loop.</color>");
             }
             else
             {
-                Debug.Log("<color=green>TextMeshProUGUI encontrado e reatribuído após carregamento da cena.</color>");
+                Debug.Log("<color=green>TextMeshProUGUI encontrado e reatribuï¿½do apï¿½s carregamento da cena.</color>");
             }
 
             // Garante que os menus estejam desativados e o jogo despausado ao carregar uma nova cena
             if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
-            // Garante que o painel de opções também seja fechado se o OptionsManager existir
+            // Garante que o painel de opï¿½ï¿½es tambï¿½m seja fechado se o OptionsManager existir
             if (OptionsManager.Instance != null) OptionsManager.Instance.CloseOptionsPanel();
             Time.timeScale = 1f; // Normaliza a velocidade do tempo
-            isPaused = false; // Garante que o jogo não esteja pausado
+            isPaused = false; // Garante que o jogo nï¿½o esteja pausado
 
-            // Só reseta as variáveis do jogo se não estiver voltando para o menu principal
+            // Sï¿½ reseta as variï¿½veis do jogo se nï¿½o estiver voltando para o menu principal
             if (scene.name != nomeCenaMenuPrincipal)
             {
                 ResetGameVariables();
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"<color=blue>Cena de vitória '{scene.name}' carregada. Não reiniciando variáveis de jogo.</color>");
+            Debug.Log($"<color=blue>Cena de vitï¿½ria '{scene.name}' carregada. Nï¿½o reiniciando variï¿½veis de jogo.</color>");
         }
     }
 
@@ -119,45 +119,56 @@ public class GameManager : MonoBehaviour
         // Detecta o pressionar da tecla ESC
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Se o painel de configurações estiver aberto, o ESC o fecha primeiro
+            // Se o painel de configuraï¿½ï¿½es estiver aberto, o ESC o fecha primeiro
             if (OptionsManager.Instance != null && OptionsManager.Instance.IsOptionsPanelActive())
             {
-                // Chama o método no OptionsManager para lidar com o "Voltar" (seja do crédito para opções, ou opções para pausa)
+                // Chama o mï¿½todo no OptionsManager para lidar com o "Voltar" (seja do crï¿½dito para opï¿½ï¿½es, ou opï¿½ï¿½es para pausa)
                 OptionsManager.Instance.HandleBackButtonPress();
             }
-            else // Se o menu de configurações não está aberto, alterna o estado de pausa normal
+            else // Se o menu de configuraï¿½ï¿½es nï¿½o estï¿½ aberto, alterna o estado de pausa normal
             {
                 if (isPaused)
                 {
-                    ResumeGame(); // Se já estiver pausado, despausa
+                    ResumeGame(); // Se jï¿½ estiver pausado, despausa
                 }
                 else
                 {
-                    PauseGame(); // Se não estiver pausado, pausa
+                    PauseGame(); // Se nï¿½o estiver pausado, pausa
                 }
             }
         }
     }
 
-    // Método público para avançar o número do loop
+    // Mï¿½todo pï¿½blico para avanï¿½ar o nï¿½mero do loop
+    // Evento disparado sempre que um loop Ã© completado (blocos regeneram, etc.)
+    public static event System.Action OnLoopAvancado;
+
     public void AvancarLoop()
     {
         numeroDoLoop++;
-        multiplicadorDeStatus *= 1.10f; // Aumenta o multiplicador de status
+        OnLoopAvancado?.Invoke();
+        multiplicadorDeStatus *= 1.10f; // Aumenta o multiplicador de status em 10% por loop (conforme PDF)
 
         Debug.Log($"<color=magenta>NOVO LOOP INICIADO! Loop: {numeroDoLoop}. Multiplicador: {multiplicadorDeStatus:F2}</color>");
 
+        // Resetar XP para novo loop (PDF: 'apenas no loop, nï¿½o globalmente')
+        var player = FindFirstObjectByType<PlayerStatus>();
+        if (player != null)
+        {
+            player.ResetarParaNovoLoop();
+        }
+
         AtualizarUILoop(); // Atualiza a UI do loop
 
-        // Lógica de vitória: verifica se o jogador atingiu ou excedeu o número de loops necessários
+        // Lï¿½gica de vitï¿½ria: verifica se o jogador atingiu ou excedeu o nï¿½mero de loops necessï¿½rios
         if (numeroDoLoop > loopsParaVencer)
         {
-            Debug.Log($"<color=green><b>VITÓRIA!</b></color> O jogador completou {loopsParaVencer} loops. Carregando cena de vitória...");
-            SceneManager.LoadScene(nomeCenaVitoria); // Carrega a cena de vitória
+            Debug.Log($"<color=green><b>VITï¿½RIA!</b></color> O jogador completou {loopsParaVencer} loops. Carregando cena de vitï¿½ria...");
+            SceneManager.LoadScene(nomeCenaVitoria); // Carrega a cena de vitï¿½ria
         }
     }
 
-    // Método para pausar o jogo
+    // Mï¿½todo para pausar o jogo
     public void PauseGame()
     {
         isPaused = true;
@@ -169,7 +180,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("<color=yellow>Jogo Pausado.</color>");
     }
 
-    // Método para resumir o jogo
+    // Mï¿½todo para resumir o jogo
     public void ResumeGame()
     {
         isPaused = false;
@@ -181,7 +192,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("<color=yellow>Jogo Resumido.</color>");
     }
 
-    // Método para carregar a cena do menu principal
+    // Mï¿½todo para carregar a cena do menu principal
     public void LoadMainMenu()
     {
         // Garante que o jogo esteja despausado e os menus fechados antes de carregar uma nova cena
@@ -192,7 +203,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("<color=cyan>Carregando Menu Principal...</color>");
     }
 
-    // Método para abrir o menu de configurações (chamado pelo botão "Configs" no pauseMenuUI)
+    // Mï¿½todo para abrir o menu de configuraï¿½ï¿½es (chamado pelo botï¿½o "Configs" no pauseMenuUI)
     public void OpenConfigs()
     {
         if (pauseMenuUI != null)
@@ -202,21 +213,21 @@ public class GameManager : MonoBehaviour
 
         if (OptionsManager.Instance != null)
         {
-            OptionsManager.Instance.OpenOptionsPanel(); // Chama o método para abrir o painel de configurações no OptionsManager
-            Debug.Log("<color=white>Abrindo Configurações...</color>");
+            OptionsManager.Instance.OpenOptionsPanel(); // Chama o mï¿½todo para abrir o painel de configuraï¿½ï¿½es no OptionsManager
+            Debug.Log("<color=white>Abrindo Configuraï¿½ï¿½es...</color>");
         }
         else
         {
-            Debug.LogError("<color=red>ERRO: OptionsManager.Instance não encontrado! Certifique-se de que o OptionsManager está na cena e é um Singleton válido.</color>");
+            Debug.LogError("<color=red>ERRO: OptionsManager.Instance nï¿½o encontrado! Certifique-se de que o OptionsManager estï¿½ na cena e ï¿½ um Singleton vï¿½lido.</color>");
         }
     }
 
-    // Método chamado pelo OptionsManager para retornar ao menu de pausa
+    // Mï¿½todo chamado pelo OptionsManager para retornar ao menu de pausa
     public void ReturnToPauseMenuFromConfigs()
     {
         if (OptionsManager.Instance != null)
         {
-            OptionsManager.Instance.CloseOptionsPanel(); // Fecha o painel de configurações
+            OptionsManager.Instance.CloseOptionsPanel(); // Fecha o painel de configuraï¿½ï¿½es
         }
 
         if (pauseMenuUI != null)
@@ -226,15 +237,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Método auxiliar para reiniciar as variáveis de estado do jogo (loops, multiplicadores)
+    // Mï¿½todo auxiliar para reiniciar as variï¿½veis de estado do jogo (loops, multiplicadores)
     private void ResetGameVariables()
     {
         numeroDoLoop = 0; // Reinicia o contador de loops
         multiplicadorDeStatus = 1.0f; // Reinicia o multiplicador de status
-        Debug.Log("<color=green>Variáveis de jogo resetadas.</color>");
+        Debug.Log("<color=green>Variï¿½veis de jogo resetadas.</color>");
     }
 
-    // Atualiza o texto na interface do usuário para mostrar o loop atual
+    // Atualiza o texto na interface do usuï¿½rio para mostrar o loop atual
+    // Procura o texto do loop pela tag (evita pegar qualquer TextMeshProUGUI da cena)
+    private TextMeshProUGUI BuscarTextoLoop()
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag("UI_ContadorLoop");
+        if (obj != null)
+        {
+            return obj.GetComponent<TextMeshProUGUI>();
+        }
+        return textoLoop;
+    }
+
     private void AtualizarUILoop()
     {
         if (textoLoop != null)
@@ -244,7 +266,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("<color=orange>Aviso: A referência ao textoLoop é nula. Não foi possível atualizar a UI.</color>");
+            Debug.LogWarning("<color=orange>Aviso: A referï¿½ncia ao textoLoop ï¿½ nula. Nï¿½o foi possï¿½vel atualizar a UI.</color>");
         }
     }
 }
