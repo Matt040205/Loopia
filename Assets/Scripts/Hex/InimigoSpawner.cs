@@ -1,18 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Loopia.Hex
 {
     /// <summary>
-    /// Coloca os inimigos comuns no caminho.
+    /// Coloca os inimigos comuns no caminho e e o ponto por onde os ataques deles chegam ao Lucca.
     ///
     /// Morcego: o GDD diz que "voa e aparece no caminho em qualquer parte dele", entao nasce
     /// numa casa sorteada do anel, longe o bastante do Lucca para nao surgir em cima dele.
     ///
-    /// Lobo: no GDD ele vem da carta de floresta ("faz que todo loop tenha lobos nessa area"),
-    /// que ainda nao existe. Entao aqui tem um nascimento provisorio por tempo, so para dar
-    /// para testar; quando a carta chegar, ela chama Nascer() na casa da floresta e este
-    /// provisorio pode ser desligado no Inspector.
+    /// Lobo: vem da carta de floresta ("faz que todo loop tenha lobos nessa area"). O nascimento
+    /// por tempo abaixo e so para testar sem carta, e fica desligado na cena.
+    ///
+    /// Ataques: cada inimigo dispara o proprio UnityEvent aoAtacar; o spawner repassa para o
+    /// aoInimigoAtacar dele, que na cena esta ligado no Inspector ao LuccaStatus.ReceberDano.
+    /// Assim o dano segue um caminho visivel no editor, sem inimigo nenhum conhecer o Lucca.
     /// </summary>
     [DisallowMultipleComponent]
     public class InimigoSpawner : MonoBehaviour
@@ -37,16 +40,21 @@ namespace Loopia.Hex
         [Tooltip("Distancia minima do Lucca, em casas, para um morcego nao brotar em cima dele.")]
         [Min(0)] public int distanciaMinimaDoPlayer = 3;
 
-        [Header("Lobos (provisorio, ate existir a carta de floresta)")]
-        public bool nascerLobosPorTempo = true;
+        [Header("Lobos por tempo (so para testar sem a carta de floresta)")]
+        public bool nascerLobosPorTempo = false;
         [Min(0.5f)] public float intervaloDeLobos = 14f;
         [Min(0)] public int maximoDeLobos = 2;
+
+        [Header("Eventos")]
+        [Tooltip("Repassa o ataque de qualquer inimigo, com o dano. Na cena, ligado ao LuccaStatus.ReceberDano.")]
+        public UnityEvent<int> aoInimigoAtacar = new UnityEvent<int>();
 
         readonly List<Inimigo> _vivos = new List<Inimigo>();
 
         float _proximoMorcego;
         float _proximoLobo;
         bool _inscritoNoGerador;
+        bool _congelados;
 
         public IReadOnlyList<Inimigo> Vivos => _vivos;
 
@@ -91,7 +99,13 @@ namespace Loopia.Hex
         void Update()
         {
             if (gerador.Loop == null || gerador.Loop.Count == 0) return;
-            if (status != null && !status.EstaVivo) return;
+
+            if (status != null && !status.EstaVivo)
+            {
+                // Game Over: ninguem nasce e quem esta vivo para onde esta.
+                if (!_congelados) Congelar();
+                return;
+            }
 
             if (nascerMorcegos && morcego != null && Time.time >= _proximoMorcego)
             {
@@ -119,9 +133,11 @@ namespace Loopia.Hex
 
             var inimigo = go.AddComponent<Inimigo>();
             float escala = diretor != null ? diretor.MultiplicadorDosInimigos : 1f;
-            inimigo.Nascer(def, casa, escala, mundo, player, status);
+            inimigo.Nascer(def, casa, escala, mundo, player);
 
-            inimigo.AoMorrer += Morreu;
+            inimigo.aoAtacar.AddListener(RepassarAtaque);
+            inimigo.aoSerDerrotado.AddListener(Morreu);
+
             _vivos.Add(inimigo);
             return inimigo;
         }
@@ -132,10 +148,23 @@ namespace Loopia.Hex
             {
                 if (_vivos[i] == null) continue;
 
-                _vivos[i].AoMorrer -= Morreu;
+                _vivos[i].aoAtacar.RemoveListener(RepassarAtaque);
+                _vivos[i].aoSerDerrotado.RemoveListener(Morreu);
                 Destroy(_vivos[i].gameObject);
             }
             _vivos.Clear();
+            _congelados = false;
+        }
+
+        void RepassarAtaque(int dano) => aoInimigoAtacar.Invoke(dano);
+
+        void Congelar()
+        {
+            _congelados = true;
+            for (int i = 0; i < _vivos.Count; i++)
+            {
+                if (_vivos[i] != null) _vivos[i].enabled = false;
+            }
         }
 
         void Morreu(Inimigo inimigo)

@@ -2,6 +2,15 @@ using UnityEngine;
 
 namespace Loopia.Hex
 {
+    public enum EstiloDeAtaque
+    {
+        /// <summary>Golpeia parado, de onde esta. E o lobo, que ataca na mesma plataforma.</summary>
+        CorpoACorpo,
+
+        /// <summary>Mergulha em direcao ao Lucca, acerta e volta para o poleiro. E o morcego.</summary>
+        Rasante,
+    }
+
     /// <summary>
     /// Os numeros de um tipo de inimigo, direto do GDD. Fica num asset para o time ajustar
     /// balanceamento sem mexer em codigo.
@@ -41,5 +50,17 @@ namespace Loopia.Hex
 
         [Tooltip("Quanto ele balanca no ar. So vale para quem voa.")]
         [Min(0f)] public float balanco = 0.15f;
+
+        [Header("Ataque")]
+        public EstiloDeAtaque estilo = EstiloDeAtaque.CorpoACorpo;
+
+        [Tooltip("Velocidade do mergulho. Precisa ser bem maior que a do Lucca, senao nunca alcanca.")]
+        [Min(0.5f)] public float velocidadeDoRasante = 9f;
+
+        [Tooltip("Se nao alcancar o Lucca nesse tempo, desiste e volta sem causar dano.")]
+        [Min(0.1f)] public float duracaoMaximaDoRasante = 1.2f;
+
+        [Tooltip("Quao perto do Lucca o mergulho precisa chegar para contar como acerto.")]
+        [Min(0.05f)] public float distanciaDoAcerto = 0.45f;
     }
 }

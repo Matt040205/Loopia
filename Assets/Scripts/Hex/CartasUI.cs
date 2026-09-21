@@ -72,8 +72,16 @@ namespace Loopia.Hex
             MontarMarcador();
         }
 
+        bool LuccaMorreu => mao != null && mao.status != null && !mao.status.EstaVivo;
+
         void Update()
         {
+            if (LuccaMorreu)
+            {
+                if (_espacoArrastado >= 0) CancelarArraste();
+                return;
+            }
+
             if (CartaArrastada == null)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
@@ -136,6 +144,10 @@ namespace Loopia.Hex
             var go = new GameObject("Marcador de colocacao");
             go.transform.SetParent(mundo.transform, false);
 
+            // Fica embaixo do Mundo, que e onde o NavMesh e assado: sem isto, o marcador
+            // viraria chao andavel no proximo bake.
+            go.AddComponent<Unity.AI.Navigation.NavMeshModifier>().ignoreFromBuild = true;
+
             go.AddComponent<MeshFilter>().sharedMesh =
                 HexMesh.Create(mundo.tamanhoDoHexagono * (1f - mundo.folgaEntreHexagonos), 0f);
 
@@ -190,7 +202,8 @@ namespace Loopia.Hex
 
         void OnGUI()
         {
-            if (mao == null) return;
+            // IMGUI desenha por cima de qualquer Canvas: no Game Over sai da frente da tela de morte.
+            if (mao == null || LuccaMorreu) return;
 
             if (_estiloCarta == null)
             {

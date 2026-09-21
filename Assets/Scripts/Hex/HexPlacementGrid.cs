@@ -106,9 +106,11 @@ namespace Loopia.Hex
 
         void Montar()
         {
-            // Fica sob o mundo porque a malha e construida no espaco local dele.
+            // Fica sob o mundo porque a malha e construida no espaco local dele. Por isso mesmo
+            // precisa ser ignorada pelo bake do NavMesh, que coleta os filhos do Mundo.
             _raiz = new GameObject("Grade de colocacao").transform;
             _raiz.SetParent(mundo.transform, false);
+            _raiz.gameObject.AddComponent<Unity.AI.Navigation.NavMeshModifier>().ignoreFromBuild = true;
 
             _malhaLivre = NovaMalha("GradeLivre");
             _malhaBloqueada = NovaMalha("GradeBloqueada");

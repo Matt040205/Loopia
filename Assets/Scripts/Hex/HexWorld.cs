@@ -13,6 +13,7 @@ namespace Loopia.Hex
     /// - livre: nao tem nada, mas da para construir;
     /// - bloqueada: o miolo do anel, reservado para o Boss. Nunca pode ser preenchida.
     /// </summary>
+    [DefaultExecutionOrder(-200)]
     [DisallowMultipleComponent]
     public class HexWorld : MonoBehaviour
     {
@@ -131,6 +132,11 @@ namespace Loopia.Hex
 
             _ilhas.Remove(coord);
             if (tile == null) return;
+
+            // Desliga antes de destruir: o Destroy so acontece no fim do frame, e o NavMesh e
+            // reassado no mesmo frame em que um mapa novo e gerado. Desligada, a ilha velha
+            // fica fora do bake.
+            tile.gameObject.SetActive(false);
 
             if (Application.isPlaying) Destroy(tile.gameObject);
             else DestroyImmediate(tile.gameObject);

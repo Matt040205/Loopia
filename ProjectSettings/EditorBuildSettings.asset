@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Acampamento.unity
+    guid: c1d006eb4dfd9b142abaf21e0325ad6a
+  - enabled: 1
+    path: Assets/Scenes/HexPrototipo.unity
+    guid: 353c34180e7aa7a4abe37f2d1a018240
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a5f844f090b9b7745864aad49197f49d
   - enabled: 1

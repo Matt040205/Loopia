@@ -18,6 +18,7 @@ namespace Loopia.Hex
     /// exatamente 2 vizinhas no caminho, ou seja: o anel nunca se cruza, nunca se parte e
     /// continua sendo uma volta unica, por mais torto que fique.
     /// </summary>
+    [DefaultExecutionOrder(-150)]
     [DisallowMultipleComponent]
     public class HexLoopGenerator : MonoBehaviour
     {

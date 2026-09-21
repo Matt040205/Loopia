@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b4a20798f6394ab7ac2cf01a6e64541a, type: 3}
   m_Name: Cabana
   m_EditorClassIdentifier: Assembly-CSharp:Loopia.Hex:PlataformaVizinhancaDef
   nomeExibido: Cabana

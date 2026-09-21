@@ -20,7 +20,11 @@ MonoBehaviour:
   ataque: 5
   xp: 50
   intervaloDeAtaque: 1.6
-  alcance: 1
+  alcance: 2
   voa: 1
   alturaDeVoo: 1.1
   balanco: 0.15
+  estilo: 1
+  velocidadeDoRasante: 9
+  duracaoMaximaDoRasante: 1.2
+  distanciaDoAcerto: 0.45

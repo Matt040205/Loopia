@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Loopia.Hex
 {
@@ -28,6 +29,10 @@ namespace Loopia.Hex
 
         [Tooltip("Voltas necessarias para liberar o Boss.")]
         [Min(1)] public int voltasParaOBoss = 4;
+
+        [Header("Eventos")]
+        [Tooltip("Disparado quando o Lucca morre. Na cena, ligado a TelaDeMorte.Mostrar.")]
+        public UnityEvent aoGameOver = new UnityEvent();
 
         [Header("Depuracao")]
         [Tooltip("Painel no canto da tela com voltas, PV, flechas e a escala dos inimigos.")]
@@ -87,8 +92,13 @@ namespace Loopia.Hex
             GameOver = true;
             if (corredor != null) corredor.andando = false;
 
+            // O recorde tambem e checado aqui, para uma morte na primeira volta nao passar batida.
+            DadosDoJogador.Instancia.RegistrarVoltas(VoltasCompletas);
+            DadosDoJogador.Instancia.Salvar();
+
             Debug.Log("[LoopDirector] Game Over: o Lucca caiu na volta " + (VoltasCompletas + 1) + ".", this);
             AoPerder?.Invoke();
+            aoGameOver.Invoke();
         }
 
         /// <summary>Aplica a escala acumulada num valor base de inimigo (PV, ATK ou XP).</summary>
@@ -100,6 +110,9 @@ namespace Loopia.Hex
         void FechouUmaVolta(int volta)
         {
             VoltasCompletas = volta;
+
+            // Recorde de voltas vai para o JSON, pelo singleton.
+            DadosDoJogador.Instancia.RegistrarVoltas(volta);
 
             // Beneficio do loop.
             if (status != null) status.RestaurarVidaEMunicao();
@@ -119,7 +132,8 @@ namespace Loopia.Hex
 
         void OnGUI()
         {
-            if (!mostrarPainelNaTela) return;
+            // IMGUI desenha por cima de qualquer Canvas: no Game Over sai da frente da tela de morte.
+            if (!mostrarPainelNaTela || GameOver) return;
 
             if (_estiloDoPainel == null)
             {
@@ -128,7 +142,7 @@ namespace Loopia.Hex
 
             // Canto superior esquerdo: a base da tela e das cartas, como manda a HUD do GDD.
             const float largura = 172f;
-            const float altura = 152f;
+            const float altura = 168f;
             GUILayout.BeginArea(new Rect(12f, 12f, largura, altura), GUI.skin.box);
 
             GUILayout.Label("Voltas: " + VoltasCompletas + " / " + voltasParaOBoss +
@@ -146,13 +160,13 @@ namespace Loopia.Hex
                 GUILayout.Label("Flechas: " + status.FlechasAtuais + " / " + status.flechasMaximo, _estiloDoPainel);
                 GUILayout.Label("Nivel " + status.Nivel + "  (XP " + status.Xp +
                                 "/" + status.XpParaOProximoNivel + ")", _estiloDoPainel);
+                GUILayout.Label("Moedas: " + status.Moedas + "  (total " +
+                                DadosDoJogador.Instancia.MoedasTotais + ")", _estiloDoPainel);
             }
 
             int vivos = inimigos != null ? inimigos.Vivos.Count : 0;
             GUILayout.Label("Inimigos: " + vivos + " vivos, x" +
                             MultiplicadorDosInimigos.ToString("F2"), _estiloDoPainel);
-
-            if (GameOver) GUILayout.Label("--- GAME OVER ---", _estiloDoPainel);
 
             GUILayout.EndArea();
         }

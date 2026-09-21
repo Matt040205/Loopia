@@ -24,3 +24,7 @@ MonoBehaviour:
   voa: 0
   alturaDeVoo: 1.1
   balanco: 0.15
+  estilo: 0
+  velocidadeDoRasante: 9
+  duracaoMaximaDoRasante: 1.2
+  distanciaDoAcerto: 0.45

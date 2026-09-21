@@ -132,11 +132,16 @@ namespace Loopia.Hex
             AoMudar?.Invoke();
         }
 
+        /// <summary>
+        /// Moedas vao para dois lugares: o contador desta jornada (Moedas, que a HUD mostra) e o
+        /// total que sobrevive entre partidas, guardado no singleton DadosDoJogador e no JSON.
+        /// </summary>
         public void GanharMoedas(int quantidade)
         {
             if (quantidade <= 0) return;
 
             Moedas += quantidade;
+            DadosDoJogador.Instancia.AdicionarMoedas(quantidade);
             AoMudar?.Invoke();
         }
 
