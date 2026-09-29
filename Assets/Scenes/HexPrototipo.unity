@@ -15,14 +15,14 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.62353814, g: 0.84705323, b: 0.9097995, a: 1}
+  m_FogColor: {r: 0.16862746, g: 0.22745098, b: 0.40392157, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.62353814, g: 0.84705323, b: 0.9097995, a: 1}
-  m_AmbientEquatorColor: {r: 0.72118306, g: 0.8811709, b: 0.9368559, a: 1}
-  m_AmbientGroundColor: {r: 0.31176907, g: 0.42352661, b: 0.45489976, a: 0.5}
+  m_AmbientSkyColor: {r: 0.16862746, g: 0.22745098, b: 0.40392157, a: 1}
+  m_AmbientEquatorColor: {r: 0.20509805, g: 0.26509804, b: 0.447451, a: 1}
+  m_AmbientGroundColor: {r: 0.08431373, g: 0.11372549, b: 0.20196079, a: 0.5}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -281,8 +281,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 0.94902116, g: 0.96077895, b: 0.9999874, a: 1}
-  m_Intensity: 1.4
+  m_Color: {r: 0.2901961, g: 0.3529412, b: 0.54901963, a: 1}
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -344,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301879345}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6830127, y: -0.18301271, z: 0.18301271, w: 0.6830127}
+  m_LocalRotation: {x: 0.6830127, y: 0.18301271, z: 0.18301271, w: -0.6830127}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayNightController
   sunLight: {fileID: 301879346}
   targetCamera: {fileID: 1895346078}
-  timeOfDay: 12
+  timeOfDay: 0
   dayLengthInMinutes: 2
   autoAdvanceTime: 1
   sunAzimuth: -30
@@ -2730,7 +2730,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.62353814, g: 0.84705323, b: 0.9097995, a: 1}
+  m_BackGroundColor: {r: 0.16862746, g: 0.22745098, b: 0.40392157, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3296,6 +3296,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2020811992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.298
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 683b225f702b4d94ab185423a6b2229f, type: 2}
+    - target: {fileID: 919132149155446097, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
+      propertyPath: m_Name
+      value: IlhaFlutuante
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc75fa61b714fb14fa4856c5974c5cb8, type: 3}
 --- !u!1 &2113423720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,3 +3601,4 @@ SceneRoots:
   - {fileID: 411390066}
   - {fileID: 1651974075}
   - {fileID: 1724788989}
+  - {fileID: 2020811992}
