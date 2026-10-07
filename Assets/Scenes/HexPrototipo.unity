@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &411390062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +563,11 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
@@ -2210,7 +2215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1202396787
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2323,12 +2328,72 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
   peakSunIntensity: 1.4
   tintWithSunColor: 1
   tintStrength: 0.25
+--- !u!1 &1337786571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337786573}
+  - component: {fileID: 1337786572}
+  m_Layer: 0
+  m_Name: Camada de nuvens
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1337786572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337786571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352c7ef0fdcc26745b7d3d5fd2ba00c8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.CamadaDeNuvens
+  camera3d: {fileID: 1895346078}
+  mundo: {fileID: 1960774342}
+  material: {fileID: 2100000, guid: d3516e8d56c7f0541936213b7680ea13, type: 2}
+  malhaQuad: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  quantidade: 18
+  semente: 751
+  tamanho: {x: 0.13, y: 0.21}
+  distanciaDasIlhas: 0.85
+  vento: {x: 1, y: 0.18}
+  velocidade: 0.018
+  opacidade: 0.8
+--- !u!4 &1337786573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337786571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403609352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,7 +2522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1651974071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,6 +2541,11 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
@@ -2728,7 +2798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1724788985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,6 +2817,11 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
@@ -3499,7 +3574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1945739958
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3612,6 +3687,11 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
@@ -4153,7 +4233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2113423721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4172,6 +4252,11 @@ MonoBehaviour:
   bobSpeed: 0.5
   wrapAround: 1
   wrapDistance: 40
+  controlledByLayer: 0
+  faceCamera: 1
+  cloudSeed: 1
+  opacityMultiplier: 1
+  billboardTilt: 0
   dayNightController: {fileID: 1109720552}
   minOpacityAtNight: 0.15
   maxOpacityAtDay: 0.85
@@ -4382,3 +4467,4 @@ SceneRoots:
   - {fileID: 2095973538}
   - {fileID: 689246112}
   - {fileID: 208555293}
+  - {fileID: 1337786573}
