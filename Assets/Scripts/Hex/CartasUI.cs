@@ -130,9 +130,7 @@ namespace Loopia.Hex
             if (!TryPosicaoDoMouse(out Vector3 naTela)) return;
 
             Ray raio = camera3d.ScreenPointToRay(naTela);
-            if (!mundo.PlanoDaSuperficie.Raycast(raio, out float distancia)) return;
-
-            _casaSobOMouse = mundo.MundoParaHex(raio.GetPoint(distancia));
+            if (!mundo.TryCasaNoRaio(raio, out _casaSobOMouse)) return;
             _casaValida = true;
             _podeSoltarAqui = mapa.PodeColocar(CartaArrastada, _casaSobOMouse, out _motivo);
         }
@@ -174,7 +172,7 @@ namespace Loopia.Hex
             _marcador.gameObject.SetActive(true);
 
             // Um pouco acima da superficie, senao briga por profundidade com a ilha embaixo.
-            _marcador.localPosition = mundo.Layout.ToWorld(_casaSobOMouse) + Vector3.up * 0.05f;
+            _marcador.position = mundo.PosicaoDe(_casaSobOMouse) + mundo.transform.up * 0.05f;
 
             Color cor = _podeSoltarAqui ? corPodeColocar : corNaoPode;
             _marcadorRenderer.GetPropertyBlock(_bloco);
@@ -306,9 +304,9 @@ namespace Loopia.Hex
             if (!TryPosicaoDoMouse(out Vector3 naTela)) return false;
 
             Ray raio = camera3d.ScreenPointToRay(naTela);
-            if (!mundo.PlanoDaSuperficie.Raycast(raio, out float distancia)) return false;
+            if (!mundo.TryCasaNoRaio(raio, out HexCoord casa)) return false;
 
-            return mapa.TryGet(mundo.MundoParaHex(raio.GetPoint(distancia)), out plataforma)
+            return mapa.TryGet(casa, out plataforma)
                    && plataforma != null;
         }
 

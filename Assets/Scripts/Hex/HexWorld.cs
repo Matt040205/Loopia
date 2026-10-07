@@ -27,6 +27,10 @@ namespace Loopia.Hex
         [Tooltip("Altura da ilha. Valores maiores deixam o visual mais de 'bloco' que de ladrilho.")]
         [Min(0f)] public float espessura = 0.6f;
 
+        [Header("Arte das ilhas")]
+        public GameObject modeloDaIlha;
+        public DecoracaoDeIlha decoracao;
+
         [Header("Cores")]
         public Color corDoCaminho = new Color(0.62f, 0.78f, 0.42f);
         public Color corDoAcampamento = new Color(1f, 0.82f, 0.32f);
@@ -115,11 +119,19 @@ namespace Loopia.Hex
 
             go.AddComponent<MeshFilter>().sharedMesh = _malhaDaIlha;
             go.AddComponent<MeshRenderer>().sharedMaterial = _materialDaIlha;
+            go.AddComponent<MeshCollider>().sharedMesh = _malhaDaIlha;
+            if (modeloDaIlha != null)
+            {
+                VisualDeIlha.Criar(modeloDaIlha, go.transform,
+                    tamanhoDoHexagono * (1f - folgaEntreHexagonos) * 2f, true);
+                go.GetComponent<MeshRenderer>().enabled = false;
+            }
 
             var tile = go.AddComponent<HexTile>();
             tile.Initialize(coord, tipo, _palette);
 
             _ilhas[coord] = tile;
+            if (decoracao != null) decoracao.Decorar(tile, this);
             if (tipo == HexTileKind.Acampamento) Acampamento = coord;
 
             return tile;
@@ -182,7 +194,12 @@ namespace Loopia.Hex
         }
 
         /// <summary>Centro da casa em coordenadas de mundo. Vale para qualquer casa, tendo ilha ou nao.</summary>
-        public Vector3 PosicaoDe(HexCoord coord) => transform.TransformPoint(_layout.ToWorld(coord));
+        public Vector3 PosicaoDe(HexCoord coord)
+        {
+            Vector3 posicao = _layout.ToWorld(coord);
+            if (_ilhas.TryGetValue(coord, out HexTile ilha)) posicao.y = ilha.Altura;
+            return transform.TransformPoint(posicao);
+        }
 
         /// <summary>Casa que contem a posicao informada. A grade nao tem borda, entao isso sempre responde.</summary>
         public HexCoord MundoParaHex(Vector3 mundo) => _layout.ToHex(transform.InverseTransformPoint(mundo));
@@ -191,6 +208,26 @@ namespace Loopia.Hex
         public bool TryIlhaEmMundo(Vector3 mundo, out HexTile tile)
         {
             return _ilhas.TryGetValue(MundoParaHex(mundo), out tile);
+        }
+
+        /// <summary>Seleciona a superfície real das ilhas, inclusive as altas; no vazio usa a grade.</summary>
+        public bool TryCasaNoRaio(Ray raio, out HexCoord casa)
+        {
+            casa = default;
+            float maisPerto = float.MaxValue;
+            bool encontrou = false;
+            foreach (var ilha in _ilhas.Values)
+            {
+                var colisor = ilha.GetComponent<MeshCollider>();
+                if (colisor == null || !colisor.Raycast(raio, out RaycastHit hit, maisPerto)) continue;
+                maisPerto = hit.distance;
+                casa = ilha.Coord;
+                encontrou = true;
+            }
+            if (encontrou) return true;
+            if (!PlanoDaSuperficie.Raycast(raio, out float distancia)) return false;
+            casa = MundoParaHex(raio.GetPoint(distancia));
+            return true;
         }
 
         public void LimparDestaques()

@@ -39,6 +39,23 @@ namespace Loopia.Hex
         [Tooltip("Quanto tempo o pulo leva, em segundos.")]
         [Min(0.05f)] public float duracaoDoPulo = 0.35f;
 
+        [Header("Relevo")]
+        [Min(0.1f)] public float alturaMaximaSemMola = 0.7f;
+        float _alturaDaMola;
+        bool _subidaComMola;
+        HexCoord _destinoDaMola;
+        public bool TemImpulsoDeMola => _alturaDaMola > 0f;
+        public float AlturaDoImpulso => _alturaDaMola;
+        public bool BloqueadoPorAltura { get; private set; }
+        public void CarregarMola(float altura) => _alturaDaMola = Mathf.Max(_alturaDaMola, altura);
+
+        public bool PodeSubirPara(HexCoord destino)
+        {
+            if (_subidaComMola && destino == _destinoDaMola) return true;
+            float subida = mundo.PosicaoDe(destino).y - mundo.PosicaoDe(Coord).y;
+            return subida <= Mathf.Max(alturaMaximaSemMola, _alturaDaMola);
+        }
+
         readonly List<HexCoord> _caminho = new List<HexCoord>();
         readonly List<HexCoord> _buffer = new List<HexCoord>();
 
@@ -121,6 +138,9 @@ namespace Loopia.Hex
             StopAllCoroutines();
             _pulando = false;
             _caminho.Clear();
+            _alturaDaMola = 0f;
+            _subidaComMola = false;
+            BloqueadoPorAltura = false;
             _temDestino = false;
             Coord = coord;
 
@@ -202,6 +222,13 @@ namespace Loopia.Hex
 
             HexCoord alvo = _caminho[0];
             Vector3 destino = mundo.PosicaoDe(alvo);
+            BloqueadoPorAltura = !PodeSubirPara(alvo);
+            if (BloqueadoPorAltura)
+            {
+                _agente.ResetPath();
+                _temDestino = false;
+                return;
+            }
 
             if (!_temDestino || _destinoAtual != alvo)
             {
@@ -219,6 +246,7 @@ namespace Loopia.Hex
 
         void Chegou(HexCoord casa)
         {
+            _subidaComMola = false;
             Coord = casa;
             _caminho.RemoveAt(0);
             _temDestino = false;
@@ -235,8 +263,9 @@ namespace Loopia.Hex
 
             // Ja aponta para a proxima ilha, senao o agente para no centro desta.
             _destinoAtual = _caminho[0];
-            _temDestino = true;
-            _agente.SetDestination(mundo.PosicaoDe(_destinoAtual));
+            _temDestino = PodeSubirPara(_destinoAtual);
+            if (_temDestino) _agente.SetDestination(mundo.PosicaoDe(_destinoAtual));
+            else _agente.ResetPath();
         }
 
         /// <summary>
@@ -250,6 +279,15 @@ namespace Loopia.Hex
             OffMeshLinkData link = _agente.currentOffMeshLinkData;
             Vector3 inicio = transform.position;
             Vector3 fim = link.endPos + Vector3.up * _agente.baseOffset;
+            bool usaMola = fim.y - inicio.y > alturaMaximaSemMola;
+            float arco = usaMola ? Mathf.Max(alturaDoPulo, 1f + (fim.y - inicio.y) * 0.35f) : alturaDoPulo;
+            float duracao = usaMola ? duracaoDoPulo * 2f : duracaoDoPulo;
+            if (usaMola)
+            {
+                _alturaDaMola = 0f;
+                _subidaComMola = true;
+                _destinoDaMola = _caminho[0];
+            }
 
             Vector3 direcao = fim - inicio;
             direcao.y = 0f;
@@ -259,10 +297,10 @@ namespace Loopia.Hex
             float t = 0f;
             while (t < 1f)
             {
-                t = Mathf.Min(1f, t + Time.deltaTime / duracaoDoPulo);
+                t = Mathf.Min(1f, t + Time.deltaTime / duracao);
 
                 // Parabola que comeca e termina na altura zero e chega no topo no meio do salto.
-                float altura = alturaDoPulo * 4f * (t - t * t);
+                float altura = arco * 4f * (t - t * t);
                 transform.position = Vector3.Lerp(inicio, fim, t) + Vector3.up * altura;
                 transform.rotation = Quaternion.Slerp(giroInicial, giroFinal, Mathf.Clamp01(t * 3f));
 

@@ -39,6 +39,13 @@ namespace Loopia.Hex
         [Min(1f)] public float distancia = 40f;
 
         Camera _camera;
+        float _proximoEnquadramento;
+        void LateUpdate()
+        {
+            if (!Application.isPlaying || !enquadrarAutomaticamente || Time.unscaledTime < _proximoEnquadramento) return;
+            _proximoEnquadramento = Time.unscaledTime + 0.25f;
+            Enquadrar();
+        }
 
         Camera Cam
         {
@@ -75,7 +82,7 @@ namespace Loopia.Hex
 
             Cam.orthographic = ortografica;
 
-            float distanciaReal = distancia;
+            float distanciaReal = Mathf.Max(distancia, meiaAltura * 3f);
             if (ortografica)
             {
                 Cam.orthographicSize = meiaAltura;
@@ -116,9 +123,18 @@ namespace Loopia.Hex
             float maiorY = 0f;
             foreach (HexTile ilha in mundo.Ilhas)
             {
-                Vector3 noEspacoDaCamera = inversa * (ilha.transform.position - centro);
-                maiorX = Mathf.Max(maiorX, Mathf.Abs(noEspacoDaCamera.x));
-                maiorY = Mathf.Max(maiorY, Mathf.Abs(noEspacoDaCamera.y));
+                foreach (var renderizador in ilha.GetComponentsInChildren<Renderer>())
+                {
+                    Bounds b = renderizador.bounds;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Vector3 p = b.center + Vector3.Scale(b.extents,
+                            new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1));
+                        Vector3 noEspacoDaCamera = inversa * (p - centro);
+                        maiorX = Mathf.Max(maiorX, Mathf.Abs(noEspacoDaCamera.x));
+                        maiorY = Mathf.Max(maiorY, Mathf.Abs(noEspacoDaCamera.y));
+                    }
+                }
             }
 
             // Uma casa de folga, senao as ilhas da borda ficam cortadas ao meio.

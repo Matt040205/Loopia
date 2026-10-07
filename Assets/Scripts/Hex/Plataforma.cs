@@ -17,7 +17,17 @@ namespace Loopia.Hex
         /// Usado pelas plataformas de recompensa: fica false depois que o Lucca pega o item
         /// e volta a true quando a volta fecha.
         /// </summary>
-        public bool Carregada { get; set; }
+        bool _carregada;
+        GameObject _modelo;
+        public bool Carregada
+        {
+            get => _carregada;
+            set
+            {
+                _carregada = value;
+                if (_modelo != null && Def is PlataformaRecompensaDef) _modelo.SetActive(value);
+            }
+        }
 
         public void Montar(PlataformaDef def, HexCoord casa, MapaDePlataformas mapa)
         {
@@ -26,6 +36,13 @@ namespace Loopia.Hex
             Mapa = mapa;
             Carregada = true;
             name = def.nomeExibido + " " + casa;
+            _modelo = VisualDeIlha.Criar(def.modelo, transform, def.tamanhoDoModelo);
+            if (_modelo != null)
+            {
+                _modelo.name = "Item " + def.nomeExibido;
+                _modelo.transform.localPosition = Vector3.up * def.alturaDoModelo;
+                if (def.girarModelo) _modelo.AddComponent<ItemGiratorio>();
+            }
         }
     }
 }

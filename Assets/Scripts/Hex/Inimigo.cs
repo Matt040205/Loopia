@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 namespace Loopia.Hex
 {
@@ -52,6 +53,10 @@ namespace Loopia.Hex
         public bool EstaEmRasante => _estado != Estado.Pousado;
 
         HexPlayer _player;
+        HexWorld _mundo;
+        NavMeshAgent _agente;
+        float _proximaBusca;
+        public string EstadoDaIA { get; private set; } = "Esperando";
         Estado _estado;
 
         float _proximoAtaque;
@@ -64,6 +69,7 @@ namespace Loopia.Hex
             Def = def;
             Casa = casa;
             _player = player;
+            _mundo = mundo;
             _estado = Estado.Pousado;
 
             PvMaximo = Mathf.Max(1, Mathf.RoundToInt(def.pv * escalaDaVolta));
@@ -83,11 +89,41 @@ namespace Loopia.Hex
             _proximoAtaque = Time.time + def.intervaloDeAtaque;
 
             MontarVisual(def);
+            if (!def.voa)
+            {
+                // Configura o tipo antes de ativar: o agente padrão pode não existir neste NavMesh.
+                gameObject.SetActive(false);
+                _agente = gameObject.AddComponent<NavMeshAgent>();
+                _agente.enabled = false;
+                var navegacao = mundo.GetComponent<NavegacaoDoMundo>();
+                if (navegacao != null) _agente.agentTypeID = navegacao.superficie.agentTypeID;
+                _agente.radius = 0.18f;
+                _agente.height = 0.7f;
+                _agente.speed = def.velocidadeDePerseguicao;
+                _agente.acceleration = 30f;
+                _agente.angularSpeed = 540f;
+                _agente.stoppingDistance = def.distanciaCorpoACorpo * 0.8f;
+                _agente.areaMask = NavMesh.AllAreas & ~(1 << 2);
+                _agente.autoTraverseOffMeshLink = false;
+                gameObject.SetActive(true);
+                var filtro = new NavMeshQueryFilter { agentTypeID = _agente.agentTypeID, areaMask = _agente.areaMask };
+                if (NavMesh.SamplePosition(_poleiro, out NavMeshHit hit, 1f, filtro))
+                {
+                    transform.position = hit.position;
+                    _agente.enabled = true;
+                    _agente.Warp(hit.position);
+                }
+            }
         }
 
         void Update()
         {
             if (!EstaVivo) return;
+            if (!Def.voa && Def.estilo == EstiloDeAtaque.CorpoACorpo)
+            {
+                AtualizarLobo();
+                return;
+            }
 
             switch (_estado)
             {
@@ -118,6 +154,59 @@ namespace Loopia.Hex
 
             Golpear();
             _proximoAtaque = Time.time + Def.intervaloDeAtaque;
+        }
+
+        void AtualizarLobo()
+        {
+            if (_agente == null || !_agente.enabled || !_agente.isOnNavMesh || _player == null) return;
+            bool naIlha = _mundo.MundoParaHex(_player.transform.position) == Casa;
+            float distancia = Vector3.Distance(transform.position, _player.transform.position);
+            bool detectou = naIlha && distancia <= Def.raioDeDeteccao;
+            Vector3 alvo = detectou ? _player.transform.position : _poleiro;
+            EstadoDaIA = detectou ? "Perseguindo" : "Voltando";
+            if (detectou && !_player.EstaPulando && distancia <= Def.distanciaCorpoACorpo)
+            {
+                EstadoDaIA = "Atacando";
+                _agente.isStopped = true;
+                Vector3 direcao = alvo - transform.position;
+                direcao.y = 0f;
+                if (direcao.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(direcao);
+                if (Time.time >= _proximoAtaque)
+                {
+                    Golpear();
+                    _proximoAtaque = Time.time + Def.intervaloDeAtaque;
+                }
+                return;
+            }
+            _agente.isStopped = false;
+            if (Time.time < _proximaBusca) return;
+            _proximaBusca = Time.time + 0.15f;
+            var filtro = new NavMeshQueryFilter { agentTypeID = _agente.agentTypeID, areaMask = _agente.areaMask };
+            if (NavMesh.SamplePosition(alvo, out NavMeshHit hit, 0.75f, filtro)) _agente.SetDestination(hit.position);
+        }
+
+        void OnDisable()
+        {
+            if (_agente != null && _agente.enabled && _agente.isOnNavMesh) _agente.isStopped = true;
+        }
+
+        public void AjustarAoRelevo()
+        {
+            Vector3 novoPoleiro = _mundo.PosicaoDe(Casa) + Vector3.up * (Def.voa ? Def.alturaDeVoo : 0f);
+            float mudanca = novoPoleiro.y - _poleiro.y;
+            _poleiro = novoPoleiro;
+            if (Mathf.Approximately(mudanca, 0f)) return;
+            bool parado = _agente != null && _agente.enabled && _agente.isOnNavMesh && _agente.isStopped;
+            if (_agente != null) _agente.enabled = false;
+            transform.position += Vector3.up * mudanca;
+            if (_agente == null) return;
+            var filtro = new NavMeshQueryFilter { agentTypeID = _agente.agentTypeID, areaMask = _agente.areaMask };
+            if (!NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1f, filtro)) return;
+            transform.position = hit.position;
+            _agente.enabled = true;
+            _agente.Warp(hit.position);
+            _agente.isStopped = parado;
+            _proximaBusca = 0f;
         }
 
         void AtualizarMergulho()
@@ -172,6 +261,9 @@ namespace Loopia.Hex
             PvAtual = Mathf.Max(0, PvAtual - dano);
             if (PvAtual > 0) return;
 
+            if (Def.efeitoDeMorte != null)
+                Instantiate(Def.efeitoDeMorte, transform.position + Vector3.up * 0.35f, Quaternion.identity);
+
             aoSerDerrotado.Invoke(this);
             Destroy(gameObject);
         }
@@ -181,7 +273,7 @@ namespace Loopia.Hex
             GameObject corpo;
             if (def.prefab != null)
             {
-                corpo = Instantiate(def.prefab, transform);
+                corpo = VisualDeIlha.Criar(def.prefab, transform, def.escala);
             }
             else
             {
@@ -193,8 +285,11 @@ namespace Loopia.Hex
             }
 
             corpo.name = "Corpo";
-            corpo.transform.localScale = Vector3.one * def.escala;
-            corpo.transform.localPosition = Vector3.up * (def.voa ? 0f : def.escala * 0.5f);
+            if (def.prefab == null)
+            {
+                corpo.transform.localScale = Vector3.one * def.escala;
+                corpo.transform.localPosition = Vector3.up * (def.voa ? 0f : def.escala * 0.5f);
+            }
 
             if (def.prefab != null) return;
 

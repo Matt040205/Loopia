@@ -37,6 +37,14 @@ namespace Loopia.Hex
 
         public int Quantas => _plataformas.Count;
         public IEnumerable<Plataforma> Todas => _plataformas.Values;
+        public bool TemMola
+        {
+            get
+            {
+                foreach (var p in _plataformas.Values) if (p != null && p.Def is PlataformaMolaDef) return true;
+                return false;
+            }
+        }
 
         public event Action AoMudar;
 
@@ -115,6 +123,24 @@ namespace Loopia.Hex
             }
 
             bool noAnel = mundo.TryGetIlha(casa, out HexTile ilha) && ilha.EstaNoCaminho;
+            if (!def.DisponivelParaCompra(this))
+            {
+                motivo = "coloque uma ilha de mola primeiro";
+                return false;
+            }
+            bool alteraAltura = def is PlataformaRelevoDef ||
+                (_plataformas.TryGetValue(casa, out Plataforma anterior) && anterior.Def is PlataformaRelevoDef);
+            if (alteraAltura && player != null &&
+                (player.Coord == casa || (player.CaminhoAtual.Count > 0 && player.CaminhoAtual[0] == casa)))
+            {
+                motivo = "espere o Lucca sair desta ilha";
+                return false;
+            }
+            if (alteraAltura && player != null && player.EstaPulando)
+            {
+                motivo = "espere o Lucca terminar o salto";
+                return false;
+            }
 
             // GDD: a barraca "nao pode ser removida ou substituida".
             if (noAnel && ilha.EhAcampamento)
@@ -164,6 +190,11 @@ namespace Loopia.Hex
                 }
             }
 
+            if (!PercursoCompativel(def, casa))
+            {
+                motivo = "o Lucca precisa passar por uma mola antes de cada subida alta";
+                return false;
+            }
             return true;
         }
 
@@ -197,6 +228,7 @@ namespace Loopia.Hex
             _plataformas[casa] = plataforma;
 
             def.AoColocar(plataforma);
+            AtualizarRelevo();
             Recalcular();
             return plataforma;
         }
@@ -220,6 +252,7 @@ namespace Loopia.Hex
                 else ilha.LimparCor();
             }
 
+            AtualizarRelevo();
             Recalcular();
         }
 
@@ -230,6 +263,69 @@ namespace Loopia.Hex
 
             _plataformas.Clear();
             Recalcular();
+        }
+
+        // Simula uma volta a partir do acampamento para impedir cartas que travariam o percurso.
+        bool PercursoCompativel(PlataformaDef nova, HexCoord casa)
+        {
+            if (gerador == null || gerador.Loop == null) return true;
+            if (!SimularPercurso(nova, casa, 0, 0f)) return false;
+            if (player == null || player.EstaPulando || !gerador.Loop.TryIndiceDe(player.Coord, out int indice)) return true;
+            return SimularPercurso(nova, casa, indice, player.AlturaDoImpulso);
+        }
+
+        PlataformaDef DefEm(HexCoord coord, PlataformaDef nova, HexCoord casa)
+        {
+            return coord == casa ? nova :
+                (_plataformas.TryGetValue(coord, out Plataforma p) && p != null ? p.Def : null);
+        }
+
+        bool SimularPercurso(PlataformaDef nova, HexCoord casa, int inicio, float impulso)
+        {
+            int sentido = corredor != null && corredor.inverterSentido ? -1 : 1;
+            var origem = DefEm(gerador.Loop[inicio], nova, casa);
+            float alturaAnterior = origem is PlataformaRelevoDef alta ? alta.altura : 0f;
+            for (int i = 1; i <= gerador.Loop.Count; i++)
+            {
+                HexCoord coord = gerador.Loop[inicio + i * sentido];
+                PlataformaDef def = DefEm(coord, nova, casa);
+                float altura = def is PlataformaRelevoDef relevo ? relevo.altura : 0f;
+                float subida = altura - alturaAnterior;
+                if (subida > (player != null ? player.alturaMaximaSemMola : 0.7f))
+                {
+                    if (impulso < subida) return false;
+                    impulso = 0f;
+                }
+                if (def is PlataformaMolaDef mola) impulso = mola.alturaDoImpulso;
+                alturaAnterior = altura;
+            }
+            return true;
+        }
+
+        void AtualizarRelevo()
+        {
+            bool mudou = false;
+            bool molaPresente = TemMola;
+            foreach (var ilha in mundo.Ilhas)
+            {
+                float altura = molaPresente && _plataformas.TryGetValue(ilha.Coord, out Plataforma p) &&
+                    p.Def is PlataformaRelevoDef relevo ? relevo.altura : 0f;
+                if (Mathf.Approximately(ilha.Altura, altura)) continue;
+                ilha.DefinirAltura(altura);
+                mudou = true;
+            }
+            foreach (var p in _plataformas.Values)
+                if (p != null) p.transform.position = mundo.PosicaoDe(p.Casa);
+            if (mudou)
+            {
+                var navegacao = mundo.GetComponent<NavegacaoDoMundo>();
+                if (navegacao != null) navegacao.Reconstruir();
+                if (inimigos != null)
+                    foreach (var inimigo in inimigos.Vivos)
+                        if (inimigo != null) inimigo.AjustarAoRelevo();
+                var camera = FindFirstObjectByType<HexIsoCamera>();
+                if (camera != null) camera.Enquadrar();
+            }
         }
 
         // --- Efeitos ---

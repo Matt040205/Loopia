@@ -17,6 +17,10 @@ MonoBehaviour:
   cor: {r: 0.9, g: 0.32, b: 0.4, a: 1}
   onde: 0
   podeSerSubstituida: 1
+  modelo: {fileID: 5633466962914129290, guid: 890cbc55a2124ee4b9da5a6a1b4db8c5, type: 3}
+  tamanhoDoModelo: 0.9
+  alturaDoModelo: 0.35
+  girarModelo: 1
   cura: 5
   flechas: 0
   moedas: 0

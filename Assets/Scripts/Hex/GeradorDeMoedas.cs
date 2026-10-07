@@ -31,6 +31,7 @@ namespace Loopia.Hex
 
         [Header("Visual")]
         public Color corDaMoeda = new Color(1f, 0.80f, 0.20f);
+        public GameObject modeloDaMoeda;
         [Min(0f)] public float alturaDaMoeda = 0.5f;
         public float velocidadeDeGiro = 180f;
 
@@ -144,6 +145,13 @@ namespace Loopia.Hex
             Transform moeda = new GameObject("Moeda " + casa).transform;
             moeda.SetParent(_raiz, false);
             moeda.position = mundo.PosicaoDe(casa) + Vector3.up * alturaDaMoeda;
+
+            if (modeloDaMoeda != null)
+            {
+                VisualDeIlha.Criar(modeloDaMoeda, moeda, 0.5f);
+                _moedas[casa] = moeda;
+                return;
+            }
 
             // Cilindro achatado e em pe: girando em torno do Y, parece moeda rodando.
             GameObject disco = GameObject.CreatePrimitive(PrimitiveType.Cylinder);

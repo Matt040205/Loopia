@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.InimigoDef
   nome: Lobo
   cor: {r: 0.72, g: 0.74, b: 0.78, a: 1}
-  prefab: {fileID: 0}
-  escala: 0.55
+  prefab: {fileID: 919132149155446097, guid: 02a84f498627bda4c9e3e2b3b89c63d7, type: 3}
+  escala: 1.1
   pv: 100
   ataque: 15
   xp: 100
@@ -25,6 +25,10 @@ MonoBehaviour:
   alturaDeVoo: 1.1
   balanco: 0.15
   estilo: 0
+  velocidadeDePerseguicao: 4.5
+  raioDeDeteccao: 4
+  distanciaCorpoACorpo: 0.65
+  efeitoDeMorte: {fileID: 785318908748400408, guid: 3f7e0e461f6948a448ed230ab1056ccf, type: 3}
   velocidadeDoRasante: 9
   duracaoMaximaDoRasante: 1.2
   distanciaDoAcerto: 0.45

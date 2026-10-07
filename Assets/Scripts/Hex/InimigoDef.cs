@@ -4,7 +4,7 @@ namespace Loopia.Hex
 {
     public enum EstiloDeAtaque
     {
-        /// <summary>Golpeia parado, de onde esta. E o lobo, que ataca na mesma plataforma.</summary>
+        /// <summary>Persegue o Lucca na própria ilha e golpeia quando alcança.</summary>
         CorpoACorpo,
 
         /// <summary>Mergulha em direcao ao Lucca, acerta e volta para o poleiro. E o morcego.</summary>
@@ -53,6 +53,13 @@ namespace Loopia.Hex
 
         [Header("Ataque")]
         public EstiloDeAtaque estilo = EstiloDeAtaque.CorpoACorpo;
+
+        [Header("Perseguicao terrestre")]
+        [Min(0.1f)] public float velocidadeDePerseguicao = 4.5f;
+        [Min(0.1f)] public float raioDeDeteccao = 4f;
+        [Min(0.1f)] public float distanciaCorpoACorpo = 0.65f;
+        [Header("Morte")]
+        public GameObject efeitoDeMorte;
 
         [Tooltip("Velocidade do mergulho. Precisa ser bem maior que a do Lucca, senao nunca alcanca.")]
         [Min(0.5f)] public float velocidadeDoRasante = 9f;

@@ -192,6 +192,7 @@ MonoBehaviour:
   toleranciaDeChegada: 0.12
   alturaDoPulo: 0.55
   duracaoDoPulo: 0.35
+  alturaMaximaSemMola: 0.7
 --- !u!4 &30939191
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +266,7 @@ GameObject:
   - component: {fileID: 208555292}
   - component: {fileID: 208555291}
   - component: {fileID: 208555290}
+  - component: {fileID: 208555294}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -289,7 +291,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -360,12 +362,26 @@ Transform:
   m_GameObject: {fileID: 208555289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.52, y: -18.64, z: 18.372}
-  m_LocalScale: {x: 2.036522, y: 2.036522, z: 2.036522}
+  m_LocalPosition: {x: 24.33011, y: -19.86553, z: 24.330168}
+  m_LocalScale: {x: 3.2051868, y: 2.036522, z: 3.2051868}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208555294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208555289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b7602e56bf764e8803fc163124e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.FundoContinuo
+  camera3d: {fileID: 1895346078}
+  margem: 1.2
 --- !u!1 &301879345
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &540464590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -971,27 +987,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8683261
+      value: 1.7525067
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8683261
+      value: 1.7525067
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5299163
+      value: 1.4350753
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.48
+      value: 16.452288
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.68
+      value: -16.319582
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.19
+      value: 18.895748
       objectReference: {fileID: 0}
     - target: {fileID: 2312132599193293663, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1059,8 +1075,34 @@ PrefabInstance:
     - {fileID: 2834171449484130836, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
     - {fileID: 2584727990747790446, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1650727913372943875, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689246114}
   m_SourcePrefab: {fileID: 100100000, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
+--- !u!1 &689246113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1650727913372943875, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
+  m_PrefabInstance: {fileID: 689246112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689246114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689246113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9726c023e8968b41bc0f5735eeaeca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.CenarioContinuo
+  camera3d: {fileID: 1895346078}
+  agua: {fileID: 208555294}
+  margem: 1.5
+  _proporcao: {x: 1, y: 1, z: 0.81887007}
+  _teto: -10.86596
+  _referenciaSalva: 1
 --- !u!1 &860398535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1726,7 @@ MonoBehaviour:
   chancePorIlha: 0.2
   valorDaMoeda: 1
   corDaMoeda: {r: 1, g: 0.8, b: 0.2, a: 1}
+  modeloDaMoeda: {fileID: 3222942014257985404, guid: accdf55a3ad22284692d9c9e04c2917b, type: 3}
   alturaDaMoeda: 0.5
   velocidadeDeGiro: 180
 --- !u!4 &1117084399
@@ -2684,6 +2727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.MaoDeCartas
   status: {fileID: 30939188}
+  mapa: {fileID: 1763888090}
   baralho:
   - {fileID: 11400000, guid: ac6f1ca4c96cf2545b214828df7b70fa, type: 2}
   - {fileID: 11400000, guid: be4a71fe52b619d4ca0a5e31eadbe565, type: 2}
@@ -2694,8 +2738,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 883cce0ec61a66641a24ac7d6e9120d4, type: 2}
   - {fileID: 11400000, guid: 8f741c52845874a4db81fda60351466b, type: 2}
   - {fileID: 11400000, guid: fa0395c276dc1014995d0d3265abe06b, type: 2}
+  - {fileID: 11400000, guid: 85d0fb63f0c23fb4aa6190eec7f58282, type: 2}
+  - {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
   espacos: 4
-  cartasIniciais: 3
+  cartasIniciais: 4
+  cartasGarantidas:
+  - {fileID: 11400000, guid: 85d0fb63f0c23fb4aa6190eec7f58282, type: 2}
+  - {fileID: 11400000, guid: be4a71fe52b619d4ca0a5e31eadbe565, type: 2}
+  - {fileID: 11400000, guid: 895105c7e323f204095d0c6837f252d9, type: 2}
+  - {fileID: 11400000, guid: 7e072abf0d8d1cf448bd24d4e5fba522, type: 2}
+  cartaAoLiberar: {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
   cartasPorNivel: 1
 --- !u!114 &1763888090
 MonoBehaviour:
@@ -3222,6 +3274,7 @@ GameObject:
   - component: {fileID: 1960774341}
   - component: {fileID: 1960774345}
   - component: {fileID: 1960774344}
+  - component: {fileID: 1960774346}
   m_Layer: 0
   m_Name: Mundo
   m_TagString: Untagged
@@ -3260,9 +3313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507f2d5754b12ed46a49fe52021e23ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.HexWorld
-  tamanhoDoHexagono: 1
+  tamanhoDoHexagono: 3
   folgaEntreHexagonos: 0.3
   espessura: 0.6
+  modeloDaIlha: {fileID: 5571852010542895358, guid: 268d888a7895274408f2810667cb8a80, type: 3}
+  decoracao: {fileID: 1960774346}
   corDoCaminho: {r: 0.62, g: 0.78, b: 0.42, a: 1}
   corDoAcampamento: {r: 1, g: 0.82, b: 0.32, a: 1}
   corConstruida: {r: 0.55, g: 0.7, b: 0.85, a: 1}
@@ -3319,7 +3374,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -3331,6 +3386,28 @@ MonoBehaviour:
   m_MinRegionArea: 0.05
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!114 &1960774346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960774340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482d799b03885414e9c5e5127d3fb666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.DecoracaoDeIlha
+  modelos:
+  - {fileID: 9009884563288227030, guid: 7c2a7dfe254874d4e8526a91ba6c9a00, type: 3}
+  - {fileID: 6378773697806416782, guid: cd2744e0d2e7f6347867df6f043bd308, type: 3}
+  - {fileID: 8403485604616709017, guid: 4c20ea50a47b5b140bdb09ea4c124339, type: 3}
+  - {fileID: 267800717549942019, guid: d3ff6d47d41af9544b9141c4094b205c, type: 3}
+  - {fileID: 4970505089946646492, guid: e8917b967d255f24f8ecc590f56f091b, type: 3}
+  - {fileID: 4939400349142909667, guid: 524c2fcf9b8cfdf489bbd62b2c3c962e, type: 3}
+  quantidade: 4
+  larguraDoCorredor: 0.4
+  semente: 173
 --- !u!1 &1991081078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,7 +3426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1991081079
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3599,7 +3676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!73398921 &2095973536
 VFXRenderer:
   serializedVersion: 1
@@ -3608,7 +3685,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095973535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

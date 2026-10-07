@@ -12,8 +12,7 @@ namespace Loopia.Hex
     /// - passar o mouse destaca o hexagono e mostra o caminho ate ele;
     /// - BOTAO DIREITO manda o player andar ate aquele hexagono.
     ///
-    /// Nao usa colisores: o raio do mouse e cruzado com o plano do mundo e a
-    /// posicao resultante e convertida direto em coordenada axial.
+    /// O raio do mouse considera a superfície das ilhas altas e a grade no espaço vazio.
     /// </summary>
     [DisallowMultipleComponent]
     public class HexPointer : MonoBehaviour
@@ -92,12 +91,8 @@ namespace Loopia.Hex
             if (!TryPosicaoDoMouse(out Vector3 posicaoNaTela)) return null;
 
             Ray raio = camera3d.ScreenPointToRay(posicaoNaTela);
-            Plane plano = mundo.PlanoDaSuperficie;
-
-            if (!plano.Raycast(raio, out float distancia)) return null;
-
-            Vector3 ponto = raio.GetPoint(distancia);
-            if (!mundo.TryIlhaEmMundo(ponto, out HexTile tile)) return null;
+            if (!mundo.TryCasaNoRaio(raio, out HexCoord casa)) return null;
+            if (!mundo.TryGetIlha(casa, out HexTile tile)) return null;
 
             _temHexagonoValido = true;
             return tile;

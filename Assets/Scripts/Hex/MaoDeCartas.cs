@@ -15,6 +15,7 @@ namespace Loopia.Hex
         [Header("Referencias")]
         [Tooltip("Deixe vazio para achar automaticamente na cena.")]
         public LuccaStatus status;
+        public MapaDePlataformas mapa;
 
         [Header("Baralho")]
         [Tooltip("Todas as cartas que podem sair. Por enquanto o sorteio e uniforme.")]
@@ -26,12 +27,17 @@ namespace Loopia.Hex
 
         [Tooltip("Quantas cartas o jogador ja comeca segurando.")]
         [Min(0)] public int cartasIniciais = 2;
+        [Tooltip("Cartas garantidas no inicio; o restante da mao inicial vem do sorteio.")]
+        public List<PlataformaDef> cartasGarantidas = new List<PlataformaDef>();
+        [Tooltip("Oferece esta carta uma vez, quando sua condição for liberada e houver espaço na mão.")]
+        public PlataformaDef cartaAoLiberar;
 
         [Tooltip("Quantas cartas chegam a cada nivel novo.")]
         [Min(0)] public int cartasPorNivel = 1;
 
         PlataformaDef[] _mao;
         bool _inscrito;
+        bool _entregouCartaLiberada;
 
         /// <summary>A mao, com null nos espacos vazios.</summary>
         public IReadOnlyList<PlataformaDef> Mao => _mao;
@@ -56,6 +62,7 @@ namespace Loopia.Hex
         void Start()
         {
             if (status == null) status = FindFirstObjectByType<LuccaStatus>();
+            if (mapa == null) mapa = FindFirstObjectByType<MapaDePlataformas>();
 
             if (status != null)
             {
@@ -63,13 +70,23 @@ namespace Loopia.Hex
                 _inscrito = true;
             }
 
-            for (int i = 0; i < cartasIniciais; i++) Comprar();
+            for (int i = 0; i < cartasIniciais; i++)
+            {
+                if (i < cartasGarantidas.Count && DarCarta(cartasGarantidas[i])) continue;
+                Comprar();
+            }
         }
 
         void OnDestroy()
         {
             if (_inscrito && status != null) status.AoSubirDeNivel -= SubiuDeNivel;
             _inscrito = false;
+        }
+
+        void Update()
+        {
+            if (!_entregouCartaLiberada && cartaAoLiberar != null && DarCarta(cartaAoLiberar))
+                _entregouCartaLiberada = true;
         }
 
         public PlataformaDef CartaNoEspaco(int espaco)
@@ -89,16 +106,32 @@ namespace Loopia.Hex
             return true;
         }
 
+        /// <summary>Entrega uma carta disponível no primeiro espaço livre.</summary>
+        public bool DarCarta(PlataformaDef carta)
+        {
+            if (carta == null || !carta.DisponivelParaCompra(mapa)) return false;
+            for (int i = 0; i < _mao.Length; i++)
+            {
+                if (_mao[i] != null) continue;
+                _mao[i] = carta;
+                AoMudar?.Invoke();
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>Sorteia uma carta do baralho para o primeiro espaco livre.</summary>
         public bool Comprar()
         {
             if (baralho == null || baralho.Count == 0) return false;
+            var disponiveis = baralho.FindAll(carta => carta != null && carta.DisponivelParaCompra(mapa));
+            if (disponiveis.Count == 0) return false;
 
             for (int i = 0; i < _mao.Length; i++)
             {
                 if (_mao[i] != null) continue;
 
-                _mao[i] = baralho[UnityEngine.Random.Range(0, baralho.Count)];
+                _mao[i] = disponiveis[UnityEngine.Random.Range(0, disponiveis.Count)];
                 AoMudar?.Invoke();
                 return true;
             }

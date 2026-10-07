@@ -40,6 +40,14 @@ namespace Loopia.Hex
                  "justamente para o jogador substituir depois.")]
         public bool podeSerSubstituida = true;
 
+        [Header("Modelo no centro")]
+        public GameObject modelo;
+        [Min(0.1f)] public float tamanhoDoModelo = 0.8f;
+        [Min(0f)] public float alturaDoModelo = 0.25f;
+        public bool girarModelo;
+
+        public virtual bool DisponivelParaCompra(MapaDePlataformas mapa) => true;
+
         // --- Ganchos ---
 
         /// <summary>Bonus de PV maximo que esta plataforma soma ao Lucca.</summary>

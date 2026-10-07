@@ -26,6 +26,7 @@ namespace Loopia.Hex
         static readonly int ColorId = Shader.PropertyToID("_Color");
 
         MeshRenderer _renderer;
+        MeshRenderer[] _arte;
         MaterialPropertyBlock _block;
         HexPalette _palette;
         bool _hovered;
@@ -37,6 +38,15 @@ namespace Loopia.Hex
 
         public HexCoord Coord { get; private set; }
         public HexTileKind Kind { get; private set; }
+        public float Altura { get; private set; }
+
+        public void DefinirAltura(float altura)
+        {
+            Altura = Mathf.Max(0f, altura);
+            Vector3 p = transform.localPosition;
+            p.y = Altura;
+            transform.localPosition = p;
+        }
 
         /// <summary>Se false, o pathfinding nao passa por aqui.</summary>
         public bool Walkable { get; set; } = true;
@@ -51,6 +61,7 @@ namespace Loopia.Hex
             Coord = coord;
             _palette = palette;
             _renderer = GetComponent<MeshRenderer>();
+            _arte = GetComponentsInChildren<MeshRenderer>();
             _block = new MaterialPropertyBlock();
 
             Kind = kind;
@@ -139,6 +150,16 @@ namespace Loopia.Hex
             _block.SetColor(BaseColorId, color); // URP Lit
             _block.SetColor(ColorId, color);     // Built-in Standard
             _renderer.SetPropertyBlock(_block);
+            if (_arte != null)
+                foreach (var arte in _arte)
+                {
+                    if (arte == _renderer) continue;
+                    // Mantém a textura original nas ilhas sem carta.
+                    Color tint = !_hovered && !_onPath && !_temCorPropria ? Color.white : color;
+                    _block.SetColor(BaseColorId, tint);
+                    _block.SetColor(ColorId, tint);
+                    arte.SetPropertyBlock(_block);
+                }
         }
     }
 

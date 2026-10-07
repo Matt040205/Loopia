@@ -25,6 +25,10 @@ MonoBehaviour:
   alturaDeVoo: 1.1
   balanco: 0.15
   estilo: 1
+  velocidadeDePerseguicao: 4.5
+  raioDeDeteccao: 4
+  distanciaCorpoACorpo: 0.65
+  efeitoDeMorte: {fileID: 785318908748400408, guid: 3f7e0e461f6948a448ed230ab1056ccf, type: 3}
   velocidadeDoRasante: 9
   duracaoMaximaDoRasante: 1.2
   distanciaDoAcerto: 0.45

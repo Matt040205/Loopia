@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23916c5a6bda12148b7b932335f0e4cd, type: 3}
+  m_Name: Mola
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaMolaDef
+  nomeExibido: Mola
+  descricao: Carrega um impulso para a proxima subida alta do percurso. Libera a
+    carta Ilha alta.
+  cor: {r: 0.3, g: 0.8, b: 0.95, a: 1}
+  onde: 0
+  podeSerSubstituida: 1
+  modelo: {fileID: 8397554545510225194, guid: 2ed217b370d4e9b4fb7adb37473253e5, type: 3}
+  tamanhoDoModelo: 0.95
+  alturaDoModelo: 0.03
+  girarModelo: 0
+  alturaDoImpulso: 3
