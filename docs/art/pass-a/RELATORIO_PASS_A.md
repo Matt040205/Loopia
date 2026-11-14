@@ -163,3 +163,10 @@ para o enquadramento antigo, reverter `HexIsoCamera.cs` (1 arquivo) e `margem` 1
   - `EixoDeMedida.Altura` num modelo achatado (altura ~0) gera escala muito grande (`tamanho / 0.001`). Nenhum modelo
     atual cai nisso; o validador deve passar a sinalizar altura < 5 % da maior dimensao (pendencia pequena).
   - Validacao da HUD em 1920x1080/2520x1080 reais continua manual (responsavel).
+
+## 13. Correcao das capturas "depois" (2026-11-14)
+As capturas de `docs/art/pass-a/depois/` da primeira entrega mostravam ilhas residuais de mapas gerados por scripts de
+varredura na mesma sessao de Play (dois aneis sobrepostos nas seeds 7 e 2024). As medidas deste relatorio nao foram
+afetadas: usam so as ilhas registradas no `HexWorld`. As 18 imagens e o par de inimigos foram refeitos numa sessao de
+Play nova, com o codigo desta branch (um anel por imagem, verificado visualmente). Lucca 44,2 px, lobo 46,8 px, morcego
+30,3 px na recaptura — iguais aos valores da tabela.

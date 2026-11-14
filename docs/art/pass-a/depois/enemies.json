@@ -7,14 +7,14 @@
   "pixelsPorUnidade": 32.0877457,
   "lucca": {
    "boundsMundo": [
-    0.7589569,
+    0.76184845,
     1.0,
-    0.69081974
+    0.6850138
    ],
    "alturaMundo": 1.0,
    "pxLarguraAltura": [
-    32.8946533,
-    44.2362061
+    32.82849,
+    44.203064
    ],
    "baseRelativaAoPivo": 0.0,
    "pos": [
@@ -70,14 +70,14 @@
   "pixelsPorUnidade": 90.0,
   "lucca": {
    "boundsMundo": [
-    0.7589569,
+    0.76184845,
     1.0,
-    0.69081974
+    0.6850138
    ],
    "alturaMundo": 1.0,
    "pxLarguraAltura": [
-    92.26318,
-    124.073944
+    92.07776,
+    123.98111
    ],
    "baseRelativaAoPivo": 0.0,
    "pos": [
@@ -95,7 +95,7 @@
    ],
    "alturaMundo": 0.8586103,
    "pxLarguraAltura": [
-    128.488708,
+    128.488647,
     131.166382
    ],
    "baseRelativaAoPivo": 0.0291882753,
@@ -115,7 +115,7 @@
    ],
    "alturaMundo": 0.6,
    "pxLarguraAltura": [
-    76.36755,
+    76.3676147,
     84.9491
    ],
    "baseRelativaAoPivo": -0.3,
@@ -146,5 +146,5 @@
   "enemies_s12345_h12_1920x1080.jpg",
   "enemies_closeup_s12345_h12_1920x1080.jpg"
  ],
- "gerado_em": "2026-11-14T15:55:20"
+ "gerado_em": "2026-11-14T19:04:39"
 }
