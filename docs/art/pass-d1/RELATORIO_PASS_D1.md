@@ -132,7 +132,7 @@ o arquivo foi alterado às 16:13 por uma execução anterior). Fiz backup do que
   controlador e a curva de intensidade (chaves 0,22 e 0,85 removidas). Nada mais.
 - **Capturas:** um anel por imagem, ilhas sem nevoa, fundo com perspectiva aerea na parte alta da tela.
 - **Achado:** as capturas `docs/art/pass-a/depois/` (seeds 7 e 2024) mostram ilhas residuais de um mapa anterior. As
-  medidas do Pass A nao sao afetadas (usam so as ilhas do `HexWorld`), mas as imagens serao refeitas na branch do Pass A.
+  medidas do Pass A nao sao afetadas (usam so as ilhas do `HexWorld`), e as imagens foram refeitas na branch do Pass A (commit `c9d248d`).
 - **Ressalvas:** ao meio-dia o fundo perto do anel fica verde-escuro (sem nevoa, mesma profundidade das ilhas) — paleta e
   composicao ficam para B/D2. Passo maximo de intensidade 0,01918 por minuto de jogo, perto do limite 0,02.
 - **Save:** o arquivo mudou entre 16:09 e 16:13 fora das execucoes revisadas (`38433742...` -> `c0a120f1...`); origem nao
