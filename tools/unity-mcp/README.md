@@ -15,7 +15,8 @@ python -I tools/unity-mcp/umcp.py get_test_job '{"job_id":"<id>","include_detail
 Parâmetros grandes: grave num arquivo JSON e passe `@arquivo.json`.
 
 ## Protocolo
-1. Conecta em `127.0.0.1:6400` (confirmar em `~/.unity-mcp-port.json`).
+1. Conecta em `127.0.0.1:<porta>`. A porta muda quando o Unity reabre (6400, 6401, ...): o cliente lê
+   `~/.unity-mcp/unity-mcp-status-*.json` do projeto Loopia (ou use `UNITY_MCP_PORT`).
 2. Lê a linha `WELCOME UNITY-MCP 1 FRAMING=1\n`. **Não responder nada a ela.**
 3. Cada mensagem: prefixo de 8 bytes big-endian com o tamanho + JSON `{"type": "<tool>", "params": {...}}`.
 
