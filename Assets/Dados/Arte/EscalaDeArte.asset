@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fb05e9792f8444ba354aeee87de81d, type: 3}
+  m_Name: EscalaDeArte
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.ArtScaleProfile
+  alturaDeReferencia: 1
+  giroDaCamera: 45
+  inclinacaoDaCamera: 30
+  regras:
+  - categoria: 0
+    tamanhoMinimo: 1.8
+    tamanhoMaximo: 2.4
+    eixo: 1
+    soNoLadoLongeDaCamera: 1
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 1
+    fracaoDaPegada: 0.35
+  - categoria: 1
+    tamanhoMinimo: 1.1
+    tamanhoMaximo: 1.5
+    eixo: 1
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 0.4
+  - categoria: 2
+    tamanhoMinimo: 0.3
+    tamanhoMaximo: 0.6
+    eixo: 1
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  - categoria: 3
+    tamanhoMinimo: 0.1
+    tamanhoMaximo: 0.25
+    eixo: 1
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  - categoria: 4
+    tamanhoMinimo: 0.3
+    tamanhoMaximo: 0.8
+    eixo: 0
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  - categoria: 5
+    tamanhoMinimo: 0.2
+    tamanhoMaximo: 0.45
+    eixo: 1
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  - categoria: 6
+    tamanhoMinimo: 0.5
+    tamanhoMaximo: 1
+    eixo: 2
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  - categoria: 7
+    tamanhoMinimo: 0.3
+    tamanhoMaximo: 0.5
+    eixo: 0
+    soNoLadoLongeDaCamera: 0
+    limiarDoLadoLonge: 0.2
+    evitarCobrirCaminho: 0
+    fracaoDaPegada: 1
+  modelos:
+  - prefab: {fileID: 9009884563288227030, guid: 7c2a7dfe254874d4e8526a91ba6c9a00, type: 3}
+    categoria: 1
+    peso: 2
+  - prefab: {fileID: 9009884563288227030, guid: 7c2a7dfe254874d4e8526a91ba6c9a00, type: 3}
+    categoria: 0
+    peso: 1
+  - prefab: {fileID: 6378773697806416782, guid: cd2744e0d2e7f6347867df6f043bd308, type: 3}
+    categoria: 4
+    peso: 1
+  - prefab: {fileID: 8403485604616709017, guid: 4c20ea50a47b5b140bdb09ea4c124339, type: 3}
+    categoria: 5
+    peso: 1
+  - prefab: {fileID: 267800717549942019, guid: d3ff6d47d41af9544b9141c4094b205c, type: 3}
+    categoria: 5
+    peso: 1
+  - prefab: {fileID: 4970505089946646492, guid: e8917b967d255f24f8ecc590f56f091b, type: 3}
+    categoria: 7
+    peso: 1
+  - prefab: {fileID: 4939400349142909667, guid: 524c2fcf9b8cfdf489bbd62b2c3c962e, type: 3}
+    categoria: 6
+    peso: 1
