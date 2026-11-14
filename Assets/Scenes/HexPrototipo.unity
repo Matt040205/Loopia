@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3170af180fd498a449453334b7eacf51, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.RioDeFundo
   cenario: {fileID: 689246115}
   alturaDasOndas: 0.07
@@ -1344,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637919658238135980, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 4300000, guid: 1d9a0ccb895042c4ca0a47b7e68fe997, type: 2}
     - target: {fileID: 6786845590320111731, guid: 55418fe6515635549a51a9d2c537c5a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2366,7 +2366,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 352c7ef0fdcc26745b7d3d5fd2ba00c8, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.CamadaDeNuvens
   camera3d: {fileID: 1895346078}
   mundo: {fileID: 1960774342}
@@ -3493,9 +3493,9 @@ MonoBehaviour:
   giro: 45
   ortografica: 1
   enquadrarAutomaticamente: 1
-  margem: 1.3
+  margem: 1.14
   zoomManual: 5
-  distancia: 40
+  distancia: 70
 --- !u!114 &1895346080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3549,7 +3549,7 @@ Transform:
   m_GameObject: {fileID: 1895346077}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911761, y: 0.36964384, z: -0.09904577, w: 0.8923991}
-  m_LocalPosition: {x: -24.494898, y: 19.999998, z: -24.494896}
+  m_LocalPosition: {x: -42.866074, y: 34.999996, z: -42.866066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3845,6 +3845,7 @@ MonoBehaviour:
   quantidade: 4
   larguraDoCorredor: 0.4
   semente: 173
+  perfil: {fileID: 11400000, guid: 23008b90659e545428d3eb95b2dc19aa, type: 2}
 --- !u!1 &1991081078
 GameObject:
   m_ObjectHideFlags: 0
