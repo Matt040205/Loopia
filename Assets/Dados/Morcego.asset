@@ -15,7 +15,7 @@ MonoBehaviour:
   nome: Morcego
   cor: {r: 0.42, g: 0.3, b: 0.54, a: 1}
   prefab: {fileID: 0}
-  escala: 0.38
+  escala: 0.6
   pv: 50
   ataque: 5
   xp: 50

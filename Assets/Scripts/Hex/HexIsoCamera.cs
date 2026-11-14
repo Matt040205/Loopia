@@ -114,7 +114,12 @@ namespace Loopia.Hex
             return quantas > 0 ? soma / quantas : mundo.transform.position;
         }
 
-        /// <summary>Mede as ilhas no espaco da camera para saber quanto precisa caber na tela.</summary>
+        /// <summary>
+        /// Mede as ilhas no espaco da camera para saber quanto precisa caber na tela.
+        /// Usa so a malha do hexagono de cada ilha (MeshFilter.sharedMesh, mesmo com o renderer desligado), entao o
+        /// enquadramento nao depende do modelo da ilha, das decoracoes nem de plataformas. A folga de uma casa
+        /// cobre a parte pendurada do modelo e as ilhas da borda.
+        /// </summary>
         float MedirIlhas(HexWorld mundo, Vector3 centro, Quaternion rotacao)
         {
             Quaternion inversa = Quaternion.Inverse(rotacao);
@@ -123,17 +128,19 @@ namespace Loopia.Hex
             float maiorY = 0f;
             foreach (HexTile ilha in mundo.Ilhas)
             {
-                foreach (var renderizador in ilha.GetComponentsInChildren<Renderer>())
+                Transform t = ilha.transform;
+                var filtro = ilha.GetComponent<MeshFilter>();
+                Bounds b = filtro != null && filtro.sharedMesh != null
+                    ? filtro.sharedMesh.bounds
+                    : new Bounds(Vector3.zero, Vector3.zero);
+                for (int i = 0; i < 8; i++)
                 {
-                    Bounds b = renderizador.bounds;
-                    for (int i = 0; i < 8; i++)
-                    {
-                        Vector3 p = b.center + Vector3.Scale(b.extents,
-                            new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1));
-                        Vector3 noEspacoDaCamera = inversa * (p - centro);
-                        maiorX = Mathf.Max(maiorX, Mathf.Abs(noEspacoDaCamera.x));
-                        maiorY = Mathf.Max(maiorY, Mathf.Abs(noEspacoDaCamera.y));
-                    }
+                    Vector3 canto = b.center + Vector3.Scale(b.extents,
+                        new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1));
+                    Vector3 p = t.TransformPoint(canto);
+                    Vector3 noEspacoDaCamera = inversa * (p - centro);
+                    maiorX = Mathf.Max(maiorX, Mathf.Abs(noEspacoDaCamera.x));
+                    maiorY = Mathf.Max(maiorY, Mathf.Abs(noEspacoDaCamera.y));
                 }
             }
 

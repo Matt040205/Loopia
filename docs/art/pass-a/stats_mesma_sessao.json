@@ -1,0 +1,10 @@
+{
+ "aviso": "Valores do Editor (UnityStats), seed 12345 h12, 1920x1080, mesmo metodo do comando stats. Medidos na MESMA sessao do Editor, depois da correcao de distancia. Os valores absolutos nao sao comparaveis com os de outra sessao (a mesma configuracao 'zoom antigo' deu 627 batches na primeira sessao e ~1333 nesta).",
+ "zoom_antigo_equivalente (perfil desligado, margem 1.523 => ortho 22.48, camera a 67.5)": {"batches": [1338, 1333, 1326], "triangulos": [1161261, 1152034, 1142628], "shadowCasters": 122},
+ "perfil, margem 1.14, distancia 40 (camera a 50.5, sem a correcao)": {"batches": [1636, 1631, 1625], "triangulos": [1270037, 1254174, 1248056], "shadowCasters": [447, 446, 442]},
+ "perfil, margem 1.14, distancia 60": {"batches": 1440, "triangulos": 1184615, "shadowCasters": 256},
+ "perfil, margem 1.14, distancia 67.5": {"batches": 1276, "triangulos": 1128227, "shadowCasters": 86},
+ "perfil, margem 1.14, distancia 70 (cena)": {"batches": [1244, 1235, 1248, 1245], "triangulos": [1116934, 1108390, 1119013, 1113021], "shadowCasters": [58, 58, 58, 58]},
+ "perfil, margem 1.14, distancia 80": {"batches": [1188, 1196], "triangulos": [1072120, 1093645], "shadowCasters": 3},
+ "primeira sessao (antes da correcao, referencia do relatorio anterior)": {"zoom_antigo_equivalente": {"batches": [627, 623], "triangulos": [903038, 908862], "shadowCasters": 12}, "margem_1.14_distancia_40": {"batches": [756, 759], "triangulos": [957845, 970400], "shadowCasters": [136, 147]}}
+}

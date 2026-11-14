@@ -1,0 +1,125 @@
+[
+ {
+  "seed": 12345,
+  "medidas": [
+   {
+    "resolucao": "1920x1080",
+    "margem": 1.14,
+    "orthoSize": 16.8288536,
+    "pxPorUnidade": 32.0877457,
+    "luccaAlturaPx": 44.2361145,
+    "luccaLarguraPx": 32.8945923,
+    "topoDaIlhaLarguraPxMediana": 127.4382,
+    "topoDaIlhaLarguraPxMin": 127.437988,
+    "minDistPx_modeloDaIlha": 81.2924957,
+    "quemModelo": "Caminho (0, -4)",
+    "minDistPx_decoracoes": 184.80658,
+    "quemDeco": "Caminho (3, 1)/Arvore(Clone)",
+    "minDistPx_hexMesh": 162.578979,
+    "ilhas": 24,
+    "decoracoesAtivas": 79,
+    "ilhasComDecoracao": 24
+   },
+   {
+    "resolucao": "2520x1080",
+    "margem": 1.14,
+    "orthoSize": 16.8288536,
+    "pxPorUnidade": 32.0877457,
+    "luccaAlturaPx": 44.2361145,
+    "luccaLarguraPx": 32.8946533,
+    "topoDaIlhaLarguraPxMediana": 127.438232,
+    "topoDaIlhaLarguraPxMin": 127.43811,
+    "minDistPx_modeloDaIlha": 81.2924957,
+    "quemModelo": "Caminho (0, -4)",
+    "minDistPx_decoracoes": 184.80658,
+    "quemDeco": "Caminho (3, 1)/Arvore(Clone)",
+    "minDistPx_hexMesh": 162.578979,
+    "ilhas": 24,
+    "decoracoesAtivas": 79,
+    "ilhasComDecoracao": 24
+   }
+  ]
+ },
+ {
+  "seed": 7,
+  "medidas": [
+   {
+    "resolucao": "1920x1080",
+    "margem": 1.14,
+    "orthoSize": 18.559042,
+    "pxPorUnidade": 29.0963287,
+    "luccaAlturaPx": 40.11206,
+    "luccaLarguraPx": 29.82788,
+    "topoDaIlhaLarguraPxMediana": 115.557587,
+    "topoDaIlhaLarguraPxMin": 115.557495,
+    "minDistPx_modeloDaIlha": 82.6391144,
+    "quemModelo": "Caminho (-2, -3)",
+    "minDistPx_decoracoes": 146.867859,
+    "quemDeco": "Caminho (3, 2)/Arvore(Clone)",
+    "minDistPx_hexMesh": 156.34758,
+    "ilhas": 30,
+    "decoracoesAtivas": 98,
+    "ilhasComDecoracao": 30
+   },
+   {
+    "resolucao": "2520x1080",
+    "margem": 1.14,
+    "orthoSize": 18.4515781,
+    "pxPorUnidade": 29.265789,
+    "luccaAlturaPx": 40.3457642,
+    "luccaLarguraPx": 30.001709,
+    "topoDaIlhaLarguraPxMediana": 116.230591,
+    "topoDaIlhaLarguraPxMin": 116.23053,
+    "minDistPx_modeloDaIlha": 79.9753952,
+    "quemModelo": "Caminho (-2, -3)",
+    "minDistPx_decoracoes": 144.578247,
+    "quemDeco": "Caminho (3, 2)/Arvore(Clone)",
+    "minDistPx_hexMesh": 154.113129,
+    "ilhas": 30,
+    "decoracoesAtivas": 98,
+    "ilhasComDecoracao": 30
+   }
+  ]
+ },
+ {
+  "seed": 2024,
+  "medidas": [
+   {
+    "resolucao": "1920x1080",
+    "margem": 1.14,
+    "orthoSize": 15.96646,
+    "pxPorUnidade": 33.8208961,
+    "luccaAlturaPx": 46.6254425,
+    "luccaLarguraPx": 34.6713257,
+    "topoDaIlhaLarguraPxMediana": 134.3215,
+    "topoDaIlhaLarguraPxMin": 134.321289,
+    "minDistPx_modeloDaIlha": 82.10147,
+    "quemModelo": "Caminho (-1, -3)",
+    "minDistPx_decoracoes": 162.778809,
+    "quemDeco": "Caminho (3, 1)/Arvore(Clone)",
+    "minDistPx_hexMesh": 167.778458,
+    "ilhas": 24,
+    "decoracoesAtivas": 80,
+    "ilhasComDecoracao": 24
+   },
+   {
+    "resolucao": "2520x1080",
+    "margem": 1.14,
+    "orthoSize": 15.96646,
+    "pxPorUnidade": 33.8208961,
+    "luccaAlturaPx": 46.6254425,
+    "luccaLarguraPx": 34.6713867,
+    "topoDaIlhaLarguraPxMediana": 134.321533,
+    "topoDaIlhaLarguraPxMin": 134.321411,
+    "minDistPx_modeloDaIlha": 82.10147,
+    "quemModelo": "Caminho (-1, -3)",
+    "minDistPx_decoracoes": 162.778809,
+    "quemDeco": "Caminho (3, 1)/Arvore(Clone)",
+    "minDistPx_hexMesh": 167.778458,
+    "ilhas": 24,
+    "decoracoesAtivas": 80,
+    "ilhasComDecoracao": 24
+   }
+  ]
+ }
+]
