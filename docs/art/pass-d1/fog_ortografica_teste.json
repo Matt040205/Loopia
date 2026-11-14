@@ -1,0 +1,69 @@
+{
+ "metodo": "fog Linear (start=limiar, end=limiar+0.5) magenta; para cada renderer do Cenario background nao coberto por ilhas, compara profundidade de camera do centro (dot com forward) com 'pixel magenta' (r-g>0.35)",
+ "resultado": {
+  "12345": [
+   {
+    "limiar": 50.0,
+    "amostras": 33,
+    "maiorProfSemNevoa": -1.0,
+    "menorProfComNevoa": 84.91373
+   },
+   {
+    "limiar": 80.0,
+    "amostras": 33,
+    "maiorProfSemNevoa": 93.9470139,
+    "menorProfComNevoa": 84.91373
+   },
+   {
+    "limiar": 110.0,
+    "amostras": 33,
+    "maiorProfSemNevoa": 137.988037,
+    "menorProfComNevoa": 118.925385
+   },
+   {
+    "limiar": 140.0,
+    "amostras": 33,
+    "maiorProfSemNevoa": 140.0176,
+    "menorProfComNevoa": 126.604515
+   },
+   {
+    "limiar": 170.0,
+    "amostras": 33,
+    "maiorProfSemNevoa": 144.3428,
+    "menorProfComNevoa": 126.604515
+   }
+  ],
+  "7": [
+   {
+    "limiar": 50.0,
+    "amostras": 32,
+    "maiorProfSemNevoa": -1.0,
+    "menorProfComNevoa": 84.21265
+   },
+   {
+    "limiar": 80.0,
+    "amostras": 32,
+    "maiorProfSemNevoa": 94.17465,
+    "menorProfComNevoa": 84.21265
+   },
+   {
+    "limiar": 110.0,
+    "amostras": 32,
+    "maiorProfSemNevoa": 111.188354,
+    "menorProfComNevoa": 121.721062
+   },
+   {
+    "limiar": 140.0,
+    "amostras": 32,
+    "maiorProfSemNevoa": 142.74353,
+    "menorProfComNevoa": 130.189682
+   },
+   {
+    "limiar": 170.0,
+    "amostras": 32,
+    "maiorProfSemNevoa": 149.751633,
+    "menorProfComNevoa": 130.189682
+   }
+  ]
+ }
+}

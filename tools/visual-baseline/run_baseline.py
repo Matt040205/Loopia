@@ -9,6 +9,7 @@ Uso (da raiz do repo):
   python -I tools/visual-baseline/run_baseline.py measure   # docs/art/audit/_raw_*.json
   python -I tools/visual-baseline/run_baseline.py enemies   # lobo+morcego, normal e close-up (padrao docs/art/pass-a/antes)
   python -I tools/visual-baseline/run_baseline.py stats     # estatisticas de render do Editor
+  python -I tools/visual-baseline/run_baseline.py pontos    # pontos da metrica de legibilidade (ver legibilidade.py)
   python -I tools/visual-baseline/run_baseline.py stop      # restaura timeScale=1 e sai do Play
 
 Limite conhecido: Camera.Render() so inclui o que a Main Camera desenha. Canvas Screen Space - Overlay
@@ -29,6 +30,10 @@ BASE_DIR = os.path.join(ROOT, os.environ.get("LOOPIA_CAPTURE_DIR", os.path.join(
 AUDIT_DIR = os.path.join(ROOT, os.environ.get("LOOPIA_AUDIT_DIR", os.path.join("docs", "art", "audit")))
 SEEDS = [12345, 7, 2024]
 HOURS = [("12", "noon"), ("18", "dusk"), ("22", "night")]
+# Horas extras (transicoes), so seed 12345 em 1920x1080: ativadas por LOOPIA_HORAS_EXTRAS=1
+HORAS_EXTRAS = [("5", "pre-alvorada"), ("6", "alvorada"), ("7", "manha"), ("17", "tarde"), ("19", "crepusculo")]
+# LOOPIA_MODO_ANTIGO=1: emula o DayNightController anterior ao Pass D1 (antigo.cs) em vez de usar o componente.
+MODO_ANTIGO = os.environ.get("LOOPIA_MODO_ANTIGO") == "1"
 RESOLUTIONS = [(1920, 1080), (2520, 1080)]
 SETTLE_SEED = 2.5
 SETTLE_FRAMES = 1.2
@@ -51,6 +56,9 @@ def setup(seed):
 def prepare(hour, w, h):
     ub.run_file("prepare.cs", HOUR=hour, W=w, H=h)
     time.sleep(SETTLE_FRAMES)
+    if MODO_ANTIGO:
+        ub.run_file("antigo.cs", HOUR=hour, DENS=0.01)
+        time.sleep(0.3)
 
 
 def capture():
@@ -59,20 +67,22 @@ def capture():
     for seed in SEEDS:
         st = setup(seed)
         print("seed", seed, st)
-        for hour, label in HOURS:
-            for w, h in RESOLUTIONS:
-                prepare(hour, w, h)
-                if (w, h) == RESOLUTIONS[0]:
-                    lz = jl(ub.run_file("measure_light.cs"))
-                    lz["seed"] = seed; lz["hora_pedida"] = float(hour); lz["rotulo"] = label
-                    light.append(lz)
-                name = "s%d_h%s_%dx%d.jpg" % (seed, hour, w, h)
-                out = fwd(os.path.join(BASE_DIR, name))
-                meta = jl(ub.run_file("shoot.cs", W=w, H=h, SEED=seed, HOUR=hour, OUT=out))
-                meta["arquivo"] = name; meta["rotulo_hora"] = label
-                meta["setup"] = st
-                shots.append(meta)
-                print(name, "ortho=%.3f lum=%.1f inim=%d" % (meta["orthographicSize"], meta["luminanciaMedia0a255"], meta["inimigosVivos"]))
+        combos = [(hour, label, w, h) for hour, label in HOURS for w, h in RESOLUTIONS]
+        if os.environ.get("LOOPIA_HORAS_EXTRAS") == "1" and seed == 12345:
+            combos += [(hour, label, 1920, 1080) for hour, label in HORAS_EXTRAS]
+        for hour, label, w, h in combos:
+            prepare(hour, w, h)
+            lz = jl(ub.run_file("measure_light.cs"))
+            lz["seed"] = seed; lz["hora_pedida"] = float(hour); lz["rotulo"] = label; lz["resolucao"] = "%dx%d" % (w, h)
+            light.append(lz)
+            name = "s%d_h%s_%dx%d.jpg" % (seed, hour, w, h)
+            out = fwd(os.path.join(BASE_DIR, name))
+            meta = jl(ub.run_file("shoot.cs", W=w, H=h, SEED=seed, HOUR=hour, OUT=out))
+            meta["arquivo"] = name; meta["rotulo_hora"] = label
+            meta["setup"] = st
+            meta["luz"] = {"fogCor": lz["fog"]["cor"], "fogModo": lz["fog"]["modo"], "fogInicio": lz["fog"]["inicio"], "fogFim": lz["fog"]["fim"], "fogDensidade": lz["fog"]["densidade"], "fundoCamera": lz["camera"]["background"], "ambienteSky": lz["ambiente"]["sky"], "solIntensidade": lz["sol"]["intensidade"], "solRotEuler": lz["sol"]["rotEuler"], "solCor": lz["sol"]["cor"], "modoAntigo": MODO_ANTIGO}
+            shots.append(meta)
+            print(name, "ortho=%.3f lum=%.1f inim=%d" % (meta["orthographicSize"], meta["luminanciaMedia0a255"], meta["inimigosVivos"]))
     manifest = {
         "gerado_em": datetime.datetime.now().isoformat(timespec="seconds"),
         "cena": "Assets/Scenes/HexPrototipo.unity", "unity": "6000.3.10f1",
@@ -82,6 +92,7 @@ def capture():
     }
     with open(os.path.join(BASE_DIR, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=1, ensure_ascii=False)
+    os.makedirs(AUDIT_DIR, exist_ok=True)
     with open(os.path.join(AUDIT_DIR, "_raw_lighting.json"), "w", encoding="utf-8") as f:
         json.dump(light, f, indent=1, ensure_ascii=False)
 
@@ -119,6 +130,20 @@ def enemies():
         json.dump(meta, f, indent=1, ensure_ascii=False)
     print(json.dumps(meta["enquadramentoNormal"]))
     print(json.dumps(meta["closeUp"]))
+
+
+def pontos(pasta=None):
+    """Pontos de amostragem da metrica de legibilidade por seed x resolucao (pontos_s<seed>_<w>x<h>.json)."""
+    pasta = pasta or os.path.join(ROOT, os.environ.get("LOOPIA_PONTOS_DIR", os.path.join("docs", "art", "pass-d1", "pontos")))
+    os.makedirs(pasta, exist_ok=True)
+    for seed in SEEDS:
+        setup(seed)
+        for w, h in RESOLUTIONS:
+            prepare("12", w, h)
+            r = jl(ub.run_file("pontos.cs", W=w, H=h, PASSO=8))
+            with open(os.path.join(pasta, "pontos_s%d_%dx%d.json" % (seed, w, h)), "w", encoding="utf-8") as f:
+                json.dump(r, f, ensure_ascii=False)
+            print("pontos", seed, w, h, len(r["topos"]), "sem ponto:", r["tilesSemPonto"])
 
 
 def stats():
@@ -189,4 +214,4 @@ def stop():
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
-    {"play": play, "capture": capture, "measure": measure, "enemies": enemies, "stats": stats, "stop": stop}[cmd]()
+    {"play": play, "capture": capture, "measure": measure, "enemies": enemies, "stats": stats, "pontos": pontos, "stop": stop}[cmd]()
