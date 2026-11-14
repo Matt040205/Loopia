@@ -7,6 +7,7 @@ Uso (da raiz do repo):
   python -I tools/visual-baseline/run_baseline.py play
   python -I tools/visual-baseline/run_baseline.py capture   # 18 JPGs + docs/art/baseline/manifest.json
   python -I tools/visual-baseline/run_baseline.py measure   # docs/art/audit/_raw_*.json
+  python -I tools/visual-baseline/run_baseline.py enemies   # lobo+morcego, normal e close-up (padrao docs/art/pass-a/antes)
   python -I tools/visual-baseline/run_baseline.py stats     # estatisticas de render do Editor
   python -I tools/visual-baseline/run_baseline.py stop      # restaura timeScale=1 e sai do Play
 
@@ -23,7 +24,9 @@ ROOT = ub.ROOT
 # Pasta de saida das capturas: padrao docs/art/baseline; para comparacoes antes/depois use
 # LOOPIA_CAPTURE_DIR=docs/art/pass-a/depois (relativo a raiz do repo) para nao sobrescrever o baseline.
 BASE_DIR = os.path.join(ROOT, os.environ.get("LOOPIA_CAPTURE_DIR", os.path.join("docs", "art", "baseline")))
-AUDIT_DIR = os.path.join(ROOT, "docs", "art", "audit")
+# Saida das medidas brutas: padrao docs/art/audit; LOOPIA_AUDIT_DIR=docs/art/pass-a (relativo a raiz) para nao
+# sobrescrever a auditoria original.
+AUDIT_DIR = os.path.join(ROOT, os.environ.get("LOOPIA_AUDIT_DIR", os.path.join("docs", "art", "audit")))
 SEEDS = [12345, 7, 2024]
 HOURS = [("12", "noon"), ("18", "dusk"), ("22", "night")]
 RESOLUTIONS = [(1920, 1080), (2520, 1080)]
@@ -98,6 +101,26 @@ def measure():
         print("medido", seed)
 
 
+def enemies():
+    """Lobo + Morcego nascidos via InimigoSpawner.Nascer: enquadramento normal e close-up (ortho 6).
+    Saida: LOOPIA_CAPTURE_DIR (padrao deste comando: docs/art/pass-a/antes) + enemies.json."""
+    out_dir = os.path.join(ROOT, os.environ.get("LOOPIA_CAPTURE_DIR", os.path.join("docs", "art", "pass-a", "antes")))
+    os.makedirs(out_dir, exist_ok=True)
+    seed, hour, w, h = 12345, "12", 1920, 1080
+    setup(seed)
+    prepare(hour, w, h)
+    n = "enemies_s%d_h%s_%dx%d.jpg" % (seed, hour, w, h)
+    c = "enemies_closeup_s%d_h%s_%dx%d.jpg" % (seed, hour, w, h)
+    meta = jl(ub.run_file("enemies.cs", W=w, H=h, CLOSE_ORTHO=6,
+                          OUT_NORMAL=fwd(os.path.join(out_dir, n)), OUT_CLOSE=fwd(os.path.join(out_dir, c))))
+    meta["seed"] = seed; meta["hora"] = float(hour); meta["arquivos"] = [n, c]
+    meta["gerado_em"] = datetime.datetime.now().isoformat(timespec="seconds")
+    with open(os.path.join(out_dir, "enemies.json"), "w", encoding="utf-8") as f:
+        json.dump(meta, f, indent=1, ensure_ascii=False)
+    print(json.dumps(meta["enquadramentoNormal"]))
+    print(json.dumps(meta["closeUp"]))
+
+
 def stats():
     """Estatisticas do Editor com a camera desenhando em 1920x1080 (RenderTexture persistente)."""
     setup(12345)
@@ -166,4 +189,4 @@ def stop():
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
-    {"play": play, "capture": capture, "measure": measure, "stats": stats, "stop": stop}[cmd]()
+    {"play": play, "capture": capture, "measure": measure, "enemies": enemies, "stats": stats, "stop": stop}[cmd]()

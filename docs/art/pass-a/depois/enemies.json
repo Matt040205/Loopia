@@ -1,0 +1,150 @@
+{
+ "timeScale": 0.0,
+ "loopLobo": "(1, 2)",
+ "loopMorcego": "(0, 2)",
+ "enquadramentoNormal": {
+  "orthoSize": 16.8288536,
+  "pixelsPorUnidade": 32.0877457,
+  "lucca": {
+   "boundsMundo": [
+    0.7589569,
+    1.0,
+    0.69081974
+   ],
+   "alturaMundo": 1.0,
+   "pxLarguraAltura": [
+    32.8946533,
+    44.2362061
+   ],
+   "baseRelativaAoPivo": 0.0,
+   "pos": [
+    12.9903812,
+    0.0,
+    4.5
+   ],
+   "usaSkinned": false
+  },
+  "lobo": {
+   "boundsMundo": [
+    0.433092117,
+    0.8586103,
+    1.5859127
+   ],
+   "alturaMundo": 0.8586103,
+   "pxLarguraAltura": [
+    45.81012,
+    46.76477
+   ],
+   "baseRelativaAoPivo": 0.0291882753,
+   "pos": [
+    10.3923044,
+    0.03333336,
+    9.0
+   ],
+   "usaSkinned": true,
+   "escalaDef": 1.5
+  },
+  "morcego": {
+   "boundsMundo": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "alturaMundo": 0.6,
+   "pxLarguraAltura": [
+    27.227417,
+    30.2869873
+   ],
+   "baseRelativaAoPivo": -0.3,
+   "pos": [
+    5.196152,
+    1.1,
+    9.0
+   ],
+   "usaSkinned": false,
+   "escalaDef": 0.6
+  }
+ },
+ "closeUp": {
+  "orthoSize": 6.0,
+  "pixelsPorUnidade": 90.0,
+  "lucca": {
+   "boundsMundo": [
+    0.7589569,
+    1.0,
+    0.69081974
+   ],
+   "alturaMundo": 1.0,
+   "pxLarguraAltura": [
+    92.26318,
+    124.073944
+   ],
+   "baseRelativaAoPivo": 0.0,
+   "pos": [
+    12.9903812,
+    0.0,
+    4.5
+   ],
+   "usaSkinned": false
+  },
+  "lobo": {
+   "boundsMundo": [
+    0.433092117,
+    0.8586103,
+    1.5859127
+   ],
+   "alturaMundo": 0.8586103,
+   "pxLarguraAltura": [
+    128.488708,
+    131.166382
+   ],
+   "baseRelativaAoPivo": 0.0291882753,
+   "pos": [
+    10.3923044,
+    0.03333336,
+    9.0
+   ],
+   "usaSkinned": true,
+   "escalaDef": 1.5
+  },
+  "morcego": {
+   "boundsMundo": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "alturaMundo": 0.6,
+   "pxLarguraAltura": [
+    76.36755,
+    84.9491
+   ],
+   "baseRelativaAoPivo": -0.3,
+   "pos": [
+    5.196152,
+    1.1,
+    9.0
+   ],
+   "usaSkinned": false,
+   "escalaDef": 0.6
+  }
+ },
+ "lobo_def": {
+  "def": "Lobo",
+  "escala": 1.5,
+  "prefab": "Lobo (1)"
+ },
+ "morcego_def": {
+  "def": "Morcego",
+  "escala": 0.6,
+  "prefab": "-"
+ },
+ "largura": 1920,
+ "altura": 1080,
+ "seed": 12345,
+ "hora": 12.0,
+ "arquivos": [
+  "enemies_s12345_h12_1920x1080.jpg",
+  "enemies_closeup_s12345_h12_1920x1080.jpg"
+ ],
+ "gerado_em": "2026-11-14T15:55:20"
+}

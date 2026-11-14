@@ -1,14 +1,23 @@
-"""Consolida docs/art/audit/_raw_*.json em medidas.json e MEDIDAS.md (nao fala com o Unity)."""
+"""Consolida docs/art/audit/_raw_*.json em medidas.json e MEDIDAS.md (nao fala com o Unity).
+
+Para o "depois" do Pass A: LOOPIA_AUDIT_DIR=docs/art/pass-a LOOPIA_REPORT_NAME=MEDIDAS_DEPOIS.md (os arquivos estaticos
+_prefabs_raw.json e _hierarchy_roots.json, medidos em Edit Mode, vem de docs/art/audit se nao existirem na pasta)."""
 import json, os, re, statistics as st
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-A = os.path.join(ROOT, "docs", "art", "audit")
+A_PADRAO = os.path.join(ROOT, "docs", "art", "audit")
+A = os.path.join(ROOT, os.environ.get("LOOPIA_AUDIT_DIR", os.path.join("docs", "art", "audit")))
+NOME_DO_RELATORIO = os.environ.get("LOOPIA_REPORT_NAME", "MEDIDAS.md")
+DEPOIS = os.path.abspath(A) != os.path.abspath(A_PADRAO)
 SEEDS = [12345, 7, 2024]
 
 
 def load(n):
-    with open(os.path.join(A, n), encoding="utf-8") as f:
+    caminho = os.path.join(A, n)
+    if not os.path.exists(caminho):
+        caminho = os.path.join(A_PADRAO, n)
+    with open(caminho, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -81,7 +90,7 @@ def main():
 
     # ---------------- MEDIDAS.md ----------------
     P = md.append
-    P("# Medidas do HexPrototipo (baseline visual)\n")
+    P("# Medidas do HexPrototipo (%s)\n" % ("depois do Pass A" if DEPOIS else "baseline visual"))
     P("Fonte: Unity Editor 6000.3.10f1, Play Mode, cena `Assets/Scenes/HexPrototipo.unity`. **Valores do Editor, nao de build.** "
       "Dados completos em `medidas.json`; reproducao em `tools/visual-baseline/`. Unidade de mundo = 1 m. px = pixels em 1920x1080 com a camera enquadrada.\n")
     P("## 1. Hierarquia da cena (Edit Mode, 28 raizes)\n")
@@ -132,15 +141,22 @@ def main():
         P("")
 
     P("## 4. Camera: orthoSize com e sem decoracoes (formula de `HexIsoCamera.MedirIlhas` replicada)\n")
-    P("A = todos os renderers filhos das ilhas (formula real; confere com o orthoSize do Editor), B = sem `Decoracoes`, C = so modelo da ilha, D = so MeshRenderer do hexagono (desligado), E = so decoracoes. margem=%s (cena), folga=tamanhoDoHexagono=3.\n" % raws[12345]["camera"]["aspectos"][0]["margem"])
+    if DEPOIS:
+        P("Populacoes de renderers: A = todos os renderers filhos das ilhas (formula ANTIGA), B = sem `Decoracoes`, C = so modelo da ilha, **D = so a malha do hexagono (formula REAL desde o Pass A; confere com o orthoSize do Editor)**, E = so decoracoes. margem=%s (cena), folga=tamanhoDoHexagono=3. A coluna 'orthoSize Editor' e o valor real; so D deve bater com ele.\n" % raws[12345]["camera"]["aspectos"][0]["margem"])
+    else:
+        P("A = todos os renderers filhos das ilhas (formula real; confere com o orthoSize do Editor), B = sem `Decoracoes`, C = so modelo da ilha, D = so MeshRenderer do hexagono (desligado), E = so decoracoes. margem=%s (cena), folga=tamanhoDoHexagono=3.\n" % raws[12345]["camera"]["aspectos"][0]["margem"])
     P("| Seed | Aspecto | orthoSize Editor | A | B (sem deco) | delta A vs B | C | D | E (so deco) | Limitado por |\n|---|---|---|---|---|---|---|---|---|---|")
     for s in SEEDS:
         for a in raws[s]["camera"]["aspectos"]:
             A_, B_ = a["A_todos_renderers"]["orthoSize"], a["B_sem_decoracoes"]["orthoSize"]
             P("| %d | %s | %s | %s | %s | %s%% | %s | %s | %s | %s |" % (s, a["resolucao"], r(a["orthoSizeReal_Enquadrar"]), r(A_), r(B_), r(100 * (A_ - B_) / B_, 2),
               r(a["C_so_modelo_da_ilha"]["orthoSize"]), r(a["D_so_hex_mesh"]["orthoSize"]), r(a["E_so_decoracoes"]["orthoSize"]), a["A_todos_renderers"]["limitadoPor"]))
-    P("\nLeitura numerica: nas tres seeds os bounds das decoracoes nao alteram o enquadramento (delta 0%) porque o modelo da ilha (com a parte pendurada, ~3.45 m abaixo do topo) ja define os extremos. "
-      "Considerar so o mesh do hexagono (D) daria orthoSize menor, mostrando quanto o modelo da ilha pesa. Em 21:9 o orthoSize e igual ao de 16:9 (limitado pela altura), so a largura visivel cresce.\n")
+    if DEPOIS:
+        P("\nLeitura numerica: o orthoSize real (coluna Editor) e igual a D em todas as linhas: o enquadramento depende so da malha do hexagono, nao do modelo da ilha, das decoracoes nem de plataformas. "
+          "A/B/C/E ficam como referencia do que a formula antiga mediria. Em algumas seeds o 21:9 tem orthoSize menor que o 16:9 (o anel passa a ser limitado pela largura no 16:9).\n")
+    else:
+        P("\nLeitura numerica: nas tres seeds os bounds das decoracoes nao alteram o enquadramento (delta 0%) porque o modelo da ilha (com a parte pendurada, ~3.45 m abaixo do topo) ja define os extremos. "
+          "Considerar so o mesh do hexagono (D) daria orthoSize menor, mostrando quanto o modelo da ilha pesa. Em 21:9 o orthoSize e igual ao de 16:9 (limitado pela altura), so a largura visivel cresce.\n")
 
     P("## 5. Fundo / ambiente (seed 12345, 1920x1080)\n")
     b = raws[12345]["fundo_1920x1080"]
@@ -204,11 +220,18 @@ def main():
     P("Tempo medio de frame do Editor: %s ms (%s fps) sobre %d frames em %s s (frames contados por `Time.frameCount`, inclui overhead do Editor, timeScale 0; **nao** e desempenho de build)." % (r(stt["frametime_medio_ms_do_editor"], 2), r(stt["fps_medio_do_editor"], 1), stt["frames_no_intervalo"], r(stt["segundos"], 2)))
     P("Incerteza: `UnityStats` reflete o ultimo frame renderizado pelo Editor; como a Game view e a RenderTexture podem ser renderizadas no mesmo frame, os totais podem somar mais de uma passada de camera.\n")
     P("## 8. Limitacoes / nao medido\n")
-    P("- Capturas por `Camera.Render()`: UI Screen Space Overlay (HUD) e IMGUI nao entram; um screenshot da Game view (472x266, tamanho do painel do Editor) com HUD esta em `docs/art/baseline/gameview_hud_s12345_h12.png`.")
-    P("- Inimigos nao existem com `timeScale=0` logo apos gerar o mapa; foram spawnados temporariamente (Morcego e Lobo) so para medir. O Lobo usa `Lobo (1).fbx` (SkinnedMeshRenderer apenas): `VisualDeIlha` mede so MeshFilter, entao a escala resultante e anormal (bounds %s m) - valor real lido do Editor, nao interpretado." % " x ".join(str(r(x, 2)) for x in raws[12345]["cena"]["inimigos"][1]["boundsSize"]))
-    P("- Modelos `Arvore`/`Morcego` novos (Mateus) so medidos como assets; nenhum usado na cena.")
-    P("- Medidas de px usam `Camera.WorldToScreenPoint` com a camera em RenderTexture 1920x1080 e aspecto forcado; bounds de renderers desabilitados (hex mesh) nao entram nos px.")
-    with open(os.path.join(A, "MEDIDAS.md"), "w", encoding="utf-8") as f:
+    if DEPOIS:
+        P("- Capturas por `Camera.Render()`: UI Screen Space Overlay (HUD) e IMGUI nao entram; validar o anel sob a mao de cartas com o HUD real em 1920x1080 e 2520x1080 e manual (pendente).")
+        P("- Inimigos nao existem com `timeScale=0` logo apos gerar o mapa; foram spawnados temporariamente (Morcego e Lobo) so para medir. O Lobo usa `Lobo (1).fbx` (SkinnedMeshRenderer apenas): desde o Pass A `VisualDeIlha` considera `SkinnedMeshRenderer` (bounds de `sharedMesh`), mas os px abaixo usam os bounds de renderer (`SkinnedMeshRenderer.bounds`, que seguem a caixa local do asset e podem diferir um pouco da malha). Valores lidos do Editor, nao interpretados.")
+        P("- Modelos `ArvoreGrande`/`Morcego` novos (Mateus) nao sao usados (aguardam .meta do dono); a 'ArvoreGrande' do perfil e o prefab `Arvore` em escala 1.8 a 2.4.")
+        P("- Medidas de px usam `Camera.WorldToScreenPoint` com a camera em RenderTexture 1920x1080 e aspecto forcado; bounds de renderers desabilitados (hex mesh) nao entram nos px.")
+        P("- Secao 2 (modelos brutos), secao 1 (hierarquia) e as constantes de iluminacao vem de `docs/art/audit/` (medidas em Edit Mode, nao alteradas pelo Pass A); a secao 6 e remedida.")
+    else:
+        P("- Capturas por `Camera.Render()`: UI Screen Space Overlay (HUD) e IMGUI nao entram; um screenshot da Game view (472x266, tamanho do painel do Editor) com HUD esta em `docs/art/baseline/gameview_hud_s12345_h12.png`.")
+        P("- Inimigos nao existem com `timeScale=0` logo apos gerar o mapa; foram spawnados temporariamente (Morcego e Lobo) so para medir. O Lobo usa `Lobo (1).fbx` (SkinnedMeshRenderer apenas): `VisualDeIlha` mede so MeshFilter, entao a escala resultante e anormal (bounds %s m) - valor real lido do Editor, nao interpretado." % " x ".join(str(r(x, 2)) for x in raws[12345]["cena"]["inimigos"][1]["boundsSize"]))
+        P("- Modelos `Arvore`/`Morcego` novos (Mateus) so medidos como assets; nenhum usado na cena.")
+        P("- Medidas de px usam `Camera.WorldToScreenPoint` com a camera em RenderTexture 1920x1080 e aspecto forcado; bounds de renderers desabilitados (hex mesh) nao entram nos px.")
+    with open(os.path.join(A, NOME_DO_RELATORIO), "w", encoding="utf-8") as f:
         f.write("\n".join(md) + "\n")
 
 

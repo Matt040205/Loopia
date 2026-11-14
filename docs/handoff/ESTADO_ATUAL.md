@@ -1,42 +1,44 @@
 # Estado atual — 2026-11-14
 
 ## Onde estamos
-- Sprint / passo: Sprint 1 (visual) — entrega 1: auditoria visual, Scene Bible e plano dos passes A–D (concluída)
-- Branch: `sprint-1/auditoria-visual` (base: `sprint-0/preparacao-tecnica` @ `85c5276`, que ainda não foi mergeada na `main`)
-- PR: não aberto
-- Status: aguardando **aprovação do responsável** para implementar só o Pass A
+- Sprint / passo: Sprint 1 (visual) — **Pass A: Scale & Camera** (concluído e revisado)
+- Branch: `sprint-1/pass-a-escala-camera` (base: `sprint-1/auditoria-visual` → `sprint-0/preparacao-tecnica`; nada disso
+  está na `main` ainda)
+- PR: ver descrição em `docs/art/pass-a/RELATORIO_PASS_A.md`
+- Status: aguardando revisão/merge do responsável; próximo passe só após aprovação
 
 ## O que foi feito
-- Auditoria visual consolidada com medidas reais do Editor — `docs/art/AUDITORIA_VISUAL.md`
-- Scene Bible v0.1 (direção, escala em L/R, hierarquia, paleta, legibilidade, desempenho) — `docs/art/SCENE_BIBLE.md`
-- Plano dos passes A–D, arquivos afetados, métricas, riscos/rollback — `docs/art/PLANO_PASSES.md`
-- Relatórios especialistas — `docs/art/audit/{MEDIDAS,ENVIRONMENT,RENDERING}.md` (+ JSON brutos)
-- Baseline reproduzível: 18 capturas + manifest — `docs/art/baseline/`; ferramenta — `tools/visual-baseline/`
+- `VisualDeIlha`: bounds de `SkinnedMeshRenderer` + `EixoDeMedida` (corrige lobo gigante)
+- `ArtScaleProfile` (novo) + `Assets/Dados/Arte/EscalaDeArte.asset`: categorias da Scene Bible, tamanhos em L
+- `DecoracaoDeIlha`: usa o perfil (sem perfil = comportamento antigo, provado por teste); árvores grandes só no lado
+  longe da câmera e sem cobrir corredores
+- `HexIsoCamera`: enquadra só pela malha hex das ilhas (arte não mexe no zoom)
+- Cena (via Editor): `perfil` atribuído, `margem` 1.3 → 1.14, `distancia` 40 → 70
+- Dados: Lobo `escala` 1.1 → 1.5, Morcego 0.38 → 0.6 (só visual)
+- Validador `Loopia/Validar escala de arte`; 81 testes novos
 
 ## Evidências
-- Capturas por `Camera.Render()` em Play Mode (seeds 12345/7/2024 × 12/18/22 h × 16:9/21:9), metadados no manifest
-- Cena `HexPrototipo` não alterada (`isDirty=false`); nenhum arquivo em `Assets/` mudou
-- Save do jogador restaurado byte a byte (SHA-256 `38433742…08ac`)
-- Volume: só 1 na cena (verificado no Editor); o do prefab de fundo é latente
+- Suíte: 200/200 — revisor: job `8fd13927…` (196) + `TestResults.xml` 19:08:20Z (4)
+- Aceite (1920×1080): Lucca 44/47/40 px (antes 33/35/31), topo da ilha ≥ 115 px, árvore grande 70–107 px, lobo 47 px
+  (antes 312), morcego 30 px, oclusão 0/2160, ortho independente de decoração
+- Capturas antes: `docs/art/baseline/`, `docs/art/pass-a/antes/`; depois: `docs/art/pass-a/depois/`
+- Save restaurado (SHA-256 `38433742…`); cena sem alterações pendentes
 
 ## Pendente / não verificado
-- Captura de referência do responsável (não recebida)
-- Lobo de 7,65 u: medido por bounds; confirmar com captura em jogo (item A0)
-- Desempenho em build; HUD em 1920×1080 real (Game view do Editor está em 472×266)
-- Origem dos 909 mil triângulos (Editor)
+- HUD em 1920×1080 e 2520×1080 reais (validação manual do responsável)
+- Desempenho em build; batches absolutos do Editor não são reproduzíveis entre sessões
+- Validador: sinalizar modelo achatado com `EixoDeMedida.Altura`
 
 ## Decisões que dependem do humano
-- Aprovar Scene Bible (alvos de escala/legibilidade) e o Pass A
-- Aprovar a ordem A → D1 (névoa) → B → C → D2
-- `.meta` de `ArvoreGrande.fbx`/`Morcegp.fbx`: dono dos assets commitar antes de qualquer uso
-- Merge da Sprint 0 na `main` (as branches estão empilhadas)
+- Aprovar/mergear Sprint 0 → auditoria visual → Pass A (branches empilhadas)
+- Liberar o próximo passe: **D1 (névoa/legibilidade)** pela ordem aprovada
+- `.meta` de `ArvoreGrande.fbx`/`Morcegp.fbx` (dono dos assets)
 
 ## Próximo passo sugerido
-- **Pass A — Scale & Camera** em `sprint-1/pass-a-escala-camera`: `VisualDeIlha.cs`, `ArtScaleProfile.cs` (novo),
-  `DecoracaoDeIlha.cs`, `HexIsoCamera.cs`, `Assets/Dados/Arte/EscalaDeArte.asset`, `Lobo.asset`/`Morcego.asset`,
-  1 commit de cena via MCP, validador em `Assets/Editor/`. Aceite e testes: `docs/art/PLANO_PASSES.md` §Pass A.
+- **Pass D1 — Névoa e legibilidade** (`docs/art/PLANO_PASSES.md`): `Daynightcontroller.cs` com parâmetros; névoa
+  linear começando além da profundidade do anel (agora 51,5–85,1 u da câmera); noite legível; sol abaixo do horizonte.
 
 ## Como retomar
-1. `git fetch && git checkout sprint-1/auditoria-visual`
-2. Abrir o Unity 6000.3.10f1 na `HexPrototipo`.
-3. Rodar a suíte (AGENTS.md §6) e, para comparar visual, `tools/visual-baseline/README.md`.
+1. `git fetch && git checkout sprint-1/pass-a-escala-camera`
+2. Unity 6000.3.10f1 na `HexPrototipo`; rodar a suíte (AGENTS.md §6) e comparar com as evidências.
+3. Capturas: `tools/visual-baseline/README.md` (use `LOOPIA_CAPTURE_DIR` para não sobrescrever).
