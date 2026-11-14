@@ -15,14 +15,14 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.77542186, g: 0.7207868, b: 0.7085007, a: 1}
-  m_FogMode: 2
+  m_FogColor: {r: 0.7900358, g: 0.7472839, b: 0.73767, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.77542186, g: 0.7207868, b: 0.7085007, a: 1}
-  m_AmbientEquatorColor: {r: 0.8346383, g: 0.7510614, b: 0.7328145, a: 1}
-  m_AmbientGroundColor: {r: 0.38771093, g: 0.3603934, b: 0.35425034, a: 0.5}
+  m_LinearFogStart: 105
+  m_LinearFogEnd: 230
+  m_AmbientSkyColor: {r: 0.7381012, g: 0.7299059, b: 0.728063, a: 1}
+  m_AmbientEquatorColor: {r: 0.7775813, g: 0.76504475, b: 0.7623077, a: 1}
+  m_AmbientGroundColor: {r: 0.3690506, g: 0.36495295, b: 0.3640315, a: 0.5}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -427,7 +427,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 0.97281, g: 0.82170206, b: 0.7895466, a: 1}
-  m_Intensity: 1.0849481
+  m_Intensity: 1.4450074
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -489,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301879345}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.8824172, y: -0.10527119, z: 0.23644298, w: 0.39287743}
+  m_LocalRotation: {x: 0.83595383, y: -0.12967025, z: 0.22399315, w: 0.48393592}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1904,6 +1904,12 @@ MonoBehaviour:
   sunAzimuth: -30
   sunriseHour: 6
   sunsetHour: 18
+  elevacaoMinimaDoSol: 26
+  duracaoDoCrepusculo: 2
+  luaCor: {r: 0.56, g: 0.66, b: 0.88, a: 1}
+  luaIntensidade: 0.35
+  luaElevacaoMinima: 25
+  preenchimentoNoturno: {r: 0.2, g: 0.25, b: 0.42, a: 1}
   sunColorGradient:
     serializedVersion: 2
     key0: {r: 0.2901961, g: 0.3529412, b: 0.54901963, a: 1}
@@ -1939,15 +1945,6 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.22
       value: 0.2
       inSlope: 0
       outSlope: 0
@@ -1975,16 +1972,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 0.75
-      value: 0.7
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.85
-      value: 0.2
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1993,7 +1981,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.1
+      value: 0.2
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2034,8 +2022,15 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   syncAmbientLight: 1
+  ambienteDessaturacao: 0.85
   syncFog: 1
+  modoDaNevoa: 1
   fogDensity: 0.01
+  fogInicio: 105
+  fogFim: 230
+  misturaDaNevoaComHorizonte: 0.6
+  nevoaDessaturacao: 0.25
+  nevoaClareamento: 0.15
 --- !u!4 &1109720553
 Transform:
   m_ObjectHideFlags: 0
