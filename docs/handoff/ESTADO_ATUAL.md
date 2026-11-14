@@ -1,46 +1,42 @@
 # Estado atual — 2026-11-14
 
 ## Onde estamos
-- Sprint / passo: Sprint 0 — preparação técnica (concluída)
-- Branch: `sprint-0/preparacao-tecnica` (base: `main` @ `0b9513e`)
-- PR: não aberto (ver PRs propostos em `docs/sprints/SPRINT-0.md`)
-- Status: concluído localmente; aguardando aprovação do humano para push/PR
+- Sprint / passo: Sprint 1 (visual) — entrega 1: auditoria visual, Scene Bible e plano dos passes A–D (concluída)
+- Branch: `sprint-1/auditoria-visual` (base: `sprint-0/preparacao-tecnica` @ `85c5276`, que ainda não foi mergeada na `main`)
+- PR: não aberto
+- Status: aguardando **aprovação do responsável** para implementar só o Pass A
 
 ## O que foi feito
-- Contrato de trabalho para qualquer agente — `AGENTS.md`, `CLAUDE.md`
-- Baseline do projeto — `docs/sprint-0/BASELINE.md`
-- Auditoria estática validada contra o código — `docs/sprint-0/AUDITORIA_VALIDADA.md`
-- Riscos, validação e rollback — `docs/sprint-0/RISCOS_VALIDACAO_ROLLBACK.md`
-- Suíte de testes (119) — `Assets/Tests/Editor/`, relatório `docs/sprint-0/TEST_REPORT.md`
-- Cliente do Unity MCP por TCP + procedimento para Play Mode — `tools/unity-mcp/`
+- Auditoria visual consolidada com medidas reais do Editor — `docs/art/AUDITORIA_VISUAL.md`
+- Scene Bible v0.1 (direção, escala em L/R, hierarquia, paleta, legibilidade, desempenho) — `docs/art/SCENE_BIBLE.md`
+- Plano dos passes A–D, arquivos afetados, métricas, riscos/rollback — `docs/art/PLANO_PASSES.md`
+- Relatórios especialistas — `docs/art/audit/{MEDIDAS,ENVIRONMENT,RENDERING}.md` (+ JSON brutos)
+- Baseline reproduzível: 18 capturas + manifest — `docs/art/baseline/`; ferramenta — `tools/visual-baseline/`
 
 ## Evidências
-- Testes: job `99ebcac91798424093a094f3bc38f4f6` Logic+SceneStatic 116/116; PlayModeSmoke 3/3
-  (`TestResults.xml` 2026-11-14 17:28:31Z); job `2a662bca410a4ae48ca239a209f3513d` Logic 106/106
-- Console: 0 erros
-- Cenas tocadas: nenhuma (`HexPrototipo` aberta, não suja)
-- Save do jogador restaurado: sim (SHA-256 `e67b637d…91e37e6` antes e depois)
+- Capturas por `Camera.Render()` em Play Mode (seeds 12345/7/2024 × 12/18/22 h × 16:9/21:9), metadados no manifest
+- Cena `HexPrototipo` não alterada (`isDirty=false`); nenhum arquivo em `Assets/` mudou
+- Save do jogador restaurado byte a byte (SHA-256 `38433742…08ac`)
+- Volume: só 1 na cena (verificado no Editor); o do prefab de fundo é latente
 
 ## Pendente / não verificado
-- Build, desempenho, 16:9 vs 21:9 — nada medido
-- 4 voltas reais em sequência (boss testado via reflexão em `LoopDirector.FechouUmaVolta`)
-- Sem testes: UI de cartas/arraste, câmera, inimigos, efeitos de plataforma, cena Acampamento
+- Captura de referência do responsável (não recebida)
+- Lobo de 7,65 u: medido por bounds; confirmar com captura em jogo (item A0)
+- Desempenho em build; HUD em 1920×1080 real (Game view do Editor está em 472×266)
+- Origem dos 909 mil triângulos (Editor)
 
-## Riscos abertos e decisões que dependem do humano
-- `.meta` de `ArvoreGrande.fbx`, `Morcegp.fbx` e 2 PNGs (commit `0b9513e`) não estão no git: o dono
-  dos assets precisa commitar um único `.meta` antes de qualquer prefab/cena usá-los
-- `com.coplaydev.unity-mcp` em `#main` sem pin (lock em `30d2207…`)
-- Introduzir asmdef de gameplay exige PR próprio (UnityEvents citam `Assembly-CSharp`)
+## Decisões que dependem do humano
+- Aprovar Scene Bible (alvos de escala/legibilidade) e o Pass A
+- Aprovar a ordem A → D1 (névoa) → B → C → D2
+- `.meta` de `ArvoreGrande.fbx`/`Morcegp.fbx`: dono dos assets commitar antes de qualquer uso
+- Merge da Sprint 0 na `main` (as branches estão empilhadas)
 
 ## Próximo passo sugerido
-- **Sprint 1 / P0.1 — normalização de escala** (planejar antes de implementar):
-  `VisualDeIlha.cs` (bounds com `SkinnedMeshRenderer`), `DecoracaoDeIlha.cs` (escala por categoria),
-  novo `ArtScaleProfile` (ScriptableObject, arquivo próprio), `HexTile.cs` (registrar renderers após
-  decoração), `HexIsoCamera.cs` (bounds só da malha das ilhas), validador em `Assets/Editor/`.
-  Aceite: árvore ≠ arbusto/pedra; Lucca proporcional; decoração não altera NavMesh nem zoom.
-  Testes novos: escala por categoria, bounds com skinned mesh, câmera estável ao trocar decoração.
+- **Pass A — Scale & Camera** em `sprint-1/pass-a-escala-camera`: `VisualDeIlha.cs`, `ArtScaleProfile.cs` (novo),
+  `DecoracaoDeIlha.cs`, `HexIsoCamera.cs`, `Assets/Dados/Arte/EscalaDeArte.asset`, `Lobo.asset`/`Morcego.asset`,
+  1 commit de cena via MCP, validador em `Assets/Editor/`. Aceite e testes: `docs/art/PLANO_PASSES.md` §Pass A.
 
 ## Como retomar
-1. `git fetch && git checkout sprint-0/preparacao-tecnica`
-2. Abrir o projeto no Unity 6000.3.10f1; aguardar import.
-3. Rodar a suíte (AGENTS.md §6; Play Mode: `tools/unity-mcp/README.md`) e comparar com as evidências acima.
+1. `git fetch && git checkout sprint-1/auditoria-visual`
+2. Abrir o Unity 6000.3.10f1 na `HexPrototipo`.
+3. Rodar a suíte (AGENTS.md §6) e, para comparar visual, `tools/visual-baseline/README.md`.

@@ -1,0 +1,8847 @@
+{
+ "seed": 7,
+ "cena": {
+  "seed": 7,
+  "camera1080p": {
+   "orthoSize": 24.3345032,
+   "pos": [
+    -44.1857224,
+    36.50175,
+    -45.0053329
+   ],
+   "pixelW": 1920,
+   "pixelH": 1080
+  },
+  "pixelsPorUnidadeDeMundo_ortho": 22.1907139,
+  "ilhas": [
+   {
+    "nome": "Acampamento (2, 3)",
+    "tipo": "Acampamento",
+    "posMundo": [
+     18.186533,
+     0.0,
+     13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      18.186533,
+      -1.72666633,
+      13.5
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      16.1919613,
+      -3.45333266,
+      11.4000006
+     ],
+     "max": [
+      20.1811047,
+      0.0,
+      15.5999994
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (1, 3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     12.9903812,
+     0.0,
+     13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      12.9903812,
+      -1.72666633,
+      13.5
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      10.99581,
+      -3.45333266,
+      11.4000006
+     ],
+     "max": [
+      14.9849529,
+      0.0,
+      15.5999994
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (0, 4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     10.3923044,
+     0.0,
+     18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      10.3923044,
+      -1.72666633,
+      17.9999981
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      8.397732,
+      -3.45333266,
+      15.8999987
+     ],
+     "max": [
+      12.3868771,
+      0.0,
+      20.0999985
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-1, 4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     5.196152,
+     0.0,
+     18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      5.196152,
+      -1.72666633,
+      17.9999981
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      3.20158,
+      -3.45333266,
+      15.8999987
+     ],
+     "max": [
+      7.19072437,
+      0.0,
+      20.0999985
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-2, 5)",
+    "tipo": "Caminho",
+    "posMundo": [
+     2.598076,
+     0.0,
+     22.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730669,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      2.598076,
+      -1.72666633,
+      22.4999981
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      0.603503942,
+      -3.45333266,
+      20.3999977
+     ],
+     "max": [
+      4.59264851,
+      0.0,
+      24.5999985
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-3, 5)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -2.598076,
+     0.0,
+     22.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730669,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02518,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -2.59807587,
+      -1.72666633,
+      22.4999981
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -4.592648,
+      -3.45333266,
+      20.3999977
+     ],
+     "max": [
+      -0.6035037,
+      0.0,
+      24.5999985
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497528,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-3, 4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -5.196152,
+     0.0,
+     18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -5.196152,
+      -1.72666633,
+      17.9999981
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -7.19072437,
+      -3.45333266,
+      15.8999987
+     ],
+     "max": [
+      -3.20158,
+      0.0,
+      20.0999985
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-3, 3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -7.79422855,
+     0.0,
+     13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02533,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -7.794229,
+      -1.72666633,
+      13.5
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -9.788801,
+      -3.45333266,
+      11.4000006
+     ],
+     "max": [
+      -5.799657,
+      0.0,
+      15.5999994
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613983
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13165,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-4, 3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -12.9903812,
+     0.0,
+     13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126953
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -12.9903812,
+      -1.72666633,
+      13.5
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -14.9849529,
+      -3.45333266,
+      11.4000006
+     ],
+     "max": [
+      -10.99581,
+      0.0,
+      15.5999994
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13162,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-5, 3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -18.186533,
+     0.0,
+     13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02524,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -18.186533,
+      -1.72666633,
+      13.5
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -20.1811047,
+      -3.45333266,
+      11.4000006
+     ],
+     "max": [
+      -16.1919613,
+      0.0,
+      15.5999994
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613922
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13156,
+     46.5107727
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-5, 2)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -20.7846088,
+     0.0,
+     9.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.20000029
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -20.7846088,
+      -1.72666681,
+      9.0
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      -22.7791824,
+      -3.45333362,
+      6.9
+     ],
+     "max": [
+      -18.7900352,
+      0.0,
+      11.1
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613983
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13162,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-4, 1)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -18.186533,
+     0.0,
+     4.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -18.186533,
+      -1.72666681,
+      4.5
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      -20.1811066,
+      -3.45333362,
+      2.4
+     ],
+     "max": [
+      -16.19196,
+      0.0,
+      6.6
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13147,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-4, 0)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -20.7846088,
+     0.0,
+     0.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126038
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -20.7846088,
+      -1.72666681,
+      0.0
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      -22.7791824,
+      -3.45333362,
+      -2.1
+     ],
+     "max": [
+      -18.7900352,
+      0.0,
+      2.1
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.49762,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13165,
+     46.5108337
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-4, -1)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -23.3826847,
+     0.0,
+     -4.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -23.3826847,
+      -1.72666681,
+      -4.5
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      -25.3772583,
+      -3.45333362,
+      -6.6
+     ],
+     "max": [
+      -21.3881111,
+      0.0,
+      -2.4
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.614
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108337
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-3, -2)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -20.7846088,
+     0.0,
+     -9.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.20000029
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -20.7846088,
+      -1.72666657,
+      -9.0
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      -22.77918,
+      -3.45333314,
+      -11.0999994
+     ],
+     "max": [
+      -18.7900372,
+      0.0,
+      -6.90000057
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.613968
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-2, -3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -18.186533,
+     0.0,
+     -13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02521,
+     45.0126648
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -18.186533,
+      -1.72666657,
+      -13.5
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      -20.1811047,
+      -3.45333314,
+      -15.5999994
+     ],
+     "max": [
+      -16.1919613,
+      0.0,
+      -11.4000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613983
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13153,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (-1, -3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -12.9903812,
+     0.0,
+     -13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -12.9903812,
+      -1.72666657,
+      -13.5
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      -14.9849539,
+      -3.45333314,
+      -15.5999994
+     ],
+     "max": [
+      -10.9958086,
+      0.0,
+      -11.4000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613968
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5107727
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (0, -3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -7.79422855,
+     0.0,
+     -13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -7.794229,
+      -1.72666657,
+      -13.5
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      -9.788801,
+      -3.45333314,
+      -15.5999994
+     ],
+     "max": [
+      -5.799657,
+      0.0,
+      -11.4000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.4975,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.1317139,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (1, -4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -5.196152,
+     0.0,
+     -18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -5.196152,
+      -1.72666657,
+      -18.0
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      -7.19072437,
+      -3.45333314,
+      -20.1
+     ],
+     "max": [
+      -3.20157981,
+      0.0,
+      -15.9000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108337
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (2, -5)",
+    "tipo": "Caminho",
+    "posMundo": [
+     -2.598076,
+     0.0,
+     -22.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730669,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      -2.59807587,
+      -1.72666633,
+      -22.5000019
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      -4.592648,
+      -3.45333266,
+      -24.6000023
+     ],
+     "max": [
+      -0.6035037,
+      0.0,
+      -20.4000015
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613968
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (3, -5)",
+    "tipo": "Caminho",
+    "posMundo": [
+     2.598076,
+     0.0,
+     -22.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730669,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      2.598076,
+      -1.72666633,
+      -22.5000019
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      0.603503942,
+      -3.45333266,
+      -24.6000023
+     ],
+     "max": [
+      4.59264851,
+      0.0,
+      -20.4000015
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13147,
+     46.5108337
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (4, -5)",
+    "tipo": "Caminho",
+    "posMundo": [
+     7.79422855,
+     0.0,
+     -22.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126038
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      7.79422855,
+      -1.72666633,
+      -22.5000019
+     ],
+     "size": [
+      3.98914433,
+      3.45333266,
+      4.199999
+     ],
+     "min": [
+      5.79965639,
+      -3.45333266,
+      -24.6000023
+     ],
+     "max": [
+      9.788801,
+      0.0,
+      -20.4000015
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (4, -4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     10.3923044,
+     0.0,
+     -18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126648
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      10.3923044,
+      -1.72666657,
+      -18.0
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      8.397732,
+      -3.45333314,
+      -20.1
+     ],
+     "max": [
+      12.3868771,
+      0.0,
+      -15.9000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.1317139,
+     46.5107727
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (5, -4)",
+    "tipo": "Caminho",
+    "posMundo": [
+     15.5884571,
+     0.0,
+     -18.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      15.5884571,
+      -1.72666657,
+      -18.0
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      13.5938845,
+      -3.45333314,
+      -20.1
+     ],
+     "max": [
+      17.5830288,
+      0.0,
+      -15.9000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108337
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (5, -3)",
+    "tipo": "Caminho",
+    "posMundo": [
+     18.186533,
+     0.0,
+     -13.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.200001
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      18.186533,
+      -1.72666657,
+      -13.5
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      16.1919613,
+      -3.45333314,
+      -15.5999994
+     ],
+     "max": [
+      20.1811047,
+      0.0,
+      -11.4000006
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.613922
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (5, -2)",
+    "tipo": "Caminho",
+    "posMundo": [
+     20.7846088,
+     0.0,
+     -9.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.20000029
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      20.7846088,
+      -1.72666657,
+      -9.0
+     ],
+     "size": [
+      3.9891448,
+      3.45333314,
+      4.19999933
+     ],
+     "min": [
+      18.7900372,
+      -3.45333314,
+      -11.0999994
+     ],
+     "max": [
+      22.77918,
+      0.0,
+      -6.90000057
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13147,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (5, -1)",
+    "tipo": "Caminho",
+    "posMundo": [
+     23.3826847,
+     0.0,
+     -4.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      23.3826847,
+      -1.72666681,
+      -4.5
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      21.3881111,
+      -3.45333362,
+      -6.6
+     ],
+     "max": [
+      25.3772583,
+      0.0,
+      -2.4
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.1317139,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (4, 0)",
+    "tipo": "Caminho",
+    "posMundo": [
+     20.7846088,
+     0.0,
+     0.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      20.7846088,
+      -1.72666681,
+      0.0
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      18.7900352,
+      -3.45333362,
+      -2.1
+     ],
+     "max": [
+      22.7791824,
+      0.0,
+      2.1
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.613953
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (4, 1)",
+    "tipo": "Caminho",
+    "posMundo": [
+     23.3826847,
+     0.0,
+     4.5
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.2
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02515,
+     45.0125732
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      23.3826847,
+      -1.72666681,
+      4.5
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      21.3881111,
+      -3.45333362,
+      2.4
+     ],
+     "max": [
+      25.3772583,
+      0.0,
+      6.6
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497437,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13159,
+     46.5108032
+    ],
+    "modeloVerticesNoTopo": 145
+   },
+   {
+    "nome": "Caminho (3, 2)",
+    "tipo": "Caminho",
+    "posMundo": [
+     20.7846088,
+     0.0,
+     9.0
+    ],
+    "altura": 0.0,
+    "hexMeshRendererEnabled": false,
+    "hexMeshBounds": [
+     3.63730645,
+     0.6,
+     4.2
+    ],
+    "meshColliderBounds": [
+     3.63730621,
+     0.6,
+     4.20000029
+    ],
+    "colliderTopY": 0.0,
+    "colliderTopRelativoAoTile": 0.0,
+    "colliderTopoPx": [
+     90.02527,
+     45.0126343
+    ],
+    "modeloBoundsMundo": {
+     "center": [
+      20.7846088,
+      -1.72666681,
+      9.0
+     ],
+     "size": [
+      3.98914552,
+      3.45333362,
+      4.2
+     ],
+     "min": [
+      18.7900352,
+      -3.45333362,
+      6.9
+     ],
+     "max": [
+      22.7791824,
+      0.0,
+      11.1
+     ]
+    },
+    "modeloTopoY": 0.0,
+    "modeloTopoRelativoAoTile": 0.0,
+    "modeloPx": [
+     128.497559,
+     130.614014
+    ],
+    "modeloSuperficieTopoPx": [
+     88.13147,
+     46.5108643
+    ],
+    "modeloVerticesNoTopo": 145
+   }
+  ],
+  "decoracoes": [
+   {
+    "ilha": "Acampamento (2, 3)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3760925,
+    "escalaDoModeloInterno": 2.57196355,
+    "localBoundsSize": [
+     0.3576132,
+     0.296202242,
+     0.3760925
+    ],
+    "boundsMundoAABB": [
+     0.382976055,
+     0.296202242,
+     0.40012154
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.2877808,
+     11.8361816
+    ],
+    "pxOBB": [
+     11.5049438,
+     11.4245605
+    ]
+   },
+   {
+    "ilha": "Acampamento (2, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3056449,
+    "escalaDoModeloInterno": 0.6602149,
+    "localBoundsSize": [
+     0.29068625,
+     0.0846955851,
+     0.3056449
+    ],
+    "boundsMundoAABB": [
+     0.316218078,
+     0.0846955851,
+     0.3298167
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.137085,
+     6.696167
+    ],
+    "pxOBB": [
+     9.341919,
+     6.27819824
+    ]
+   },
+   {
+    "ilha": "Acampamento (2, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.293358237,
+    "escalaDoModeloInterno": 0.63367337,
+    "localBoundsSize": [
+     0.279000342,
+     0.08129071,
+     0.293358237
+    ],
+    "boundsMundoAABB": [
+     0.4003319,
+     0.08129071,
+     0.396805942
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.5080566,
+     7.816223
+    ],
+    "pxOBB": [
+     7.227539,
+     5.305237
+    ]
+   },
+   {
+    "ilha": "Acampamento (2, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.411168218,
+    "escalaDoModeloInterno": 0.8881519,
+    "localBoundsSize": [
+     0.3910449,
+     0.113936454,
+     0.411168218
+    ],
+    "boundsMundoAABB": [
+     0.549197,
+     0.113936454,
+     0.541352451
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     17.1121216,
+     10.7456665
+    ],
+    "pxOBB": [
+     10.8563232,
+     7.770874
+    ]
+   },
+   {
+    "ilha": "Caminho (1, 3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.412961751,
+    "escalaDoModeloInterno": 0.170668036,
+    "localBoundsSize": [
+     0.20363304,
+     0.412961751,
+     0.206613183
+    ],
+    "boundsMundoAABB": [
+     0.2887997,
+     0.412961721,
+     0.289167047
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     9.069031,
+     12.4707642
+    ],
+    "pxOBB": [
+     4.96124268,
+     10.38678
+    ]
+   },
+   {
+    "ilha": "Caminho (1, 3)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3075667,
+    "escalaDoModeloInterno": 1.52575,
+    "localBoundsSize": [
+     0.2925141,
+     0.2007959,
+     0.3075667
+    ],
+    "boundsMundoAABB": [
+     0.369655728,
+     0.2007959,
+     0.379650176
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.7574463,
+     9.737549
+    ],
+    "pxOBB": [
+     9.073547,
+     8.326599
+    ]
+   },
+   {
+    "ilha": "Caminho (0, 4)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.558394253,
+    "escalaDoModeloInterno": 1.45535958,
+    "localBoundsSize": [
+     0.483827174,
+     0.351382256,
+     0.558394253
+    ],
+    "boundsMundoAABB": [
+     0.52159965,
+     0.3513823,
+     0.5907848
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     17.45465,
+     15.4801025
+    ],
+    "pxOBB": [
+     16.3954468,
+     14.8688354
+    ]
+   },
+   {
+    "ilha": "Caminho (0, 4)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.282329619,
+    "escalaDoModeloInterno": 1.4005549,
+    "localBoundsSize": [
+     0.268511534,
+     0.18431963,
+     0.282329619
+    ],
+    "boundsMundoAABB": [
+     0.3852824,
+     0.18431963,
+     0.381889
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.0379028,
+     9.561157
+    ],
+    "pxOBB": [
+     6.95581055,
+     7.14447
+    ]
+   },
+   {
+    "ilha": "Caminho (0, 4)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5076536,
+    "escalaDoModeloInterno": 3.471673,
+    "localBoundsSize": [
+     0.482710958,
+     0.399818,
+     0.5076536
+    ],
+    "boundsMundoAABB": [
+     0.5635302,
+     0.399818,
+     0.5837638
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     18.0024414,
+     16.6848145
+    ],
+    "pxOBB": [
+     15.3718262,
+     15.3016357
+    ]
+   },
+   {
+    "ilha": "Caminho (0, 4)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3330118,
+    "escalaDoModeloInterno": 0.137626484,
+    "localBoundsSize": [
+     0.164209247,
+     0.3330118,
+     0.166612983
+    ],
+    "boundsMundoAABB": [
+     0.203435451,
+     0.3330118,
+     0.201736152
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     6.357666,
+     9.578552
+    ],
+    "pxOBB": [
+     5.02386475,
+     8.9019165
+    ]
+   },
+   {
+    "ilha": "Caminho (-1, 4)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.416686773,
+    "escalaDoModeloInterno": 2.06705952,
+    "localBoundsSize": [
+     0.396292448,
+     0.2720348,
+     0.416686773
+    ],
+    "boundsMundoAABB": [
+     0.495794624,
+     0.2720348,
+     0.509777248
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     15.7786865,
+     13.1171875
+    ],
+    "pxOBB": [
+     12.1742554,
+     11.4031982
+    ]
+   },
+   {
+    "ilha": "Caminho (-1, 4)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.396097,
+    "escalaDoModeloInterno": 1.96492517,
+    "localBoundsSize": [
+     0.37671122,
+     0.25859344,
+     0.396097
+    ],
+    "boundsMundoAABB": [
+     0.546083152,
+     0.2585934,
+     0.5441707
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     17.10736,
+     13.5232544
+    ],
+    "pxOBB": [
+     8.952209,
+     9.645264
+    ]
+   },
+   {
+    "ilha": "Caminho (-1, 4)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.287001431,
+    "escalaDoModeloInterno": 1.962702,
+    "localBoundsSize": [
+     0.2729009,
+     0.226036146,
+     0.287001431
+    ],
+    "boundsMundoAABB": [
+     0.330029339,
+     0.226036146,
+     0.318590373
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.1776733,
+     9.4328
+    ],
+    "pxOBB": [
+     8.613586,
+     8.689148
+    ]
+   },
+   {
+    "ilha": "Caminho (-2, 5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.496157676,
+    "escalaDoModeloInterno": 0.4466796,
+    "localBoundsSize": [
+     0.1915782,
+     0.139720067,
+     0.496157676
+    ],
+    "boundsMundoAABB": [
+     0.342673481,
+     0.139720067,
+     0.5314976
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     13.7167969,
+     9.543457
+    ],
+    "pxOBB": [
+     8.647583,
+     8.564758
+    ]
+   },
+   {
+    "ilha": "Caminho (-2, 5)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.420894474,
+    "escalaDoModeloInterno": 2.08793545,
+    "localBoundsSize": [
+     0.400295258,
+     0.274782151,
+     0.420894474
+    ],
+    "boundsMundoAABB": [
+     0.5001534,
+     0.274782151,
+     0.484715432
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     15.4537354,
+     13.0075684
+    ],
+    "pxOBB": [
+     12.4824829,
+     11.5946045
+    ]
+   },
+   {
+    "ilha": "Caminho (-2, 5)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.485115051,
+    "escalaDoModeloInterno": 2.40651131,
+    "localBoundsSize": [
+     0.461371422,
+     0.316708237,
+     0.485115051
+    ],
+    "boundsMundoAABB": [
+     0.66201365,
+     0.316708237,
+     0.656182945
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     20.684021,
+     16.4284058
+    ],
+    "pxOBB": [
+     11.9519043,
+     12.276062
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5157716,
+    "escalaDoModeloInterno": 0.464337856,
+    "localBoundsSize": [
+     0.199152723,
+     0.145243526,
+     0.5157716
+    ],
+    "boundsMundoAABB": [
+     0.5284073,
+     0.145243526,
+     0.234644681
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     11.9732666,
+     8.777893
+    ],
+    "pxOBB": [
+     10.8441162,
+     8.559814
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 5)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5211829,
+    "escalaDoModeloInterno": 1.12579262,
+    "localBoundsSize": [
+     0.4956743,
+     0.144422159,
+     0.5211829
+    ],
+    "boundsMundoAABB": [
+     0.632468641,
+     0.144422159,
+     0.648846149
+    ],
+    "baseYRelativaAoTopoDoTile": 7.450581e-09,
+    "pxAABB": [
+     20.1053467,
+     12.828125
+    ],
+    "pxOBB": [
+     15.0511475,
+     10.4246826
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.474925578,
+    "escalaDoModeloInterno": 0.4275647,
+    "localBoundsSize": [
+     0.183380961,
+     0.133740991,
+     0.474925578
+    ],
+    "boundsMundoAABB": [
+     0.507073641,
+     0.133740991,
+     0.307183027
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.7766113,
+     8.958496
+    ],
+    "pxOBB": [
+     11.1904907,
+     6.90448
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4768359,
+    "escalaDoModeloInterno": 0.429283947,
+    "localBoundsSize": [
+     0.184117764,
+     0.134278759,
+     0.4768359
+    ],
+    "boundsMundoAABB": [
+     0.455890417,
+     0.134278759,
+     0.477555722
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.6468506,
+     9.903992
+    ],
+    "pxOBB": [
+     4.63385,
+     7.970886
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 4)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.407203257,
+    "escalaDoModeloInterno": 2.78472733,
+    "localBoundsSize": [
+     0.387196124,
+     0.320705354,
+     0.407203257
+    ],
+    "boundsMundoAABB": [
+     0.4793944,
+     0.320705354,
+     0.493542373
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     15.2665405,
+     13.7965088
+    ],
+    "pxOBB": [
+     11.9590454,
+     12.22406
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 4)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.404564261,
+    "escalaDoModeloInterno": 1.05442667,
+    "localBoundsSize": [
+     0.3505397,
+     0.254580975,
+     0.404564261
+    ],
+    "boundsMundoAABB": [
+     0.5285771,
+     0.254580975,
+     0.5352361
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     16.6925049,
+     13.2387085
+    ],
+    "pxOBB": [
+     8.531555,
+     9.703125
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 4)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.319393218,
+    "escalaDoModeloInterno": 0.832441151,
+    "localBoundsSize": [
+     0.2767421,
+     0.200984746,
+     0.319393218
+    ],
+    "boundsMundoAABB": [
+     0.411928773,
+     0.200984746,
+     0.3942933
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.6506348,
+     10.1877441
+    ],
+    "pxOBB": [
+     7.94494629,
+     8.14917
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 4)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.414304137,
+    "escalaDoModeloInterno": 2.05524182,
+    "localBoundsSize": [
+     0.394027352,
+     0.27047953,
+     0.414304137
+    ],
+    "boundsMundoAABB": [
+     0.453221142,
+     0.27047953,
+     0.435174376
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     13.9400024,
+     12.1679688
+    ],
+    "pxOBB": [
+     12.647522,
+     11.4884644
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.362902,
+    "escalaDoModeloInterno": 0.149979442,
+    "localBoundsSize": [
+     0.17894803,
+     0.362902,
+     0.181567192
+    ],
+    "boundsMundoAABB": [
+     0.254430681,
+     0.362902,
+     0.254172325
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     7.980591,
+     10.9644775
+    ],
+    "pxOBB": [
+     4.24237061,
+     9.122253
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 3)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.522430062,
+    "escalaDoModeloInterno": 2.591625,
+    "localBoundsSize": [
+     0.496860832,
+     0.341070056,
+     0.522430062
+    ],
+    "boundsMundoAABB": [
+     0.644870162,
+     0.341070056,
+     0.6278937
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.9711914,
+     16.5401611
+    ],
+    "pxOBB": [
+     15.4123535,
+     14.1434326
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4905746,
+    "escalaDoModeloInterno": 1.05967581,
+    "localBoundsSize": [
+     0.46656388,
+     0.135940373,
+     0.4905746
+    ],
+    "boundsMundoAABB": [
+     0.672575,
+     0.135940373,
+     0.6678493
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     21.0328369,
+     13.1288452
+    ],
+    "pxOBB": [
+     12.2212524,
+     8.496338
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.448509634,
+    "escalaDoModeloInterno": 0.9688132,
+    "localBoundsSize": [
+     0.4265583,
+     0.124284074,
+     0.448509634
+    ],
+    "boundsMundoAABB": [
+     0.618930936,
+     0.124284074,
+     0.6178475
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.4065552,
+     12.0917358
+    ],
+    "pxOBB": [
+     9.80719,
+     7.5269165
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 3)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.326032579,
+    "escalaDoModeloInterno": 2.229623,
+    "localBoundsSize": [
+     0.310012728,
+     0.256776333,
+     0.326032579
+    ],
+    "boundsMundoAABB": [
+     0.346863568,
+     0.256776333,
+     0.332000256
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.6521606,
+     10.2607422
+    ],
+    "pxOBB": [
+     9.938538,
+     9.921387
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 3)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.375687331,
+    "escalaDoModeloInterno": 0.8115107,
+    "localBoundsSize": [
+     0.3572998,
+     0.104104549,
+     0.375687331
+    ],
+    "boundsMundoAABB": [
+     0.467710972,
+     0.104104541,
+     0.455905527
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.4926147,
+     9.246948
+    ],
+    "pxOBB": [
+     11.02771,
+     7.425354
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 3)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.417684466,
+    "escalaDoModeloInterno": 0.376031071,
+    "localBoundsSize": [
+     0.161278516,
+     0.117621422,
+     0.417684466
+    ],
+    "boundsMundoAABB": [
+     0.3226874,
+     0.117621414,
+     0.4467083
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     12.0727844,
+     8.296814
+    ],
+    "pxOBB": [
+     9.933807,
+     5.527008
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.6497665,
+    "escalaDoModeloInterno": 0.268534273,
+    "localBoundsSize": [
+     0.3204022,
+     0.6497665,
+     0.325090945
+    ],
+    "boundsMundoAABB": [
+     0.3625275,
+     0.6497665,
+     0.366518319
+    ],
+    "baseYRelativaAoTopoDoTile": 2.98023224e-08,
+    "pxAABB": [
+     11.4396057,
+     18.2068176
+    ],
+    "pxOBB": [
+     10.0197449,
+     17.5071411
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 3)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.319989383,
+    "escalaDoModeloInterno": 0.288078785,
+    "localBoundsSize": [
+     0.12355648,
+     0.0901102,
+     0.319989383
+    ],
+    "boundsMundoAABB": [
+     0.177243441,
+     0.0901102,
+     0.336582422
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     8.06253052,
+     5.76300049
+    ],
+    "pxOBB": [
+     6.31878662,
+     5.42633057
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 2)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.309119284,
+    "escalaDoModeloInterno": 2.11394858,
+    "localBoundsSize": [
+     0.2939289,
+     0.243454576,
+     0.309119284
+    ],
+    "boundsMundoAABB": [
+     0.34263438,
+     0.243454576,
+     0.329409927
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.545166,
+     9.951263
+    ],
+    "pxOBB": [
+     9.362976,
+     9.389191
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 2)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4641431,
+    "escalaDoModeloInterno": 1.00258219,
+    "localBoundsSize": [
+     0.4414274,
+     0.128616124,
+     0.4641431
+    ],
+    "boundsMundoAABB": [
+     0.6318667,
+     0.128616124,
+     0.6363379
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.8996887,
+     12.4215393
+    ],
+    "pxOBB": [
+     11.5627136,
+     8.038544
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 2)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.358651936,
+    "escalaDoModeloInterno": 0.7747115,
+    "localBoundsSize": [
+     0.341097742,
+     0.099383764,
+     0.358651936
+    ],
+    "boundsMundoAABB": [
+     0.3975467,
+     0.099383764,
+     0.382263154
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.236145,
+     8.028015
+    ],
+    "pxOBB": [
+     10.864502,
+     7.375763
+    ]
+   },
+   {
+    "ilha": "Caminho (-5, 2)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.540571868,
+    "escalaDoModeloInterno": 1.16767347,
+    "localBoundsSize": [
+     0.514114,
+     0.149794847,
+     0.540571868
+    ],
+    "boundsMundoAABB": [
+     0.7333679,
+     0.149794847,
+     0.72558856
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     22.8927917,
+     14.3250732
+    ],
+    "pxOBB": [
+     14.1054993,
+     9.705383
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 1)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3347337,
+    "escalaDoModeloInterno": 0.872424245,
+    "localBoundsSize": [
+     0.290033042,
+     0.210638255,
+     0.3347337
+    ],
+    "boundsMundoAABB": [
+     0.441281945,
+     0.21063827,
+     0.431392759
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     13.6932373,
+     10.8946228
+    ],
+    "pxOBB": [
+     7.518738,
+     8.219666
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 1)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.423591048,
+    "escalaDoModeloInterno": 2.89679646,
+    "localBoundsSize": [
+     0.402778536,
+     0.333611876,
+     0.423591048
+    ],
+    "boundsMundoAABB": [
+     0.5316453,
+     0.333611876,
+     0.518742
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     16.4818726,
+     14.6521606
+    ],
+    "pxOBB": [
+     12.3666382,
+     12.4882813
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 1)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.322566956,
+    "escalaDoModeloInterno": 0.133309856,
+    "localBoundsSize": [
+     0.159058034,
+     0.322566956,
+     0.161386728
+    ],
+    "boundsMundoAABB": [
+     0.1869303,
+     0.322566956,
+     0.188771158
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     5.89520264,
+     9.146637
+    ],
+    "pxOBB": [
+     4.928711,
+     8.67041
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 0)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.281728446,
+    "escalaDoModeloInterno": 0.2536332,
+    "localBoundsSize": [
+     0.108782157,
+     0.07933572,
+     0.281728446
+    ],
+    "boundsMundoAABB": [
+     0.298374057,
+     0.07933572,
+     0.235071391
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     8.370361,
+     5.709839
+    ],
+    "pxOBB": [
+     6.663513,
+     3.49954224
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 0)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.400475144,
+    "escalaDoModeloInterno": 0.3605388,
+    "localBoundsSize": [
+     0.154632956,
+     0.112775482,
+     0.400475144
+    ],
+    "boundsMundoAABB": [
+     0.24075672,
+     0.112775482,
+     0.424995542
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.4464722,
+     7.390503
+    ],
+    "pxOBB": [
+     7.6192627,
+     6.84472656
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 0)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.513365448,
+    "escalaDoModeloInterno": 3.51073122,
+    "localBoundsSize": [
+     0.488141537,
+     0.4043162,
+     0.513365448
+    ],
+    "boundsMundoAABB": [
+     0.639692664,
+     0.404316157,
+     0.654202163
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     20.3027954,
+     17.9213867
+    ],
+    "pxOBB": [
+     14.8128662,
+     15.0346375
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, 0)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4236359,
+    "escalaDoModeloInterno": 2.89709926,
+    "localBoundsSize": [
+     0.402820259,
+     0.333646774,
+     0.4236359
+    ],
+    "boundsMundoAABB": [
+     0.57059443,
+     0.333646744,
+     0.5634728
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     17.7949219,
+     15.3093567
+    ],
+    "pxOBB": [
+     10.9476318,
+     12.0539551
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, -1)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.366614223,
+    "escalaDoModeloInterno": 0.9555162,
+    "localBoundsSize": [
+     0.317657739,
+     0.230700016,
+     0.366614223
+    ],
+    "boundsMundoAABB": [
+     0.348400116,
+     0.2307,
+     0.392904729
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.631958,
+     10.2495117
+    ],
+    "pxOBB": [
+     10.7631226,
+     9.748138
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, -1)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.430489063,
+    "escalaDoModeloInterno": 2.94396973,
+    "localBoundsSize": [
+     0.409337521,
+     0.339044631,
+     0.430489063
+    ],
+    "boundsMundoAABB": [
+     0.5061884,
+     0.339044631,
+     0.489896
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     15.6297607,
+     14.3305359
+    ],
+    "pxOBB": [
+     12.8209229,
+     12.9951782
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, -1)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4755026,
+    "escalaDoModeloInterno": 1.23931229,
+    "localBoundsSize": [
+     0.4120038,
+     0.2992198,
+     0.4755026
+    ],
+    "boundsMundoAABB": [
+     0.625611067,
+     0.2992198,
+     0.6287451
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.682312,
+     15.5914917
+    ],
+    "pxOBB": [
+     9.50531,
+     11.1825562
+    ]
+   },
+   {
+    "ilha": "Caminho (-4, -1)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.326882422,
+    "escalaDoModeloInterno": 0.706089556,
+    "localBoundsSize": [
+     0.310883164,
+     0.090580605,
+     0.326882422
+    ],
+    "boundsMundoAABB": [
+     0.362923056,
+     0.090580605,
+     0.375900626
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.5929565,
+     7.53729248
+    ],
+    "pxOBB": [
+     9.811707,
+     6.690155
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, -2)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.2949192,
+    "escalaDoModeloInterno": 0.768654346,
+    "localBoundsSize": [
+     0.255535781,
+     0.185584038,
+     0.2949192
+    ],
+    "boundsMundoAABB": [
+     0.371319562,
+     0.185584038,
+     0.350455165
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.3255005,
+     9.229248
+    ],
+    "pxOBB": [
+     7.70916748,
+     7.662567
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, -2)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5536902,
+    "escalaDoModeloInterno": 0.228828028,
+    "localBoundsSize": [
+     0.273026228,
+     0.5536902,
+     0.277023554
+    ],
+    "boundsMundoAABB": [
+     0.316321939,
+     0.5536902,
+     0.31300053
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     9.874817,
+     15.578064
+    ],
+    "pxOBB": [
+     8.514893,
+     14.9079285
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, -2)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.31614995,
+    "escalaDoModeloInterno": 0.8239878,
+    "localBoundsSize": [
+     0.27393043,
+     0.198943749,
+     0.31614995
+    ],
+    "boundsMundoAABB": [
+     0.330052316,
+     0.198943749,
+     0.290101022
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     9.730957,
+     8.68866
+    ],
+    "pxOBB": [
+     9.21167,
+     8.463745
+    ]
+   },
+   {
+    "ilha": "Caminho (-3, -2)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4509594,
+    "escalaDoModeloInterno": 2.237079,
+    "localBoundsSize": [
+     0.428888559,
+     0.2944101,
+     0.4509594
+    ],
+    "boundsMundoAABB": [
+     0.5472505,
+     0.294410139,
+     0.5614213
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     17.3963013,
+     14.35611
+    ],
+    "pxOBB": [
+     13.0232544,
+     12.2764587
+    ]
+   },
+   {
+    "ilha": "Caminho (-2, -3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.314669728,
+    "escalaDoModeloInterno": 0.1300461,
+    "localBoundsSize": [
+     0.155164421,
+     0.314669728,
+     0.157435164
+    ],
+    "boundsMundoAABB": [
+     0.22039102,
+     0.3146697,
+     0.220615029
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     6.919922,
+     9.507202
+    ],
+    "pxOBB": [
+     3.6784668,
+     7.909912
+    ]
+   },
+   {
+    "ilha": "Caminho (-2, -3)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.500306249,
+    "escalaDoModeloInterno": 0.450414747,
+    "localBoundsSize": [
+     0.193179548,
+     0.140888423,
+     0.500306249
+    ],
+    "boundsMundoAABB": [
+     0.469575047,
+     0.140888408,
+     0.507430434
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     15.3303833,
+     10.3727417
+    ],
+    "pxOBB": [
+     11.4335327,
+     5.326599
+    ]
+   },
+   {
+    "ilha": "Caminho (-1, -3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.412961751,
+    "escalaDoModeloInterno": 0.170668036,
+    "localBoundsSize": [
+     0.20363304,
+     0.412961751,
+     0.206613183
+    ],
+    "boundsMundoAABB": [
+     0.2887997,
+     0.412961721,
+     0.289167047
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     9.06897,
+     12.4707336
+    ],
+    "pxOBB": [
+     4.96136475,
+     10.3867493
+    ]
+   },
+   {
+    "ilha": "Caminho (-1, -3)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3075667,
+    "escalaDoModeloInterno": 1.52575,
+    "localBoundsSize": [
+     0.2925141,
+     0.2007959,
+     0.3075667
+    ],
+    "boundsMundoAABB": [
+     0.369655728,
+     0.2007959,
+     0.379650176
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.7574463,
+     9.737579
+    ],
+    "pxOBB": [
+     9.073547,
+     8.32663
+    ]
+   },
+   {
+    "ilha": "Caminho (0, -3)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5384418,
+    "escalaDoModeloInterno": 2.67105412,
+    "localBoundsSize": [
+     0.5120884,
+     0.3515233,
+     0.5384418
+    ],
+    "boundsMundoAABB": [
+     0.7256335,
+     0.3515233,
+     0.732744753
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     22.883667,
+     18.1973572
+    ],
+    "pxOBB": [
+     13.4348145,
+     13.7040405
+    ]
+   },
+   {
+    "ilha": "Caminho (0, -3)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.344672,
+    "escalaDoModeloInterno": 1.70981574,
+    "localBoundsSize": [
+     0.327802241,
+     0.225019813,
+     0.344672
+    ],
+    "boundsMundoAABB": [
+     0.47480458,
+     0.225019813,
+     0.4756372
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.9135132,
+     11.781189
+    ],
+    "pxOBB": [
+     7.536621,
+     8.273224
+    ]
+   },
+   {
+    "ilha": "Caminho (0, -3)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.342385024,
+    "escalaDoModeloInterno": 2.34145379,
+    "localBoundsSize": [
+     0.325561881,
+     0.2696554,
+     0.342385024
+    ],
+    "boundsMundoAABB": [
+     0.471606851,
+     0.2696554,
+     0.472437143
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.8132324,
+     12.5887756
+    ],
+    "pxOBB": [
+     7.48522949,
+     9.104828
+    ]
+   },
+   {
+    "ilha": "Caminho (0, -3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.300236136,
+    "escalaDoModeloInterno": 0.124081016,
+    "localBoundsSize": [
+     0.1480468,
+     0.300236136,
+     0.150214359
+    ],
+    "boundsMundoAABB": [
+     0.171524227,
+     0.300236136,
+     0.1697232
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     5.354553,
+     8.447144
+    ],
+    "pxOBB": [
+     4.61712646,
+     8.08374
+    ]
+   },
+   {
+    "ilha": "Caminho (1, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.328075051,
+    "escalaDoModeloInterno": 0.70866555,
+    "localBoundsSize": [
+     0.3120184,
+     0.0909110755,
+     0.328075051
+    ],
+    "boundsMundoAABB": [
+     0.349041045,
+     0.09091107,
+     0.3341431
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.7199707,
+     7.107086
+    ],
+    "pxOBB": [
+     10.001709,
+     6.765564
+    ]
+   },
+   {
+    "ilha": "Caminho (1, -4)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5844555,
+    "escalaDoModeloInterno": 1.52328014,
+    "localBoundsSize": [
+     0.506407261,
+     0.367781043,
+     0.5844555
+    ],
+    "boundsMundoAABB": [
+     0.694514155,
+     0.367781,
+     0.7358622
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     22.4443359,
+     18.29013
+    ],
+    "pxOBB": [
+     16.2347412,
+     14.7067871
+    ]
+   },
+   {
+    "ilha": "Caminho (1, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.450963467,
+    "escalaDoModeloInterno": 0.974112,
+    "localBoundsSize": [
+     0.428891361,
+     0.124963835,
+     0.450963467
+    ],
+    "boundsMundoAABB": [
+     0.55726403,
+     0.124963827,
+     0.5704557
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     17.6953125,
+     11.2492065
+    ],
+    "pxOBB": [
+     12.8548584,
+     8.947449
+    ]
+   },
+   {
+    "ilha": "Caminho (1, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.318971753,
+    "escalaDoModeloInterno": 0.689000249,
+    "localBoundsSize": [
+     0.303359628,
+     0.08838831,
+     0.318971753
+    ],
+    "boundsMundoAABB": [
+     0.4401796,
+     0.08838831,
+     0.439794272
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     13.8079834,
+     8.602539
+    ],
+    "pxOBB": [
+     6.854248,
+     5.29589844
+    ]
+   },
+   {
+    "ilha": "Caminho (2, -5)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.464030445,
+    "escalaDoModeloInterno": 1.00233877,
+    "localBoundsSize": [
+     0.441319942,
+     0.1285849,
+     0.464030445
+    ],
+    "boundsMundoAABB": [
+     0.6225214,
+     0.1285849,
+     0.61420846
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.4057617,
+     12.1740112
+    ],
+    "pxOBB": [
+     12.480957,
+     8.533417
+    ]
+   },
+   {
+    "ilha": "Caminho (2, -5)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.459530175,
+    "escalaDoModeloInterno": 0.189913765,
+    "localBoundsSize": [
+     0.2265962,
+     0.459530175,
+     0.229911715
+    ],
+    "boundsMundoAABB": [
+     0.293546677,
+     0.4595302,
+     0.2915647
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     9.18103,
+     13.4216614
+    ],
+    "pxOBB": [
+     6.713379,
+     12.2055969
+    ]
+   },
+   {
+    "ilha": "Caminho (2, -5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.28264454,
+    "escalaDoModeloInterno": 0.254458576,
+    "localBoundsSize": [
+     0.109136127,
+     0.0795939,
+     0.28264454
+    ],
+    "boundsMundoAABB": [
+     0.2677971,
+     0.0795939,
+     0.284913838
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     8.672607,
+     5.86593628
+    ],
+    "pxOBB": [
+     2.85351563,
+     4.74249268
+    ]
+   },
+   {
+    "ilha": "Caminho (2, -5)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.571939766,
+    "escalaDoModeloInterno": 3.91129756,
+    "localBoundsSize": [
+     0.5438385,
+     0.4504477,
+     0.571939766
+    ],
+    "boundsMundoAABB": [
+     0.657686651,
+     0.4504477,
+     0.6348909
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     20.2821045,
+     18.7976074
+    ],
+    "pxOBB": [
+     17.1654053,
+     17.3158569
+    ]
+   },
+   {
+    "ilha": "Caminho (3, -5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.515771747,
+    "escalaDoModeloInterno": 0.464337856,
+    "localBoundsSize": [
+     0.199152708,
+     0.145243526,
+     0.515771747
+    ],
+    "boundsMundoAABB": [
+     0.5284073,
+     0.145243526,
+     0.234644681
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     11.9731445,
+     8.777863
+    ],
+    "pxOBB": [
+     10.8442383,
+     8.55987549
+    ]
+   },
+   {
+    "ilha": "Caminho (3, -5)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5211829,
+    "escalaDoModeloInterno": 1.12579262,
+    "localBoundsSize": [
+     0.495674372,
+     0.144422159,
+     0.5211829
+    ],
+    "boundsMundoAABB": [
+     0.632468641,
+     0.144422159,
+     0.648846149
+    ],
+    "baseYRelativaAoTopoDoTile": 7.450581e-09,
+    "pxAABB": [
+     20.1053467,
+     12.8281555
+    ],
+    "pxOBB": [
+     15.0511475,
+     10.4246826
+    ]
+   },
+   {
+    "ilha": "Caminho (3, -5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.474925578,
+    "escalaDoModeloInterno": 0.4275647,
+    "localBoundsSize": [
+     0.183380961,
+     0.133740991,
+     0.474925578
+    ],
+    "boundsMundoAABB": [
+     0.507073641,
+     0.133740991,
+     0.307183027
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.7767334,
+     8.958496
+    ],
+    "pxOBB": [
+     11.19043,
+     6.90444946
+    ]
+   },
+   {
+    "ilha": "Caminho (3, -5)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4768359,
+    "escalaDoModeloInterno": 0.429283947,
+    "localBoundsSize": [
+     0.184117764,
+     0.134278759,
+     0.4768359
+    ],
+    "boundsMundoAABB": [
+     0.455890417,
+     0.134278759,
+     0.477555722
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.6467285,
+     9.903961
+    ],
+    "pxOBB": [
+     4.633911,
+     7.97085571
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -5)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.326030225,
+    "escalaDoModeloInterno": 2.22960854,
+    "localBoundsSize": [
+     0.3100108,
+     0.256774664,
+     0.326030225
+    ],
+    "boundsMundoAABB": [
+     0.346861333,
+     0.256774664,
+     0.3319981
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     10.6521,
+     10.2606506
+    ],
+    "pxOBB": [
+     9.93835449,
+     9.921356
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -5)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.375687361,
+    "escalaDoModeloInterno": 0.8115107,
+    "localBoundsSize": [
+     0.3572998,
+     0.104104549,
+     0.375687361
+    ],
+    "boundsMundoAABB": [
+     0.467710972,
+     0.104104541,
+     0.455905527
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.4926758,
+     9.246948
+    ],
+    "pxOBB": [
+     11.02771,
+     7.42532349
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -4)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.345987171,
+    "escalaDoModeloInterno": 0.14298892,
+    "localBoundsSize": [
+     0.170608267,
+     0.345987171,
+     0.1731048
+    ],
+    "boundsMundoAABB": [
+     0.242954135,
+     0.345987171,
+     0.2428309
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     7.62255859,
+     10.4603882
+    ],
+    "pxOBB": [
+     3.91772461,
+     8.634644
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4029675,
+    "escalaDoModeloInterno": 0.8704389,
+    "localBoundsSize": [
+     0.383245021,
+     0.111664139,
+     0.4029675
+    ],
+    "boundsMundoAABB": [
+     0.4530933,
+     0.111664139,
+     0.468690336
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     14.4638672,
+     9.377869
+    ],
+    "pxOBB": [
+     12.0509033,
+     8.230438
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -4)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.543343365,
+    "escalaDoModeloInterno": 0.224551916,
+    "localBoundsSize": [
+     0.267924368,
+     0.543343365,
+     0.27184546
+    ],
+    "boundsMundoAABB": [
+     0.2854947,
+     0.543343365,
+     0.281784236
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     8.901245,
+     14.8924561
+    ],
+    "pxOBB": [
+     8.454712,
+     14.6724548
+    ]
+   },
+   {
+    "ilha": "Caminho (4, -4)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.560578346,
+    "escalaDoModeloInterno": 0.231674746,
+    "localBoundsSize": [
+     0.276423,
+     0.560578346,
+     0.2804684
+    ],
+    "boundsMundoAABB": [
+     0.391923159,
+     0.560578346,
+     0.391325146
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.2902832,
+     16.9181519
+    ],
+    "pxOBB": [
+     6.83105469,
+     14.1485291
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -4)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.309115618,
+    "escalaDoModeloInterno": 2.11393476,
+    "localBoundsSize": [
+     0.2939278,
+     0.243452981,
+     0.309115618
+    ],
+    "boundsMundoAABB": [
+     0.342632145,
+     0.243452981,
+     0.329407752
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     10.5450439,
+     9.951141
+    ],
+    "pxOBB": [
+     9.362915,
+     9.389099
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.464143246,
+    "escalaDoModeloInterno": 1.00258219,
+    "localBoundsSize": [
+     0.441427976,
+     0.128616124,
+     0.464143246
+    ],
+    "boundsMundoAABB": [
+     0.6318667,
+     0.128616124,
+     0.6363379
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.8996582,
+     12.4215088
+    ],
+    "pxOBB": [
+     11.5626221,
+     8.038513
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.35865134,
+    "escalaDoModeloInterno": 0.7747115,
+    "localBoundsSize": [
+     0.341097,
+     0.099383764,
+     0.35865134
+    ],
+    "boundsMundoAABB": [
+     0.3975467,
+     0.099383764,
+     0.382263154
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     12.2362061,
+     8.028015
+    ],
+    "pxOBB": [
+     10.864502,
+     7.37573242
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -4)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5405724,
+    "escalaDoModeloInterno": 1.16767347,
+    "localBoundsSize": [
+     0.514114857,
+     0.149794847,
+     0.5405724
+    ],
+    "boundsMundoAABB": [
+     0.7333679,
+     0.149794847,
+     0.72558856
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     22.8927,
+     14.3251343
+    ],
+    "pxOBB": [
+     14.1054688,
+     9.705322
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -3)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.417684466,
+    "escalaDoModeloInterno": 0.376031071,
+    "localBoundsSize": [
+     0.161278516,
+     0.117621422,
+     0.417684466
+    ],
+    "boundsMundoAABB": [
+     0.3226874,
+     0.117621414,
+     0.4467083
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     12.0727539,
+     8.296814
+    ],
+    "pxOBB": [
+     9.933838,
+     5.52703857
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -3)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.6497665,
+    "escalaDoModeloInterno": 0.268534273,
+    "localBoundsSize": [
+     0.3204022,
+     0.6497665,
+     0.325090945
+    ],
+    "boundsMundoAABB": [
+     0.3625275,
+     0.6497665,
+     0.366518319
+    ],
+    "baseYRelativaAoTopoDoTile": 2.98023224e-08,
+    "pxAABB": [
+     11.4394531,
+     18.2068481
+    ],
+    "pxOBB": [
+     10.0197754,
+     17.5071411
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -3)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.319989383,
+    "escalaDoModeloInterno": 0.288078785,
+    "localBoundsSize": [
+     0.12355648,
+     0.0901102,
+     0.319989383
+    ],
+    "boundsMundoAABB": [
+     0.177243441,
+     0.0901102,
+     0.336582422
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     8.0625,
+     5.76293945
+    ],
+    "pxOBB": [
+     6.31896973,
+     5.42633057
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -2)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.461988121,
+    "escalaDoModeloInterno": 3.15937328,
+    "localBoundsSize": [
+     0.439288378,
+     0.363851756,
+     0.461988121
+    ],
+    "boundsMundoAABB": [
+     0.619736552,
+     0.363851756,
+     0.6114278
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.3184814,
+     16.6516113
+    ],
+    "pxOBB": [
+     12.425415,
+     13.0271
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -2)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.371620238,
+    "escalaDoModeloInterno": 2.54138,
+    "localBoundsSize": [
+     0.353360236,
+     0.292680055,
+     0.371620238
+    ],
+    "boundsMundoAABB": [
+     0.5118752,
+     0.292680055,
+     0.512776434
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     16.0780029,
+     13.6636353
+    ],
+    "pxOBB": [
+     8.12439,
+     9.882263
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -2)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.48461324,
+    "escalaDoModeloInterno": 2.4040215,
+    "localBoundsSize": [
+     0.460895538,
+     0.31638056,
+     0.48461324
+    ],
+    "boundsMundoAABB": [
+     0.6181568,
+     0.31638056,
+     0.630177557
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.58789,
+     15.8740234
+    ],
+    "pxOBB": [
+     13.704834,
+     12.781189
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -2)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.375040472,
+    "escalaDoModeloInterno": 0.3376397,
+    "localBoundsSize": [
+     0.144812331,
+     0.10561271,
+     0.375040472
+    ],
+    "boundsMundoAABB": [
+     0.388531178,
+     0.1056127,
+     0.337597549
+    ],
+    "baseYRelativaAoTopoDoTile": -3.7252903e-09,
+    "pxAABB": [
+     11.3939209,
+     7.72650146
+    ],
+    "pxOBB": [
+     4.475952,
+     6.390869
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -1)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5705534,
+    "escalaDoModeloInterno": 0.5136566,
+    "localBoundsSize": [
+     0.2203047,
+     0.16067028,
+     0.5705534
+    ],
+    "boundsMundoAABB": [
+     0.325122982,
+     0.16067028,
+     0.6021065
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     14.5494385,
+     10.3623657
+    ],
+    "pxOBB": [
+     11.1329346,
+     9.702759
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -1)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.427255452,
+    "escalaDoModeloInterno": 2.11948919,
+    "localBoundsSize": [
+     0.406344175,
+     0.278934777,
+     0.427255452
+    ],
+    "boundsMundoAABB": [
+     0.583247662,
+     0.278934777,
+     0.586851656
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     18.36023,
+     14.5406494
+    ],
+    "pxOBB": [
+     10.5092773,
+     10.413208
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -1)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.398761541,
+    "escalaDoModeloInterno": 0.1647994,
+    "localBoundsSize": [
+     0.1966302,
+     0.398761541,
+     0.19950825
+    ],
+    "boundsMundoAABB": [
+     0.2526552,
+     0.398761541,
+     0.250871181
+    ],
+    "baseYRelativaAoTopoDoTile": -1.49011612e-08,
+    "pxAABB": [
+     7.900879,
+     11.6137085
+    ],
+    "pxOBB": [
+     5.86242676,
+     10.6092529
+    ]
+   },
+   {
+    "ilha": "Caminho (5, -1)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.5403123,
+    "escalaDoModeloInterno": 3.69500279,
+    "localBoundsSize": [
+     0.513763368,
+     0.425537944,
+     0.5403123
+    ],
+    "boundsMundoAABB": [
+     0.72480464,
+     0.425537944,
+     0.7150872
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     22.5936279,
+     19.4747314
+    ],
+    "pxOBB": [
+     14.5319824,
+     15.2355957
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 0)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4751789,
+    "escalaDoModeloInterno": 1.02642119,
+    "localBoundsSize": [
+     0.4519222,
+     0.1316743,
+     0.4751789
+    ],
+    "boundsMundoAABB": [
+     0.617911,
+     0.1316743,
+     0.6061241
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.206665,
+     12.1337891
+    ],
+    "pxOBB": [
+     13.1412354,
+     9.249512
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 0)",
+    "fonte": "TroncoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.616112947,
+    "escalaDoModeloInterno": 0.554672241,
+    "localBoundsSize": [
+     0.237895817,
+     0.173499852,
+     0.616112947
+    ],
+    "boundsMundoAABB": [
+     0.6462821,
+     0.173499852,
+     0.5350745
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     18.5369873,
+     12.6027222
+    ],
+    "pxOBB": [
+     14.4708252,
+     7.33734131
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 0)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.516445756,
+    "escalaDoModeloInterno": 1.34602475,
+    "localBoundsSize": [
+     0.44747895,
+     0.324984461,
+     0.516445756
+    ],
+    "boundsMundoAABB": [
+     0.682883859,
+     0.324984461,
+     0.67948
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     21.3770752,
+     16.93396
+    ],
+    "pxOBB": [
+     10.3238525,
+     12.1453857
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 0)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.3434794,
+    "escalaDoModeloInterno": 0.8952191,
+    "localBoundsSize": [
+     0.297611117,
+     0.21614185,
+     0.3434794
+    ],
+    "boundsMundoAABB": [
+     0.342517585,
+     0.21614185,
+     0.381555945
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     11.3615723,
+     9.834534
+    ],
+    "pxOBB": [
+     10.0617676,
+     9.084473
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 1)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.583744764,
+    "escalaDoModeloInterno": 1.52142727,
+    "localBoundsSize": [
+     0.5057912,
+     0.36733368,
+     0.583744764
+    ],
+    "boundsMundoAABB": [
+     0.7664765,
+     0.36733368,
+     0.7722461
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     24.14441,
+     19.13153
+    ],
+    "pxOBB": [
+     13.5233154,
+     13.0025024
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 1)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.49075073,
+    "escalaDoModeloInterno": 3.356075,
+    "localBoundsSize": [
+     0.4666375,
+     0.386505067,
+     0.49075073
+    ],
+    "boundsMundoAABB": [
+     0.625900567,
+     0.386505067,
+     0.6381215
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     19.8341064,
+     17.3447876
+    ],
+    "pxOBB": [
+     13.8776855,
+     14.2127075
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 1)",
+    "fonte": "Arvore",
+    "ativo": true,
+    "tamanhoNormalizado": 0.367233753,
+    "escalaDoModeloInterno": 0.151769668,
+    "localBoundsSize": [
+     0.181084558,
+     0.367233753,
+     0.183734462
+    ],
+    "boundsMundoAABB": [
+     0.226890132,
+     0.367233753,
+     0.228649646
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     7.147949,
+     10.6313477
+    ],
+    "pxOBB": [
+     5.462158,
+     9.800659
+    ]
+   },
+   {
+    "ilha": "Caminho (4, 1)",
+    "fonte": "CepoDeMadeira",
+    "ativo": true,
+    "tamanhoNormalizado": 0.467875659,
+    "escalaDoModeloInterno": 1.01064467,
+    "localBoundsSize": [
+     0.4449761,
+     0.129650414,
+     0.467875659
+    ],
+    "boundsMundoAABB": [
+     0.5501668,
+     0.129650429,
+     0.532528758
+    ],
+    "baseYRelativaAoTopoDoTile": -7.450581e-09,
+    "pxAABB": [
+     16.98877,
+     10.9859619
+    ],
+    "pxOBB": [
+     13.9359131,
+     9.534302
+    ]
+   },
+   {
+    "ilha": "Caminho (3, 2)",
+    "fonte": "Pedra",
+    "ativo": true,
+    "tamanhoNormalizado": 0.4477895,
+    "escalaDoModeloInterno": 1.16708457,
+    "localBoundsSize": [
+     0.387991965,
+     0.2817811,
+     0.4477895
+    ],
+    "boundsMundoAABB": [
+     0.5283514,
+     0.2817811,
+     0.4847961
+    ],
+    "baseYRelativaAoTopoDoTile": 0.0,
+    "pxAABB": [
+     15.897583,
+     13.3639526
+    ],
+    "pxOBB": [
+     12.9517822,
+     11.6641235
+    ]
+   },
+   {
+    "ilha": "Caminho (3, 2)",
+    "fonte": "CogumeloVermelho",
+    "ativo": true,
+    "tamanhoNormalizado": 0.545989037,
+    "escalaDoModeloInterno": 2.70848846,
+    "localBoundsSize": [
+     0.5192659,
+     0.356449842,
+     0.545989037
+    ],
+    "boundsMundoAABB": [
+     0.679727137,
+     0.356449842,
+     0.662570238
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     21.0622559,
+     17.3812866
+    ],
+    "pxOBB": [
+     16.0266113,
+     14.7338867
+    ]
+   },
+   {
+    "ilha": "Caminho (3, 2)",
+    "fonte": "CogumeloMarrom",
+    "ativo": true,
+    "tamanhoNormalizado": 0.486385018,
+    "escalaDoModeloInterno": 3.32621217,
+    "localBoundsSize": [
+     0.462484926,
+     0.383065879,
+     0.486385018
+    ],
+    "boundsMundoAABB": [
+     0.6324434,
+     0.383065879,
+     0.6203313
+    ],
+    "baseYRelativaAoTopoDoTile": 1.49011612e-08,
+    "pxAABB": [
+     19.6575928,
+     17.19043
+    ],
+    "pxOBB": [
+     13.7542725,
+     14.0862427
+    ]
+   }
+  ],
+  "modeloDaIlhaTamanhoPedido_diametro": 4.2,
+  "lucca": {
+   "pos": [
+    -5.196152,
+    0.0,
+    -18.0
+   ],
+   "lossyScale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "casa": "(1, -4)",
+   "renderers": [
+    {
+     "nome": "Corpo",
+     "tipo": "MeshRenderer",
+     "enabled": true,
+     "ativo": true,
+     "size": [
+      0.683012843,
+      1.0,
+      0.683012843
+     ],
+     "min": [
+      -5.53765869,
+      0.0,
+      -18.341507
+     ],
+     "max": [
+      -4.85464573,
+      1.0,
+      -17.658493
+     ],
+     "shader": "Universal Render Pipeline/Lit"
+    },
+    {
+     "nome": "Frente",
+     "tipo": "MeshRenderer",
+     "enabled": true,
+     "ativo": true,
+     "size": [
+      0.278564155,
+      0.16,
+      0.322487116
+     ],
+     "min": [
+      -5.18543434,
+      0.56,
+      -17.9014359
+     ],
+     "max": [
+      -4.90687,
+      0.719999969,
+      -17.578949
+     ],
+     "shader": "Universal Render Pipeline/Lit"
+    }
+   ],
+   "boundsUniao": {
+    "size": [
+     0.683012962,
+     1.0,
+     0.762558
+    ],
+    "min": [
+     -5.53765869,
+     0.0,
+     -18.341507
+    ],
+    "max": [
+     -4.85464573,
+     1.0,
+     -17.578949
+    ],
+    "baseRelativaAoPivo": 0.0
+   },
+   "px": [
+    22.68274,
+    30.5590515
+   ],
+   "agenteRaio": 0.2,
+   "agenteAltura": 1.0,
+   "agenteBaseOffset": 0.0
+  },
+  "inimigosVivosAntes": 0,
+  "inimigos": [
+   {
+    "def": "Morcego",
+    "escalaDef": 0.38,
+    "voa": true,
+    "alturaDeVoo": 1.1,
+    "prefab": "-",
+    "pos": [
+     -5.196152,
+     1.1,
+     18.0
+    ],
+    "alturaAcimaDoTopoDoTile": 1.1,
+    "boundsSize": [
+     0.38,
+     0.38,
+     0.38
+    ],
+    "baseRelativaAoPivo": -0.19,
+    "px": [
+     11.925354,
+     13.26532
+    ],
+    "renderers": 1,
+    "usaSkinned": false
+   },
+   {
+    "def": "Lobo",
+    "escalaDef": 1.1,
+    "voa": false,
+    "alturaDeVoo": 1.1,
+    "prefab": "Lobo (1)",
+    "pos": [
+     -18.186533,
+     0.03333336,
+     4.5
+    ],
+    "alturaAcimaDoTopoDoTile": 0.03333336,
+    "boundsSize": [
+     3.85751724,
+     7.64757156,
+     14.1256018
+    ],
+    "baseRelativaAoPivo": -2.08786345,
+    "px": [
+     282.1768,
+     288.057251
+    ],
+    "renderers": 2,
+    "usaSkinned": true
+   }
+  ],
+  "modelosDeCartaNoJogo": [
+   {
+    "carta": "Coracao",
+    "prefab": "Coracao",
+    "tamanhoDoModelo": 0.9,
+    "alturaDoModelo": 0.35,
+    "girar": true,
+    "boundsSize": [
+     0.9000008,
+     0.8131026,
+     0.187500179
+    ],
+    "baseAcimaDoTopoDoTile": 0.350000024,
+    "px": [
+     17.0643311,
+     24.15802
+    ]
+   },
+   {
+    "carta": "Flechas",
+    "prefab": "Flecha",
+    "tamanhoDoModelo": 0.9,
+    "alturaDoModelo": 0.35,
+    "girar": true,
+    "boundsSize": [
+     0.557583,
+     0.8999999,
+     0.865454555
+    ],
+    "baseAcimaDoTopoDoTile": 0.35,
+    "px": [
+     22.3291016,
+     28.46051
+    ]
+   },
+   {
+    "carta": "Moedas",
+    "prefab": "Moeda",
+    "tamanhoDoModelo": 0.9,
+    "alturaDoModelo": 0.35,
+    "girar": true,
+    "boundsSize": [
+     0.697844267,
+     0.900000036,
+     0.126048267
+    ],
+    "baseAcimaDoTopoDoTile": 0.349999934,
+    "px": [
+     12.9279175,
+     23.7598267
+    ]
+   },
+   {
+    "carta": "Mola",
+    "prefab": "Mola",
+    "tamanhoDoModelo": 0.95,
+    "alturaDoModelo": 0.03,
+    "girar": false,
+    "boundsSize": [
+     0.863636,
+     0.950000048,
+     0.863636
+    ],
+    "baseAcimaDoTopoDoTile": 0.0299999714,
+    "px": [
+     27.1029663,
+     31.8082886
+    ]
+   }
+  ]
+ },
+ "camera": {
+  "seed": 7,
+  "centro": [
+   0.5196151,
+   0.0,
+   -0.3
+  ],
+  "aspectos": [
+   {
+    "resolucao": "1920x1080",
+    "aspect": 1.77777779,
+    "orthoSizeReal_Enquadrar": 24.3345032,
+    "margem": 1.3,
+    "folga": 3.0,
+    "A_todos_renderers": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "B_sem_decoracoes": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "C_so_modelo_da_ilha": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "D_so_hex_mesh": {
+     "maiorX": 25.9419765,
+     "maiorY": 13.1855946,
+     "comFolgaX": 28.9419765,
+     "comFolgaY": 16.1855946,
+     "orthoSize": 21.1638184,
+     "limitadoPor": "largura(X)"
+    },
+    "E_so_decoracoes": {
+     "maiorX": 25.2526436,
+     "maiorY": 12.1364393,
+     "comFolgaX": 28.2526436,
+     "comFolgaY": 15.1364393,
+     "orthoSize": 20.6597443,
+     "limitadoPor": "largura(X)"
+    }
+   },
+   {
+    "resolucao": "2520x1080",
+    "aspect": 2.33333325,
+    "orthoSizeReal_Enquadrar": 24.3345032,
+    "margem": 1.3,
+    "folga": 3.0,
+    "A_todos_renderers": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "B_sem_decoracoes": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "C_so_modelo_da_ilha": {
+     "maiorX": 26.06637,
+     "maiorY": 15.71885,
+     "comFolgaX": 29.06637,
+     "comFolgaY": 18.71885,
+     "orthoSize": 24.3345032,
+     "limitadoPor": "altura(Y)"
+    },
+    "D_so_hex_mesh": {
+     "maiorX": 25.9419765,
+     "maiorY": 13.1855946,
+     "comFolgaX": 28.9419765,
+     "comFolgaY": 16.1855946,
+     "orthoSize": 21.0412712,
+     "limitadoPor": "altura(Y)"
+    },
+    "E_so_decoracoes": {
+     "maiorX": 25.2526436,
+     "maiorY": 12.1364393,
+     "comFolgaX": 28.2526436,
+     "comFolgaY": 15.1364393,
+     "orthoSize": 19.67737,
+     "limitadoPor": "altura(Y)"
+    }
+   }
+  ]
+ },
+ "fundo_1920x1080": {
+  "seed": 7,
+  "resolucao": "1920x1080",
+  "anel": {
+   "centro": [
+    0.5196151,
+    0.0,
+    -0.3
+   ],
+   "raioMaxIlhasCentroXZ": 24.2684975,
+   "boundsMin": [
+    -25.3772583,
+    -3.45333362,
+    -24.6000023
+   ],
+   "boundsMax": [
+    25.3772583,
+    0.6497667,
+    24.6000023
+   ],
+   "ySuperiorDasIlhas": 0.649766564,
+   "yInferiorDasIlhas": -3.45333362,
+   "profundidadeCamZ_centroDosRenderers_min": 52.5098572,
+   "profundidadeCamZ_max": 93.6381
+  },
+  "camera": {
+   "pos": [
+    -44.1857224,
+    36.50175,
+    -45.0053329
+   ],
+   "orthoSize": 24.3345032,
+   "forward": [
+    0.612372458,
+    -0.49999997,
+    0.6123724
+   ]
+  },
+  "cenarioFilhos": [
+   {
+    "nome": "Arvore (22)",
+    "posMundo": [
+     58.9804535,
+     -25.7557354,
+     55.8687325
+    ],
+    "boundsSize": [
+     2.85167718,
+     6.376702,
+     3.27752757
+    ],
+    "yMin": -29.7882652,
+    "yMax": -23.4115639,
+    "camZ": 156.414886,
+    "distXZ_aoCentroDoAnel": 81.07155,
+    "telaPx_min": [
+     948.4128,
+     841.7482
+    ],
+    "telaPx_max": [
+     1044.5874,
+     1012.38123
+    ]
+   },
+   {
+    "nome": "Arvore (1)",
+    "posMundo": [
+     27.6412849,
+     -16.5370979,
+     83.67171
+    ],
+    "boundsSize": [
+     3.06785631,
+     5.430424,
+     2.06044316
+    ],
+    "yMin": -19.9615688,
+    "yMax": -14.5311451,
+    "camZ": 149.586044,
+    "distXZ_aoCentroDoAnel": 88.2430344,
+    "telaPx_min": [
+     25.9045029,
+     1006.94952
+    ],
+    "telaPx_max": [
+     106.373634,
+     1151.54443
+    ]
+   },
+   {
+    "nome": "Arvore (33)",
+    "posMundo": [
+     27.6412849,
+     -26.04685,
+     -14.4495449
+    ],
+    "boundsSize": [
+     3.06785631,
+     5.430424,
+     2.06044316
+    ],
+    "yMin": -29.4713211,
+    "yMax": -24.0408974,
+    "camZ": 94.25417,
+    "distXZ_aoCentroDoAnel": 30.59076,
+    "telaPx_min": [
+     1565.545,
+     54.3735046
+    ],
+    "telaPx_max": [
+     1646.01428,
+     198.968491
+    ]
+   },
+   {
+    "nome": "Arvore (46)",
+    "posMundo": [
+     -49.3913879,
+     -15.3660564,
+     4.26709557
+    ],
+    "boundsSize": [
+     3.06785631,
+     5.430424,
+     2.06044316
+    ],
+    "yMin": -18.7905273,
+    "yMax": -13.3601036,
+    "camZ": 53.2026443,
+    "distXZ_aoCentroDoAnel": 50.1195221,
+    "telaPx_min": [
+     63.1232643,
+     -197.890381
+    ],
+    "telaPx_max": [
+     143.592392,
+     -53.2953873
+    ]
+   },
+   {
+    "nome": "Arvore (13)",
+    "posMundo": [
+     45.7908249,
+     -23.3177032,
+     57.1690979
+    ],
+    "boundsSize": [
+     2.41066241,
+     5.39053726,
+     2.7706542
+    ],
+    "yMin": -26.7265968,
+    "yMax": -21.33606,
+    "camZ": 147.863,
+    "distXZ_aoCentroDoAnel": 73.15859,
+    "telaPx_min": [
+     728.40155,
+     811.194
+    ],
+    "telaPx_max": [
+     809.7026,
+     955.438354
+    ]
+   },
+   {
+    "nome": "Arvore (34)",
+    "posMundo": [
+     45.7908249,
+     -25.7493382,
+     -40.9521561
+    ],
+    "boundsSize": [
+     2.41066241,
+     5.39053726,
+     2.7706542
+    ],
+    "yMin": -29.1582317,
+    "yMax": -23.7676945,
+    "camZ": 88.99208,
+    "distXZ_aoCentroDoAnel": 60.8447227,
+    "telaPx_min": [
+     2268.04224,
+     -5.35660744
+    ],
+    "telaPx_max": [
+     2349.343,
+     138.887741
+    ]
+   },
+   {
+    "nome": "Arvore (47)",
+    "posMundo": [
+     -31.2418537,
+     -19.1880226,
+     -22.2355175
+    ],
+    "boundsSize": [
+     2.41066241,
+     5.39053726,
+     2.7706542
+    ],
+    "yMin": -22.5969162,
+    "yMax": -17.2063789,
+    "camZ": 50.0002861,
+    "distXZ_aoCentroDoAnel": 38.59997,
+    "telaPx_min": [
+     765.6202,
+     -336.787659
+    ],
+    "telaPx_max": [
+     846.921265,
+     -192.543167
+    ]
+   },
+   {
+    "nome": "Arvore (2)",
+    "posMundo": [
+     67.6527939,
+     -18.7477074,
+     80.06235
+    ],
+    "boundsSize": [
+     5.771746,
+     10.21659,
+     3.87643743
+    ],
+    "yMin": -25.1903744,
+    "yMax": -14.9737835,
+    "camZ": 173.232864,
+    "distXZ_aoCentroDoAnel": 104.71376,
+    "telaPx_min": [
+     673.3073,
+     1173.52649
+    ],
+    "telaPx_max": [
+     824.6988,
+     1445.56189
+    ]
+   },
+   {
+    "nome": "Arvore (3)",
+    "posMundo": [
+     78.53232,
+     -20.30051,
+     80.06235
+    ],
+    "boundsSize": [
+     5.771746,
+     10.21659,
+     3.87643743
+    ],
+    "yMin": -26.7431774,
+    "yMax": -16.5265865,
+    "camZ": 180.671585,
+    "distXZ_aoCentroDoAnel": 112.0004,
+    "telaPx_min": [
+     844.0201,
+     1229.0415
+    ],
+    "telaPx_max": [
+     995.41156,
+     1501.077
+    ]
+   },
+   {
+    "nome": "Arvore (4)",
+    "posMundo": [
+     37.79888,
+     -20.0835533,
+     67.2236252
+    ],
+    "boundsSize": [
+     3.165241,
+     5.602805,
+     2.12584877
+    ],
+    "yMin": -23.61673,
+    "yMax": -18.0139236,
+    "camZ": 147.516159,
+    "distXZ_aoCentroDoAnel": 77.13095,
+    "telaPx_min": [
+     442.0448,
+     886.6854
+    ],
+    "telaPx_max": [
+     525.0683,
+     1035.87036
+    ]
+   },
+   {
+    "nome": "Arvore (35)",
+    "posMundo": [
+     37.79888,
+     -25.2819862,
+     -30.8976269
+    ],
+    "boundsSize": [
+     3.165241,
+     5.602805,
+     2.12584877
+    ],
+    "yMin": -28.8151627,
+    "yMax": -23.2123566,
+    "camZ": 90.0286255,
+    "distXZ_aoCentroDoAnel": 48.22819,
+    "telaPx_min": [
+     1981.68555,
+     16.9632874
+    ],
+    "telaPx_max": [
+     2064.70874,
+     166.148132
+    ]
+   },
+   {
+    "nome": "Arvore (48)",
+    "posMundo": [
+     -39.2338028,
+     -18.3504486,
+     -12.18099
+    ],
+    "boundsSize": [
+     3.165241,
+     5.602805,
+     2.12584877
+    ],
+    "yMin": -21.883625,
+    "yMax": -16.2808189,
+    "camZ": 50.85171,
+    "distXZ_aoCentroDoAnel": 41.4908676,
+    "telaPx_min": [
+     479.2634,
+     -307.352966
+    ],
+    "telaPx_max": [
+     562.2869,
+     -158.167984
+    ]
+   },
+   {
+    "nome": "Arvore (14)",
+    "posMundo": [
+     62.31318,
+     -24.1945915,
+     67.1761
+    ],
+    "boundsSize": [
+     2.48718548,
+     5.56165266,
+     2.85860467
+    ],
+    "yMin": -27.7116966,
+    "yMax": -22.1500435,
+    "camZ": 164.556366,
+    "distXZ_aoCentroDoAnel": 91.4957352,
+    "telaPx_min": [
+     829.3592,
+     999.7271
+    ],
+    "telaPx_max": [
+     913.241,
+     1148.55042
+    ]
+   },
+   {
+    "nome": "Arvore (5)",
+    "posMundo": [
+     -10.61731,
+     -22.8803787,
+     31.3884182
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -27.0451756,
+    "yMax": -20.4407635,
+    "camZ": 97.37362,
+    "distXZ_aoCentroDoAnel": 33.5884933,
+    "telaPx_min": [
+     236.878281,
+     155.916946
+    ],
+    "telaPx_max": [
+     334.743866,
+     331.7715
+    ]
+   },
+   {
+    "nome": "Arvore (36)",
+    "posMundo": [
+     -9.742201,
+     -27.647316,
+     -57.8477554
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -31.8121128,
+    "yMax": -25.2077,
+    "camZ": 45.64721,
+    "distXZ_aoCentroDoAnel": 58.4555321,
+    "telaPx_min": [
+     1650.83276,
+     -628.9384
+    ],
+    "telaPx_max": [
+     1748.69836,
+     -453.0838
+    ]
+   },
+   {
+    "nome": "Arvore (29)",
+    "posMundo": [
+     71.93247,
+     -26.1101532,
+     48.0942459
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -30.27495,
+    "yMax": -23.6705379,
+    "camZ": 159.769913,
+    "distXZ_aoCentroDoAnel": 86.26586,
+    "telaPx_min": [
+     1270.04907,
+     872.568054
+    ],
+    "telaPx_max": [
+     1367.91479,
+     1048.42261
+    ]
+   },
+   {
+    "nome": "Arvore (24)",
+    "posMundo": [
+     83.22443,
+     -24.4565086,
+     14.8887224
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -28.6213055,
+    "yMax": -22.0168934,
+    "camZ": 145.523819,
+    "distXZ_aoCentroDoAnel": 84.08795,
+    "telaPx_min": [
+     1968.268,
+     732.4223
+    ],
+    "telaPx_max": [
+     2066.13379,
+     908.276855
+    ]
+   },
+   {
+    "nome": "Arvore (23)",
+    "posMundo": [
+     49.4516373,
+     -18.6097,
+     76.71089
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -22.7744961,
+    "yMax": -16.170084,
+    "camZ": 159.777084,
+    "distXZ_aoCentroDoAnel": 91.2415543,
+    "telaPx_min": [
+     468.268036,
+     1064.84875
+    ],
+    "telaPx_max": [
+     566.133667,
+     1240.70337
+    ]
+   },
+   {
+    "nome": "Arvore (37)",
+    "posMundo": [
+     49.4516373,
+     -22.5118637,
+     -21.4103565
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -26.67666,
+    "yMax": -20.0722485,
+    "camZ": 101.641418,
+    "distXZ_aoCentroDoAnel": 53.2915573,
+    "telaPx_min": [
+     2007.90845,
+     220.037949
+    ],
+    "telaPx_max": [
+     2105.77417,
+     395.892548
+    ]
+   },
+   {
+    "nome": "Arvore (50)",
+    "posMundo": [
+     -27.5810413,
+     -17.66193,
+     -2.69371986
+    ],
+    "boundsSize": [
+     3.73108745,
+     6.60441256,
+     2.50588465
+    ],
+    "yMin": -21.8267269,
+    "yMax": -15.2223148,
+    "camZ": 63.50531,
+    "distXZ_aoCentroDoAnel": 28.202425,
+    "telaPx_min": [
+     505.4867,
+     -144.281815
+    ],
+    "telaPx_max": [
+     603.3523,
+     31.5726471
+    ]
+   },
+   {
+    "nome": "Arvore (15)",
+    "posMundo": [
+     97.5902557,
+     -24.83815,
+     18.2955666
+    ],
+    "boundsSize": [
+     2.93181729,
+     6.55590439,
+     3.36963487
+    ],
+    "yMin": -28.984005,
+    "yMax": -22.4281,
+    "camZ": 156.600388,
+    "distXZ_aoCentroDoAnel": 98.83575,
+    "telaPx_min": [
+     2142.47852,
+     864.631165
+    ],
+    "telaPx_max": [
+     2241.3562,
+     1040.05945
+    ]
+   },
+   {
+    "nome": "Arvore (6)",
+    "posMundo": [
+     27.4349976,
+     -20.8426151,
+     61.70652
+    ],
+    "boundsSize": [
+     4.037163,
+     7.14619732,
+     2.71145153
+    ],
+    "yMin": -25.3490658,
+    "yMax": -18.2028675,
+    "camZ": 138.251175,
+    "distXZ_aoCentroDoAnel": 67.5962,
+    "telaPx_min": [
+     354.042,
+     722.82135
+    ],
+    "telaPx_max": [
+     459.93576,
+     913.101868
+    ]
+   },
+   {
+    "nome": "Arvore (38)",
+    "posMundo": [
+     27.4349976,
+     -25.0768147,
+     -36.4147339
+    ],
+    "boundsSize": [
+     4.037163,
+     7.14619732,
+     2.71145153
+    ],
+    "yMin": -29.5832653,
+    "yMax": -22.437067,
+    "camZ": 80.2815247,
+    "distXZ_aoCentroDoAnel": 45.0412254,
+    "telaPx_min": [
+     1893.6825,
+     -128.370483
+    ],
+    "telaPx_max": [
+     1999.57629,
+     61.91004
+    ]
+   },
+   {
+    "nome": "Arvore (51)",
+    "posMundo": [
+     -49.59768,
+     -18.19962,
+     -17.6980915
+    ],
+    "boundsSize": [
+     4.037163,
+     7.14619732,
+     2.71145153
+    ],
+    "yMin": -22.70607,
+    "yMax": -15.5598717,
+    "camZ": 41.13179,
+    "distXZ_aoCentroDoAnel": 53.0512657,
+    "telaPx_min": [
+     391.260559,
+     -453.730957
+    ],
+    "telaPx_max": [
+     497.15448,
+     -263.450378
+    ]
+   },
+   {
+    "nome": "Arvore (25)",
+    "posMundo": [
+     121.276726,
+     -26.7655,
+     45.2068253
+    ],
+    "boundsSize": [
+     4.037163,
+     7.14619732,
+     2.71145153
+    ],
+    "yMin": -31.27195,
+    "yMax": -24.1257515,
+    "camZ": 188.574753,
+    "distXZ_aoCentroDoAnel": 129.047089,
+    "telaPx_min": [
+     2085.43164,
+     1215.79187
+    ],
+    "telaPx_max": [
+     2191.32544,
+     1406.07251
+    ]
+   },
+   {
+    "nome": "Arvore (16)",
+    "posMundo": [
+     67.4567261,
+     -24.3300629,
+     56.99711
+    ],
+    "boundsSize": [
+     3.17232513,
+     7.093709,
+     3.64605832
+    ],
+    "yMin": -28.8160172,
+    "yMax": -21.72231,
+    "camZ": 161.621628,
+    "distXZ_aoCentroDoAnel": 88.11092,
+    "telaPx_min": [
+     1058.36328,
+     932.9616
+    ],
+    "telaPx_max": [
+     1165.35181,
+     1122.78076
+    ]
+   },
+   {
+    "nome": "Arvore (7)",
+    "posMundo": [
+     36.7159767,
+     -15.53157,
+     80.9389648
+    ],
+    "boundsSize": [
+     3.46206284,
+     6.12821054,
+     2.325201
+    ],
+    "yMin": -19.39607,
+    "yMax": -13.2678595,
+    "camZ": 153.003342,
+    "distXZ_aoCentroDoAnel": 88.93788,
+    "telaPx_min": [
+     205.774048,
+     1064.87146
+    ],
+    "telaPx_max": [
+     296.5832,
+     1228.04626
+    ]
+   },
+   {
+    "nome": "Arvore (39)",
+    "posMundo": [
+     36.7159767,
+     -25.5751114,
+     -17.182291
+    ],
+    "boundsSize": [
+     3.46206284,
+     6.12821054,
+     2.325201
+    ],
+    "yMin": -29.4396114,
+    "yMax": -23.3114,
+    "camZ": 97.93836,
+    "distXZ_aoCentroDoAnel": 39.9398079,
+    "telaPx_min": [
+     1745.41467,
+     102.037216
+    ],
+    "telaPx_max": [
+     1836.22388,
+     265.212036
+    ]
+   },
+   {
+    "nome": "Arvore (52)",
+    "posMundo": [
+     -40.3167038,
+     -15.9205456,
+     1.53434944
+    ],
+    "boundsSize": [
+     3.46206284,
+     6.12821054,
+     2.325201
+    ],
+    "yMin": -19.7850456,
+    "yMax": -13.6568346,
+    "camZ": 57.3999443,
+    "distXZ_aoCentroDoAnel": 40.8775,
+    "telaPx_min": [
+     242.992859,
+     -169.948563
+    ],
+    "telaPx_max": [
+     333.8019,
+     -6.773715
+    ]
+   },
+   {
+    "nome": "Arvore (17)",
+    "posMundo": [
+     48.5964279,
+     -19.0558128,
+     66.24914
+    ],
+    "boundsSize": [
+     2.720422,
+     6.083198,
+     3.12667131
+    ],
+    "yMin": -22.9027367,
+    "yMax": -16.8195381,
+    "camZ": 153.04718,
+    "distXZ_aoCentroDoAnel": 82.098526,
+    "telaPx_min": [
+     624.782532,
+     975.2005
+    ],
+    "telaPx_max": [
+     716.53064,
+     1137.97974
+    ]
+   },
+   {
+    "nome": "Arvore (40)",
+    "posMundo": [
+     48.5964279,
+     -22.42379,
+     -31.8721142
+    ],
+    "boundsSize": [
+     2.720422,
+     6.083198,
+     3.12667131
+    ],
+    "yMin": -26.2707138,
+    "yMax": -20.1875153,
+    "camZ": 94.64442,
+    "distXZ_aoCentroDoAnel": 57.5167656,
+    "telaPx_min": [
+     2164.423,
+     140.655518
+    ],
+    "telaPx_max": [
+     2256.17114,
+     303.434723
+    ]
+   },
+   {
+    "nome": "Arvore (53)",
+    "posMundo": [
+     -28.43625,
+     -17.8187218,
+     -13.1554737
+    ],
+    "boundsSize": [
+     2.720422,
+     6.083198,
+     3.12667131
+    ],
+    "yMin": -21.6656456,
+    "yMax": -15.5824471,
+    "camZ": 56.6307449,
+    "distXZ_aoCentroDoAnel": 31.6813087,
+    "telaPx_min": [
+     662.0013,
+     -228.370041
+    ],
+    "telaPx_max": [
+     753.7492,
+     -65.59083
+    ]
+   },
+   {
+    "nome": "Arvore (8)",
+    "posMundo": [
+     16.55547,
+     -16.60752,
+     74.80315
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -20.658474,
+    "yMax": -14.2345886,
+    "camZ": 137.453613,
+    "distXZ_aoCentroDoAnel": 76.7960358,
+    "telaPx_min": [
+     -16.579628,
+     833.155334
+    ],
+    "telaPx_max": [
+     78.61084,
+     1004.20306
+    ]
+   },
+   {
+    "nome": "Arvore (41)",
+    "posMundo": [
+     16.55547,
+     -27.9410553,
+     -23.3181019
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.99201,
+    "yMax": -25.5681248,
+    "camZ": 83.03363,
+    "distXZ_aoCentroDoAnel": 28.053194,
+    "telaPx_min": [
+     1523.06091,
+     -154.469559
+    ],
+    "telaPx_max": [
+     1618.25134,
+     16.5781765
+    ]
+   },
+   {
+    "nome": "Arvore (18)",
+    "posMundo": [
+     54.44806,
+     -25.806509,
+     46.0548
+    ],
+    "boundsSize": [
+     2.85167718,
+     6.376702,
+     3.27752757
+    ],
+    "yMin": -29.8390388,
+    "yMax": -23.4623375,
+    "camZ": 147.654984,
+    "distXZ_aoCentroDoAnel": 71.1129,
+    "telaPx_min": [
+     1031.2865,
+     728.217
+    ],
+    "telaPx_max": [
+     1127.461,
+     898.849854
+    ]
+   },
+   {
+    "nome": "Arvore (9)",
+    "posMundo": [
+     6.088519,
+     -19.3717232,
+     67.99701
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -23.422678,
+    "yMax": -16.9987926,
+    "camZ": 128.258148,
+    "distXZ_aoCentroDoAnel": 68.52368,
+    "telaPx_min": [
+     -74.02222,
+     644.5159
+    ],
+    "telaPx_max": [
+     21.1683083,
+     815.56366
+    ]
+   },
+   {
+    "nome": "Arvore (42)",
+    "posMundo": [
+     6.088519,
+     -27.3780022,
+     -30.124239
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.428957,
+    "yMax": -25.0050716,
+    "camZ": 72.17454,
+    "distXZ_aoCentroDoAnel": 30.33971,
+    "telaPx_min": [
+     1465.61829,
+     -279.166718
+    ],
+    "telaPx_max": [
+     1560.80884,
+     -108.118988
+    ]
+   },
+   {
+    "nome": "Arvore (30)",
+    "posMundo": [
+     88.6383057,
+     -27.56238,
+     84.70284
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.6133347,
+    "yMax": -25.18945,
+    "camZ": 193.134888,
+    "distXZ_aoCentroDoAnel": 122.435234,
+    "telaPx_min": [
+     959.148438,
+     1265.8302
+    ],
+    "telaPx_max": [
+     1054.33911,
+     1436.878
+    ]
+   },
+   {
+    "nome": "Arvore (26)",
+    "posMundo": [
+     99.93025,
+     -27.6398849,
+     51.4973145
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.69084,
+    "yMax": -25.2669544,
+    "camZ": 179.754364,
+    "distXZ_aoCentroDoAnel": 112.095657,
+    "telaPx_min": [
+     1657.36743,
+     1092.41565
+    ],
+    "telaPx_max": [
+     1752.558,
+     1263.46338
+    ]
+   },
+   {
+    "nome": "Arvore (19)",
+    "posMundo": [
+     60.943428,
+     -25.2820282,
+     35.6902847
+    ],
+    "boundsSize": [
+     2.85167718,
+     6.376702,
+     3.27752757
+    ],
+    "yMin": -29.314558,
+    "yMax": -22.9378567,
+    "camZ": 145.023376,
+    "distXZ_aoCentroDoAnel": 70.33021,
+    "telaPx_min": [
+     1295.83838,
+     707.9405
+    ],
+    "telaPx_max": [
+     1392.01282,
+     878.5735
+    ]
+   },
+   {
+    "nome": "Arvore (10)",
+    "posMundo": [
+     2.01528549,
+     -21.7250557,
+     57.06603
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -25.77601,
+    "yMax": -19.3521252,
+    "camZ": 120.246643,
+    "distXZ_aoCentroDoAnel": 57.38552,
+    "telaPx_min": [
+     33.5841179,
+     481.57312
+    ],
+    "telaPx_max": [
+     128.774582,
+     652.62085
+    ]
+   },
+   {
+    "nome": "Arvore (43)",
+    "posMundo": [
+     2.01528549,
+     -26.9968758,
+     -41.0552139
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.04783,
+    "yMax": -24.6239452,
+    "camZ": 62.7958145,
+    "distXZ_aoCentroDoAnel": 40.78265,
+    "telaPx_min": [
+     1573.22461,
+     -389.5593
+    ],
+    "telaPx_max": [
+     1668.41492,
+     -218.511627
+    ]
+   },
+   {
+    "nome": "Arvore (31)",
+    "posMundo": [
+     84.56507,
+     -25.9562149,
+     73.77186
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -30.00717,
+    "yMax": -23.5832844,
+    "camZ": 183.143631,
+    "distXZ_aoCentroDoAnel": 112.02803,
+    "telaPx_min": [
+     1066.75488,
+     1178.98
+    ],
+    "telaPx_max": [
+     1161.94543,
+     1350.02771
+    ]
+   },
+   {
+    "nome": "Arvore (27)",
+    "posMundo": [
+     95.85702,
+     -28.1287365,
+     40.5663338
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -32.17969,
+    "yMax": -25.755806,
+    "camZ": 170.810623,
+    "distXZ_aoCentroDoAnel": 103.726936,
+    "telaPx_min": [
+     1764.97375,
+     965.3039
+    ],
+    "telaPx_max": [
+     1860.16431,
+     1136.35156
+    ]
+   },
+   {
+    "nome": "Arvore (20)",
+    "posMundo": [
+     71.6442,
+     -24.61635,
+     31.6675625
+    ],
+    "boundsSize": [
+     2.85167718,
+     6.376702,
+     3.27752757
+    ],
+    "yMin": -28.64888,
+    "yMax": -22.2721786,
+    "camZ": 148.78,
+    "distXZ_aoCentroDoAnel": 77.97841,
+    "telaPx_min": [
+     1526.8678,
+     773.126648
+    ],
+    "telaPx_max": [
+     1623.04236,
+     943.759644
+    ]
+   },
+   {
+    "nome": "Arvore (11)",
+    "posMundo": [
+     11.914978,
+     -25.438055,
+     50.62086
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -29.48901,
+    "yMax": -23.0651245,
+    "camZ": 124.218605,
+    "distXZ_aoCentroDoAnel": 52.1803436,
+    "telaPx_min": [
+     290.0547,
+     437.3206
+    ],
+    "telaPx_max": [
+     385.2451,
+     608.3683
+    ]
+   },
+   {
+    "nome": "Arvore (44)",
+    "posMundo": [
+     11.914978,
+     -26.92322,
+     -47.50039
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -30.9741745,
+    "yMax": -24.55029,
+    "camZ": 64.8744354,
+    "distXZ_aoCentroDoAnel": 48.5564728,
+    "telaPx_min": [
+     1829.69507,
+     -361.041016
+    ],
+    "telaPx_max": [
+     1924.88574,
+     -189.993347
+    ]
+   },
+   {
+    "nome": "Arvore (32)",
+    "posMundo": [
+     94.46476,
+     -26.9290352,
+     67.32669
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -30.97999,
+    "yMax": -24.5561047,
+    "camZ": 185.7455,
+    "distXZ_aoCentroDoAnel": 115.754311,
+    "telaPx_min": [
+     1323.22522,
+     1187.38745
+    ],
+    "telaPx_max": [
+     1418.416,
+     1358.43518
+    ]
+   },
+   {
+    "nome": "Arvore (28)",
+    "posMundo": [
+     105.756714,
+     -27.1760559,
+     34.1211624
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -31.22701,
+    "yMax": -24.8031254,
+    "camZ": 172.449738,
+    "distXZ_aoCentroDoAnel": 110.723366,
+    "telaPx_min": [
+     2021.44458,
+     1010.71509
+    ],
+    "telaPx_max": [
+     2116.635,
+     1181.76282
+    ]
+   },
+   {
+    "nome": "Arvore (21)",
+    "posMundo": [
+     78.53516,
+     -26.1624355,
+     41.15609
+    ],
+    "boundsSize": [
+     2.85167718,
+     6.376702,
+     3.27752757
+    ],
+    "yMin": -30.1949654,
+    "yMax": -23.818264,
+    "camZ": 159.583389,
+    "distXZ_aoCentroDoAnel": 88.34609,
+    "telaPx_min": [
+     1486.10864,
+     871.9213
+    ],
+    "telaPx_max": [
+     1582.2832,
+     1042.55432
+    ]
+   },
+   {
+    "nome": "Arvore (12)",
+    "posMundo": [
+     26.30064,
+     -18.9168148,
+     70.2657242
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -22.96777,
+    "yMax": -16.5438843,
+    "camZ": 141.797333,
+    "distXZ_aoCentroDoAnel": 75.12778,
+    "telaPx_min": [
+     207.5314,
+     829.6339
+    ],
+    "telaPx_max": [
+     302.722,
+     1000.68164
+    ]
+   },
+   {
+    "nome": "Arvore (45)",
+    "posMundo": [
+     26.30064,
+     -25.248127,
+     -27.8555241
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -29.2990818,
+    "yMax": -22.8751965,
+    "camZ": 84.87625,
+    "distXZ_aoCentroDoAnel": 37.7355042,
+    "telaPx_min": [
+     1747.17188,
+     -61.8596344
+    ],
+    "telaPx_max": [
+     1842.3623,
+     109.188065
+    ]
+   },
+   {
+    "nome": "Arvore (58)",
+    "posMundo": [
+     -50.73204,
+     -15.7198715,
+     -9.138887
+    ],
+    "boundsSize": [
+     3.62910056,
+     6.423885,
+     2.4373877
+    ],
+    "yMin": -19.7708263,
+    "yMax": -13.346941,
+    "camZ": 44.40098,
+    "distXZ_aoCentroDoAnel": 52.00825,
+    "telaPx_min": [
+     244.750092,
+     -336.2728
+    ],
+    "telaPx_max": [
+     339.940521,
+     -165.225128
+    ]
+   },
+   {
+    "nome": "banderas",
+    "posMundo": [
+     -8.761019,
+     23.0063057,
+     -24.45246
+    ],
+    "boundsSize": [
+     50.782547,
+     9.6098175,
+     99.0944748
+    ],
+    "yMin": -27.6070862,
+    "yMax": -17.9972687,
+    "camZ": 133.516083,
+    "distXZ_aoCentroDoAnel": 25.8741474,
+    "telaPx_min": [
+     569.1667,
+     50.7242622
+    ],
+    "telaPx_max": [
+     2920.91772,
+     1411.27844
+    ]
+   },
+   {
+    "nome": "Torre",
+    "posMundo": [
+     107.612846,
+     -27.90134,
+     5.55612946
+    ],
+    "boundsSize": [
+     4.869975,
+     10.0240784,
+     4.30027628
+    ],
+    "yMin": -28.8978577,
+    "yMax": -18.87378,
+    "camZ": 154.169617,
+    "distXZ_aoCentroDoAnel": 107.253227,
+    "telaPx_min": [
+     1873.04077,
+     835.550659
+    ],
+    "telaPx_max": [
+     2016.93335,
+     1100.137
+    ]
+   },
+   {
+    "nome": "Torre (1)",
+    "posMundo": [
+     5.82243633,
+     -25.1140347,
+     13.7830038
+    ],
+    "boundsSize": [
+     4.931565,
+     9.99992,
+     4.39734173
+    ],
+    "yMin": -26.22651,
+    "yMax": -16.22659,
+    "camZ": 94.85288,
+    "distXZ_aoCentroDoAnel": 15.0482864,
+    "telaPx_min": [
+     141.904327,
+     143.345551
+    ],
+    "telaPx_max": [
+     288.286072,
+     408.712128
+    ]
+   },
+   {
+    "nome": "moinho",
+    "posMundo": [
+     87.8133,
+     -29.32844,
+     30.5634174
+    ],
+    "boundsSize": [
+     57.2614746,
+     8.536381,
+     31.8094025
+    ],
+    "yMin": -30.1164436,
+    "yMax": -21.5800629,
+    "camZ": 149.875351,
+    "distXZ_aoCentroDoAnel": 92.58908,
+    "telaPx_min": [
+     505.1608,
+     431.1095
+    ],
+    "telaPx_max": [
+     1902.78992,
+     1293.974
+    ]
+   },
+   {
+    "nome": "Torre2",
+    "posMundo": [
+     12.583107,
+     -30.9485989,
+     -26.44346
+    ],
+    "boundsSize": [
+     4.80583668,
+     10.6128216,
+     4.805836
+    ],
+    "yMin": -30.9486,
+    "yMax": -20.3357773,
+    "camZ": 57.8486671,
+    "distXZ_aoCentroDoAnel": 28.7925053,
+    "telaPx_min": [
+     1973.49426,
+     -450.8887
+    ],
+    "telaPx_max": [
+     2124.31274,
+     -171.525
+    ]
+   },
+   {
+    "nome": "Torre2 (1)",
+    "posMundo": [
+     18.8757935,
+     -23.5852451,
+     89.1372
+    ],
+    "boundsSize": [
+     3.65755987,
+     8.07706,
+     3.65755963
+    ],
+    "yMin": -23.5852451,
+    "yMax": -15.5081844,
+    "camZ": 134.057068,
+    "distXZ_aoCentroDoAnel": 91.30149,
+    "telaPx_min": [
+     159.720215,
+     715.041931
+    ],
+    "telaPx_max": [
+     274.503235,
+     927.65625
+    ]
+   },
+   {
+    "nome": "Plane.001",
+    "posMundo": [
+     -49.6570053,
+     1875.70886,
+     -3530.27051
+    ],
+    "boundsSize": [
+     195.013779,
+     28.5702457,
+     194.4049
+    ],
+    "yMin": -45.5465546,
+    "yMax": -16.97631,
+    "camZ": 134.938522,
+    "distXZ_aoCentroDoAnel": 3530.32715,
+    "telaPx_min": [
+     -2100.95264,
+     -1269.671
+    ],
+    "telaPx_max": [
+     4009.49438,
+     2334.608
+    ]
+   },
+   {
+    "nome": "Pedras",
+    "posMundo": [
+     24.4984779,
+     -36.5706024,
+     37.45248
+    ],
+    "boundsSize": [
+     129.964035,
+     20.2271423,
+     156.401062
+    ],
+    "yMin": -31.0931015,
+    "yMax": -10.8659592,
+    "camZ": 124.57946,
+    "distXZ_aoCentroDoAnel": 44.72399,
+    "telaPx_min": [
+     -1352.70972,
+     -654.503235
+    ],
+    "telaPx_max": [
+     3140.703,
+     1980.92273
+    ]
+   }
+  ],
+  "cenarioComponente": {
+   "margem": 1.5,
+   "aguaAtribuida": false
+  },
+  "rio": {
+   "vertices": 1677,
+   "yDaSuperficie": -20.749321,
+   "yInferiorDasIlhas": -3.45333362,
+   "yDasIlhasTopo": 0.649766564,
+   "distanciaXZ_verticeMaisPertoDeCentroDeIlha": 0.280688584,
+   "ilhaMaisPerto": "Caminho (4, 1)",
+   "malhaBoundsLocal": [
+    8.386412,
+    1.41304433,
+    27.8310852
+   ],
+   "ondas": 0.07
+  },
+  "rioIlhasDentroDoAABBxz": 30,
+  "rioAABB": {
+   "min": [
+    -35.4245872,
+    -32.87294,
+    -59.5126228
+   ],
+   "max": [
+    36.11359,
+    -20.6793213,
+    134.8921
+   ]
+  },
+  "nuvens": {
+   "quantidade": 18,
+   "yMin": -8.912058,
+   "yMax": -6.85902739,
+   "camZ_min": 63.6908875,
+   "camZ_max": 135.407211,
+   "yInferiorDasIlhas": -3.45333362,
+   "abaixoDoAnel_distancia": 3.40569377,
+   "atrasEmProfundidadeDoAnel": 8,
+   "frenteEmProfundidadeDoAnel": 0,
+   "detalhe": [
+    {
+     "nome": "Nuvem volumetrica 1",
+     "pos": [
+      0.375265121,
+      -7.184158,
+      -6.39677238
+     ],
+     "escala": [
+      7.385321,
+      3.543915,
+      3.3043642
+     ],
+     "camZ": 72.77369,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 2",
+     "pos": [
+      22.4193325,
+      -6.99444866,
+      -23.327858
+     ],
+     "escala": [
+      7.032552,
+      3.18253279,
+      2.726838
+     ],
+     "camZ": 75.80989,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 3",
+     "pos": [
+      20.7672367,
+      -8.912058,
+      -43.03173
+     ],
+     "escala": [
+      9.888237,
+      4.101574,
+      4.26558352
+     ],
+     "camZ": 63.6908875,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 4",
+     "pos": [
+      -49.23143,
+      -7.071912,
+      36.95581
+     ],
+     "escala": [
+      7.385427,
+      2.96094966,
+      3.83169937
+     ],
+     "camZ": 68.88772,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 5",
+     "pos": [
+      37.0183868,
+      -7.305271,
+      -57.4974861
+     ],
+     "escala": [
+      6.50134,
+      2.669674,
+      3.3559382
+     ],
+     "camZ": 63.98082,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 6",
+     "pos": [
+      -45.116478,
+      -8.266594,
+      33.4339523
+     ],
+     "escala": [
+      8.197855,
+      3.70960236,
+      3.38662
+     ],
+     "camZ": 69.84826,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 7",
+     "pos": [
+      17.4690971,
+      -7.519609,
+      8.154776
+     ],
+     "escala": [
+      8.474518,
+      3.89924216,
+      3.564105
+     ],
+     "camZ": 92.3201752,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 8",
+     "pos": [
+      46.6989365,
+      -6.96985865,
+      -11.1105
+     ],
+     "escala": [
+      6.684482,
+      2.69219232,
+      2.93920326
+     ],
+     "camZ": 98.14732,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 9",
+     "pos": [
+      28.44131,
+      -7.961762,
+      -6.83366776
+     ],
+     "escala": [
+      7.47471476,
+      3.37638,
+      3.51394367
+     ],
+     "camZ": 90.0818253,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 10",
+     "pos": [
+      43.56556,
+      -6.85902739,
+      -23.6008377
+     ],
+     "escala": [
+      7.280263,
+      3.49449944,
+      3.76328874
+     ],
+     "camZ": 88.5243759,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 11",
+     "pos": [
+      -22.8835258,
+      -7.179208,
+      49.6926651
+     ],
+     "escala": [
+      6.86792135,
+      3.10837,
+      2.77009726
+     ],
+     "camZ": 92.8758,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 12",
+     "pos": [
+      -9.135872,
+      -7.755287,
+      55.8523941
+     ],
+     "escala": [
+      6.96392155,
+      3.048767,
+      2.99596024
+     ],
+     "camZ": 105.354568,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 13",
+     "pos": [
+      61.5760078,
+      -7.280956,
+      22.9794
+     ],
+     "escala": [
+      9.389456,
+      3.91218424,
+      3.57079673
+     ],
+     "camZ": 128.2889,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 14",
+     "pos": [
+      52.73901,
+      -8.113409,
+      23.4490089
+     ],
+     "escala": [
+      8.998707,
+      4.30109644,
+      4.03336954
+     ],
+     "camZ": 123.581169,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 15",
+     "pos": [
+      81.6018,
+      -7.34228,
+      -1.72013855
+     ],
+     "escala": [
+      6.730814,
+      2.87190223,
+      2.74262166
+     ],
+     "camZ": 125.457489,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 16",
+     "pos": [
+      81.23102,
+      -7.41903639,
+      9.864845
+     ],
+     "escala": [
+      10.0259018,
+      4.6081295,
+      3.93231487
+     ],
+     "camZ": 132.363129,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 17",
+     "pos": [
+      78.50316,
+      -7.14880657,
+      -10.5455322
+     ],
+     "escala": [
+      7.247674,
+      2.9090147,
+      3.71067762
+     ],
+     "camZ": 118.0588,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 18",
+     "pos": [
+      17.446434,
+      -8.667774,
+      77.6008148
+     ],
+     "escala": [
+      8.33465,
+      4.00648165,
+      3.783428
+     ],
+     "camZ": 135.407211,
+     "enabled": true,
+     "ativo": true
+    }
+   ]
+  },
+  "nuvensComponente": {
+   "distanciaDasIlhas": 0.85,
+   "opacidade": 0.8,
+   "tamanho": [
+    0.13,
+    0.21,
+    0.0
+   ]
+  },
+  "objetos": [
+   {
+    "objeto": "Cenario background (raiz)",
+    "posMundo": [
+     20.9382153,
+     -30.72054,
+     28.140028
+    ],
+    "escalaMundo": [
+     8.530249,
+     8.530249,
+     6.985165
+    ],
+    "rotEuler": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "filhos": 61,
+    "renderers": 83,
+    "boundsMin": [
+     -59.36253,
+     -45.5465546,
+     -60.24307
+    ],
+    "boundsMax": [
+     135.651245,
+     -10.8659592,
+     134.8923
+    ],
+    "boundsSize": [
+     195.013779,
+     34.6805954,
+     195.135376
+    ],
+    "topoRelativoAoTopoDasIlhas": -10.8659592,
+    "yTopoMenosYInferiorDasIlhas": -7.41262531,
+    "yTopoMenosYSuperiorDasIlhas": -11.5157261,
+    "profundidadeCamZ_centro": 133.187271,
+    "distanciaXZ_centroParaCentroDoAnel": 53.2093353,
+    "telaPx_min": [
+     -2100.95264,
+     -1275.402
+    ],
+    "telaPx_max": [
+     4020.95679,
+     2452.035
+    ]
+   },
+   {
+    "objeto": "Rio de fundo",
+    "posMundo": [
+     20.9382153,
+     -30.72054,
+     28.140028
+    ],
+    "escalaMundo": [
+     8.530249,
+     8.530249,
+     6.985165
+    ],
+    "rotEuler": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "filhos": 0,
+    "renderers": 1,
+    "boundsMin": [
+     -35.4245872,
+     -32.87294,
+     -59.5126228
+    ],
+    "boundsMax": [
+     36.11359,
+     -20.6793213,
+     134.8921
+    ],
+    "boundsSize": [
+     71.53818,
+     12.1936188,
+     194.404724
+    ],
+    "topoRelativoAoTopoDasIlhas": -20.6793213,
+    "yTopoMenosYInferiorDasIlhas": -17.2259884,
+    "yTopoMenosYSuperiorDasIlhas": -21.3290882,
+    "profundidadeCamZ_centro": 109.5482,
+    "distanciaXZ_centroParaCentroDoAnel": 37.9901428,
+    "telaPx_min": [
+     -1725.33459,
+     -838.3056
+    ],
+    "telaPx_max": [
+     2447.62939,
+     1482.51
+    ]
+   }
+  ]
+ },
+ "fundo_2520x1080": {
+  "seed": 7,
+  "resolucao": "2520x1080",
+  "anel": {
+   "centro": [
+    0.5196151,
+    0.0,
+    -0.3
+   ],
+   "raioMaxIlhasCentroXZ": 24.2684975,
+   "boundsMin": [
+    -25.3772583,
+    -3.45333362,
+    -24.6000023
+   ],
+   "boundsMax": [
+    25.3772583,
+    0.6497667,
+    24.6000023
+   ],
+   "ySuperiorDasIlhas": 0.649766564,
+   "yInferiorDasIlhas": -3.45333362,
+   "profundidadeCamZ_centroDosRenderers_min": 52.5098572,
+   "profundidadeCamZ_max": 93.6381
+  },
+  "camera": {
+   "pos": [
+    -44.1857224,
+    36.50175,
+    -45.0053329
+   ],
+   "orthoSize": 24.3345032,
+   "forward": [
+    0.612372458,
+    -0.49999997,
+    0.6123724
+   ]
+  },
+  "cenarioFilhos": [
+   {
+    "nome": "Arvore (22)",
+    "posMundo": [
+     65.62056,
+     -27.9453983,
+     62.1717224
+    ],
+    "boundsSize": [
+     3.27103949,
+     7.31444645,
+     3.75951481
+    ],
+    "yMin": -32.5709457,
+    "yMax": -25.2564983,
+    "camZ": 165.485352,
+    "distXZ_aoCentroDoAnel": 90.2266541,
+    "telaPx_min": [
+     1246.70947,
+     886.1227
+    ],
+    "telaPx_max": [
+     1357.02734,
+     1081.84863
+    ]
+   },
+   {
+    "nome": "Arvore (1)",
+    "posMundo": [
+     29.67272,
+     -17.3710861,
+     94.06335
+    ],
+    "boundsSize": [
+     3.51900935,
+     6.229012,
+     2.363448
+    ],
+    "yMin": -21.2991524,
+    "yMax": -15.0701408,
+    "camZ": 157.652283,
+    "distXZ_aoCentroDoAnel": 98.76409,
+    "telaPx_min": [
+     188.539,
+     1075.61816
+    ],
+    "telaPx_max": [
+     280.841736,
+     1241.47717
+    ]
+   },
+   {
+    "nome": "Arvore (33)",
+    "posMundo": [
+     29.67272,
+     -28.2793236,
+     -18.4874268
+    ],
+    "boundsSize": [
+     3.51900935,
+     6.229012,
+     2.363448
+    ],
+    "yMin": -32.20739,
+    "yMax": -25.9783783,
+    "camZ": 94.18341,
+    "distXZ_aoCentroDoAnel": 34.36111,
+    "telaPx_min": [
+     1954.59631,
+     -17.0417252
+    ],
+    "telaPx_max": [
+     2046.89917,
+     148.817123
+    ]
+   },
+   {
+    "nome": "Arvore (46)",
+    "posMundo": [
+     -58.6882248,
+     -16.0278339,
+     2.98164749
+    ],
+    "boundsSize": [
+     3.51900935,
+     6.229012,
+     2.363448
+    ],
+    "yMin": -19.9559,
+    "yMax": -13.7268887,
+    "camZ": 47.0949249,
+    "distXZ_aoCentroDoAnel": 59.2987137,
+    "telaPx_min": [
+     231.231018,
+     -306.403076
+    ],
+    "telaPx_max": [
+     323.5339,
+     -140.544128
+    ]
+   },
+   {
+    "nome": "Arvore (13)",
+    "posMundo": [
+     50.4912949,
+     -25.1488342,
+     63.6633148
+    ],
+    "boundsSize": [
+     2.76516938,
+     6.18325949,
+     3.17810154
+    ],
+    "yMin": -29.0590343,
+    "yMax": -22.8757763,
+    "camZ": 155.675858,
+    "distXZ_aoCentroDoAnel": 81.16942,
+    "telaPx_min": [
+     994.343933,
+     851.075256
+    ],
+    "telaPx_max": [
+     1087.601,
+     1016.53192
+    ]
+   },
+   {
+    "nome": "Arvore (34)",
+    "posMundo": [
+     50.4912949,
+     -27.93806,
+     -48.88746
+    ],
+    "boundsSize": [
+     2.76516938,
+     6.18325949,
+     3.17810154
+    ],
+    "yMin": -31.84826,
+    "yMax": -25.6650028,
+    "camZ": 88.1474838,
+    "distXZ_aoCentroDoAnel": 69.69871,
+    "telaPx_min": [
+     2760.40112,
+     -85.55573
+    ],
+    "telaPx_max": [
+     2853.6582,
+     79.90088
+    ]
+   },
+   {
+    "nome": "Arvore (47)",
+    "posMundo": [
+     -37.8696556,
+     -20.4118519,
+     -27.4183884
+    ],
+    "boundsSize": [
+     2.76516938,
+     6.18325949,
+     3.17810154
+    ],
+    "yMin": -24.322052,
+    "yMax": -18.1387939,
+    "camZ": 43.4216347,
+    "distXZ_aoCentroDoAnel": 47.0015221,
+    "telaPx_min": [
+     1037.03589,
+     -465.7263
+    ],
+    "telaPx_max": [
+     1130.293,
+     -300.269623
+    ]
+   },
+   {
+    "nome": "Arvore (2)",
+    "posMundo": [
+     75.56824,
+     -19.9067841,
+     89.9232
+    ],
+    "boundsSize": [
+     6.62052727,
+     11.7190208,
+     4.446499
+    ],
+    "yMin": -27.296896,
+    "yMax": -15.5778751,
+    "camZ": 184.77655,
+    "distXZ_aoCentroDoAnel": 117.356392,
+    "telaPx_min": [
+     931.1475,
+     1266.69165
+    ],
+    "telaPx_max": [
+     1104.80261,
+     1578.732
+    ]
+   },
+   {
+    "nome": "Arvore (3)",
+    "posMundo": [
+     88.04769,
+     -21.6879387,
+     89.9232
+    ],
+    "boundsSize": [
+     6.62052727,
+     11.7190208,
+     4.446499
+    ],
+    "yMin": -29.07805,
+    "yMax": -17.35903,
+    "camZ": 193.3092,
+    "distXZ_aoCentroDoAnel": 125.703583,
+    "telaPx_min": [
+     1126.96521,
+     1330.37073
+    ],
+    "telaPx_max": [
+     1300.62024,
+     1642.41125
+    ]
+   },
+   {
+    "nome": "Arvore (4)",
+    "posMundo": [
+     41.32407,
+     -21.4390755,
+     75.19644
+    ],
+    "boundsSize": [
+     3.63071513,
+     6.42674255,
+     2.438472
+    ],
+    "yMin": -25.4918327,
+    "yMax": -19.06509,
+    "camZ": 155.277985,
+    "distXZ_aoCentroDoAnel": 85.8179245,
+    "telaPx_min": [
+     665.876,
+     937.668335
+    ],
+    "telaPx_max": [
+     761.109,
+     1108.79224
+    ]
+   },
+   {
+    "nome": "Arvore (35)",
+    "posMundo": [
+     41.32407,
+     -27.4019814,
+     -37.354332
+    ],
+    "boundsSize": [
+     3.63071513,
+     6.42674255,
+     2.438472
+    ],
+    "yMin": -31.4547386,
+    "yMax": -25.0279961,
+    "camZ": 89.33646,
+    "distXZ_aoCentroDoAnel": 55.1183,
+    "telaPx_min": [
+     2431.93335,
+     -59.9534225
+    ],
+    "telaPx_max": [
+     2527.16626,
+     111.170235
+    ]
+   },
+   {
+    "nome": "Arvore (48)",
+    "posMundo": [
+     -47.03688,
+     -19.4511051,
+     -15.8852615
+    ],
+    "boundsSize": [
+     3.63071513,
+     6.42674255,
+     2.438472
+    ],
+    "yMin": -23.5038624,
+    "yMax": -17.07712,
+    "camZ": 44.39827,
+    "distXZ_aoCentroDoAnel": 50.0451851,
+    "telaPx_min": [
+     708.568054,
+     -431.9629
+    ],
+    "telaPx_max": [
+     803.8009,
+     -260.839142
+    ]
+   },
+   {
+    "nome": "Arvore (14)",
+    "posMundo": [
+     69.4434,
+     -26.1546764,
+     75.14194
+    ],
+    "boundsSize": [
+     2.85294628,
+     6.37953854,
+     3.278986
+    ],
+    "yMin": -30.1890011,
+    "yMax": -23.8094616,
+    "camZ": 174.824112,
+    "distXZ_aoCentroDoAnel": 102.185982,
+    "telaPx_min": [
+     1110.14807,
+     1067.33374
+    ],
+    "telaPx_max": [
+     1206.36572,
+     1238.04285
+    ]
+   },
+   {
+    "nome": "Arvore (5)",
+    "posMundo": [
+     -14.2121048,
+     -24.6471977,
+     34.09138
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -29.4244614,
+    "yMax": -21.8488159,
+    "camZ": 97.76159,
+    "distXZ_aoCentroDoAnel": 37.4137764,
+    "telaPx_min": [
+     430.538177,
+     99.4344559
+    ],
+    "telaPx_max": [
+     542.7958,
+     301.149963
+    ]
+   },
+   {
+    "nome": "Arvore (36)",
+    "posMundo": [
+     -13.2083054,
+     -30.11515,
+     -68.2677
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -34.8924141,
+    "yMax": -27.3167686,
+    "camZ": 38.4283943,
+    "distXZ_aoCentroDoAnel": 69.3402,
+    "telaPx_min": [
+     2052.42627,
+     -800.8401
+    ],
+    "telaPx_max": [
+     2164.68384,
+     -599.1247
+    ]
+   },
+   {
+    "nome": "Arvore (29)",
+    "posMundo": [
+     80.47728,
+     -28.3519344,
+     53.2539368
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -33.1291962,
+    "yMax": -25.5535526,
+    "camZ": 169.333755,
+    "distXZ_aoCentroDoAnel": 96.2354,
+    "telaPx_min": [
+     1615.64514,
+     921.475037
+    ],
+    "telaPx_max": [
+     1727.90259,
+     1123.19043
+    ]
+   },
+   {
+    "nome": "Arvore (24)",
+    "posMundo": [
+     93.4298,
+     -26.4551086,
+     15.16527
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -31.2323723,
+    "yMax": -23.6567268,
+    "camZ": 152.992661,
+    "distXZ_aoCentroDoAnel": 94.18852,
+    "telaPx_min": [
+     2416.54272,
+     760.7195
+    ],
+    "telaPx_max": [
+     2528.8,
+     962.434937
+    ]
+   },
+   {
+    "nome": "Arvore (23)",
+    "posMundo": [
+     54.69046,
+     -19.7484818,
+     86.07889
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -24.5257454,
+    "yMax": -16.9501,
+    "camZ": 169.34198,
+    "distXZ_aoCentroDoAnel": 101.959763,
+    "telaPx_min": [
+     695.9556,
+     1142.0321
+    ],
+    "telaPx_max": [
+     808.213257,
+     1343.74744
+    ]
+   },
+   {
+    "nome": "Arvore (37)",
+    "posMundo": [
+     54.69046,
+     -24.22449,
+     -26.4718819
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -29.0017529,
+    "yMax": -21.4261074,
+    "camZ": 102.657,
+    "distXZ_aoCentroDoAnel": 60.1618462,
+    "telaPx_min": [
+     2462.013,
+     172.985
+    ],
+    "telaPx_max": [
+     2574.27051,
+     374.700378
+    ]
+   },
+   {
+    "nome": "Arvore (50)",
+    "posMundo": [
+     -33.67049,
+     -18.6613331,
+     -5.00281143
+    ],
+    "boundsSize": [
+     4.279774,
+     7.57564449,
+     2.87439537
+    ],
+    "yMin": -23.4385967,
+    "yMax": -15.8629513,
+    "camZ": 58.912674,
+    "distXZ_aoCentroDoAnel": 34.5120239,
+    "telaPx_min": [
+     738.6476,
+     -244.911011
+    ],
+    "telaPx_max": [
+     850.9052,
+     -43.19558
+    ]
+   },
+   {
+    "nome": "Arvore (15)",
+    "posMundo": [
+     109.908249,
+     -26.8928738,
+     19.07312
+    ],
+    "boundsSize": [
+     3.36296439,
+     7.52000237,
+     3.865167
+    ],
+    "yMin": -31.64841,
+    "yMax": -24.1284065,
+    "camZ": 165.698135,
+    "distXZ_aoCentroDoAnel": 111.090912,
+    "telaPx_min": [
+     2616.3728,
+     912.37085
+    ],
+    "telaPx_max": [
+     2729.79077,
+     1113.59729
+    ]
+   },
+   {
+    "nome": "Arvore (6)",
+    "posMundo": [
+     29.4360943,
+     -22.3097649,
+     68.8680038
+    ],
+    "boundsSize": [
+     4.63086,
+     8.1971035,
+     3.11019278
+    ],
+    "yMin": -27.4789276,
+    "yMax": -19.2818222,
+    "camZ": 144.650513,
+    "distXZ_aoCentroDoAnel": 74.96917,
+    "telaPx_min": [
+     564.9316,
+     749.706543
+    ],
+    "telaPx_max": [
+     686.398132,
+     967.9696
+    ]
+   },
+   {
+    "nome": "Arvore (38)",
+    "posMundo": [
+     29.4360943,
+     -27.1666374,
+     -43.6827774
+    ],
+    "boundsSize": [
+     4.63086,
+     8.1971035,
+     3.11019278
+    ],
+    "yMin": -32.3358,
+    "yMax": -24.1386948,
+    "camZ": 78.15596,
+    "distXZ_aoCentroDoAnel": 52.13663,
+    "telaPx_min": [
+     2330.989,
+     -226.6599
+    ],
+    "telaPx_max": [
+     2452.45557,
+     -8.396945
+    ]
+   },
+   {
+    "nome": "Arvore (51)",
+    "posMundo": [
+     -58.92485,
+     -19.2780952,
+     -22.2137
+    ],
+    "boundsSize": [
+     4.63086,
+     8.1971035,
+     3.11019278
+    ],
+    "yMin": -24.447258,
+    "yMax": -16.2501526,
+    "camZ": 33.24895,
+    "distXZ_aoCentroDoAnel": 63.35499,
+    "telaPx_min": [
+     607.6237,
+     -599.8672
+    ],
+    "telaPx_max": [
+     729.090149,
+     -381.604156
+    ]
+   },
+   {
+    "nome": "Arvore (25)",
+    "posMundo": [
+     137.078,
+     -29.1036549,
+     49.9418945
+    ],
+    "boundsSize": [
+     4.63086,
+     8.1971035,
+     3.11019278
+    ],
+    "yMin": -34.2728157,
+    "yMax": -26.0757141,
+    "camZ": 202.374573,
+    "distXZ_aoCentroDoAnel": 145.507538,
+    "telaPx_min": [
+     2550.93628,
+     1315.17249
+    ],
+    "telaPx_max": [
+     2672.40259,
+     1533.4353
+    ]
+   },
+   {
+    "nome": "Arvore (16)",
+    "posMundo": [
+     75.34334,
+     -26.3100681,
+     63.4660339
+    ],
+    "boundsSize": [
+     3.638841,
+     8.136896,
+     4.182241
+    ],
+    "yMin": -31.455719,
+    "yMax": -23.31882,
+    "camZ": 171.457779,
+    "distXZ_aoCentroDoAnel": 98.30919,
+    "telaPx_min": [
+     1372.829,
+     990.749634
+    ],
+    "telaPx_max": [
+     1495.55127,
+     1208.4834
+    ]
+   },
+   {
+    "nome": "Arvore (7)",
+    "posMundo": [
+     40.0819168,
+     -16.2176876,
+     90.9287338
+    ],
+    "boundsSize": [
+     3.97118664,
+     7.029413,
+     2.66714048
+    ],
+    "yMin": -20.6504936,
+    "yMax": -13.6210794,
+    "camZ": 161.572113,
+    "distXZ_aoCentroDoAnel": 99.43771,
+    "telaPx_min": [
+     394.859863,
+     1142.05786
+    ],
+    "telaPx_max": [
+     499.0232,
+     1329.22888
+    ]
+   },
+   {
+    "nome": "Arvore (39)",
+    "posMundo": [
+     40.0819168,
+     -27.7382126,
+     -21.6220436
+    ],
+    "boundsSize": [
+     3.97118664,
+     7.029413,
+     2.66714048
+    ],
+    "yMin": -32.1710167,
+    "yMax": -25.1416054,
+    "camZ": 98.4093857,
+    "distXZ_aoCentroDoAnel": 44.9422455,
+    "telaPx_min": [
+     2160.91724,
+     37.63121
+    ],
+    "telaPx_max": [
+     2265.08057,
+     224.802185
+    ]
+   },
+   {
+    "nome": "Arvore (52)",
+    "posMundo": [
+     -48.27903,
+     -16.6638641,
+     -0.152971268
+    ],
+    "boundsSize": [
+     3.97118664,
+     7.029413,
+     2.66714048
+    ],
+    "yMin": -21.0966682,
+    "yMax": -14.067256,
+    "camZ": 51.90947,
+    "distXZ_aoCentroDoAnel": 48.7988663,
+    "telaPx_min": [
+     437.551941,
+     -274.352
+    ],
+    "telaPx_max": [
+     541.7153,
+     -87.18115
+    ]
+   },
+   {
+    "nome": "Arvore (17)",
+    "posMundo": [
+     53.70948,
+     -20.2601967,
+     74.07864
+    ],
+    "boundsSize": [
+     3.12048149,
+     6.977782,
+     3.5864737
+    ],
+    "yMin": -24.672842,
+    "yMax": -17.6950588,
+    "camZ": 161.622375,
+    "distXZ_aoCentroDoAnel": 91.44039,
+    "telaPx_min": [
+     875.487061,
+     1039.2002
+    ],
+    "telaPx_max": [
+     980.7273,
+     1225.91748
+    ]
+   },
+   {
+    "nome": "Arvore (40)",
+    "posMundo": [
+     53.70948,
+     -24.1234627,
+     -38.4721222
+    ],
+    "boundsSize": [
+     3.12048149,
+     6.977782,
+     3.5864737
+    ],
+    "yMin": -28.536108,
+    "yMax": -21.5583248,
+    "camZ": 94.6310349,
+    "distXZ_aoCentroDoAnel": 65.469635,
+    "telaPx_min": [
+     2641.54419,
+     81.92873
+    ],
+    "telaPx_max": [
+     2746.78442,
+     268.645874
+    ]
+   },
+   {
+    "nome": "Arvore (53)",
+    "posMundo": [
+     -34.6514664,
+     -18.8411846,
+     -17.0030518
+    ],
+    "boundsSize": [
+     3.12048149,
+     6.977782,
+     3.5864737
+    ],
+    "yMin": -23.25383,
+    "yMax": -16.2760468,
+    "camZ": 51.02715,
+    "distXZ_aoCentroDoAnel": 38.9358063,
+    "telaPx_min": [
+     918.178955,
+     -341.365082
+    ],
+    "telaPx_max": [
+     1023.41925,
+     -154.6478
+    ]
+   },
+   {
+    "nome": "Arvore (8)",
+    "posMundo": [
+     16.9566441,
+     -17.4518642,
+     83.8905945
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -22.0985451,
+    "yMax": -14.7299767,
+    "camZ": 143.735657,
+    "distXZ_aoCentroDoAnel": 85.78014,
+    "telaPx_min": [
+     139.8072,
+     876.2662
+    ],
+    "telaPx_max": [
+     248.996216,
+     1072.46777
+    ]
+   },
+   {
+    "nome": "Arvore (41)",
+    "posMundo": [
+     16.9566441,
+     -30.4520855,
+     -28.6601753
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -35.0987663,
+    "yMax": -27.7301979,
+    "camZ": 81.31279,
+    "distXZ_aoCentroDoAnel": 32.7791939,
+    "telaPx_min": [
+     1905.86438,
+     -256.596771
+    ],
+    "telaPx_max": [
+     2015.05334,
+     -60.3952141
+    ]
+   },
+   {
+    "nome": "Arvore (18)",
+    "posMundo": [
+     60.4216461,
+     -28.00364,
+     50.91457
+    ],
+    "boundsSize": [
+     3.27103949,
+     7.31444645,
+     3.75951481
+    ],
+    "yMin": -32.6291847,
+    "yMax": -25.31474,
+    "camZ": 155.437225,
+    "distXZ_aoCentroDoAnel": 78.81107,
+    "telaPx_min": [
+     1341.77063,
+     755.8957
+    ],
+    "telaPx_max": [
+     1452.08862,
+     951.621643
+    ]
+   },
+   {
+    "nome": "Arvore (9)",
+    "posMundo": [
+     4.950447,
+     -20.6225662,
+     76.0835648
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -25.2692471,
+    "yMax": -17.9006786,
+    "camZ": 133.187943,
+    "distXZ_aoCentroDoAnel": 76.51197,
+    "telaPx_min": [
+     73.9172745,
+     659.885864
+    ],
+    "telaPx_max": [
+     183.1062,
+     856.087463
+    ]
+   },
+   {
+    "nome": "Arvore (42)",
+    "posMundo": [
+     4.950447,
+     -29.8062325,
+     -36.46721
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -34.4529152,
+    "yMax": -27.0843449,
+    "camZ": 68.85679,
+    "distXZ_aoCentroDoAnel": 36.4376068,
+    "telaPx_min": [
+     1839.97449,
+     -399.6318
+    ],
+    "telaPx_max": [
+     1949.16345,
+     -203.43013
+    ]
+   },
+   {
+    "nome": "Arvore (30)",
+    "posMundo": [
+     99.63984,
+     -30.017725,
+     95.24612
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -34.6644058,
+    "yMax": -27.2958374,
+    "camZ": 207.605316,
+    "distXZ_aoCentroDoAnel": 137.6731,
+    "telaPx_min": [
+     1259.02417,
+     1372.56934
+    ],
+    "telaPx_max": [
+     1368.21326,
+     1568.771
+    ]
+   },
+   {
+    "nome": "Arvore (26)",
+    "posMundo": [
+     112.592354,
+     -30.1066265,
+     57.1574554
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -34.7533073,
+    "yMax": -27.3847389,
+    "camZ": 192.25708,
+    "distXZ_aoCentroDoAnel": 125.943077,
+    "telaPx_min": [
+     2059.92188,
+     1173.65271
+    ],
+    "telaPx_max": [
+     2169.11084,
+     1369.85449
+    ]
+   },
+   {
+    "nome": "Arvore (19)",
+    "posMundo": [
+     67.87221,
+     -27.402029,
+     39.02587
+    ],
+    "boundsSize": [
+     3.27103949,
+     7.31444645,
+     3.75951481
+    ],
+    "yMin": -32.0275764,
+    "yMax": -24.713129,
+    "camZ": 152.418625,
+    "distXZ_aoCentroDoAnel": 77.99292,
+    "telaPx_min": [
+     1645.22681,
+     732.637451
+    ],
+    "telaPx_max": [
+     1755.5448,
+     928.363464
+    ]
+   },
+   {
+    "nome": "Arvore (10)",
+    "posMundo": [
+     0.2782116,
+     -23.3219738,
+     63.54509
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -27.9686546,
+    "yMax": -20.6000862,
+    "camZ": 123.998283,
+    "distXZ_aoCentroDoAnel": 63.8455467,
+    "telaPx_min": [
+     197.347992,
+     472.981
+    ],
+    "telaPx_max": [
+     306.537,
+     669.1826
+    ]
+   },
+   {
+    "nome": "Arvore (43)",
+    "posMundo": [
+     0.2782116,
+     -29.36906,
+     -49.0056763
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -34.0157433,
+    "yMax": -26.6471729,
+    "camZ": 58.09884,
+    "distXZ_aoCentroDoAnel": 48.7062759,
+    "telaPx_min": [
+     1963.40515,
+     -526.2586
+    ],
+    "telaPx_max": [
+     2072.59424,
+     -330.057
+    ]
+   },
+   {
+    "nome": "Arvore (31)",
+    "posMundo": [
+     94.9676,
+     -28.17536,
+     82.70764
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -32.82204,
+    "yMax": -25.4534721,
+    "camZ": 196.14476,
+    "distXZ_aoCentroDoAnel": 125.74057,
+    "telaPx_min": [
+     1382.45471,
+     1272.947
+    ],
+    "telaPx_max": [
+     1491.6438,
+     1469.14868
+    ]
+   },
+   {
+    "nome": "Arvore (27)",
+    "posMundo": [
+     107.920113,
+     -30.6673679,
+     44.61898
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -35.31405,
+    "yMax": -27.94548,
+    "camZ": 181.998077,
+    "distXZ_aoCentroDoAnel": 116.415558,
+    "telaPx_min": [
+     2183.35229,
+     1027.848
+    ],
+    "telaPx_max": [
+     2292.5415,
+     1224.0498
+    ]
+   },
+   {
+    "nome": "Arvore (20)",
+    "posMundo": [
+     80.14662,
+     -26.6384583,
+     34.4115753
+    ],
+    "boundsSize": [
+     3.27103949,
+     7.31444645,
+     3.75951481
+    ],
+    "yMin": -31.2640038,
+    "yMax": -23.9495583,
+    "camZ": 156.727692,
+    "distXZ_aoCentroDoAnel": 86.864,
+    "telaPx_min": [
+     1910.23108,
+     807.409851
+    ],
+    "telaPx_max": [
+     2020.549,
+     1003.1358
+    ]
+   },
+   {
+    "nome": "Arvore (11)",
+    "posMundo": [
+     11.6337328,
+     -27.5810013,
+     56.1521072
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -32.227684,
+    "yMax": -24.8591137,
+    "camZ": 128.554337,
+    "distXZ_aoCentroDoAnel": 57.5357628,
+    "telaPx_min": [
+     491.534576,
+     422.220673
+    ],
+    "telaPx_max": [
+     600.7236,
+     618.4223
+    ]
+   },
+   {
+    "nome": "Arvore (44)",
+    "posMundo": [
+     11.6337328,
+     -29.28457,
+     -56.3986664
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -33.93125,
+    "yMax": -26.5626831,
+    "camZ": 60.4831429,
+    "distXZ_aoCentroDoAnel": 57.1890221,
+    "telaPx_min": [
+     2257.5918,
+     -493.546448
+    ],
+    "telaPx_max": [
+     2366.78076,
+     -297.344818
+    ]
+   },
+   {
+    "nome": "Arvore (32)",
+    "posMundo": [
+     106.32312,
+     -29.29124,
+     75.31467
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -33.9379234,
+    "yMax": -26.5693531,
+    "camZ": 199.129257,
+    "distXZ_aoCentroDoAnel": 130.04599,
+    "telaPx_min": [
+     1676.64136,
+     1282.591
+    ],
+    "telaPx_max": [
+     1785.83044,
+     1478.79248
+    ]
+   },
+   {
+    "nome": "Arvore (28)",
+    "posMundo": [
+     119.275642,
+     -29.5745888,
+     37.2259979
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -34.22127,
+    "yMax": -26.8527012,
+    "camZ": 183.87825,
+    "distXZ_aoCentroDoAnel": 124.543945,
+    "telaPx_min": [
+     2477.539,
+     1079.93726
+    ],
+    "telaPx_max": [
+     2586.72827,
+     1276.139
+    ]
+   },
+   {
+    "nome": "Arvore (21)",
+    "posMundo": [
+     88.0509338,
+     -28.4119072,
+     45.2954674
+    ],
+    "boundsSize": [
+     3.27103949,
+     7.31444645,
+     3.75951481
+    ],
+    "yMin": -33.0374527,
+    "yMax": -25.7230072,
+    "camZ": 169.1198,
+    "distXZ_aoCentroDoAnel": 98.69488,
+    "telaPx_min": [
+     1863.47791,
+     920.7329
+    ],
+    "telaPx_max": [
+     1973.79578,
+     1116.45886
+    ]
+   },
+   {
+    "nome": "Arvore (12)",
+    "posMundo": [
+     28.134922,
+     -20.10076,
+     78.68591
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -24.74744,
+    "yMax": -17.3788719,
+    "camZ": 148.71817,
+    "distXZ_aoCentroDoAnel": 83.67425,
+    "telaPx_min": [
+     396.87558,
+     872.2269
+    ],
+    "telaPx_max": [
+     506.0646,
+     1068.42859
+    ]
+   },
+   {
+    "nome": "Arvore (45)",
+    "posMundo": [
+     28.134922,
+     -27.36314,
+     -33.86487
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -32.0098228,
+    "yMax": -24.6412525,
+    "camZ": 83.42638,
+    "distXZ_aoCentroDoAnel": 43.4649925,
+    "telaPx_min": [
+     2162.93286,
+     -150.3679
+    ],
+    "telaPx_max": [
+     2272.122,
+     45.83362
+    ]
+   },
+   {
+    "nome": "Arvore (58)",
+    "posMundo": [
+     -60.2260361,
+     -16.43368,
+     -12.3957939
+    ],
+    "boundsSize": [
+     4.16278934,
+     7.368569,
+     2.79582524
+    ],
+    "yMin": -21.08036,
+    "yMax": -13.711792,
+    "camZ": 36.9988976,
+    "distXZ_aoCentroDoAnel": 61.9382133,
+    "telaPx_min": [
+     439.567383,
+     -465.135864
+    ],
+    "telaPx_max": [
+     548.7565,
+     -268.934174
+    ]
+   },
+   {
+    "nome": "banderas",
+    "posMundo": [
+     -12.0828323,
+     27.9874916,
+     -29.96135
+    ],
+    "boundsSize": [
+     58.2505035,
+     11.0230179,
+     113.667114
+    ],
+    "yMin": -30.0690079,
+    "yMax": -19.04599,
+    "camZ": 139.2191,
+    "distXZ_aoCentroDoAnel": 32.22759,
+    "telaPx_min": [
+     811.692566,
+     -21.227581
+    ],
+    "telaPx_max": [
+     3509.28687,
+     1539.40674
+    ]
+   },
+   {
+    "nome": "Torre",
+    "posMundo": [
+     121.404739,
+     -30.4065323,
+     4.460245
+    ],
+    "boundsSize": [
+     5.586143,
+     11.4981985,
+     4.932667
+    ],
+    "yMin": -31.5495949,
+    "yMax": -20.0513954,
+    "camZ": 162.9099,
+    "distXZ_aoCentroDoAnel": 120.978813,
+    "telaPx_min": [
+     2307.31177,
+     879.0139
+    ],
+    "telaPx_max": [
+     2472.3645,
+     1182.5094
+    ]
+   },
+   {
+    "nome": "Torre (1)",
+    "posMundo": [
+     4.645235,
+     -27.2093315,
+     13.896946
+    ],
+    "boundsSize": [
+     5.656791,
+     11.4704876,
+     5.044006
+    ],
+    "yMin": -28.485405,
+    "yMax": -17.0149155,
+    "camZ": 94.8701553,
+    "distXZ_aoCentroDoAnel": 14.7842493,
+    "telaPx_min": [
+     321.597473,
+     85.01419
+    ],
+    "telaPx_max": [
+     489.505829,
+     389.405182
+    ]
+   },
+   {
+    "nome": "moinho",
+    "posMundo": [
+     98.69351,
+     -32.0434952,
+     33.1450577
+    ],
+    "boundsSize": [
+     65.6822357,
+     9.791721,
+     36.48723
+    ],
+    "yMin": -32.9473839,
+    "yMax": -23.1556625,
+    "camZ": 157.984131,
+    "distXZ_aoCentroDoAnel": 103.714447,
+    "telaPx_min": [
+     738.27356,
+     415.096283
+    ],
+    "telaPx_max": [
+     2341.43579,
+     1404.85181
+    ]
+   },
+   {
+    "nome": "Torre2",
+    "posMundo": [
+     12.400116,
+     -33.9019127,
+     -32.2451439
+    ],
+    "boundsSize": [
+     5.51257324,
+     12.173522,
+     5.51257324
+    ],
+    "yMin": -33.9019127,
+    "yMax": -21.72839,
+    "camZ": 52.4241753,
+    "distXZ_aoCentroDoAnel": 34.08282,
+    "telaPx_min": [
+     2422.5376,
+     -596.6068
+    ],
+    "telaPx_max": [
+     2595.5354,
+     -276.1605
+    ]
+   },
+   {
+    "nome": "Torre2 (1)",
+    "posMundo": [
+     19.61819,
+     -25.455719,
+     100.332581
+    ],
+    "boundsSize": [
+     4.195433,
+     9.264856,
+     4.195433
+    ],
+    "yMin": -25.455719,
+    "yMax": -16.1908646,
+    "camZ": 139.83963,
+    "distXZ_aoCentroDoAnel": 102.428864,
+    "telaPx_min": [
+     342.033356,
+     740.7833
+    ],
+    "telaPx_max": [
+     473.696228,
+     984.664063
+    ]
+   },
+   {
+    "nome": "Plane.001",
+    "posMundo": [
+     -58.9929047,
+     2153.14478,
+     -4051.33838
+    ],
+    "boundsSize": [
+     223.692123,
+     32.77173,
+     222.993713
+    ],
+    "yMin": -50.6466141,
+    "yMax": -17.8748856,
+    "camZ": 140.850708,
+    "distXZ_aoCentroDoAnel": 4051.47534,
+    "telaPx_min": [
+     -2251.09033,
+     -1535.79736
+    ],
+    "telaPx_max": [
+     4757.948,
+     2598.51953
+    ]
+   },
+   {
+    "nome": "Pedras",
+    "posMundo": [
+     26.0677376,
+     -40.3506775,
+     41.04721
+    ],
+    "boundsSize": [
+     149.0763,
+     23.2017059,
+     179.401108
+    ],
+    "yMin": -34.0676651,
+    "yMax": -10.8659592,
+    "camZ": 128.968262,
+    "distXZ_aoCentroDoAnel": 48.60348,
+    "telaPx_min": [
+     -1392.81189,
+     -830.1645
+    ],
+    "telaPx_max": [
+     3761.394,
+     2192.82227
+    ]
+   }
+  ],
+  "cenarioComponente": {
+   "margem": 1.5,
+   "aguaAtribuida": false
+  },
+  "rio": {
+   "vertices": 1677,
+   "yDaSuperficie": -22.2027512,
+   "yInferiorDasIlhas": -3.45333362,
+   "yDasIlhasTopo": 0.649766564,
+   "distanciaXZ_verticeMaisPertoDeCentroDeIlha": 0.515533268,
+   "ilhaMaisPerto": "Caminho (4, 0)",
+   "malhaBoundsLocal": [
+    8.386412,
+    1.41304433,
+    27.8310852
+   ],
+   "ondas": 0.07
+  },
+  "rioIlhasDentroDoAABBxz": 30,
+  "rioAABB": {
+   "min": [
+    -42.6674957,
+    -36.0989532,
+    -70.1774
+   ],
+   "max": [
+    39.3909454,
+    -22.1327515,
+    152.816116
+   ]
+  },
+  "nuvens": {
+   "quantidade": 18,
+   "yMin": -8.912058,
+   "yMax": -6.85902739,
+   "camZ_min": 63.6908875,
+   "camZ_max": 135.407211,
+   "yInferiorDasIlhas": -3.45333362,
+   "abaixoDoAnel_distancia": 3.40569377,
+   "atrasEmProfundidadeDoAnel": 8,
+   "frenteEmProfundidadeDoAnel": 0,
+   "detalhe": [
+    {
+     "nome": "Nuvem volumetrica 1",
+     "pos": [
+      1.305376,
+      -7.184158,
+      -7.326874
+     ],
+     "escala": [
+      7.385321,
+      3.543915,
+      3.3043642
+     ],
+     "camZ": 72.7737,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 2",
+     "pos": [
+      29.4393158,
+      -6.99444866,
+      -30.3478374
+     ],
+     "escala": [
+      7.032552,
+      3.18253279,
+      2.726838
+     ],
+     "camZ": 75.80989,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 3",
+     "pos": [
+      30.6078148,
+      -8.912058,
+      -52.8723068
+     ],
+     "escala": [
+      9.888237,
+      4.101574,
+      4.26558352
+     ],
+     "camZ": 63.6908875,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 4",
+     "pos": [
+      -62.8262,
+      -7.071912,
+      50.5506134
+     ],
+     "escala": [
+      7.385427,
+      2.96094966,
+      3.83169937
+     ],
+     "camZ": 68.88774,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 5",
+     "pos": [
+      51.658474,
+      -7.305271,
+      -72.13757
+     ],
+     "escala": [
+      6.50134,
+      2.669674,
+      3.3559382
+     ],
+     "camZ": 63.9808235,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 6",
+     "pos": [
+      -57.5179863,
+      -8.266594,
+      45.8355026
+     ],
+     "escala": [
+      8.197855,
+      3.70960236,
+      3.38662
+     ],
+     "camZ": 69.84828,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 7",
+     "pos": [
+      18.7964478,
+      -7.519609,
+      6.82743645
+     ],
+     "escala": [
+      8.474518,
+      3.89924216,
+      3.564105
+     ],
+     "camZ": 92.32018,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 8",
+     "pos": [
+      55.6036377,
+      -6.96985865,
+      -20.015213
+     ],
+     "escala": [
+      6.684482,
+      2.69219232,
+      2.93920326
+     ],
+     "camZ": 98.14732,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 9",
+     "pos": [
+      33.825016,
+      -7.961762,
+      -12.2173729
+     ],
+     "escala": [
+      7.47471476,
+      3.37638,
+      3.51394367
+     ],
+     "camZ": 90.0818253,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 10",
+     "pos": [
+      53.9322968,
+      -6.85902739,
+      -33.96758
+     ],
+     "escala": [
+      7.280263,
+      3.49449944,
+      3.76328874
+     ],
+     "camZ": 88.5243759,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 11",
+     "pos": [
+      -34.35157,
+      -7.179208,
+      61.16073
+     ],
+     "escala": [
+      6.86792135,
+      3.10837,
+      2.77009726
+     ],
+     "camZ": 92.87581,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 12",
+     "pos": [
+      -19.4183,
+      -7.755287,
+      66.13484
+     ],
+     "escala": [
+      6.96392155,
+      3.048767,
+      2.99596024
+     ],
+     "camZ": 105.354584,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 13",
+     "pos": [
+      67.4787,
+      -7.280956,
+      17.0766869
+     ],
+     "escala": [
+      9.389456,
+      3.91218424,
+      3.57079673
+     ],
+     "camZ": 128.288879,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 14",
+     "pos": [
+      57.18755,
+      -8.113409,
+      19.0004539
+     ],
+     "escala": [
+      8.998707,
+      4.30109644,
+      4.03336954
+     ],
+     "camZ": 123.581154,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 15",
+     "pos": [
+      94.49282,
+      -7.34228,
+      -14.6111984
+     ],
+     "escala": [
+      6.730814,
+      2.87190223,
+      2.74262166
+     ],
+     "camZ": 125.457466,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 16",
+     "pos": [
+      92.25397,
+      -7.41903639,
+      -1.15813446
+     ],
+     "escala": [
+      10.0259018,
+      4.6081295,
+      3.93231487
+     ],
+     "camZ": 132.363113,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 17",
+     "pos": [
+      92.28899,
+      -7.14880657,
+      -24.3313942
+     ],
+     "escala": [
+      7.247674,
+      2.9090147,
+      3.71067762
+     ],
+     "camZ": 118.058784,
+     "enabled": true,
+     "ativo": true
+    },
+    {
+     "nome": "Nuvem volumetrica 18",
+     "pos": [
+      7.91929245,
+      -8.667774,
+      87.12795
+     ],
+     "escala": [
+      8.33465,
+      4.00648165,
+      3.783428
+     ],
+     "camZ": 135.407211,
+     "enabled": true,
+     "ativo": true
+    }
+   ]
+  },
+  "nuvensComponente": {
+   "distanciaDasIlhas": 0.85,
+   "opacidade": 0.8,
+   "tamanho": [
+    0.13,
+    0.21,
+    0.0
+   ]
+  },
+  "objetos": [
+   {
+    "objeto": "Cenario background (raiz)",
+    "posMundo": [
+     21.98391,
+     -33.640316,
+     30.3652878
+    ],
+    "escalaMundo": [
+     9.78469,
+     9.78469,
+     8.01239
+    ],
+    "rotEuler": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "filhos": 61,
+    "renderers": 83,
+    "boundsMin": [
+     -70.1257,
+     -50.6466141,
+     -71.01526
+    ],
+    "boundsMax": [
+     153.566422,
+     -10.8659592,
+     152.81636
+    ],
+    "boundsSize": [
+     223.692123,
+     39.7806549,
+     223.831619
+    ],
+    "topoRelativoAoTopoDasIlhas": -10.8659592,
+    "yTopoMenosYInferiorDasIlhas": -7.41262531,
+    "yTopoMenosYSuperiorDasIlhas": -11.5157261,
+    "profundidadeCamZ_centro": 138.841934,
+    "distanciaXZ_centroParaCentroDoAnel": 58.2665138,
+    "telaPx_min": [
+     -2251.09033,
+     -1542.37134
+    ],
+    "telaPx_max": [
+     4771.096,
+     2733.21484
+    ]
+   },
+   {
+    "objeto": "Rio de fundo",
+    "posMundo": [
+     21.98391,
+     -33.640316,
+     30.3652878
+    ],
+    "escalaMundo": [
+     9.78469,
+     9.78469,
+     8.01239
+    ],
+    "rotEuler": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "filhos": 0,
+    "renderers": 1,
+    "boundsMin": [
+     -42.6674957,
+     -36.0989532,
+     -70.1774
+    ],
+    "boundsMax": [
+     39.3909454,
+     -22.1327515,
+     152.816116
+    ],
+    "boundsSize": [
+     82.05844,
+     13.9662008,
+     222.993515
+    ],
+    "topoRelativoAoTopoDasIlhas": -22.1327515,
+    "yTopoMenosYInferiorDasIlhas": -18.6794186,
+    "yTopoMenosYSuperiorDasIlhas": -22.7825184,
+    "profundidadeCamZ_centro": 111.726547,
+    "distanciaXZ_centroParaCentroDoAnel": 41.6752625,
+    "telaPx_min": [
+     -1820.234,
+     -1040.79871
+    ],
+    "telaPx_max": [
+     2966.39844,
+     1620.91577
+    ]
+   }
+  ]
+ }
+}

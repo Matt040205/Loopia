@@ -1,0 +1,300 @@
+[
+ {
+  "name": "Global Volume",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "Volume"
+  ]
+ },
+ {
+  "name": "Mundo",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "HexWorld",
+   "HexLoopGenerator",
+   "NavMeshSurface",
+   "NavegacaoDoMundo",
+   "DecoracaoDeIlha"
+  ]
+ },
+ {
+  "name": "Sun",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "Light",
+   "UniversalAdditionalLightData"
+  ]
+ },
+ {
+  "name": "Lucca",
+  "activeSelf": true,
+  "childCount": 2,
+  "componentTypes": [
+   "Transform",
+   "HexPlayer",
+   "LuccaStatus",
+   "HexLoopRunner",
+   "LuccaCombate",
+   "NavMeshAgent"
+  ]
+ },
+ {
+  "name": "Main Camera",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "Camera",
+   "UniversalAdditionalCameraData",
+   "HexIsoCamera"
+  ]
+ },
+ {
+  "name": "Controles",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "HexPointer",
+   "HexPlacementGrid"
+  ]
+ },
+ {
+  "name": "Diretor do Loop",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "LoopDirector"
+  ]
+ },
+ {
+  "name": "Inimigos",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "InimigoSpawner"
+  ]
+ },
+ {
+  "name": "Cartas",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MapaDePlataformas",
+   "MaoDeCartas",
+   "CartasUI"
+  ]
+ },
+ {
+  "name": "Cube",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "BoxCollider"
+  ]
+ },
+ {
+  "name": "LightProbeGroup",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "LightProbeGroup"
+  ]
+ },
+ {
+  "name": "DayNightController",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "DayNightController"
+  ]
+ },
+ {
+  "name": "Plane",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider"
+  ]
+ },
+ {
+  "name": "Gerador de Moedas",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "GeradorDeMoedas"
+  ]
+ },
+ {
+  "name": "HUD",
+  "activeSelf": true,
+  "childCount": 1,
+  "componentTypes": [
+   "RectTransform",
+   "Canvas",
+   "CanvasScaler",
+   "GraphicRaycaster",
+   "TelaDeMorte"
+  ]
+ },
+ {
+  "name": "EventSystem",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "EventSystem",
+   "InputSystemUIInputModule"
+  ]
+ },
+ {
+  "name": "DadosDoJogador",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "DadosDoJogador"
+  ]
+ },
+ {
+  "name": "QuadCloud",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "QuadCloud (1)",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "QuadCloud (2)",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "QuadCloud (3)",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "QuadCloud (4)",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "QuadCloud (5)",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "CloudController"
+  ]
+ },
+ {
+  "name": "IlhaFlutuante",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer"
+  ]
+ },
+ {
+  "name": "SmoothSmoke",
+  "activeSelf": false,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "VisualEffect",
+   "VFXRenderer"
+  ]
+ },
+ {
+  "name": "Cenario background",
+  "activeSelf": true,
+  "childCount": 61,
+  "componentTypes": [
+   "Transform",
+   "CenarioContinuo"
+  ]
+ },
+ {
+  "name": "Rio de fundo",
+  "activeSelf": true,
+  "childCount": 0,
+  "componentTypes": [
+   "Transform",
+   "MeshFilter",
+   "MeshRenderer",
+   "MeshCollider",
+   "FundoContinuo",
+   "RioDeFundo"
+  ]
+ },
+ {
+  "name": "Camada de nuvens",
+  "activeSelf": true,
+  "childCount": 18,
+  "componentTypes": [
+   "Transform",
+   "CamadaDeNuvens"
+  ]
+ }
+]
