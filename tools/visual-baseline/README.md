@@ -5,7 +5,7 @@ Captura reproduzível da `HexPrototipo` pelo Unity MCP (ver `tools/unity-mcp/REA
 ## Antes de rodar
 1. Unity aberto na `HexPrototipo`, cena sem alterações pendentes, sem testes rodando.
 2. **Faça backup do save**: o Play Mode regrava
-   `%USERPROFILE%/AppData/LocalLow/DefaultCompany/GameJam13-06/loopia_save.json`. Copie o arquivo antes e restaure
+   `%USERPROFILE%/AppData/LocalLow/DefaultCompany/Loopia/loopia_save.json` (ate a estabilizacao do MVP: `.../GameJam13-06/`). Copie o arquivo antes e restaure
    depois (compare SHA-256). O runner não faz isso sozinho.
 
 ## Uso (da raiz do repo)

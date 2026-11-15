@@ -37,7 +37,7 @@ fim da execução: `get_test_job` fica em `running` / `completed: 0` e novos `ru
 `refresh_unity` são recusados com `tests_running`. Procedimento:
 1. Esperar ~60 s após disparar `PlayModeSmoke` (cada teste leva 7–20 s).
 2. Ler o resultado no XML do Test Framework:
-   `%USERPROFILE%/AppData/LocalLow/DefaultCompany/GameJam13-06/TestResults.xml` (confirmar que o
+   `%USERPROFILE%/AppData/LocalLow/DefaultCompany/Loopia/TestResults.xml` (confirmar que o
    horário do arquivo é posterior ao disparo; olhar `<test-run ... result= total= passed= failed=>`).
 3. Destravar o rastreador:
    `python -I tools/unity-mcp/umcp.py execute_code @tools/unity-mcp/clear_stuck_test_job.json`
