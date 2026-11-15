@@ -46,6 +46,9 @@ namespace Loopia.Hex
         [Tooltip("Opcional. Com a jornada encerrada (vitoria/derrota) o Lucca para de atirar.")]
         public LoopDirector diretor;
 
+        [Tooltip("G2-C: Ilha alta como Mirante (+alcance, qualquer direcao). Vazio: criado no Lucca em tempo de execucao.")]
+        public MiranteDoLucca mirante;
+
         float _proximoTiro;
         LuccaAnimationBridge _animacao;
         Inimigo _alvoDoTiro;
@@ -67,6 +70,12 @@ namespace Loopia.Hex
         public Inimigo AlvoDaPreparacao => _alvoDoTiro;
         internal bool CadenciaPermiteSoltar => Time.time >= _proximoTiro;
 
+        /// <summary>O Lucca esta agora num Mirante (Ilha alta levantada).</summary>
+        public bool NoMirante => mirante != null && mirante.Ativo;
+
+        /// <summary>Alcance do tiro agora: o base, mais o bonus do Mirante enquanto estiver nele.</summary>
+        public int AlcanceAtual => mirante != null ? mirante.AlcanceDoTiro(alcance) : alcance;
+
         void Start()
         {
             if (player == null) player = GetComponent<HexPlayer>();
@@ -77,6 +86,8 @@ namespace Loopia.Hex
             if (plataformas == null) plataformas = FindFirstObjectByType<MapaDePlataformas>();
             if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
             _animacao = GetComponentInChildren<LuccaAnimationBridge>(true);
+            if (mirante == null) mirante = GetComponent<MiranteDoLucca>();
+            if (mirante == null) mirante = gameObject.AddComponent<MiranteDoLucca>(); // sem editar a cena
 
             if (player == null || status == null || inimigos == null)
             {
@@ -93,6 +104,9 @@ namespace Loopia.Hex
                 CancelarTiro(_tiroPendente);
                 return;
             }
+
+            // Casa atual antes de escolher e de revalidar o tiro reservado (cobre teleporte sem AoEntrarNoHexagono).
+            if (mirante != null && player != null) mirante.SincronizarCom(player.Coord);
 
             AlvoAtual = EscolherAlvo();
             if (_tiroPendente != 0)
@@ -153,7 +167,7 @@ namespace Loopia.Hex
         {
             return inimigo != null && inimigo.EstaVivo && EstaAFrente(inimigo)
                 && RegrasDoChefe.DentroDoAlcance(HexCoord.Distance(player.Coord, inimigo.Casa),
-                    alcance, inimigo.AlcanceExtraComoAlvo);
+                    AlcanceAtual, inimigo.AlcanceExtraComoAlvo);
         }
 
         /// <summary>ATK do Lucca mais o que torres e areas de treino somam.</summary>
@@ -177,7 +191,7 @@ namespace Loopia.Hex
 
                 // A prioridade e pela distancia real; o alcance extra so vale para alvos grandes (o chefe).
                 int distancia = HexCoord.Distance(player.Coord, inimigo.Casa);
-                if (!RegrasDoChefe.DentroDoAlcance(distancia, alcance, inimigo.AlcanceExtraComoAlvo)) continue;
+                if (!RegrasDoChefe.DentroDoAlcance(distancia, AlcanceAtual, inimigo.AlcanceExtraComoAlvo)) continue;
                 if (distancia >= menorDistancia) continue;
                 if (!EstaAFrente(inimigo)) continue;
 
@@ -193,7 +207,9 @@ namespace Loopia.Hex
             if (!somenteAFrente) return true;
 
             // Alvo grande (chefe no centro do anel): fica de lado o tempo todo enquanto o Lucca contorna.
-            if (inimigo.AlvoDeQualquerAngulo) return true;
+            // No Mirante (G2-C) qualquer alvo vale, de qualquer direcao.
+            if (RegrasDoMirante.IgnoraDirecao(NoMirante, mirante != null && mirante.TiroEmQualquerDirecao,
+                    inimigo.AlvoDeQualquerAngulo)) return true;
 
             // Quem esta na mesma casa conta sempre: nao da para ignorar quem esta em cima de voce.
             if (inimigo.Casa == player.Coord) return true;

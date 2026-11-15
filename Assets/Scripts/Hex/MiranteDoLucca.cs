@@ -8,8 +8,8 @@ namespace Loopia.Hex
     /// atira, nao mexe no NavMesh nem no percurso. Reavalia quando o Lucca entra numa casa e quando o mapa muda
     /// (ex.: a Mola sai e a ilha baixa); nada por frame.
     ///
-    /// Ainda NAO esta ligado ao LuccaCombate (arquivo em edicao pela frente de personagem). Plano de integracao:
-    /// docs/gameplay/g2/G2_HANDOFF.md.
+    /// Ligado ao LuccaCombate na integracao do MVP: AlcanceAtual (escolha e revalidacao do tiro reservado) e
+    /// EstaAFrente consultam este componente.
     /// </summary>
     [DisallowMultipleComponent]
     public class MiranteDoLucca : MonoBehaviour
@@ -63,6 +63,18 @@ namespace Loopia.Hex
         void Reavaliar()
         {
             if (_temCasa) Avaliar(_casa);
+        }
+
+        /// <summary>
+        /// Reavalia so se a casa mudou desde a ultima avaliacao. O LuccaCombate chama antes de mirar: cobre o
+        /// teleporte (HexPlayer.ColocarEm nao dispara AoEntrarNoHexagono) com uma comparacao barata.
+        /// </summary>
+        public void SincronizarCom(HexCoord casa)
+        {
+            // Pode ser chamado antes do proprio Start (componente criado em tempo de execucao pelo LuccaCombate).
+            if (mapa == null) mapa = FindFirstObjectByType<MapaDePlataformas>();
+            if (mundo == null) mundo = FindFirstObjectByType<HexWorld>();
+            if (!_temCasa || casa != _casa) Avaliar(casa);
         }
 
         /// <summary>Reavalia o Mirante para o Lucca parado nesta casa.</summary>
