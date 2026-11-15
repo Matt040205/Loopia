@@ -1,0 +1,66 @@
+[
+ {
+  "t": 24.86778,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 2,
+  "flechasVoando": 0
+ },
+ {
+  "t": 46.27061,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 3,
+  "flechasVoando": 0
+ },
+ {
+  "t": 66.3862457,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 3,
+  "flechasVoando": 1
+ },
+ {
+  "t": 86.42477,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 1,
+  "flechasVoando": 0
+ },
+ {
+  "t": 106.519318,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 3,
+  "flechasVoando": 0
+ },
+ {
+  "t": 126.55555,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 3,
+  "flechasVoando": 0
+ },
+ {
+  "t": 146.58728,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 3,
+  "flechasVoando": 0
+ },
+ {
+  "t": 166.6286,
+  "materiais": 1391,
+  "flecha": 1,
+  "compartilhados": 2,
+  "inimigos": 4,
+  "flechasVoando": 0
+ }
+]

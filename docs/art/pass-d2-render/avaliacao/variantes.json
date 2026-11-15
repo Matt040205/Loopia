@@ -1,0 +1,153 @@
+{
+ "shaders_ativos": {
+  "Universal Render Pipeline/Lit": 395,
+  "Universal Render Pipeline/Unlit": 2
+ },
+ "A_atual": {
+  "mediana": {
+   "batches": 531,
+   "setPassCalls": 67,
+   "drawCalls": 531,
+   "triangles": 912661,
+   "vertices": 1022669,
+   "shadowCasters": 0
+  },
+  "frametime_editor_ms": 3.6469338671411284,
+  "gpu": [
+   {
+    "amostras": 26,
+    "gpu_ms": 0.5607230769230769,
+    "cpu_ms": 4.586323076923078,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5585314285714287,
+    "cpu_ms": 4.243660714285714,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5538042857142857,
+    "cpu_ms": 4.400257142857143,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5566328571428572,
+    "cpu_ms": 3.5217285714285715,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5539671428571428,
+    "cpu_ms": 3.5236535714285724,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5552885714285715,
+    "cpu_ms": 3.562514285714286,
+    "suportado": true
+   }
+  ]
+ },
+ "B_sem_opaque": {
+  "mediana": {
+   "batches": 525,
+   "setPassCalls": 66,
+   "drawCalls": 527,
+   "triangles": 906698,
+   "vertices": 1010699,
+   "shadowCasters": 0
+  },
+  "frametime_editor_ms": 3.8583347688410505,
+  "gpu": [
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5658414285714286,
+    "cpu_ms": 4.179200000000001,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.548292857142857,
+    "cpu_ms": 4.540332142857142,
+    "suportado": true
+   },
+   {
+    "amostras": 27,
+    "gpu_ms": 0.5480918518518519,
+    "cpu_ms": 5.044685185185184,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5378142857142858,
+    "cpu_ms": 3.8477642857142844,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5324171428571429,
+    "cpu_ms": 3.6910071428571443,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.5367085714285713,
+    "cpu_ms": 3.1507107142857143,
+    "suportado": true
+   }
+  ]
+ },
+ "C_sem_opaque_sem_ssao": {
+  "mediana": {
+   "batches": 290,
+   "setPassCalls": 59,
+   "drawCalls": 290,
+   "triangles": 455133,
+   "vertices": 509628,
+   "shadowCasters": 0
+  },
+  "frametime_editor_ms": 3.456805033557067,
+  "gpu": [
+   {
+    "amostras": 28,
+    "gpu_ms": 0.47933571428571436,
+    "cpu_ms": 3.490003571428572,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.4715585714285715,
+    "cpu_ms": 3.1226499999999993,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.47876714285714284,
+    "cpu_ms": 3.9452392857142864,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.48460428571428577,
+    "cpu_ms": 4.3146964285714295,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.48388857142857145,
+    "cpu_ms": 3.5781892857142856,
+    "suportado": true
+   },
+   {
+    "amostras": 28,
+    "gpu_ms": 0.48643714285714273,
+    "cpu_ms": 3.759114285714286,
+    "suportado": true
+   }
+  ]
+ }
+}
