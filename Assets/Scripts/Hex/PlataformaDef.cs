@@ -46,6 +46,14 @@ namespace Loopia.Hex
         [Min(0f)] public float alturaDoModelo = 0.25f;
         public bool girarModelo;
 
+        [Header("Marcador da carta (Pass C)")]
+        [Tooltip("Prefab em escala de mundo (1 u = altura do Lucca), pivo no centro e no topo da ilha, eixos do mundo. " +
+                 "Vira filho da ilha (acompanha a altura dela), sem normalizacao de tamanho. Cartas do caminho: so baixo " +
+                 "no centro e alto no lado longe da camera.")]
+        public GameObject marcador;
+        [Tooltip("Esconde a decoracao da ilha enquanto a carta estiver nela (o marcador a substitui).")]
+        public bool ocultarDecoracao;
+
         public virtual bool DisponivelParaCompra(MapaDePlataformas mapa) => true;
 
         // --- Ganchos ---

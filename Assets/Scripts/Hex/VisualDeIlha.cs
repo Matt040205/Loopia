@@ -37,9 +37,17 @@ namespace Loopia.Hex
             modelo.transform.localScale *= escala;
             modelo.transform.localPosition = new Vector3(-limites.center.x,
                 -(topo ? limites.max.y : limites.min.y), -limites.center.z) * escala;
-            raiz.gameObject.AddComponent<NavMeshModifier>().ignoreFromBuild = true;
-            foreach (var colisor in raiz.GetComponentsInChildren<Collider>()) colisor.enabled = false;
+            PrepararArte(raiz.gameObject);
             return raiz.gameObject;
+        }
+
+        /// <summary>Arte pura: fora do bake do NavMesh (vale para os filhos) e sem collider ligado.</summary>
+        public static void PrepararArte(GameObject arte)
+        {
+            var modificador = arte.GetComponent<NavMeshModifier>();
+            if (modificador == null) modificador = arte.AddComponent<NavMeshModifier>();
+            modificador.ignoreFromBuild = true;
+            foreach (var colisor in arte.GetComponentsInChildren<Collider>(true)) colisor.enabled = false;
         }
 
         /// <summary>Dimensao do modelo que vale como "tamanho" para o eixo escolhido.</summary>

@@ -1,11 +1,22 @@
 # Estado atual — 2026-11-15
 
 ## Onde estamos
-- Sprint / passo: Sprint 1 (visual) — **Pass B: composição do fundo** (concluído, aguardando revisão)
-- Branch: `sprint-1/pass-b-composicao`, empilhada: `sprint-0/preparacao-tecnica` → `sprint-1/auditoria-visual` →
-  `sprint-1/pass-a-escala-camera` (PR #1) → `sprint-1/pass-d1-nevoa` (PR #2) → `sprint-1/pass-b-composicao` (PR do Pass B).
+- Sprint / passo: Sprint 1 (visual) — **Pass C: dressing das ilhas** (concluído, aguardando revisão)
+- Branch: `sprint-1/pass-c-dressing`, empilhada: `sprint-0/preparacao-tecnica` → `sprint-1/auditoria-visual` →
+  `sprint-1/pass-a-escala-camera` (PR #1) → `sprint-1/pass-d1-nevoa` (PR #2) → `sprint-1/pass-b-composicao` (PR #3) →
+  `sprint-1/pass-c-dressing` (PR do Pass C).
   Nada disso está na `main`.
 - Status: aguardando revisão/merge do responsável; próximo passe só após aprovação
+
+## O que foi feito no Pass C
+- C1: `PlataformaDef.marcador`/`ocultarDecoracao`; `Plataforma` instancia o marcador como filho da ilha (sobe com o relevo,
+  fora do bake). Marcadores das 7 cartas sem modelo em `Assets/Modelos/Marcadores/`, gerados por
+  `Assets/Editor/MarcadoresDeCarta.cs` (menu Loopia/Pass C). Cartas do caminho: nada alto no centro nem do lado da câmera.
+- C2/C3: segunda camada `VegetacaoBaixa` no `DecoracaoDeIlha` (sorteio próprio; decoração principal idêntica), configurada no
+  perfil (`vegetacaoBaixa`, 3–8 por ilha, mistura ±60 %, teto 12 por ilha); static batch em runtime.
+- Evidências: suíte 253/253 (Logic+SceneStatic job `19b19fd7…`, PlayModeSmoke 7/7 05:38Z); legibilidade igual ao Pass B;
+  batches 421 → 530 (+26 %, ainda < 615 de antes do Pass B). Relatório: `docs/art/pass-c/RELATORIO_PASS_C.md`.
+- Pendente do C: build; oclusão do Lucca real pelas moitas do lado da câmera (não medida).
 
 ## O que foi feito no Pass B
 - Fundo novo `FundoDePaisagem` (`Assets/Scripts/Hex/FundoDePaisagem.cs`): vale em miniatura gerado ao carregar a cena
@@ -37,11 +48,11 @@
 - Prévias locais: `Assets/Previa/FundoKayKit/HexPrototipo_FundoKayKit_v5.unity` (v5 congelada, "mapa anterior") e `_v6.unity`.
 
 ## Decisões que dependem do humano
-- Revisar/mergear a pilha (Sprint 0 → auditoria → PR #1 → PR #2 → Pass B)
-- Liberar o próximo passe: **C (dressing das ilhas)**, depois D2
+- Revisar/mergear a pilha (Sprint 0 → auditoria → PR #1 → PR #2 → PR #3 → Pass C)
+- Liberar o próximo passe: **D2 (luz e validação em build)**
 - `.meta` de `ArvoreGrande.fbx`/`Morcegp.fbx` (dono dos assets)
 
 ## Como retomar
-1. `git fetch && git checkout sprint-1/pass-b-composicao`
+1. `git fetch && git checkout sprint-1/pass-c-dressing`
 2. Unity 6000.3.10f1 na `HexPrototipo`; antes de trocar de branch com o Editor aberto, abrir uma cena vazia.
 3. Suíte (AGENTS.md §6); capturas e legibilidade: `tools/visual-baseline/README.md`.
