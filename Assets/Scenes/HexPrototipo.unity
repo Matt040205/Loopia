@@ -236,6 +236,7 @@ MonoBehaviour:
   visualDaFlecha: {fileID: 2726901043205910207, guid: eb6a9fbd130afec47978193e819cfe7e, type: 3}
   somenteAFrente: 1
   diretor: {fileID: 1403609353}
+  mirante: {fileID: 0}
 --- !u!195 &30939193
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2037,6 +2038,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fa0395c276dc1014995d0d3265abe06b, type: 2}
   - {fileID: 11400000, guid: 85d0fb63f0c23fb4aa6190eec7f58282, type: 2}
   - {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
+  - {fileID: 11400000, guid: 5bcfc580a5c534145a3d4c1ae226d151, type: 2}
+  - {fileID: 11400000, guid: 105e39fc7bdebb149bebfb8ae5ced98f, type: 2}
+  - {fileID: 11400000, guid: b8f02e8d9615e7348b0b1f0b653b074a, type: 2}
   espacos: 4
   cartasIniciais: 4
   cartasGarantidas:
@@ -2046,6 +2050,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e072abf0d8d1cf448bd24d4e5fba522, type: 2}
   cartaAoLiberar: {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
   cartasPorNivel: 1
+  limiteDeAlertaDePendentes: 4
+  diretor: {fileID: 0}
 --- !u!114 &1763888090
 MonoBehaviour:
   m_ObjectHideFlags: 0
