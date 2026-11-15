@@ -1,0 +1,42 @@
+{
+ "A_atual": {
+  "batches": 528,
+  "setPassCalls": 67,
+  "drawCalls": 529,
+  "triangles": 908634,
+  "vertices": 1013939,
+  "shadowCasters": 0
+ },
+ "B_sol58": {
+  "batches": 525,
+  "setPassCalls": 67,
+  "drawCalls": 526,
+  "triangles": 901526,
+  "vertices": 1007178,
+  "shadowCasters": 0
+ },
+ "C_sol58_sombra": {
+  "batches": 826,
+  "setPassCalls": 76,
+  "drawCalls": 827,
+  "triangles": 1019035,
+  "vertices": 1197322,
+  "shadowCasters": 784
+ },
+ "D_C_neutral": {
+  "batches": 828,
+  "setPassCalls": 76,
+  "drawCalls": 831,
+  "triangles": 1023491,
+  "vertices": 1203060,
+  "shadowCasters": 786
+ },
+ "E_C_aces": {
+  "batches": 823,
+  "setPassCalls": 76,
+  "drawCalls": 826,
+  "triangles": 1018378,
+  "vertices": 1195590,
+  "shadowCasters": 784
+ }
+}
