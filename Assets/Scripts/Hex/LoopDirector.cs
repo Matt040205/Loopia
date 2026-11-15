@@ -259,6 +259,20 @@ namespace Loopia.Hex
                 _estiloDoPainel = new GUIStyle(GUI.skin.label) { fontSize = 10, richText = false };
             }
 
+            // Telas acima de 1080p: o painel escala junto (EscalaDaInterface); ate 1080p fica igual.
+            Matrix4x4 anterior = EscalaDaInterface.Aplicar(out _, out _);
+            try
+            {
+                DesenharPainel();
+            }
+            finally
+            {
+                GUI.matrix = anterior;
+            }
+        }
+
+        void DesenharPainel()
+        {
             // Canto superior esquerdo: a base da tela e das cartas, como manda a HUD do GDD.
             const float largura = 172f;
             const float altura = 168f;

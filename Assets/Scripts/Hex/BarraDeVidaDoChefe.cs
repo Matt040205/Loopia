@@ -58,20 +58,29 @@ namespace Loopia.Hex
                 _estilo.normal.textColor = Color.white;
             }
 
-            Inimigo chefe = encontro.Chefe;
-            float largura = Screen.width * larguraNaTela;
-            var fundo = new Rect((Screen.width - largura) * 0.5f, margemDoTopo, largura, altura);
-            var vida = new Rect(fundo.x + 2f, fundo.y + 2f, (fundo.width - 4f) * fracao, fundo.height - 4f);
+            // Telas acima de 1080p: altura, margem e fonte escalam junto (EscalaDaInterface); a largura segue a tela.
+            Matrix4x4 matrizAnterior = EscalaDaInterface.Aplicar(out float larguraDaTela, out _);
+            try
+            {
+                Inimigo chefe = encontro.Chefe;
+                float largura = larguraDaTela * larguraNaTela;
+                var fundo = new Rect((larguraDaTela - largura) * 0.5f, margemDoTopo, largura, altura);
+                var vida = new Rect(fundo.x + 2f, fundo.y + 2f, (fundo.width - 4f) * fracao, fundo.height - 4f);
 
-            Color anterior = GUI.color;
-            GUI.color = corDoFundo;
-            GUI.DrawTexture(fundo, Texture2D.whiteTexture);
-            GUI.color = encontro.AvisandoEspecial ? corDoAviso : corDaVida;
-            GUI.DrawTexture(vida, Texture2D.whiteTexture);
-            GUI.color = anterior;
+                Color anterior = GUI.color;
+                GUI.color = corDoFundo;
+                GUI.DrawTexture(fundo, Texture2D.whiteTexture);
+                GUI.color = encontro.AvisandoEspecial ? corDoAviso : corDaVida;
+                GUI.DrawTexture(vida, Texture2D.whiteTexture);
+                GUI.color = anterior;
 
-            string nome = chefe.Def != null ? chefe.Def.nome : "Chefe";
-            GUI.Label(fundo, nome + "  " + chefe.PvAtual + " / " + chefe.PvMaximo, _estilo);
+                string nome = chefe.Def != null ? chefe.Def.nome : "Chefe";
+                GUI.Label(fundo, nome + "  " + chefe.PvAtual + " / " + chefe.PvMaximo, _estilo);
+            }
+            finally
+            {
+                GUI.matrix = matrizAnterior;
+            }
         }
     }
 }

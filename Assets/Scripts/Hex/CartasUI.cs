@@ -52,6 +52,10 @@ namespace Loopia.Hex
         string _textoPendentes;
         int _pendentesNoTexto = -1;
 
+        // Tamanho logico da tela no OnGUI (Screen dividido pelo fator da EscalaDaInterface).
+        float _larguraDaTela;
+        float _alturaDaTela;
+
         /// <summary>A carta que o jogador esta segurando agora, ou null.</summary>
         public PlataformaDef CartaArrastada =>
             _espacoArrastado >= 0 && mao != null ? mao.CartaNoEspaco(_espacoArrastado) : null;
@@ -220,21 +224,30 @@ namespace Loopia.Hex
                 _estiloTexto = new GUIStyle(GUI.skin.label) { fontSize = 10, wordWrap = true };
             }
 
-            DesenharBarra();
-            DesenharDescricao();
+            // Telas acima de 1080p: tudo escala junto (EscalaDaInterface); o layout usa o tamanho logico da tela.
+            Matrix4x4 anterior = EscalaDaInterface.Aplicar(out _larguraDaTela, out _alturaDaTela);
+            try
+            {
+                DesenharBarra();
+                DesenharDescricao();
+            }
+            finally
+            {
+                GUI.matrix = anterior;
+            }
         }
 
         void DesenharBarra()
         {
             int espacos = mao.Mao.Count;
 
-            float alturaDaCarta = Mathf.Min(96f, Screen.height * 0.22f);
+            float alturaDaCarta = Mathf.Min(96f, _alturaDaTela * 0.22f);
             float larguraDaCarta = alturaDaCarta * 0.86f;
             const float folga = 6f;
 
             float larguraTotal = espacos * larguraDaCarta + (espacos - 1) * folga;
-            float x = (Screen.width - larguraTotal) * 0.5f;
-            float y = Screen.height - alturaDaCarta - 8f;
+            float x = (_larguraDaTela - larguraTotal) * 0.5f;
+            float y = _alturaDaTela - alturaDaCarta - 8f;
 
             _espacoSobOMouse = -1;
 
@@ -319,7 +332,7 @@ namespace Loopia.Hex
 
             const float largura = 210f;
             const float altura = 86f;
-            var area = new Rect(Screen.width - largura - 12f, Screen.height - altura - 12f, largura, altura);
+            var area = new Rect(_larguraDaTela - largura - 12f, _alturaDaTela - altura - 12f, largura, altura);
 
             GUILayout.BeginArea(area, GUI.skin.box);
             GUILayout.Label(titulo, _estiloCarta);
