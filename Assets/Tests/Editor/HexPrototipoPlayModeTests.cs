@@ -169,12 +169,15 @@ namespace Loopia.Hex.Tests
             Reflexao.Chamar(diretor, "FechouUmaVolta", 4);
             Assert.IsTrue(diretor.BossLiberado);
             Assert.AreEqual(1, boss, "AoLiberarBoss na 4a volta");
+            Assert.AreEqual(EstadoDaPartida.Chefe, diretor.Estado, "com o EncontroDoChefe na cena a 4a volta abre o confronto");
 
+            // ATUALIZADO DE PROPOSITO na integracao do G1 (antes: a 5a volta contava, VoltasCompletas 5 e x1,1^5).
+            // Agora, no confronto, a contagem congela: nada de 5a volta, de escala nova nem de segundo Boss.
             Reflexao.Chamar(diretor, "FechouUmaVolta", 5);
             Assert.AreEqual(1, boss, "AoLiberarBoss nao pode disparar de novo");
-            Assert.AreEqual(5, voltas);
-            Assert.AreEqual(5, diretor.VoltasCompletas);
-            Assert.AreEqual(Mathf.Pow(1.1f, 5), diretor.MultiplicadorDosInimigos, 1e-4f);
+            Assert.AreEqual(4, voltas, "a 5a volta nao conta no confronto");
+            Assert.AreEqual(4, diretor.VoltasCompletas);
+            Assert.AreEqual(Mathf.Pow(1.1f, 4), diretor.MultiplicadorDosInimigos, 1e-4f);
 
         }
 

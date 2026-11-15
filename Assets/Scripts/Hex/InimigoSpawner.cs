@@ -40,6 +40,10 @@ namespace Loopia.Hex
         [Tooltip("Distancia minima do Lucca, em casas, para um morcego nao brotar em cima dele.")]
         [Min(0)] public int distanciaMinimaDoPlayer = 3;
 
+        [Tooltip("Ligado: os morcegos (e lobos por tempo) param de nascer sozinhos. Quem esta vivo continua. " +
+                 "O LoopDirector liga isto no confronto com o chefe e na vitoria.")]
+        public bool pausarSpawnComum = false;
+
         [Header("Lobos por tempo (so para testar sem a carta de floresta)")]
         public bool nascerLobosPorTempo = false;
         [Min(0.5f)] public float intervaloDeLobos = 14f;
@@ -57,6 +61,9 @@ namespace Loopia.Hex
         bool _congelados;
 
         public IReadOnlyList<Inimigo> Vivos => _vivos;
+
+        /// <summary>Qualquer inimigo do spawner derrotado (antes de dar o XP). Para metricas e feedback.</summary>
+        public event System.Action<Inimigo> AoInimigoDerrotado;
 
         public int QuantosVivos(InimigoDef def)
         {
@@ -107,16 +114,18 @@ namespace Loopia.Hex
                 return;
             }
 
+            if (pausarSpawnComum || _congelados) return;
+
             if (nascerMorcegos && morcego != null && Time.time >= _proximoMorcego)
             {
                 _proximoMorcego = Time.time + intervaloDeMorcegos;
-                if (QuantosVivos(morcego) < maximoDeMorcegos) NascerEmCasaSorteada(morcego);
+                if (QuantosVivos(morcego) < maximoDeMorcegos) NascerNoAnel(morcego);
             }
 
             if (nascerLobosPorTempo && lobo != null && Time.time >= _proximoLobo)
             {
                 _proximoLobo = Time.time + intervaloDeLobos;
-                if (QuantosVivos(lobo) < maximoDeLobos) NascerEmCasaSorteada(lobo);
+                if (QuantosVivos(lobo) < maximoDeLobos) NascerNoAnel(lobo);
             }
         }
 
@@ -158,6 +167,12 @@ namespace Loopia.Hex
 
         void RepassarAtaque(int dano) => aoInimigoAtacar.Invoke(dano);
 
+        /// <summary>
+        /// Para todo mundo onde esta: nenhum inimigo vivo ataca nem se mexe, e nada mais nasce sozinho.
+        /// Usado no Game Over (automatico, pelo PV do Lucca) e na vitoria (pelo LoopDirector).
+        /// </summary>
+        public void CongelarTodos() => Congelar();
+
         void Congelar()
         {
             _congelados = true;
@@ -170,15 +185,21 @@ namespace Loopia.Hex
         void Morreu(Inimigo inimigo)
         {
             _vivos.Remove(inimigo);
+            AoInimigoDerrotado?.Invoke(inimigo);
 
             // GDD: "Derrotar inimigos concede XP ao jogador".
             if (status != null) status.GanharXp(inimigo.Xp);
         }
 
-        /// <summary>Sorteia uma casa do anel que esteja livre e longe o bastante do Lucca.</summary>
-        void NascerEmCasaSorteada(InimigoDef def)
+        /// <summary>
+        /// Faz nascer um inimigo numa casa sorteada do anel, livre e longe o bastante do Lucca. Devolve null
+        /// se nao achar casa. E o mesmo caminho do spawn comum; a Revoada do chefe tambem usa.
+        /// </summary>
+        public Inimigo NascerNoAnel(InimigoDef def)
         {
+            if (def == null || gerador == null || player == null) return null;
             HexLoopPath loop = gerador.Loop;
+            if (loop == null || loop.Count == 0) return null;
 
             const int tentativas = 24;
             for (int i = 0; i < tentativas; i++)
@@ -188,9 +209,9 @@ namespace Loopia.Hex
                 if (HexCoord.Distance(casa, player.Coord) < distanciaMinimaDoPlayer) continue;
                 if (TemInimigoEm(casa)) continue;
 
-                Nascer(def, casa);
-                return;
+                return Nascer(def, casa);
             }
+            return null;
         }
 
         bool TemInimigoEm(HexCoord casa) => QuantosEm(casa) > 0;
