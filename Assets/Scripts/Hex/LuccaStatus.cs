@@ -177,7 +177,9 @@ namespace Loopia.Hex
         /// </summary>
         public void GanharMoedas(int quantidade)
         {
-            if (quantidade <= 0) return;
+            // Morto nao coleta: na derrota o corpo ainda termina o trecho do NavMesh e entrava na casa seguinte, somando
+            // uma moeda ao save depois de a tela de resultado ja ter mostrado "Moedas nesta jornada" (43 na tela, +44 no save).
+            if (quantidade <= 0 || !EstaVivo) return;
 
             Moedas += quantidade;
             DadosDoJogador.Instancia.AdicionarMoedas(quantidade);

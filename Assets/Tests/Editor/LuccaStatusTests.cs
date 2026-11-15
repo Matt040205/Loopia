@@ -41,6 +41,17 @@ namespace Loopia.Hex.Tests
         }
 
         [Test]
+        public void Morto_NaoColetaMoedas()
+        {
+            // Estabilizacao do MVP: o corpo ainda entrava numa casa com moeda e o save ficava 1 acima do resumo da
+            // tela de resultado. Com o Lucca morto, GanharMoedas sai antes de tocar no DadosDoJogador (nao grava save).
+            _s.ReceberDano(999);
+            Assert.IsFalse(_s.EstaVivo);
+            _s.GanharMoedas(3);
+            Assert.AreEqual(0, _s.Moedas, "moeda depois da morte nao entra no resumo nem no save");
+        }
+
+        [Test]
         public void ReceberDano_ZeraEDisparaAoMorrerUmaVez_ENaoRessuscita()
         {
             int mortes = 0;
