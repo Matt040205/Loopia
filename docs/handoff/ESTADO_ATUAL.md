@@ -1,6 +1,14 @@
 # Estado atual — 2026-11-15
 
-## Onde estamos
+## Integração de Lucca nesta branch
+
+- `feature/lucca-character-integration` parte de `sprint-3/gameplay-cena` em `ee46799` (PR #8). A worktree separada é `loopia-lucca`.
+- `HexPrototipo.unity` usa o prefab `LuccaVisual` com Avatar Humanoid, materiais URP, Animator sem Root Motion, arco equipado e os seis clipes da Sprint 2C. O GameObject lógico de Lucca continua com seus componentes e referências.
+- `LuccaCombate` reserva o tiro e só cria o projétil na soltura visual ou pelo fallback. `HexPlayer` continua dono da trajetória e informa tipo/tempo de salto ao bridge.
+- Reprodução, fontes, resultados e limitações em [docs/character-integration](../character-integration/UNITY_INTEGRATION.md). Registre novas execuções em [TEST_RESULTS.md](../character-integration/TEST_RESULTS.md).
+- O diff foi preparado sobre o PR #8 para revisão. Consulte [KNOWN_ISSUES.md](../character-integration/KNOWN_ISSUES.md) para a passada em velocidade máxima e os limites de mira.
+
+## Onde estava a pilha anterior
 - Sprint / passo: Sprint 1 (visual) — **Pass D2 completo, menos build** (luz + render/materiais; aguardando revisão)
 - Branch: `sprint-1/pass-d2-render`, empilhada: `sprint-0/preparacao-tecnica` → `sprint-1/auditoria-visual` →
   `sprint-1/pass-a-escala-camera` (PR #1) → `sprint-1/pass-d1-nevoa` (PR #2) → `sprint-1/pass-b-composicao` (PR #3) →
