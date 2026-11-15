@@ -1,5 +1,15 @@
 # Estado atual — 2026-11-15
 
+## Integração do MVP (base para o polimento) — **comece por aqui**
+- Branch `integration/mvp-20261117`, worktree `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. É a única base com tudo
+  junto: G1 + arte (PR #8), Lucca do Codex (PR #10), G2 (PR #9), Mirante ligado ao combate e as 3 cartas G2 no baralho.
+- Editor de trabalho: o Unity aberto em `loopia-mvp`. As worktrees `loopia`, `loopia-lucca`, `loopia-gameplay` e
+  `loopia-g2` ficam como estão (histórico das frentes); não abrir Editors nelas para trabalho novo.
+- Testes: 370/370 (Logic 309, SceneStatic 37, PlayModeSmoke 23, PlayModeMedicao 1). Build Windows de desenvolvimento
+  (fallback): `C:\Users\Sitr3n\Documents\Loopia_Builds\mvp-20261117-dev-55442a5\Loopia.exe`.
+- Relatório, partida manual, build e problemas conhecidos: [MVP_INTEGRATION_REPORT.md](../integration/MVP_INTEGRATION_REPORT.md).
+- Suítes de teste: uma worktree por vez (trava `loopia_tests_save.lock` em `%TEMP%`); o save é o mesmo para Editor e build.
+
 ## Sprint 2C.2 — Locomoção na branch Lucca
 
 - `feature/lucca-locomotion-2c2` parte da integração `89dc640` na worktree `loopia-lucca`.

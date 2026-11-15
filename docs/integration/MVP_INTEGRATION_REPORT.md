@@ -113,6 +113,7 @@ por mensagem de janela não chega ao Input System; não injetei entrada real no 
 | P2 | Painel de depuração IMGUI grande; nome da janela/produto ainda `GameJam13-06` (muda o caminho do save se alterado) |
 | Infra | Editor e build usam o **mesmo** `loopia_save.json`; jogar a build altera o save do jogador |
 | Infra | `EditorBuildSettings` com cenas legadas habilitadas; um "Build" pelo menu incluiria Menu/Testes/GameOver/Win |
+| Infra | A build regravou dados de pré-filtragem de shaders do URP (`PC_RPAsset`, `UniversalRenderPipelineGlobalSettings`, `GraphicsSettings`) e o batching por plataforma em `ProjectSettings`. **Não commitados** (URP fora do escopo); ficam modificados na worktree e voltam a ser gerados em cada build |
 
 ## 10. Rollback
 - Branch: não há merge em lugar nenhum; fechar o PR basta. Para desfazer partes: `git revert 55442a5 275ad7c e01223d
