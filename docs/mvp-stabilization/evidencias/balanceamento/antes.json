@@ -1,0 +1,1679 @@
+[
+ {
+  "cenario": "1_sem_dano",
+  "semente": 1,
+  "preparo": {
+   "gerou": true,
+   "volta": 24,
+   "colocadas": [
+    "Mola@(-3, 3)(caminho)",
+    "Coracao@(-2, -1)(caminho)",
+    "Moedas@(1, -3)(caminho)",
+    "Flechas@(4, -1)(caminho)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 2,
+   "pv": 50,
+   "pvMax": 50,
+   "flechas": 11,
+   "flechasMax": 15,
+   "nivel": 3,
+   "pendentes": 0,
+   "livres": 0,
+   "chefePv": 662,
+   "tempo": 384.518127
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 3,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 14,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 137,
+   "tempo": 416.627655
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 3
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 137.85495,
+   "casasNoAnel": 24,
+   "chefeComecou": true,
+   "duracaoDoChefe": 28.235199,
+   "flechasNoChefe": 17,
+   "flechasEmOutrosNoChefe": 7,
+   "recargasNoChefe": 1,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 2,
+   "morcegosDaRevoada": 4,
+   "tempoSemFlechasNoChefe": 8.738478,
+   "maiorTrechoSemFlechasNoChefe": 8.738478,
+   "chefePvNoFim": 137,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 27.36621,
+     "flechasDisparadas": 4,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 2,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 27.4010315,
+     "flechasDisparadas": 16,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 27.4641113,
+     "flechasDisparadas": 10,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 27.3883972,
+     "flechasDisparadas": 11,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=24 casas, resultado=Derrota, total=137.9s\n  volta 1: 27.4s, flechas 4, dano 5, abates 2, PV ao fechar 50\n  volta 2: 27.4s, flechas 16, dano 6, abates 7, PV ao fechar 50\n  volta 3: 27.5s, flechas 10, dano 0, abates 5, PV ao fechar 50\n  volta 4: 27.4s, flechas 11, dano 0, abates 5, PV ao fechar 50\n  chefe: 28.2s, flechas no chefe 17, em outros 7, recargas 1, dano recebido 55 (PV inicial 50), revoadas 2 (4 morcegos), sem flechas 8.7s (maior trecho 8.7s)"
+  },
+  "segundosReais": 36.2
+ },
+ {
+  "cenario": "1_sem_dano",
+  "semente": 2,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(2, -1)(caminho)",
+    "Coracao@(1, 4)(caminho)",
+    "Moedas@(-3, 4)(caminho)",
+    "Flechas@(-5, 1)(caminho)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 27,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 522,
+   "tempo": 561.4607
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 20,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 10,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 347,
+   "tempo": 577.5341
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 157.870728,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 20.2557373,
+   "flechasNoChefe": 11,
+   "flechasEmOutrosNoChefe": 4,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.240497,
+   "maiorTrechoSemFlechasNoChefe": 8.240497,
+   "chefePvNoFim": 347,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.45813,
+     "flechasDisparadas": 4,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 2,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.3816833,
+     "flechasDisparadas": 16,
+     "danoRecebido": 12,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.4217834,
+     "flechasDisparadas": 16,
+     "danoRecebido": 12,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.3533936,
+     "flechasDisparadas": 10,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=157.9s\n  volta 1: 34.5s, flechas 4, dano 0, abates 2, PV ao fechar 50\n  volta 2: 34.4s, flechas 16, dano 12, abates 8, PV ao fechar 50\n  volta 3: 34.4s, flechas 16, dano 12, abates 8, PV ao fechar 50\n  volta 4: 34.4s, flechas 10, dano 0, abates 5, PV ao fechar 50\n  chefe: 20.3s, flechas no chefe 11, em outros 4, recargas 0, dano recebido 55 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 8.2s (maior trecho 8.2s)"
+  },
+  "segundosReais": 40.3
+ },
+ {
+  "cenario": "1_sem_dano",
+  "semente": 27,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(-1, 3)(caminho)",
+    "Coracao@(-5, 4)(caminho)",
+    "Moedas@(-2, -1)(caminho)",
+    "Flechas@(1, -4)(caminho)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 41,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 522,
+   "tempo": 722.6225
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 3,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 14,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 102,
+   "tempo": 754.8932
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 172.536865,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 35.02417,
+   "flechasNoChefe": 18,
+   "flechasEmOutrosNoChefe": 8,
+   "recargasNoChefe": 1,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 2,
+   "morcegosDaRevoada": 4,
+   "tempoSemFlechasNoChefe": 14.1573648,
+   "maiorTrechoSemFlechasNoChefe": 8.294587,
+   "chefePvNoFim": 102,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.3846436,
+     "flechasDisparadas": 6,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.3999023,
+     "flechasDisparadas": 18,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.31317,
+     "flechasDisparadas": 10,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.414978,
+     "flechasDisparadas": 17,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=172.5s\n  volta 1: 34.4s, flechas 6, dano 0, abates 3, PV ao fechar 50\n  volta 2: 34.4s, flechas 18, dano 5, abates 7, PV ao fechar 50\n  volta 3: 34.3s, flechas 10, dano 0, abates 6, PV ao fechar 50\n  volta 4: 34.4s, flechas 17, dano 6, abates 8, PV ao fechar 50\n  chefe: 35.0s, flechas no chefe 18, em outros 8, recargas 1, dano recebido 55 (PV inicial 50), revoadas 2 (4 morcegos), sem flechas 14.2s (maior trecho 8.3s)"
+  },
+  "segundosReais": 44.4
+ },
+ {
+  "cenario": "2_torre",
+  "semente": 1,
+  "preparo": {
+   "gerou": true,
+   "volta": 24,
+   "colocadas": [
+    "Mola@(-3, 3)(caminho)",
+    "Coracao@(-2, -1)(caminho)",
+    "Moedas@(1, -3)(caminho)",
+    "Flechas@(4, -1)(caminho)",
+    "Torre@(0, 4)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 2,
+   "pv": 50,
+   "pvMax": 50,
+   "flechas": 11,
+   "flechasMax": 15,
+   "nivel": 3,
+   "pendentes": 0,
+   "livres": 0,
+   "chefePv": 656,
+   "tempo": 867.6786
+  },
+  "ultimoEstado": {
+   "estado": "Vitoria",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 2,
+   "pv": 14,
+   "pvMax": 50,
+   "flechas": 2,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": -1,
+   "tempo": 899.8189
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 3
+  },
+  "metricas": {
+   "resultado": "Vitoria",
+   "duracaoTotal": 136.952271,
+   "casasNoAnel": 24,
+   "chefeComecou": true,
+   "duracaoDoChefe": 27.0064087,
+   "flechasNoChefe": 20,
+   "flechasEmOutrosNoChefe": 3,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 41,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 2,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.785558,
+   "maiorTrechoSemFlechasNoChefe": 8.785558,
+   "chefePvNoFim": -1,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 27.406311,
+     "flechasDisparadas": 4,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 2,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 27.5733032,
+     "flechasDisparadas": 16,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 27.5062866,
+     "flechasDisparadas": 8,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 4,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 27.45996,
+     "flechasDisparadas": 12,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=24 casas, resultado=Vitoria, total=137.0s\n  volta 1: 27.4s, flechas 4, dano 0, abates 2, PV ao fechar 50\n  volta 2: 27.6s, flechas 16, dano 0, abates 7, PV ao fechar 50\n  volta 3: 27.5s, flechas 8, dano 6, abates 4, PV ao fechar 50\n  volta 4: 27.5s, flechas 12, dano 0, abates 6, PV ao fechar 50\n  chefe: 27.0s, flechas no chefe 20, em outros 3, recargas 0, dano recebido 41 (PV inicial 50), revoadas 2 (2 morcegos), sem flechas 8.8s (maior trecho 8.8s)"
+  },
+  "segundosReais": 36.3
+ },
+ {
+  "cenario": "2_torre",
+  "semente": 2,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(2, -1)(caminho)",
+    "Coracao@(1, 4)(caminho)",
+    "Moedas@(-3, 4)(caminho)",
+    "Flechas@(-5, 1)(caminho)",
+    "Torre@(6, -4)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 0,
+   "pv": 50,
+   "pvMax": 50,
+   "flechas": 15,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 732,
+   "tempo": 1039.77429
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 21,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 8,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 200,
+   "tempo": 1063.88391
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 3,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 162.600159,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 22.805542,
+   "flechasNoChefe": 14,
+   "flechasEmOutrosNoChefe": 3,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.683038,
+   "maiorTrechoSemFlechasNoChefe": 8.683038,
+   "chefePvNoFim": 200,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.2337036,
+     "flechasDisparadas": 8,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 36.69281,
+     "flechasDisparadas": 16,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 9,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.4689941,
+     "flechasDisparadas": 12,
+     "danoRecebido": 18,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.39911,
+     "flechasDisparadas": 16,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=162.6s\n  volta 1: 34.2s, flechas 8, dano 5, abates 3, PV ao fechar 50\n  volta 2: 36.7s, flechas 16, dano 0, abates 9, PV ao fechar 50\n  volta 3: 34.5s, flechas 12, dano 18, abates 6, PV ao fechar 50\n  volta 4: 34.4s, flechas 16, dano 0, abates 7, PV ao fechar 50\n  chefe: 22.8s, flechas no chefe 14, em outros 3, recargas 0, dano recebido 55 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 8.7s (maior trecho 8.7s)"
+  },
+  "segundosReais": 40.6
+ },
+ {
+  "cenario": "2_torre",
+  "semente": 27,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(-1, 3)(caminho)",
+    "Coracao@(-5, 4)(caminho)",
+    "Moedas@(-2, -1)(caminho)",
+    "Flechas@(1, -4)(caminho)",
+    "Torre@(2, 3)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 41,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 504,
+   "tempo": 1208.83472
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 20,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 8,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 238,
+   "tempo": 1224.93262
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 3,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 160.177246,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 22.8430176,
+   "flechasNoChefe": 13,
+   "flechasEmOutrosNoChefe": 4,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.756975,
+   "maiorTrechoSemFlechasNoChefe": 8.756975,
+   "chefePvNoFim": 238,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.30249,
+     "flechasDisparadas": 9,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 4,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.21399,
+     "flechasDisparadas": 14,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.4884033,
+     "flechasDisparadas": 12,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.3293457,
+     "flechasDisparadas": 12,
+     "danoRecebido": 7,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=160.2s\n  volta 1: 34.3s, flechas 9, dano 0, abates 4, PV ao fechar 50\n  volta 2: 34.2s, flechas 14, dano 0, abates 7, PV ao fechar 50\n  volta 3: 34.5s, flechas 12, dano 0, abates 6, PV ao fechar 50\n  volta 4: 34.3s, flechas 12, dano 7, abates 6, PV ao fechar 50\n  chefe: 22.8s, flechas no chefe 13, em outros 4, recargas 0, dano recebido 55 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 8.8s (maior trecho 8.8s)"
+  },
+  "segundosReais": 40.3
+ },
+ {
+  "cenario": "3_flechas_torre",
+  "semente": 1,
+  "preparo": {
+   "gerou": true,
+   "volta": 24,
+   "colocadas": [
+    "Mola@(-3, 3)(caminho)",
+    "Coracao@(-2, -1)(caminho)",
+    "Moedas@(1, -3)(caminho)",
+    "Flechas@(4, -1)(caminho)",
+    "Flechas@(0, 3)(caminho)",
+    "Torre@(0, 4)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 2,
+   "pv": 50,
+   "pvMax": 50,
+   "flechas": 12,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 656,
+   "tempo": 1337.79309
+  },
+  "ultimoEstado": {
+   "estado": "Vitoria",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 23,
+   "pv": 28,
+   "pvMax": 50,
+   "flechas": 14,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": -1,
+   "tempo": 1361.96155
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Vitoria",
+   "duracaoTotal": 135.418823,
+   "casasNoAnel": 24,
+   "chefeComecou": true,
+   "duracaoDoChefe": 25.43103,
+   "flechasNoChefe": 21,
+   "flechasEmOutrosNoChefe": 0,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 27,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.528223,
+   "maiorTrechoSemFlechasNoChefe": 8.528223,
+   "chefePvNoFim": -1,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 27.5933838,
+     "flechasDisparadas": 6,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 27.4307861,
+     "flechasDisparadas": 15,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 27.40747,
+     "flechasDisparadas": 8,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 4,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 27.5561523,
+     "flechasDisparadas": 16,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=24 casas, resultado=Vitoria, total=135.4s\n  volta 1: 27.6s, flechas 6, dano 0, abates 3, PV ao fechar 50\n  volta 2: 27.4s, flechas 15, dano 0, abates 7, PV ao fechar 50\n  volta 3: 27.4s, flechas 8, dano 0, abates 4, PV ao fechar 50\n  volta 4: 27.6s, flechas 16, dano 0, abates 7, PV ao fechar 50\n  chefe: 25.4s, flechas no chefe 21, em outros 0, recargas 0, dano recebido 27 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 8.5s (maior trecho 8.5s)"
+  },
+  "segundosReais": 34.2
+ },
+ {
+  "cenario": "3_flechas_torre",
+  "semente": 2,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(2, -1)(caminho)",
+    "Coracao@(1, 4)(caminho)",
+    "Moedas@(-3, 4)(caminho)",
+    "Flechas@(-5, 1)(caminho)",
+    "Flechas@(-1, -3)(caminho)",
+    "Torre@(6, -4)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 5,
+   "pv": 41,
+   "pvMax": 50,
+   "flechas": 7,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 542,
+   "tempo": 1506.89807
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 26,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 11,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 48,
+   "tempo": 1531.053
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 3,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 166.194458,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 28.1544189,
+   "flechasNoChefe": 18,
+   "flechasEmOutrosNoChefe": 6,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 55,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 2,
+   "morcegosDaRevoada": 4,
+   "tempoSemFlechasNoChefe": 8.671625,
+   "maiorTrechoSemFlechasNoChefe": 8.671625,
+   "chefePvNoFim": 48,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.5687256,
+     "flechasDisparadas": 8,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.4978027,
+     "flechasDisparadas": 16,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.50061,
+     "flechasDisparadas": 16,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.4729,
+     "flechasDisparadas": 12,
+     "danoRecebido": 7,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=166.2s\n  volta 1: 34.6s, flechas 8, dano 0, abates 3, PV ao fechar 50\n  volta 2: 34.5s, flechas 16, dano 6, abates 8, PV ao fechar 50\n  volta 3: 34.5s, flechas 16, dano 6, abates 8, PV ao fechar 50\n  volta 4: 34.5s, flechas 12, dano 7, abates 6, PV ao fechar 50\n  chefe: 28.2s, flechas no chefe 18, em outros 6, recargas 0, dano recebido 55 (PV inicial 50), revoadas 2 (4 morcegos), sem flechas 8.7s (maior trecho 8.7s)"
+  },
+  "segundosReais": 42.3
+ },
+ {
+  "cenario": "3_flechas_torre",
+  "semente": 27,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(-1, 3)(caminho)",
+    "Coracao@(-5, 4)(caminho)",
+    "Moedas@(-2, -1)(caminho)",
+    "Flechas@(1, -4)(caminho)",
+    "Flechas@(4, -3)(caminho)",
+    "Torre@(2, 3)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 41,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 428,
+   "tempo": 1675.84912
+  },
+  "ultimoEstado": {
+   "estado": "Vitoria",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 26,
+   "pv": 14,
+   "pvMax": 50,
+   "flechas": 12,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": -1,
+   "tempo": 1699.99622
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 3,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Vitoria",
+   "duracaoTotal": 164.091064,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 26.8161621,
+   "flechasNoChefe": 21,
+   "flechasEmOutrosNoChefe": 2,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 41,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 2,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.735334,
+   "maiorTrechoSemFlechasNoChefe": 8.735334,
+   "chefePvNoFim": -1,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.25769,
+     "flechasDisparadas": 8,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.39734,
+     "flechasDisparadas": 15,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.17798,
+     "flechasDisparadas": 14,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.4418945,
+     "flechasDisparadas": 14,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Vitoria, total=164.1s\n  volta 1: 34.3s, flechas 8, dano 5, abates 3, PV ao fechar 50\n  volta 2: 34.4s, flechas 15, dano 5, abates 8, PV ao fechar 50\n  volta 3: 34.2s, flechas 14, dano 0, abates 7, PV ao fechar 50\n  volta 4: 34.4s, flechas 14, dano 0, abates 7, PV ao fechar 50\n  chefe: 26.8s, flechas no chefe 21, em outros 2, recargas 0, dano recebido 41 (PV inicial 50), revoadas 2 (2 morcegos), sem flechas 8.7s (maior trecho 8.7s)"
+  },
+  "segundosReais": 42.3
+ },
+ {
+  "cenario": "5_mao_parada",
+  "semente": 1,
+  "preparo": {
+   "gerou": true,
+   "volta": 24,
+   "colocadas": [],
+   "mao": [
+    "Mola",
+    "Coracao",
+    "Moedas",
+    "Flechas"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 3,
+   "pv": 50,
+   "pvMax": 50,
+   "flechas": 11,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 627,
+   "tempo": 3056.8396
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 23,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 0,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 347,
+   "tempo": 3080.97656
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 134.068848,
+   "casasNoAnel": 24,
+   "chefeComecou": true,
+   "duracaoDoChefe": 23.77246,
+   "flechasNoChefe": 11,
+   "flechasEmOutrosNoChefe": 4,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 50,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 11.49263,
+   "maiorTrechoSemFlechasNoChefe": 11.49263,
+   "chefePvNoFim": 347,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 28.0715332,
+     "flechasDisparadas": 7,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 27.4199219,
+     "flechasDisparadas": 11,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 27.4326172,
+     "flechasDisparadas": 12,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 27.3723145,
+     "flechasDisparadas": 14,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=24 casas, resultado=Derrota, total=134.1s\n  volta 1: 28.1s, flechas 7, dano 0, abates 3, PV ao fechar 50\n  volta 2: 27.4s, flechas 11, dano 0, abates 5, PV ao fechar 50\n  volta 3: 27.4s, flechas 12, dano 0, abates 5, PV ao fechar 50\n  volta 4: 27.4s, flechas 14, dano 6, abates 7, PV ao fechar 50\n  chefe: 23.8s, flechas no chefe 11, em outros 4, recargas 0, dano recebido 50 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 11.5s (maior trecho 11.5s)"
+  },
+  "segundosReais": 34.2
+ },
+ {
+  "cenario": "5_mao_parada",
+  "semente": 2,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [],
+   "mao": [
+    "Mola",
+    "Coracao",
+    "Moedas",
+    "Flechas"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 34,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 522,
+   "tempo": 3225.79346
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 19,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 0,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 312,
+   "tempo": 3241.84351
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 156.277344,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 19.2565918,
+   "flechasNoChefe": 12,
+   "flechasEmOutrosNoChefe": 3,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 50,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 6.602228,
+   "maiorTrechoSemFlechasNoChefe": 6.602228,
+   "chefePvNoFim": 312,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.2980957,
+     "flechasDisparadas": 8,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 4,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.1889648,
+     "flechasDisparadas": 12,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.3664551,
+     "flechasDisparadas": 12,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.1672363,
+     "flechasDisparadas": 15,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=156.3s\n  volta 1: 34.3s, flechas 8, dano 0, abates 4, PV ao fechar 50\n  volta 2: 34.2s, flechas 12, dano 6, abates 6, PV ao fechar 50\n  volta 3: 34.4s, flechas 12, dano 6, abates 6, PV ao fechar 50\n  volta 4: 34.2s, flechas 15, dano 0, abates 7, PV ao fechar 50\n  chefe: 19.3s, flechas no chefe 12, em outros 3, recargas 0, dano recebido 50 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 6.6s (maior trecho 6.6s)"
+  },
+  "segundosReais": 40.2
+ },
+ {
+  "cenario": "5_mao_parada",
+  "semente": 27,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [],
+   "mao": [
+    "Mola",
+    "Coracao",
+    "Moedas",
+    "Flechas"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 27,
+   "pvMax": 50,
+   "flechas": 6,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 627,
+   "tempo": 3386.56274
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 20,
+   "pv": 0,
+   "pvMax": 50,
+   "flechas": 0,
+   "flechasMax": 15,
+   "nivel": 4,
+   "pendentes": 4,
+   "livres": 0,
+   "chefePv": 487,
+   "tempo": 3402.62256
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 157.920166,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 21.20044,
+   "flechasNoChefe": 7,
+   "flechasEmOutrosNoChefe": 8,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 50,
+   "pvNoInicioDoChefe": 50,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 8.881538,
+   "maiorTrechoSemFlechasNoChefe": 8.881538,
+   "chefePvNoFim": 487,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.1176758,
+     "flechasDisparadas": 6,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 2,
+     "duracao": 34.1740723,
+     "flechasDisparadas": 14,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 3,
+     "duracao": 34.2397461,
+     "flechasDisparadas": 15,
+     "danoRecebido": 12,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 50
+    },
+    {
+     "numero": 4,
+     "duracao": 34.1882324,
+     "flechasDisparadas": 11,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 50
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=157.9s\n  volta 1: 34.1s, flechas 6, dano 0, abates 3, PV ao fechar 50\n  volta 2: 34.2s, flechas 14, dano 0, abates 6, PV ao fechar 50\n  volta 3: 34.2s, flechas 15, dano 12, abates 7, PV ao fechar 50\n  volta 4: 34.2s, flechas 11, dano 0, abates 6, PV ao fechar 50\n  chefe: 21.2s, flechas no chefe 7, em outros 8, recargas 0, dano recebido 50 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 8.9s (maior trecho 8.9s)"
+  },
+  "segundosReais": 40.2
+ },
+ {
+  "cenario": "4_sobrevivencia_ofensivas",
+  "semente": 1,
+  "preparo": {
+   "gerou": true,
+   "volta": 24,
+   "colocadas": [
+    "Mola@(-3, 3)(caminho)",
+    "Coracao@(-2, -1)(caminho)",
+    "Moedas@(1, -3)(caminho)",
+    "Flechas@(4, -1)(caminho)",
+    "Torre@(0, 4)(fora)",
+    "AreaDeTreino@(1, 4)(fora)",
+    "FonteRestauradora@(-1, 5)(fora)",
+    "Santuario@(-2, 5)(fora)",
+    "OficinaDeArqueiro@(-3, 5)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 2,
+   "pv": 53,
+   "pvMax": 53,
+   "flechas": 13,
+   "flechasMax": 17,
+   "nivel": 3,
+   "pendentes": 0,
+   "livres": 0,
+   "chefePv": 640,
+   "tempo": 788.230652
+  },
+  "ultimoEstado": {
+   "estado": "Vitoria",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 23,
+   "pv": 19,
+   "pvMax": 53,
+   "flechas": 6,
+   "flechasMax": 17,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": -1,
+   "tempo": 812.450867
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 3
+  },
+  "metricas": {
+   "resultado": "Vitoria",
+   "duracaoTotal": 133.846924,
+   "casasNoAnel": 24,
+   "chefeComecou": true,
+   "duracaoDoChefe": 23.9331665,
+   "flechasNoChefe": 17,
+   "flechasEmOutrosNoChefe": 4,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 41,
+   "pvNoInicioDoChefe": 53,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 6.85359669,
+   "maiorTrechoSemFlechasNoChefe": 6.85359669,
+   "chefePvNoFim": -1,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 27.5249023,
+     "flechasDisparadas": 9,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 4,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 2,
+     "duracao": 27.520874,
+     "flechasDisparadas": 6,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 3,
+     "duracao": 27.5089111,
+     "flechasDisparadas": 16,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 4,
+     "duracao": 27.35907,
+     "flechasDisparadas": 11,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 5,
+     "pvAoFechar": 53
+    }
+   ],
+   "resumo": "[Metricas] anel=24 casas, resultado=Vitoria, total=133.8s\n  volta 1: 27.5s, flechas 9, dano 0, abates 4, PV ao fechar 53\n  volta 2: 27.5s, flechas 6, dano 0, abates 3, PV ao fechar 53\n  volta 3: 27.5s, flechas 16, dano 0, abates 7, PV ao fechar 53\n  volta 4: 27.4s, flechas 11, dano 0, abates 5, PV ao fechar 53\n  chefe: 23.9s, flechas no chefe 17, em outros 4, recargas 0, dano recebido 41 (PV inicial 53), revoadas 1 (2 morcegos), sem flechas 6.9s (maior trecho 6.9s)"
+  },
+  "segundosReais": 34.3,
+  "observacao": "refeita com o driver que pula casas ocupadas (a 1a versao substituia a Torre)"
+ },
+ {
+  "cenario": "4_sobrevivencia_ofensivas",
+  "semente": 2,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(2, -1)(caminho)",
+    "Coracao@(1, 4)(caminho)",
+    "Moedas@(-3, 4)(caminho)",
+    "Flechas@(-5, 1)(caminho)",
+    "Torre@(6, -4)(fora)",
+    "AreaDeTreino@(7, -4)(fora)",
+    "FonteRestauradora@(5, -3)(fora)",
+    "Santuario@(6, -5)(fora)",
+    "OficinaDeArqueiro@(4, -2)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 37,
+   "pvMax": 53,
+   "flechas": 8,
+   "flechasMax": 17,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 548,
+   "tempo": 957.400146
+  },
+  "ultimoEstado": {
+   "estado": "Derrota",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 20,
+   "pv": 0,
+   "pvMax": 53,
+   "flechas": 9,
+   "flechasMax": 17,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 226,
+   "tempo": 973.4577
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Derrota",
+   "duracaoTotal": 158.960327,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 21.53125,
+   "flechasNoChefe": 11,
+   "flechasEmOutrosNoChefe": 7,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 60,
+   "pvNoInicioDoChefe": 53,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 7.025536,
+   "maiorTrechoSemFlechasNoChefe": 7.025536,
+   "chefePvNoFim": 226,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.40039,
+     "flechasDisparadas": 6,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 2,
+     "duracao": 34.47174,
+     "flechasDisparadas": 14,
+     "danoRecebido": 5,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 3,
+     "duracao": 34.34436,
+     "flechasDisparadas": 15,
+     "danoRecebido": 12,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 4,
+     "duracao": 34.2125854,
+     "flechasDisparadas": 12,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 6,
+     "pvAoFechar": 53
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Derrota, total=159.0s\n  volta 1: 34.4s, flechas 6, dano 0, abates 3, PV ao fechar 53\n  volta 2: 34.5s, flechas 14, dano 5, abates 7, PV ao fechar 53\n  volta 3: 34.3s, flechas 15, dano 12, abates 7, PV ao fechar 53\n  volta 4: 34.2s, flechas 12, dano 0, abates 6, PV ao fechar 53\n  chefe: 21.5s, flechas no chefe 11, em outros 7, recargas 0, dano recebido 60 (PV inicial 53), revoadas 1 (2 morcegos), sem flechas 7.0s (maior trecho 7.0s)"
+  },
+  "segundosReais": 40.3,
+  "observacao": "refeita com o driver que pula casas ocupadas (a 1a versao substituia a Torre)"
+ },
+ {
+  "cenario": "4_sobrevivencia_ofensivas",
+  "semente": 27,
+  "preparo": {
+   "gerou": true,
+   "volta": 30,
+   "colocadas": [
+    "Mola@(-1, 3)(caminho)",
+    "Coracao@(-5, 4)(caminho)",
+    "Moedas@(-2, -1)(caminho)",
+    "Flechas@(1, -4)(caminho)",
+    "Torre@(2, 3)(fora)",
+    "AreaDeTreino@(3, 3)(fora)",
+    "FonteRestauradora@(1, 4)(fora)",
+    "Santuario@(0, 4)(fora)",
+    "OficinaDeArqueiro@(-1, 4)(fora)"
+   ],
+   "mao": [
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   "pendentes": 0
+  },
+  "chegadaAoChefe": {
+   "estado": "Chefe",
+   "terminou": false,
+   "voltas": 4,
+   "passos": 6,
+   "pv": 44,
+   "pvMax": 53,
+   "flechas": 8,
+   "flechasMax": 17,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": 456,
+   "tempo": 1118.41028
+  },
+  "ultimoEstado": {
+   "estado": "Vitoria",
+   "terminou": true,
+   "voltas": 4,
+   "passos": 24,
+   "pv": 19,
+   "pvMax": 53,
+   "flechas": 6,
+   "flechasMax": 17,
+   "nivel": 4,
+   "pendentes": 1,
+   "livres": 0,
+   "chefePv": -1,
+   "tempo": 1142.52539
+  },
+  "nivelNoInicioDaVolta": {
+   "0": 0,
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4
+  },
+  "metricas": {
+   "resultado": "Vitoria",
+   "duracaoTotal": 161.387573,
+   "casasNoAnel": 30,
+   "chefeComecou": true,
+   "duracaoDoChefe": 24.0706787,
+   "flechasNoChefe": 17,
+   "flechasEmOutrosNoChefe": 4,
+   "recargasNoChefe": 0,
+   "danoRecebidoNoChefe": 41,
+   "pvNoInicioDoChefe": 53,
+   "revoadas": 1,
+   "morcegosDaRevoada": 2,
+   "tempoSemFlechasNoChefe": 6.93674326,
+   "maiorTrechoSemFlechasNoChefe": 6.93674326,
+   "chefePvNoFim": -1,
+   "voltas": [
+    {
+     "numero": 1,
+     "duracao": 34.3136,
+     "flechasDisparadas": 6,
+     "danoRecebido": 10,
+     "inimigosDerrotados": 3,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 2,
+     "duracao": 34.37268,
+     "flechasDisparadas": 14,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 3,
+     "duracao": 34.2709961,
+     "flechasDisparadas": 16,
+     "danoRecebido": 6,
+     "inimigosDerrotados": 8,
+     "pvAoFechar": 53
+    },
+    {
+     "numero": 4,
+     "duracao": 34.35962,
+     "flechasDisparadas": 17,
+     "danoRecebido": 0,
+     "inimigosDerrotados": 7,
+     "pvAoFechar": 53
+    }
+   ],
+   "resumo": "[Metricas] anel=30 casas, resultado=Vitoria, total=161.4s\n  volta 1: 34.3s, flechas 6, dano 10, abates 3, PV ao fechar 53\n  volta 2: 34.4s, flechas 14, dano 0, abates 7, PV ao fechar 53\n  volta 3: 34.3s, flechas 16, dano 6, abates 8, PV ao fechar 53\n  volta 4: 34.4s, flechas 17, dano 0, abates 7, PV ao fechar 53\n  chefe: 24.1s, flechas no chefe 17, em outros 4, recargas 0, dano recebido 41 (PV inicial 53), revoadas 1 (2 morcegos), sem flechas 6.9s (maior trecho 6.9s)"
+  },
+  "segundosReais": 42.3,
+  "observacao": "refeita com o driver que pula casas ocupadas (a 1a versao substituia a Torre)"
+ }
+]

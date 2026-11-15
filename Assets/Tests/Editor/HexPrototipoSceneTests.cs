@@ -233,5 +233,19 @@ namespace Loopia.Hex.Tests
             for (int i = 0; i < mao.baralho.Count; i++) Assert.IsNotNull(mao.baralho[i], "baralho[" + i + "] nulo");
             foreach (PlataformaDef g in mao.cartasGarantidas) Assert.IsNotNull(g, "carta garantida nula");
         }
+
+        [Test]
+        public void MaoInicial_TemUmaCartaDeDano_MoedasContinuaNoBaralho()
+        {
+            // Estabilizacao do MVP (P1-3, docs/mvp-stabilization/FIX_REPORT.md): com 2 cartas de dano em 14, ~54% das
+            // jornadas chegavam ao chefe sem nenhuma; sem dano, 0/3 vitorias medidas. Moedas (so moeda, sem efeito no
+            // confronto) saiu da mao garantida para dar uma ferramenta de dano que o jogador posiciona. Nao garante vitoria.
+            var mao = Unico<MaoDeCartas>();
+            var nomes = new System.Collections.Generic.List<string>();
+            foreach (PlataformaDef g in mao.cartasGarantidas) nomes.Add(g.name);
+            CollectionAssert.AreEqual(new[] { "Mola", "Coracao", "Torre", "Flechas" }, nomes);
+            Assert.IsTrue(mao.baralho.Exists(c => c != null && c.name == "Moedas"), "Moedas continua sorteavel");
+            Assert.IsTrue(mao.baralho.Exists(c => c != null && c.name == "Torre"), "Torre continua sorteavel");
+        }
     }
 }
