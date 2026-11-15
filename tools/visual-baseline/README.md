@@ -40,3 +40,12 @@ python -I tools/visual-baseline/legibilidade.py <pasta_de_jpgs> docs/art/pass-d1
 ## Limites
 - Render da câmera não inclui Canvas overlay nem IMGUI.
 - `UnityStats` são números do Editor (indicativos), não de build.
+
+## Cartas e closes (Pass C)
+```bash
+python -I tools/visual-baseline/run_baseline.py play
+python -I tools/visual-baseline/cartas.py docs/art/pass-c/cartas 12345 12,18,22
+python -I tools/visual-baseline/run_baseline.py stop
+```
+- `cs/cartas.cs`: limpa o mapa e coloca as 7 cartas com marcador (+ a Mola que a Ilha alta exige); cartas de fora em casas vazias vizinhas do anel.
+- `cs/close.cs`: close da Main Camera num ponto do mundo (mesma rotacao, ortografica menor) e volta ao enquadramento.
