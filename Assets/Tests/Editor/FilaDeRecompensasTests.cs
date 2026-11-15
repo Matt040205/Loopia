@@ -166,6 +166,7 @@ namespace Loopia.Hex.Tests
             _mao.baralho.Add(Carta("R"));
             int entregues = 0;
             _mao.AoEntregarPendente += (n, c) => entregues++;
+            _mao.limiteDeAlertaDePendentes = 100; // o aviso tem teste proprio
 
             for (int nivel = 1; nivel <= 6; nivel++) SubirDeNivel(nivel);
             Assert.AreEqual(6, _mao.Pendentes);
@@ -221,6 +222,7 @@ namespace Loopia.Hex.Tests
             _mao.baralho.Add(bloqueada);
             _mao.baralho.Add(livre);
             _mao.baralho.Add(null);
+            _mao.limiteDeAlertaDePendentes = 100; // o aviso tem teste proprio
 
             for (int n = 1; n <= 20; n++) SubirDeNivel(n);
             for (int i = 0; i < 20; i++)

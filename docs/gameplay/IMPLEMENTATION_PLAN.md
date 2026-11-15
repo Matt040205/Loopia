@@ -118,6 +118,10 @@ integração, reverter o PR de cena antes do de código.
 
 ---
 ## G2 — Fila de recompensas, depois cartas de sobrevivência (P1, só após G1 validada e aprovada)
+> **Implementado** em `feature/gameplay-g2` (2026-11-15): plano, decisões, testes e handoff em `docs/gameplay/g2/`.
+> Divergências deste rascunho: limite da fila é suave (sem descarte); Mirante sai como componente isolado até a
+> frente de personagem publicar o `LuccaCombate`; os 3 assets foram criados no PR de G2, mas a entrada no baralho da
+> cena fica para um PR de cena próprio.
 Ordem: 1º a fila de recompensas pendentes (política de capacidade explícita; atualizar de propósito
 `Characterization_MaoCheia_*`); 2º os modificadores e as três cartas; 3º Mirante (protótipo).
 - `ModificadoresDoLucca` (struct imutável somada pelo `MapaDePlataformas.Recalcular`): PV máx., dano, flechas máx.,
