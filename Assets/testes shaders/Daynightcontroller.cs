@@ -40,6 +40,10 @@ public class DayNightController : MonoBehaviour
     [Tooltip("Elevação mínima (graus acima do horizonte) da luz direcional (26° = o topo das ilhas ainda recebe sol ao nascer e ao pôr; legibilidade medida no Pass D1). O sol nasce e se põe nesta elevação em vez de exatamente 0°, e a luz nunca vem de baixo do horizonte.")]
     public float elevacaoMinimaDoSol = 26f;
 
+    [Range(30f, 90f)]
+    [Tooltip("Elevação máxima do sol (graus). 90 = passa pelo zênite ao meio-dia (comportamento até o Pass D1: luz de cima, relevo e volume somem). Abaixo de 90 o sol sobe só até aqui e o azimute varre os mesmos 180° entre o nascer e o pôr (nascer e pôr idênticos), então ao meio-dia a luz vem de lado e o relevo lê.")]
+    public float elevacaoMaximaDoSol = 90f;
+
     [Min(0.25f)]
     [Tooltip("Duração (horas de jogo) do crepúsculo: o sol sobe de 0 à intensidade da curva antes do nascer e desce até 0 depois do pôr. Evita o salto de intensidade de antes (0,2 -> 1,0 em 43 min de jogo).")]
     public float duracaoDoCrepusculo = 2f;
@@ -158,7 +162,16 @@ public class DayNightController : MonoBehaviour
     /// intensidades são 0, então a mudança de direção não aparece.
     /// </summary>
     public void AvaliarLuz(float hora, out float anguloX, out float intensidade, out Color cor)
+        => AvaliarLuz(hora, out anguloX, out _, out intensidade, out cor);
+
+    /// <summary>
+    /// Igual a <see cref="AvaliarLuz(float, out float, out float, out Color)"/>, devolvendo também o azimute (rotação Y)
+    /// da luz. Com elevacaoMaximaDoSol &lt; 90 o sol vai da elevação mínima à máxima e volta (seno), enquanto o
+    /// azimute varre sunAzimuth -> sunAzimuth + 180: no nascer e no pôr a direção é a mesma do arco antigo.
+    /// </summary>
+    public void AvaliarLuz(float hora, out float anguloX, out float azimute, out float intensidade, out Color cor)
     {
+        azimute = sunAzimuth;
         float crep = Mathf.Max(0.25f, duracaoDoCrepusculo);
         float inicioSol = sunriseHour - crep;
         float fimSol = sunsetHour + crep;
@@ -169,7 +182,16 @@ public class DayNightController : MonoBehaviour
         {
             float e = Mathf.Clamp(elevacaoMinimaDoSol, 0f, 45f);
             float f = Mathf.Clamp01(Mathf.InverseLerp(sunriseHour, sunsetHour, hora));
-            anguloX = Mathf.Lerp(e, 180f - e, f);
+            float eMax = Mathf.Clamp(elevacaoMaximaDoSol, e, 90f);
+            if (eMax >= 89.99f)
+            {
+                anguloX = Mathf.Lerp(e, 180f - e, f);
+            }
+            else
+            {
+                anguloX = Mathf.Lerp(e, eMax, Mathf.Sin(Mathf.PI * f));
+                azimute = sunAzimuth + 180f * f;
+            }
             intensidade = sunIntensityCurve.Evaluate(t) * FatorDeDia(hora);
             cor = sunColorGradient.Evaluate(t);
         }
@@ -212,10 +234,10 @@ public class DayNightController : MonoBehaviour
         float dia = FatorDeDia(Mathf.Repeat(timeOfDay, 24f));
 
         // --- Cor, intensidade e direção da luz (sol de dia, lua à noite; nunca vem de baixo do horizonte) ---
-        AvaliarLuz(timeOfDay, out float anguloX, out float intensidade, out Color corDaLuz);
+        AvaliarLuz(timeOfDay, out float anguloX, out float azimute, out float intensidade, out Color corDaLuz);
         sunLight.color = corDaLuz;
         sunLight.intensity = intensidade;
-        sunLight.transform.rotation = Quaternion.Euler(anguloX, sunAzimuth, 0f);
+        sunLight.transform.rotation = Quaternion.Euler(anguloX, azimute, 0f);
 
         // --- Cor do céu / fundo (Camera Background em modo Solid Color) ---
         Color skyColor = skyColorGradient.Evaluate(t);
