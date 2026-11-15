@@ -8,21 +8,20 @@ namespace Loopia.Hex
     {
         const int Base = 0;
         const int Tronco = 1;
-        static readonly int Idle = Animator.StringToHash("Base Layer.Idle");
-        static readonly int Walk = Animator.StringToHash("Base Layer.Walk");
+        static readonly int Locomotion = Animator.StringToHash("Base Layer.Locomotion");
         static readonly int Jump = Animator.StringToHash("Base Layer.Jump");
         static readonly int SpringJump = Animator.StringToHash("Base Layer.Spring Jump");
         static readonly int Ready = Animator.StringToHash("Upper Body.Bow Ready");
         static readonly int Shot = Animator.StringToHash("Upper Body.Bow Shot");
-        static readonly int Andando = Animator.StringToHash("Andando");
-        static readonly int Ritmo = Animator.StringToHash("Ritmo");
+        static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         static readonly int RitmoPulo = Animator.StringToHash("RitmoPulo");
 
         [SerializeField] AnimationClip bowShot;
         [SerializeField] Transform peito;
         [SerializeField] Transform origem;
         [SerializeField] Transform direcao;
-        [SerializeField, Min(0.1f)] float velocidadeDoCiclo = 1.35f;
+        [SerializeField, Range(0f, 0.15f)] float amortecimentoVelocidade = 0.045f;
+        [SerializeField, Range(0f, 0.15f)] float misturaAterrissagem = 0.065f;
         [SerializeField, Range(0, 70)] float giroMaximo = 65f;
         [SerializeField, Range(0, 35)] float inclinacaoMaxima = 25f;
 
@@ -35,6 +34,8 @@ namespace Loopia.Hex
         bool _tocandoPulo;
         bool _encerrado;
         float _ultimoInicio;
+        float _velocidadeAntesDoPulo;
+        float _fimDaJanelaDeRetomada;
         Vector2 _mira;
         Vector2 _velocidadeDaMira;
         float _soltura = 19f / 60f;
@@ -83,34 +84,46 @@ namespace Loopia.Hex
                 if (!_encerrado)
                 {
                     _encerrado = true;
-                    _animator.SetBool(Andando, false);
+                    _animator.SetFloat(MoveSpeed, 0f);
                     _animator.SetLayerWeight(Tronco, 0f);
-                    _animator.CrossFadeInFixedTime(Idle, 0.1f, Base);
+                    _animator.CrossFadeInFixedTime(Locomotion, 0.1f, Base, 0f);
                 }
                 return;
             }
 
+            if (_player.EstaPulando) return;
+
             var agente = _player.Agente;
-            float velocidade = agente != null && agente.isActiveAndEnabled && agente.isOnNavMesh
-                && _player.EstaAndando && !_player.BloqueadoPorAltura
-                ? Vector3.ProjectOnPlane(agente.velocity, Vector3.up).magnitude : 0f;
-            bool anda = velocidade > 0.12f;
-            _animator.SetBool(Andando, anda);
-            _animator.SetFloat(Ritmo, Mathf.Clamp(velocidade / velocidadeDoCiclo, 0.45f, 3.2f), 0.06f, Time.deltaTime);
-            if (_tocandoPulo && !_player.EstaPulando)
+            bool noChao = agente != null && agente.isActiveAndEnabled && agente.isOnNavMesh;
+            float velocidade = noChao ? VelocidadeHorizontal(agente.velocity) : 0f;
+            bool retoma = noChao && _player.EstaAndando && !_player.BloqueadoPorAltura;
+            if (_tocandoPulo)
             {
                 _tocandoPulo = false;
-                _animator.CrossFadeInFixedTime(anda ? Walk : Idle, 0.07f, Base);
+                _fimDaJanelaDeRetomada = Time.time + 0.075f;
+                if (retoma && velocidade < 0.1f)
+                    velocidade = Mathf.Min(_velocidadeAntesDoPulo, agente.speed);
+                _animator.SetFloat(MoveSpeed, velocidade);
+                _animator.CrossFadeInFixedTime(Locomotion, misturaAterrissagem, Base, 0f);
+                return;
             }
+
+            // O agente pode devolver zero no primeiro frame apos fechar o link.
+            if (retoma && Time.time < _fimDaJanelaDeRetomada && velocidade < 0.1f) return;
+            _animator.SetFloat(MoveSpeed, velocidade < 0.06f ? 0f : velocidade, amortecimentoVelocidade, Time.deltaTime);
         }
 
         void IniciarPulo(bool usaMola, float duracao)
         {
             if (_combate == null || !_combate.PodeAgir || !AnimaTiros) return;
             _tocandoPulo = true;
+            _velocidadeAntesDoPulo = _animator.GetFloat(MoveSpeed);
             _animator.SetFloat(RitmoPulo, (usaMola ? 0.70f : 0.35f) / duracao);
             _animator.CrossFadeInFixedTime(usaMola ? SpringJump : Jump, 0.025f, Base, 0f);
         }
+
+        static float VelocidadeHorizontal(Vector3 velocidade) =>
+            new Vector2(velocidade.x, velocidade.z).magnitude;
 
         internal void PrepararTiro(int id)
         {

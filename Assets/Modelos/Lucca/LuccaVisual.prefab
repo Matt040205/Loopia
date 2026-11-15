@@ -81,9 +81,9 @@ PrefabInstance:
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'Chest'\n\tTransform 'Chest'\n\tFrom animation
-        clip 'Idle'\n\tFrom animation clip 'Walk'\n\tFrom animation clip 'Jump'\n\tFrom
-        animation clip 'Spring Jump'\n\tFrom animation clip 'Bow Ready'\n\tFrom animation
-        clip 'Bow Shot'"
+        clip 'Jump'\n\tFrom animation clip 'Spring Jump'\n\tFrom animation clip 'Idle'\n\tFrom
+        animation clip 'Walk'\n\tFrom animation clip 'Run'\n\tFrom animation clip
+        'Bow Ready'\n\tFrom animation clip 'Bow Shot'"
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 487ad062fbf70d248af028ec57943a26, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -137,6 +137,7 @@ MonoBehaviour:
   peito: {fileID: 38610171451405287}
   origem: {fileID: 7196989487232452844}
   direcao: {fileID: 965468313073654238}
-  velocidadeDoCiclo: 1.35
+  amortecimentoVelocidade: 0.045
+  misturaAterrissagem: 0.065
   giroMaximo: 65
   inclinacaoMaxima: 25
