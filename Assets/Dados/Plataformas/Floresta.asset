@@ -17,6 +17,12 @@ MonoBehaviour:
   cor: {r: 0.16, g: 0.42, b: 0.22, a: 1}
   onde: 0
   podeSerSubstituida: 1
+  modelo: {fileID: 0}
+  tamanhoDoModelo: 0.8
+  alturaDoModelo: 0.25
+  girarModelo: 0
+  marcador: {fileID: 711578824937867060, guid: 6cc215c47093fb1489f0353d2cf370c5, type: 3}
+  ocultarDecoracao: 1
   loboQueNasce: {fileID: 11400000, guid: 296d82fc0b91fc848a1c0fb57b965725, type: 2}
   lobosNaCasa: 1
   nascerAoColocar: 1

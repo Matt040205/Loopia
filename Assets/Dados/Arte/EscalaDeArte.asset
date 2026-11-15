@@ -39,7 +39,7 @@ MonoBehaviour:
     soNoLadoLongeDaCamera: 0
     limiarDoLadoLonge: 0.2
     evitarCobrirCaminho: 0
-    fracaoDaPegada: 1
+    fracaoDaPegada: 0.5
   - categoria: 3
     tamanhoMinimo: 0.1
     tamanhoMaximo: 0.25
@@ -102,3 +102,22 @@ MonoBehaviour:
   - prefab: {fileID: 4939400349142909667, guid: 524c2fcf9b8cfdf489bbd62b2c3c962e, type: 3}
     categoria: 6
     peso: 1
+  vegetacaoBaixa:
+  - prefab: {fileID: 8231518705793677409, guid: ed52f6c2bda717b44a44a151b5cfa900, type: 3}
+    categoria: 2
+    peso: 1.4
+  - prefab: {fileID: 1705578553173543037, guid: a9fe4609b03744a42ba841e5b321753b, type: 3}
+    categoria: 2
+    peso: 1.2
+  - prefab: {fileID: 3189206857195140707, guid: 24f3e6330c276cf4ca6b5396ab403005, type: 3}
+    categoria: 2
+    peso: 0.8
+  - prefab: {fileID: 6530172398279097869, guid: d4bfb5c80fdddfd42a7592cd542182e8, type: 3}
+    categoria: 3
+    peso: 1.2
+  - prefab: {fileID: 596084748590592562, guid: c732bd8a694e53c4abe25f585eaef1f2, type: 3}
+    categoria: 3
+    peso: 1
+  vegetacaoMinima: 3
+  vegetacaoMaxima: 8
+  variacaoDaMistura: 0.6
