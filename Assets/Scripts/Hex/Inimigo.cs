@@ -296,14 +296,8 @@ namespace Loopia.Hex
             var renderizador = corpo.GetComponent<MeshRenderer>();
             if (renderizador == null) return;
 
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit");
-            if (shader == null) shader = Shader.Find("Standard");
-
-            var material = new Material(shader) { name = def.nome };
-            if (material.HasProperty("_BaseColor")) material.SetColor("_BaseColor", def.cor);
-            if (material.HasProperty("_Color")) material.SetColor("_Color", def.cor);
-            if (material.HasProperty("_Smoothness")) material.SetFloat("_Smoothness", 0.1f);
-            renderizador.sharedMaterial = material;
+            // um material por tipo/cor, reaproveitado (antes: new Material a cada spawn, nunca destruido)
+            renderizador.sharedMaterial = MateriaisCompartilhados.Lit(def.nome, def.cor, 0.1f);
         }
     }
 }

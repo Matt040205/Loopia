@@ -1,12 +1,22 @@
 # Estado atual — 2026-11-15
 
 ## Onde estamos
-- Sprint / passo: Sprint 1 (visual) — **Pass D2: só a luz** (concluído, aguardando revisão)
-- Branch: `sprint-1/pass-d2-luz`, empilhada: `sprint-0/preparacao-tecnica` → `sprint-1/auditoria-visual` →
+- Sprint / passo: Sprint 1 (visual) — **Pass D2 completo, menos build** (luz + render/materiais; aguardando revisão)
+- Branch: `sprint-1/pass-d2-render`, empilhada: `sprint-0/preparacao-tecnica` → `sprint-1/auditoria-visual` →
   `sprint-1/pass-a-escala-camera` (PR #1) → `sprint-1/pass-d1-nevoa` (PR #2) → `sprint-1/pass-b-composicao` (PR #3) →
-  `sprint-1/pass-c-dressing` (PR #4) → `sprint-1/pass-d2-luz` (PR do D2 luz).
+  `sprint-1/pass-c-dressing` (PR #4) → `sprint-1/pass-d2-luz` (PR #5) → `sprint-1/pass-d2-render` (PR do D2 render).
   Nada disso está na `main`.
 - Status: aguardando revisão/merge do responsável; próximo passe só após aprovação
+
+## O que foi feito no D2 render (sem build, pedido do responsável)
+- `PC_RPAsset`: Opaque Texture desligada (nenhum shader da cena lê a cor da cena). `PC_Renderer`: SSAO desligado (efeito
+  imperceptível; o prepass DepthNormals redesenhava a geometria). Feito pelo Editor; a Unity atualizou o asset do renderer
+  (URP 17, versão 2 → 3).
+- `MateriaisCompartilhados`: inimigos sem prefab e flechas reaproveitam um material por cor (antes: `new Material` por
+  spawn/tiro, nunca destruído). Medido: 1 391 materiais estáveis em 140 s de combate acelerado.
+- Evidências: suíte 263/263 (Logic+SceneStatic job `577ff505…`, PlayModeSmoke 7/7 13:51Z); legibilidade igual; batches
+  531 → 287, triângulos 912k → 451k (Editor). Relatório: `docs/art/pass-d2-render/RELATORIO_PASS_D2_RENDER.md`.
+- Único item do D2 ainda pendente: desempenho em build.
 
 ## O que foi feito no Pass D2 (escopo: só luz, pedido do responsável)
 - `DayNightController.elevacaoMaximaDoSol` (padrão 90 = D1); cena com 58°: o sol não passa mais pelo zênite (volume e relevo
@@ -15,7 +25,7 @@
   ACES (noite quase preta). Relatório: `docs/art/pass-d2/RELATORIO_PASS_D2.md`.
 - Evidências: suíte 259/259 (Logic+SceneStatic job `75d42646…`, PlayModeSmoke 7/7 13:38Z); contraste 12h 2,34–2,56
   (antes 2,59–2,81), 18h e 22h iguais; batches 527.
-- Fora do escopo pedido (continuam pendentes do D2): Opaque Texture/SSAO, `new Material` por spawn, desempenho em build.
+- Opaque Texture/SSAO e materiais por spawn: feitos no D2 render (acima); desempenho em build segue pendente.
 - `Assets/_Recovery/0.unity` (sem versionar): cópia de recuperação da Unity, idêntica à `HexPrototipo` salva; pode apagar.
 
 ## O que foi feito no Pass C
@@ -58,11 +68,11 @@
 - Prévias locais: `Assets/Previa/FundoKayKit/HexPrototipo_FundoKayKit_v5.unity` (v5 congelada, "mapa anterior") e `_v6.unity`.
 
 ## Decisões que dependem do humano
-- Revisar/mergear a pilha (Sprint 0 → auditoria → PR #1 → PR #2 → PR #3 → PR #4 → D2 luz)
-- Liberar o resto do D2 (Opaque Texture/SSAO, materiais por spawn, build) ou outro foco
+- Revisar/mergear a pilha (Sprint 0 → auditoria → PR #1 → #2 → #3 → #4 → #5 → D2 render)
+- Desempenho em build (último item do D2) ou outro foco
 - `.meta` de `ArvoreGrande.fbx`/`Morcegp.fbx` (dono dos assets)
 
 ## Como retomar
-1. `git fetch && git checkout sprint-1/pass-d2-luz`
+1. `git fetch && git checkout sprint-1/pass-d2-render`
 2. Unity 6000.3.10f1 na `HexPrototipo`; antes de trocar de branch com o Editor aberto, abrir uma cena vazia.
 3. Suíte (AGENTS.md §6); capturas e legibilidade: `tools/visual-baseline/README.md`.

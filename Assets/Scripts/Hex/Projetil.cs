@@ -31,13 +31,8 @@ namespace Loopia.Hex
             var renderizador = go.GetComponent<MeshRenderer>();
             if (renderizador != null)
             {
-                Shader shader = Shader.Find("Universal Render Pipeline/Lit");
-                if (shader == null) shader = Shader.Find("Standard");
-
-                var material = new Material(shader) { name = "Flecha" };
-                if (material.HasProperty("_BaseColor")) material.SetColor("_BaseColor", cor);
-                if (material.HasProperty("_Color")) material.SetColor("_Color", cor);
-                renderizador.sharedMaterial = material;
+                // um material por cor, reaproveitado (antes: new Material a cada flecha, nunca destruido)
+                renderizador.sharedMaterial = MateriaisCompartilhados.Lit("Flecha", cor);
                 renderizador.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             }
 
