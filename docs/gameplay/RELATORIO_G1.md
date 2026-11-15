@@ -2,66 +2,83 @@
 
 Handoff da frente de gameplay (não substitui `docs/handoff/ESTADO_ATUAL.md`, que é coordenado entre as frentes).
 
+## Status: **G1 NÃO concluída** — implementada, compilada fora do Editor, sem execução no Editor
+G0, GDD v2 e arquitetura aprovados pelo responsável (2026-11-15). G1 só conclui com a suíte rodando no Editor e a
+validação em Play Mode (GDD_V2 §6).
+
 ## Onde está
-- Worktree `C:\Users\Sitr3n\Documents\Github\loopia-gameplay`, branch `sprint-3/gameplay-loop`.
-- Commit-base: `85c5276` (`sprint-0/preparacao-tecnica`). Independente da pilha de arte (`sprint-1/*`).
-- Nenhuma cena, prefab, material ou asset serializado foi alterado. Só scripts, testes e `docs/gameplay/`.
+- Worktree `C:\Users\Sitr3n\Documents\Github\loopia-gameplay`, branch `sprint-3/gameplay-loop`, PR #7 (rascunho,
+  base `sprint-0/preparacao-tecnica`). Commit-base: `85c5276`.
+- Nenhuma cena, prefab, material ou asset serializado alterado. Só scripts, testes e `docs/gameplay/`.
 
 ## O que foi feito
 | Entrega | Arquivos |
 |---|---|
-| Auditoria G0 | `GAMEPLAY_AUDIT.md`, `BALANCE_BASELINE.md`, `GDD_V2.md`, `IMPLEMENTATION_PLAN.md` |
+| Auditoria G0 e planejamento | `GAMEPLAY_AUDIT.md`, `BALANCE_BASELINE.md`, `GDD_V2.md`, `IMPLEMENTATION_PLAN.md`, `APRESENTACAO_DO_CHEFE.md` |
 | Máquina de estados pura | `EstadoDaPartida.cs`, `CicloDaPartida.cs` |
 | Regras do chefe | `RegrasDoChefe.cs` (alcance extra), `VarianteDoChefe.cs` (morcego ampliado, sem asset) |
 | Encontro | `EncontroDoChefe.cs` (nasce 1×, alvo grande, Revoada), `BarraDeVidaDoChefe.cs`, `IndicadorDePerigoDoChefe.cs` |
-| Integração no fluxo | `LoopDirector` (estados, congela voltas, recarga de flechas no chefe, vitória, `aoVencer`), `HexLoopRunner` (`contarVoltas`, `AoPassarPeloAcampamento`), `InimigoSpawner` (`pausarSpawnComum`, `CongelarTodos`, `NascerNoAnel`), `Inimigo` + `LuccaCombate` (alvo grande), `DadosDoJogador` (`vitorias`, `TentarLer`), `TelaDeMorte` (`MostrarVitoria`, texto da derrota no chefe) |
-| Testes | `CicloDaPartidaTests` (Logic, 10), `RegrasDoChefeTests` (Logic, 16 com 11 sementes), `DadosDoJogadorFormatoTests` (Logic, 7), `EncontroDoChefePlayModeTests` (PlayModeSmoke, 5) |
+| Fluxo | `LoopDirector` (estados, congela voltas, recarga de flechas no chefe, vitória, `aoVencer`), `HexLoopRunner` (`contarVoltas`, `AoPassarPeloAcampamento`), `InimigoSpawner` (`pausarSpawnComum`, `CongelarTodos`, `NascerNoAnel`, `AoInimigoDerrotado`), `DadosDoJogador` (`vitorias`, `TentarLer`), `TelaDeMorte` (`MostrarVitoria`) |
+| Cartas bloqueadas no fim | `MapaDePlataformas.PodeColocar` ("a jornada terminou"), `CartasUI` (barra some) |
+| Alvo grande + gancho de mira | `Inimigo` (`TornarAlvoGrande`), `LuccaCombate` (regra de alvo, `AlvoAtual`, `AoDisparar`, para no fim) |
+| Medição | `MetricasDaPartida.cs`, `MedidorDaPartida.cs` |
 
-Motivo para tocar `Inimigo.cs`/`LuccaCombate.cs` (arquivos de integração com animação/visual): o chefe precisa ser alvo
-do tiro automático. Mudança mínima: propriedades novas no `Inimigo` e a regra de alcance/ângulo em `EscolherAlvo` e
-`EstaAFrente`. Inimigos comuns têm alcance extra 0 → mesmo comportamento de antes. `HexPlayer.cs` não foi tocado.
+Motivo para tocar `Inimigo.cs`/`LuccaCombate.cs`: o chefe precisa ser alvo do tiro automático; a frente de personagem
+precisa de um dado de leitura para orientar o arco. Inimigos comuns: alcance extra 0, comportamento igual.
+`HexPlayer.cs`, rig e animações: não tocados.
+
+## Testes escritos
+| Arquivo | Categoria | Testes | Cobre |
+|---|---|---|---|
+| `CicloDaPartidaTests` | Logic | 10 | transições, terminais exclusivos e únicos, tabela completa |
+| `RegrasDoChefeTests` | Logic | 16 | chefe alcançável de todo o anel (11 sementes), sem extra fica fora, variante sem alterar o asset |
+| `DadosDoJogadorFormatoTests` | Logic | 7 | save antigo sem `vitorias`, novo, negativos, ilegível |
+| `ColocacaoNoFimDaJornadaTests` | Logic | 4 | cartas aceitas correndo/no chefe, recusadas na vitória/derrota |
+| `MetricasDaPartidaTests` | Logic | 3 | contagem por volta e do chefe, impasse, término único |
+| `EncontroDoChefePlayModeTests` | PlayModeSmoke | 5 | 4 voltas pelo corredor → 1 confronto, 5ª não conta, chefe 1×, golpe via UnityEvent, flechas reais ferem o chefe, vitória 1× + save + volta ao acampamento, derrota no chefe, Revoada + indicador, cartas no fim |
+| `PartidaRealPlayModeTests` | PlayModeSmoke (1) + PlayModeMedicao (1) | 2 | 4 voltas **reais** no NavMesh → chefe → combate automático até o fim; métricas |
+Total novo: 40 Logic + 6 PlayModeSmoke + 1 PlayModeMedicao. Suíte anterior: 119.
 
 ## Evidências
 | Verificação | Resultado | Fonte |
 |---|---|---|
-| Compilação dos scripts de gameplay (`Scripts/Hex` + `testes shaders`) | **0 erros, 0 avisos nos arquivos tocados** | Roslyn do próprio Unity 6000.3.10f1 (`Editor/Data/DotNetSdkRoslyn/csc.dll`) fora do Editor, contra as DLLs da Unity e dos pacotes. **Não é** a compilação do Editor |
-| Compilação de `Assets/Tests/Editor` (suíte antiga + nova) | **0 erros** | idem |
-| Merge com a pilha de arte (`origin/sprint-1/pass-d2-render` @ `56c6bf1`) | **sem conflito**; árvore mesclada compila (jogo, testes e `Assets/Editor`) com 0 erros | `git merge-tree --write-tree` + mesma compilação fora do Editor |
-| Suíte Logic + SceneStatic + PlayModeSmoke no Editor | **PENDENTE** | o Editor aberto (pasta principal, branch de arte) pertence a outra frente; esta frente não usou o MCP |
+| Compilação de `Scripts/Hex` + `testes shaders` | 0 erros, 0 avisos nos arquivos tocados | Roslyn do Unity 6000.3.10f1 fora do Editor. **Não é** a compilação do Editor |
+| Compilação de `Assets/Tests/Editor` | 0 erros | idem |
+| Merge com a pilha de arte (`56c6bf1`) | sem conflito; árvore mesclada compila | `git merge-tree` + mesma compilação |
+| Suíte no Editor (Logic, SceneStatic, PlayModeSmoke) | **PENDENTE** | Editor ocupado por outra frente; MCP não usado |
 | Console do Editor | **PENDENTE** | idem |
-| Chefe em Play Mode | **PENDENTE** | não declarar funcionamento antes de rodar `EncontroDoChefePlayModeTests` e uma partida manual |
+| 4 voltas reais, chefe, combate, vitória, derrota em Play Mode | **PENDENTE** | não declarar funcionamento antes de rodar |
+| Métricas do chefe (duração, flechas, recargas, dano, Revoada, impasse, cartas) | **PENDENTE** | `PartidaRealPlayModeTests` |
+
+## Correção de processo
+Os 4 arquivos de teste do primeiro commit entraram **sem `.meta`** (contra AGENTS.md §4.2); os `.meta` foram
+adicionados no commit seguinte, antes de qualquer import pela Unity, então não há GUID divergente em nenhuma máquina.
 
 ## Pendências e riscos
-1. Rodar a suíte inteira (ver §Como testar). Os 5 testes Play novos montam o encontro em tempo de execução.
-2. Integração de cena (PR exclusivo no Editor): `IMPLEMENTATION_PLAN.md` §G1.8. Até lá, a cena se comporta como antes
-   (modo antigo: 4 voltas só disparam `AoLiberarBoss`; um aviso no console diz que não há `EncontroDoChefe`).
-3. Na integração, atualizar de propósito `HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez` (com o
-   encontro na cena a 5ª volta deixa de contar).
-4. Números do chefe são hipóteses (`BALANCE_BASELINE.md` §7). Calibrar em G4.
-5. `CartasUI` continua aceitando cartas depois da vitória (só bloqueia com o Lucca morto). Inofensivo; corrigir junto
-   da integração de cena ou em G2.
-6. `IndicadorDePerigoDoChefe` usa `Shader.Find("Universal Render Pipeline/Unlit")` com fallback para Lit/Standard;
-   conferir em build que o Unlit não é removido (senão cai no Lit, que o projeto já usa).
-7. Merge com a pilha de arte: `Inimigo.cs` muda em regiões diferentes (`MontarVisual` lá, propriedades aqui).
+1. Rodar a suíte e os testes Play (`PartidaRealPlayModeTests` leva alguns minutos: 4 voltas reais a timeScale 4).
+2. Integração de cena: base a decidir (`IMPLEMENTATION_PLAN.md` §G1.8; recomendado: empilhar sobre a pilha de arte).
+3. Na integração, atualizar de propósito `HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez`.
+4. Números do chefe: hipóteses até as medições.
+5. `IndicadorDePerigoDoChefe` usa `Shader.Find("Universal Render Pipeline/Unlit")` com fallback; conferir em build.
+6. Testes Play compartilham o `loopia_save.json` e o backup em `%TEMP%` com qualquer outro Editor do projeto aberto
+   ao mesmo tempo: rodar só com o outro Editor parado (sem Play Mode nem testes).
 
 ## Como testar
-1. Com o Editor livre: abrir o projeto da worktree (ou fazer merge desta branch na branch de integração escolhida).
-2. Test Runner → EditMode → categorias `Logic`, `SceneStatic` (via `get_test_job`), depois `PlayModeSmoke` (resultado no
-   `TestResults.xml`; ver `tools/unity-mcp/README.md`).
-3. Esperado: 119 antigos + 33 Logic novos + 5 PlayModeSmoke novos. Console sem erros (avisos esperados:
-   "Sem EncontroDoChefe na cena" no teste antigo das 4 voltas).
+1. Editor exclusivo, aberto no projeto desta branch (worktree) ou da branch de integração.
+2. Test Runner → EditMode: `Logic`, `SceneStatic` (resultado no `get_test_job`), depois `PlayModeSmoke` e
+   `PlayModeMedicao` (resultado no `TestResults.xml`; ver `tools/unity-mcp/README.md`).
+3. Esperado: 119 antigos + 47 novos. Avisos esperados no console: "Sem EncontroDoChefe na cena" (teste antigo das
+   4 voltas), resumos `[Metricas]`.
 
 ## Checklist do PR
 - [x] Escopo: só scripts de gameplay listados, testes e `docs/gameplay/`; `git diff --stat` revisado
-- [x] `.meta` de todo arquivo novo incluído (GUIDs novos, únicos no projeto); nenhum asset `.asset` novo
-- [ ] Testes: **PENDENTE** (Editor ocupado por outra frente); compilação verificada fora do Editor
+- [x] `.meta` de todo arquivo novo incluído (GUIDs únicos); nenhum `.asset` novo
+- [ ] Testes: **PENDENTE** (Editor); compilação verificada fora do Editor
 - [ ] Console: **PENDENTE**
 - [x] Cenas tocadas: nenhuma
-- [x] Captura antes/depois: não se aplica (sem mudança visual na cena atual)
-- [x] Rollback: `git revert` dos commits do G1 (sem listeners de cena para órfãos)
+- [ ] Captura antes/depois: na integração de cena
+- [x] Rollback: `git revert` dos commits do G1 (sem listeners de cena órfãos)
 
-## Próxima sprint recomendada
-1. Rodar a suíte e integrar a cena (§G1.8) — sem isso o P0 não está entregue de ponta a ponta.
-2. G2: fila de recompensas do level-up (a mão inicial já começa cheia, então a carta do nível 1 se perde) e as três
-   cartas de sobrevivência sobre um agregador de modificadores.
-3. G4 cedo: RNG com semente, para que os números do chefe deixem de ser hipótese.
+## Próximo passo
+Validar G1 no Editor e integrar a cena. G2 só depois da aprovação do responsável: 1º fila de recompensas, depois as
+três cartas, depois Mirante.

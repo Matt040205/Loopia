@@ -83,7 +83,30 @@ recarga. A intenção é que o jogador precise de **uma** fonte extra (carta Fle
 primeira passada, e que a Revoada dispute flechas. Durante o chefe, passar pelo acampamento recarrega só as flechas
 (sem vida, sem volta nova): não há impasse por falta de munição. **Tudo isso é hipótese até G4.**
 
-## 8. Plano de medição (G4)
+## 8. Plano de medição
+### 8.1 Instrumento (pronto, G1)
+`MetricasDaPartida` (contagem pura, testada em Logic) + `MedidorDaPartida` (componente opcional que ouve eventos que
+já existem). Mede o que o responsável pediu para o chefe:
+| Pedido | Campo |
+|---|---|
+| Duração do confronto | `duracaoDoChefe` (segundos de jogo) |
+| Flechas consumidas | `flechasNoChefe`, `flechasEmOutrosNoChefe` (as da Revoada) |
+| Recargas necessárias | `recargasNoChefe` (passagens pelo acampamento no chefe) |
+| Dano recebido | `danoRecebidoNoChefe`, `pvNoInicioDoChefe` |
+| Frequência da Revoada | `revoadas`, `morcegosDaRevoada` ÷ `duracaoDoChefe` |
+| Impasse | `tempoSemFlechasNoChefe`, `maiorTrechoSemFlechasNoChefe` (`PossivelImpasse(limite)`) |
+| Impacto das cartas de dano/munição | comparar os campos acima entre cenários |
+Por volta: `duracao`, `flechasDisparadas`, `danoRecebido`, `inimigosDerrotados`, `pvAoFechar`.
+
+### 8.2 Cenários já escritos (`PartidaRealPlayModeTests`)
+| Cenário | Categoria | Cartas | Resultado |
+|---|---|---|---|
+| sem-cartas | PlayModeSmoke | nenhuma | **PENDENTE** (rodar no Editor) |
+| flechas+torre | PlayModeMedicao | Flechas no caminho + Torre fora | **PENDENTE** |
+Morcegos comuns desligados nos dois (só a Revoada): isola o confronto. Mapa sorteado (a cena não usa semente fixa)
+→ 1 execução = 1 amostra, não uma conclusão. O resumo sai no console e em `%TEMP%/loopia_metricas_<cenario>.txt`.
+
+### 8.3 Próximos passos (G4)
 1. RNG com semente para spawn e compra (`System.Random` injetável) — pré-requisito de qualquer número reproduzível.
 2. Teste Play com semente fixa do mapa e do RNG, timeScale 4, registrando por volta: flechas gastas, flechas que
    sobraram, dano recebido por fonte, inimigos mortos, XP, nível, PV ao fechar a volta, duração.

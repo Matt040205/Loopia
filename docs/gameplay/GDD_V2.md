@@ -1,8 +1,15 @@
 # Loopia — GDD v2 (gameplay)
 
-Documento da frente de gameplay. Complementa o GDD original do time, sem substituí-lo. Três níveis de compromisso:
-- **[OBRIGATÓRIO]**: P0, define a partida completa. Implementado nesta entrega (G1), com integração de cena pendente.
-- **[P1 aprovado]**: escopo das sprints G2–G4 descrito no pedido de trabalho. Valores são hipóteses de teste.
+Documento da frente de gameplay. Complementa o GDD original do time, sem substituí-lo.
+**Aprovado pelo responsável em 2026-11-15**, com as ressalvas registradas em §6. Níveis de compromisso:
+- **[OBRIGATÓRIO]**: P0 — máquina de estados, chefe, vitória, derrota e integração. Implementado (G1); validação
+  em Play Mode e integração de cena pendentes.
+- **[P1 aprovado]**: planejamento e implementação incremental — fila de recompensas, Santuário/Fonte/Oficina,
+  Mirante e infraestrutura inicial de sangramento/veneno. Valores são hipóteses de teste.
+- **[P1 condicionado]**: só depois de avaliação — balanceamento definitivo, progressão permanente, clima com efeito
+  mecânico, estações.
+- **[FORA DE ESCOPO]**: inventário completo, equipamentos complexos, múltiplas variantes de chefe, fadiga por
+  quantidade de inimigos mortos.
 - **[PROPOSTA]**: ideia registrada, **não aprovada**. Não implementar sem decisão do responsável.
 
 ## 1. Identidade (inalterada)
@@ -38,10 +45,18 @@ Variante do morcego (sem modelo novo): maior, vermelho escuro, voa mais alto sob
 - Barra de vida própria no topo da tela.
 - Regra de alvo grande: o chefe declara alcance extra = (maior distância do anel ao centro − alcance do tiro) e
   pode ser atingido de qualquer ângulo. A prioridade continua pela distância real: morcegos colados vêm primeiro.
-- Números iniciais: `BALANCE_BASELINE.md` §7 (hipóteses).
+- Números iniciais: `BALANCE_BASELINE.md` §7 (hipóteses, aprovados só para prototipagem).
+- Cartas continuam valendo durante o chefe (preparo em tempo real); na vitória/derrota nenhuma carta é aceita
+  (`MapaDePlataformas.PodeColocar` → "a jornada terminou") e a barra de cartas some.
+- Leitura visual do tiro no chefe: plano com a frente de personagem em `APRESENTACAO_DO_CHEFE.md`.
 
 ## 3. [P1 aprovado] Próximas sprints
-### G2 — cartas de sobrevivência e fila de recompensas
+Só começam depois de G1 validada em Play Mode e aprovada pelo responsável.
+
+### G2 — fila de recompensas primeiro, depois cartas de sobrevivência
+Ordem obrigatória: (1) fila de recompensas pendentes com política de capacidade explícita, atualizando de propósito o
+teste de caracterização da mão cheia; (2) só então Santuário, Fonte Restauradora e Oficina de Arqueiro.
+
 | Carta | Efeito (hipótese) | Gancho existente |
 |---|---|---|
 | Santuário | +3 PV máximo | `BonusDePv` (igual Campo Pacífico) |
@@ -51,9 +66,10 @@ Variante do morcego (sem modelo novo): maior, vermelho escuro, voa mais alto sob
   recalculado pelo `MapaDePlataformas.Recalcular` como hoje; o mesmo agregador servirá a equipamentos e status.
 - **Fila de recompensas**: a carta do level-up que não cabe vai para uma fila (limite configurável) e entra quando
   abrir espaço; a UI mostra "+N pendentes". O teste de caracterização da mão cheia será **atualizado de propósito**.
-- **Ilha Alta**: [hipótese] "Mirante" — enquanto o Lucca está numa ilha alta, +1 casa de alcance e o tiro ignora a
-  regra "só à frente". Risco: exige mola antes, ocupa uma casa do caminho e o rebake só acontece ao colocar/remover
-  (já é assim). Não muda topologia além do que já muda.
+- **Ilha Alta → Mirante** (aprovado para prototipagem): enquanto o Lucca está numa ilha alta, +1 casa de alcance e
+  o tiro atinge em qualquer direção. Pergunta a testar: a vantagem compensa exigir uma Mola antes e ocupar duas casas
+  do circuito? Medir com `MetricasDaPartida` (flechas que acertam / abates por volta, com e sem Mirante). O rebake
+  só acontece ao colocar/remover (já é assim); nada de rebake novo.
 
 ### G3 — efeitos de status
 `StatusEffectDefinition` (SO: duração, intervalo, dano por pulso, política de acúmulo, renovação),
@@ -61,14 +77,27 @@ Variante do morcego (sem modelo novo): maior, vermelho escuro, voa mais alto sob
 `StatModifier`. Sangramento: pulsos rápidos e curtos, acumula intensidade até N, renovar não estende além do teto.
 Veneno: pulsos lentos e longos, não acumula intensidade, reaplicar renova a duração. Sem dano após a morte, eventos
 `AoAplicar/AoPulsar/AoRemover` para o VFX futuro. Cansaço: **não** implementar (pune o que o jogador não controla);
-alternativas em §4.
+alternativas em §5.
 
 ### G4 — dificuldade e progressão
 RNG com semente, cenários fixos e métricas (`BALANCE_BASELINE.md` §8). Alavancas a testar antes de mexer no
 multiplicador: quantidade máxima e intervalo de morcegos por volta, XP por volta, cura disponível.
-Progressão permanente: só desenho (§4), compatível com saves antigos (campos novos com padrão 0).
+Progressão permanente: só desenho (§5), compatível com saves antigos (campos novos com padrão 0).
 
-## 4. [PROPOSTA] Não aprovado
+## 4. Critérios de game design (metas para orientar testes — nenhum número aqui foi medido)
+| Critério | Meta (hipótese) | Como medir / observar |
+|---|---|---|
+| Duração-alvo da partida | 5–7 min até o fim do chefe (4 voltas de ~60–75 s + confronto de 1–2 min) | `MetricasDaPartida.duracaoTotal`; a 1ª volta observada hoje dura ~60–76 s de jogo (`BALANCE_BASELINE.md` §1) |
+| Decisões por volta | ≥ 2 decisões reais por volta (colocar/substituir/guardar uma carta), não só "jogar a carta que chegou" | contar colocações por volta (métrica nova em G2); playtest: o jogador hesita entre opções? |
+| Percepção do impacto das cartas | cada carta muda algo visível em ≤ 1 volta: número no HUD (PV/flechas/dano) ou comportamento (flechas por morcego, alcance) | pontos de corte de `BALANCE_BASELINE.md` §3; playtest: o jogador explica o que a carta fez |
+| Preparação para o chefe | as 4 voltas constroem munição, dano e sustento; sem uma fonte extra (Flechas no caminho ou dano) o 1º ciclo de munição não basta (21 flechas para 15 de recarga, cálculo) | cenários "sem cartas" × "Flechas+Torre" (`PartidaRealPlayModeTests`): duração do chefe, recargas, dano recebido |
+| Evitar "esperar o circuito" | sempre há algo a decidir: carta na mão, substituição de Básica, reação à Revoada no chefe; cartas valem durante o confronto | playtest: tempo sem nenhuma carta jogável na mão; fila de recompensas (G2) reduz mãos travadas |
+| Sem impasse | nenhum trecho > 1 volta com o chefe vivo e 0 flechas | `maiorTrechoSemFlechasNoChefe` vs duração da volta |
+
+Regra: dificuldade sobe por pressão (quantidade, frequência, Revoada, economia de flechas), **não** por multiplicar
+atributos. Mudança de número só com medição antes/depois registrada.
+
+## 5. [PROPOSTA] Não aprovado
 - **Árvore permanente** (moedas do save): Sobrevivência (+PV inicial, coração +1), Combate (+dano, +flecha inicial),
   Construção (+1 carta inicial, 1ª carta do nível garantida do tipo escolhido). Três nós por ramo, custo crescente.
 - **Dia/noite**: noite com +25 % de frequência de morcegos e +25 % de XP; nada de precisão/alcance/crítico juntos.
@@ -81,3 +110,13 @@ Progressão permanente: só desenho (§4), compatível com saves antigos (campos
 - **Alternativas ao cansaço**: (a) fadiga por volta sem descanso numa carta "Cabana"; (b) penalidade só quando sem
   flechas; (c) nenhuma.
 - **Alvo do tiro**: considerar inimigos em mergulho como alvo mesmo de lado (coerência visual).
+
+## 6. Decisões do responsável (2026-11-15)
+- G0, GDD v2 e arquitetura de G1 aprovados. Morcego Ancião e Revoada aprovados para prototipagem.
+- G1 só conclui com a suíte rodando no Editor e validação em Play Mode (4 voltas reais, chefe, combate, vitória,
+  derrota, 5ª volta bloqueada, cartas bloqueadas no fim, vitórias persistidas, volta ao acampamento). Compilação fora
+  do Editor não conta.
+- Valores do chefe seguem hipóteses até medir: duração, flechas, recargas, dano recebido, frequência da Revoada,
+  impasse e impacto das cartas de dano/munição.
+- Orientação visual do arco/tronco: planejar e coordenar com a frente de personagem; não tocar rig nem animações.
+- G2 não começa antes de G1 validada e aprovada.

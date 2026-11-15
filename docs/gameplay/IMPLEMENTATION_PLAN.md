@@ -81,6 +81,16 @@ Todos os testes acima e a suíte anterior passam no Editor (job id + XML); conso
 prefab ou asset alterado neste PR.
 
 ### G1.8 Integração pendente (PR de cena, exclusivo no Editor)
+**Base da cena (decisão do responsável).** A pilha de arte (#1–#6) já reescreveu a `HexPrototipo.unity` várias
+vezes. Integrar sobre a cena da `sprint-0` garantiria conflito de YAML quando as duas linhas se juntarem (AGENTS.md
+§4.1). Opções:
+- (a) **Recomendada:** branch `sprint-3/gameplay-cena` a partir da ponta da arte (`sprint-1/pass-d2-render`) com merge
+  de `sprint-3/gameplay-loop` (sem conflito, verificado), mudança de cena pelo Editor, PR empilhado sobre o #6.
+  Exige a frente de ambiente sem edição de cena aberta enquanto isso.
+- (b) Esperar a pilha de arte entrar na `main` e integrar a partir dela.
+- (c) Integrar sobre a cena da `sprint-0`: **rejeitada** (conflito certo).
+
+Passos (pelo Editor, uma pessoa por vez, Editor aberto no projeto da branch de integração):
 1. Em `HexPrototipo`, criar o objeto `Encontro do chefe` com `EncontroDoChefe`, `BarraDeVidaDoChefe` e
    `IndicadorDePerigoDoChefe`. Referências podem ficar vazias (fallback por `FindFirstObjectByType`).
 2. `LoopDirector.encontro` → esse objeto (opcional, por clareza no Inspector).
@@ -89,14 +99,27 @@ prefab ou asset alterado neste PR.
    morcego montada em tempo de execução.
 5. Atualizar `HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez` e o `SceneStatic` (novo listener
    esperado em `aoVencer`).
-6. Rodar a suíte e jogar uma partida até a vitória e outra até a derrota, com capturas.
+6. Rodar a suíte (Logic, SceneStatic, PlayModeSmoke) e `PlayModeMedicao`; jogar uma partida até a vitória e outra
+   até a derrota, com capturas (chefe nascendo, aviso da Revoada, barra de vida, tela de vitória, acampamento).
+7. Opcional: `MedidorDaPartida` no mesmo objeto, desligado por padrão (só medição).
+
+### G1.10 Adendo (ajustes aprovados em 2026-11-15)
+| Ajuste | Onde | Teste |
+|---|---|---|
+| Sem cartas na vitória/derrota (autoridade no mapa; a barra some) | `MapaDePlataformas.PodeColocar` (+ campo `diretor`), `CartasUI` | `ColocacaoNoFimDaJornadaTests` (Logic), asserts nos Play |
+| Lucca para de atirar/mirar no fim | `LuccaCombate` (campo `diretor`) | `EncontroDoChefePlayModeTests` |
+| Gancho de mira para a frente de personagem | `LuccaCombate.AlvoAtual`, `AoDisparar` | indireto (métricas usam `AoDisparar`) |
+| Medição do confronto | `MetricasDaPartida`, `MedidorDaPartida`, `InimigoSpawner.AoInimigoDerrotado` | `MetricasDaPartidaTests` (Logic) |
+| 4 voltas reais até o fim do confronto | `PartidaRealPlayModeTests` (PlayModeSmoke + PlayModeMedicao) | — |
 
 ### G1.9 Rollback
 `git revert` dos commits de G1. Como a cena não muda neste PR, reverter não deixa listeners órfãos. Depois da
 integração, reverter o PR de cena antes do de código.
 
 ---
-## G2 — Cartas de sobrevivência e fila de recompensas (P1, depois da integração de G1)
+## G2 — Fila de recompensas, depois cartas de sobrevivência (P1, só após G1 validada e aprovada)
+Ordem: 1º a fila de recompensas pendentes (política de capacidade explícita; atualizar de propósito
+`Characterization_MaoCheia_*`); 2º os modificadores e as três cartas; 3º Mirante (protótipo).
 - `ModificadoresDoLucca` (struct imutável somada pelo `MapaDePlataformas.Recalcular`): PV máx., dano, flechas máx.,
   cura extra por coração. `PlataformaDef` ganha ganchos virtuais `BonusDeFlechas`/`BonusDeCuraPorCoracao` (padrão 0):
   sem switch por tipo.
