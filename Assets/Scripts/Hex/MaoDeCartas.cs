@@ -8,6 +8,9 @@ namespace Loopia.Hex
     /// A mao do jogador: "espaco das cartas (...) com 4 espacos disponiveis para vir as cartas
     /// de plataforma". Carta nova chega ao subir de nivel, como pede o GDD em Progressao:
     /// "Ao atingir um novo nivel, cartas de cenario sao disponibilizadas".
+    ///
+    /// G2: a carta de nivel nunca se perde. Cada uma vira um direito numa fila de pendentes, entregue
+    /// quando abrir espaco e houver carta disponivel (docs/gameplay/g2/REWARD_QUEUE_DESIGN.md).
     /// </summary>
     [DisallowMultipleComponent]
     public class MaoDeCartas : MonoBehaviour
@@ -35,9 +38,24 @@ namespace Loopia.Hex
         [Tooltip("Quantas cartas chegam a cada nivel novo.")]
         [Min(0)] public int cartasPorNivel = 1;
 
+        [Header("Recompensas pendentes (G2)")]
+        [Tooltip("Limite SUAVE da fila: acima dele so avisa no console. Nenhuma recompensa e descartada " +
+                 "(docs/gameplay/g2/REWARD_QUEUE_DESIGN.md).")]
+        [Min(0)] public int limiteDeAlertaDePendentes = 4;
+
+        [Tooltip("Opcional. Vazio usa o diretor do mapa. Com a jornada encerrada a fila nao entrega cartas.")]
+        public LoopDirector diretor;
+
         PlataformaDef[] _mao;
         bool _inscrito;
+        bool _inscritoNoMapa;
         bool _entregouCartaLiberada;
+
+        // Direitos de compra ganhos por nivel e ainda nao entregues, em ordem (guarda o nivel de origem).
+        // A carta so e sorteada na entrega, entre as disponiveis naquele momento.
+        readonly Queue<int> _pendentes = new Queue<int>();
+        bool _entregando;
+        bool _avisouLimite;
 
         /// <summary>A mao, com null nos espacos vazios.</summary>
         public IReadOnlyList<PlataformaDef> Mao => _mao;
@@ -54,6 +72,18 @@ namespace Loopia.Hex
 
         public event Action AoMudar;
 
+        /// <summary>Recompensas de nivel aguardando espaco na mao (ou uma carta disponivel).</summary>
+        public int Pendentes => _pendentes.Count;
+
+        /// <summary>A fila passou do limite suave (so sinaliza; nada e descartado).</summary>
+        public bool AcimaDoLimite => _pendentes.Count > limiteDeAlertaDePendentes;
+
+        /// <summary>Disparado sempre que a quantidade de pendentes muda.</summary>
+        public event Action AoMudarPendentes;
+
+        /// <summary>Uma pendente virou carta na mao: (nivel que gerou o direito, carta entregue). Ordem FIFO.</summary>
+        public event Action<int, PlataformaDef> AoEntregarPendente;
+
         void Awake()
         {
             _mao = new PlataformaDef[Mathf.Max(1, espacos)];
@@ -69,6 +99,12 @@ namespace Loopia.Hex
                 status.AoSubirDeNivel += SubiuDeNivel;
                 _inscrito = true;
             }
+            if (mapa != null)
+            {
+                // Colocar/remover plataformas pode liberar cartas (Mola -> Ilha alta): tenta entregar de novo.
+                mapa.AoMudar += AoMudarOMapa;
+                _inscritoNoMapa = true;
+            }
 
             for (int i = 0; i < cartasIniciais; i++)
             {
@@ -80,7 +116,9 @@ namespace Loopia.Hex
         void OnDestroy()
         {
             if (_inscrito && status != null) status.AoSubirDeNivel -= SubiuDeNivel;
+            if (_inscritoNoMapa && mapa != null) mapa.AoMudar -= AoMudarOMapa;
             _inscrito = false;
+            _inscritoNoMapa = false;
         }
 
         void Update()
@@ -102,7 +140,8 @@ namespace Loopia.Hex
             if (_mao[espaco] == null) return false;
 
             _mao[espaco] = null;
-            AoMudar?.Invoke();
+            // O espaco aberto vai primeiro para a recompensa pendente mais antiga.
+            if (!TentarEntregarPendentes()) AoMudar?.Invoke();
             return true;
         }
 
@@ -110,39 +149,106 @@ namespace Loopia.Hex
         public bool DarCarta(PlataformaDef carta)
         {
             if (carta == null || !carta.DisponivelParaCompra(mapa)) return false;
-            for (int i = 0; i < _mao.Length; i++)
-            {
-                if (_mao[i] != null) continue;
-                _mao[i] = carta;
-                AoMudar?.Invoke();
-                return true;
-            }
-            return false;
+            int espaco = PrimeiroEspacoLivre();
+            if (espaco < 0) return false;
+
+            _mao[espaco] = carta;
+            AoMudar?.Invoke();
+            return true;
         }
 
-        /// <summary>Sorteia uma carta do baralho para o primeiro espaco livre.</summary>
-        public bool Comprar()
+        /// <summary>
+        /// Sorteia uma carta do baralho para o primeiro espaco livre. Com a mao cheia devolve false
+        /// e nada muda; quem nao pode perder a carta (o nivel) passa pela fila de pendentes.
+        /// </summary>
+        public bool Comprar() => Comprar(out _);
+
+        bool Comprar(out PlataformaDef comprada)
         {
+            comprada = null;
             if (baralho == null || baralho.Count == 0) return false;
+
+            int espaco = PrimeiroEspacoLivre();
+            if (espaco < 0) return false;
+
             var disponiveis = baralho.FindAll(carta => carta != null && carta.DisponivelParaCompra(mapa));
             if (disponiveis.Count == 0) return false;
 
-            for (int i = 0; i < _mao.Length; i++)
-            {
-                if (_mao[i] != null) continue;
-
-                _mao[i] = disponiveis[UnityEngine.Random.Range(0, disponiveis.Count)];
-                AoMudar?.Invoke();
-                return true;
-            }
-
-            // Mao cheia: a carta simplesmente nao vem.
-            return false;
+            comprada = disponiveis[UnityEngine.Random.Range(0, disponiveis.Count)];
+            _mao[espaco] = comprada;
+            AoMudar?.Invoke();
+            return true;
         }
 
+        int PrimeiroEspacoLivre()
+        {
+            for (int i = 0; i < _mao.Length; i++) if (_mao[i] == null) return i;
+            return -1;
+        }
+
+        /// <summary>Jornada encerrada ou Lucca morto: a mao fica como esta.</summary>
+        bool EntregaBloqueada
+        {
+            get
+            {
+                if (status != null && !status.EstaVivo) return true;
+                LoopDirector d = diretor != null ? diretor : (mapa != null ? mapa.diretor : null);
+                return d != null && d.Terminou;
+            }
+        }
+
+        /// <summary>
+        /// Cada carta de nivel vira um direito na fila; com espaco e carta disponivel ele e entregue na hora.
+        /// Antes de G2 a carta de um nivel com a mao cheia simplesmente se perdia.
+        /// </summary>
         void SubiuDeNivel(int nivel)
         {
-            for (int i = 0; i < cartasPorNivel; i++) Comprar();
+            if (cartasPorNivel <= 0) return;
+            for (int i = 0; i < cartasPorNivel; i++) _pendentes.Enqueue(nivel);
+            AoMudarPendentes?.Invoke();
+            AvisarSeAcimaDoLimite();
+            TentarEntregarPendentes();
+        }
+
+        void AoMudarOMapa() => TentarEntregarPendentes();
+
+        /// <summary>
+        /// Entrega pendentes, da mais antiga para a mais nova, enquanto houver espaco e carta disponivel.
+        /// Sem carta disponivel o direito continua na fila (nunca e consumido sem virar carta).
+        /// Devolve true se entregou ao menos uma (e, portanto, ja disparou AoMudar).
+        /// </summary>
+        public bool TentarEntregarPendentes()
+        {
+            if (_entregando || _mao == null || _pendentes.Count == 0 || EntregaBloqueada) return false;
+
+            _entregando = true;
+            bool entregou = false;
+            try
+            {
+                while (_pendentes.Count > 0)
+                {
+                    if (!Comprar(out PlataformaDef carta)) break;
+                    int nivel = _pendentes.Dequeue();
+                    entregou = true;
+                    AoMudarPendentes?.Invoke();
+                    AoEntregarPendente?.Invoke(nivel, carta);
+                }
+            }
+            finally
+            {
+                _entregando = false;
+            }
+
+            if (!AcimaDoLimite) _avisouLimite = false;
+            return entregou;
+        }
+
+        void AvisarSeAcimaDoLimite()
+        {
+            if (!AcimaDoLimite || _avisouLimite) return;
+            _avisouLimite = true;
+            Debug.LogWarning("[MaoDeCartas] " + _pendentes.Count + " recompensas pendentes (limite de alerta " +
+                             limiteDeAlertaDePendentes + "). Nenhuma foi descartada; a mao esta travada.", this);
         }
     }
 }
