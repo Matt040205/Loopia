@@ -1,0 +1,365 @@
+{
+  "version": "5.2.0 LTS",
+  "metrics": {
+    "Idle": {
+      "samples": 769,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": true,
+      "seam_matrix_delta": 0.0
+    },
+    "Walk": {
+      "samples": 289,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.4045,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": true,
+      "seam_matrix_delta": 0.0
+    },
+    "Bow Ready": {
+      "samples": 5,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": true,
+      "seam_matrix_delta": 0.0
+    },
+    "Bow Shot": {
+      "samples": 157,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.0
+    },
+    "Jump": {
+      "samples": 85,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.1323,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.0
+    },
+    "Spring Jump": {
+      "samples": 169,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.1571,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.0
+    },
+    "Walk + Bow Shot @0": {
+      "samples": 157,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.4045,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.8340068459510803,
+      "lower_delta_from_walk": 0
+    },
+    "Walk + Bow Shot @18": {
+      "samples": 157,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.3213,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.4196028411388397,
+      "lower_delta_from_walk": 0
+    },
+    "Walk + Bow Shot @36": {
+      "samples": 157,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.3213,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.8231067359447479,
+      "lower_delta_from_walk": 0
+    },
+    "Walk + Bow Shot @54": {
+      "samples": 157,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.4045,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.4221660643815994,
+      "lower_delta_from_walk": 0
+    },
+    "Idle to Walk": {
+      "samples": 65,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.1306,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.5392669439315796
+    },
+    "Walk to Jump": {
+      "samples": 65,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0603,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.5678819492459297
+    },
+    "Jump to Walk": {
+      "samples": 65,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0603,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.5678819492459297
+    },
+    "Walk to Spring Jump": {
+      "samples": 65,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0643,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.5748500153422356
+    },
+    "Spring Jump to Walk": {
+      "samples": 65,
+      "contacts": {
+        "Saia · segunda × Corpo e meias": 0,
+        "Saia · algodão × Corpo e meias": 0,
+        "Capa índigo × Túnica": 0,
+        "Saia · algodão × Saia · segunda": 0,
+        "Capa índigo × Saia · algodão": 0,
+        "Arco · madeira × Saia · algodão": 0,
+        "Arco · madeira × Saia · segunda": 0,
+        "Arco · madeira × Capa índigo": 0,
+        "Arco · madeira × Túnica": 0
+      },
+      "p95_max": 1.0643,
+      "fail_samples": 0,
+      "failed_frames": [],
+      "root_max_m": 0,
+      "loop": false,
+      "seam_matrix_delta": 0.5748500153422356
+    }
+  },
+  "draw_socket_offsets_m": [
+    [
+      12,
+      0.001590013571060083
+    ],
+    [
+      13,
+      3.725290298461914e-09
+    ],
+    [
+      14,
+      1.2731557704981462e-07
+    ],
+    [
+      15,
+      1.2731557704981462e-07
+    ],
+    [
+      16,
+      1.2731557704981462e-07
+    ],
+    [
+      17,
+      1.2731557704981462e-07
+    ],
+    [
+      18,
+      1.2731557704981462e-07
+    ]
+  ],
+  "cleanup_parameters": [
+    [
+      3,
+      12,
+      [
+        0.045890747967563095,
+        -0.028600329488886262,
+        0.032321322200177506,
+        -1.9958253367882204,
+        0.7464979185163152
+      ],
+      0.08328370258110787
+    ],
+    [
+      21,
+      32,
+      [
+        0.025058693368888316,
+        -0.01277821394111657,
+        0.0543588867672172,
+        1.5078847234619244,
+        0.5002984754345295
+      ],
+      0.06937475883860843
+    ]
+  ]
+}

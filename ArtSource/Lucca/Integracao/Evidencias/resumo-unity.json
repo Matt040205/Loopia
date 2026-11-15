@@ -1,0 +1,29 @@
+{
+  "engine": "Unity 6000.3.10f1",
+  "edit": {
+    "job": "7aea187d7e6b4670b4b182ad5b7f8daf",
+    "passed": 301,
+    "total": 301
+  },
+  "play": {
+    "job": "8cd7ed8843aa49de8ef5cafa7a7f9f32",
+    "passed": 17,
+    "total": 17,
+    "xml": "playmode.xml"
+  },
+  "saveRestored": true,
+  "finalConsoleErrors": 0,
+  "finalConsoleWarnings": 0,
+  "victory": {
+    "verified": true,
+    "timeSeconds": 126.8,
+    "loops": 4,
+    "bossProjectiles": 21
+  },
+  "defeat": {
+    "verified": true,
+    "timeSeconds": 136.5,
+    "loops": 4,
+    "bossProjectiles": 15
+  }
+}

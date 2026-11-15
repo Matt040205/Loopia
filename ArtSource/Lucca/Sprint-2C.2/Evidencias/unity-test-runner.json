@@ -1,0 +1,31 @@
+{
+  "unity": "6000.3.10f1",
+  "editMode": {
+    "job": "94489007c9214564b375a328860f4c2a",
+    "passed": 301,
+    "total": 301,
+    "evidence": "MCP get_test_job"
+  },
+  "playMode": {
+    "job": "4cff3e9a972f4026823916f1c26d7ac9",
+    "passed": 18,
+    "total": 18,
+    "evidence": "playmode.xml",
+    "vitoria": {
+      "state": "Vitoria",
+      "s": 158.6
+    },
+    "derrota": {
+      "state": "Derrota",
+      "s": 193.4
+    }
+  },
+  "console": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "save": {
+    "suiteRestoredBeforeAfter": true,
+    "sharedCurrentPreserved": true
+  }
+}

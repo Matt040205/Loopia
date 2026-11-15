@@ -1,0 +1,6 @@
+Idle aceito=True curv=245 keys=46795 max_pos=1,937151E-07 max_deg=6,352813E-05 bytes=32670939->12987092 runtime=5374724->4212164
+Walk aceito=True curv=148 keys=10508 max_pos=1,464755E-07 max_deg=2,531239E-05 bytes=12906073->8763895 runtime=2294852->2077279
+Jump aceito=True curv=181 keys=3620 max_pos=1,788139E-07 max_deg=2,493359E-05 bytes=3967591->2582392 runtime=811448->738634
+Spring Jump aceito=True curv=177 keys=7257 max_pos=1,884864E-07 max_deg=2,628276E-05 bytes=7634344->4804751 runtime=1413612->1266216
+Bow Ready sem curvas constantes repetidas
+Bow Shot aceito=True curv=105 keys=3990 max_pos=0 max_deg=3,233712E-05 bytes=4004182->2342491 runtime=740308->630048

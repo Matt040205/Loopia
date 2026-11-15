@@ -1,0 +1,28 @@
+start 56,12774 Correndo 1
+link False duracao=0,35
+volta 1 t=56,46107 pv=50
+tiro 1 t=61,67449 delta=61,67449 alvo=Morcego (1, 2) arco=0 ang=4,049655 corda=0,2026598 state=True norm=0,4890042 base=81563449 pulo=False municao=4
+tiro 2 t=62,47763 delta=0,8031425 alvo=Morcego (1, 2) arco=0 ang=10,4925 corda=0,2024777 state=True norm=0,4874093 base=81563449 pulo=False municao=3
+spawn comum desativado apos 2 disparos com alvo comum;
+volta 2 t=66,98701 pv=50
+volta 3 t=101,1375 pv=50
+volta 4 t=135,1664 pv=50
+chefe nasceu no percurso real Morcego Anciao (0, 0)
+tiro 3 t=135,4861 delta=73,00851 alvo=Morcego Anciao (0, 0) arco=0 ang=33,214 corda=0,2036441 state=True norm=0,4919563 base=81563449 pulo=False municao=14
+tiro 4 t=136,304 delta=0,8179016 alvo=Morcego Anciao (0, 0) arco=0 ang=15,16434 corda=0,2075412 state=True norm=0,4981904 base=81563449 pulo=False municao=13
+tiro 5 t=137,1097 delta=0,8056488 alvo=Morcego Anciao (0, 0) arco=0 ang=7,247329 corda=0,2036848 state=True norm=0,4920452 base=81563449 pulo=False municao=12
+tiro 6 t=137,9168 delta=0,8071442 alvo=Morcego Anciao (0, 0) arco=0 ang=29,33227 corda=0,2064601 state=True norm=0,4966916 base=788460410 pulo=True municao=11
+tiro 7 t=138,7236 delta=0,806778 alvo=Morcego Anciao (0, 0) arco=0 ang=5,602661 corda=0,2034147 state=True norm=0,4914314 base=81563449 pulo=False municao=10
+tiro 8 t=139,5352 delta=0,811615 alvo=Morcego Anciao (0, 0) arco=0 ang=1,128306 corda=0,2027415 state=True norm=0,4893766 base=81563449 pulo=False municao=9
+tiro 9 t=140,3503 delta=0,8150787 alvo=Morcego Anciao (0, 0) arco=0 ang=86,99892 corda=0,2063157 state=True norm=0,4964831 base=788460410 pulo=False municao=8
+tiro 10 t=141,1632 delta=0,812851 alvo=Morcego Anciao (0, 0) arco=0 ang=5,150733 corda=0,2065879 state=True norm=0,4968729 base=788460410 pulo=True municao=7
+tiro 11 t=141,972 delta=0,8088379 alvo=Morcego Anciao (0, 0) arco=0 ang=0,2332305 corda=0,2029701 state=True norm=0,4902119 base=81563449 pulo=False municao=6
+tiro 12 t=142,7785 delta=0,8065491 alvo=Morcego Anciao (0, 0) arco=0 ang=8,033946 corda=0,2050131 state=True norm=0,4944997 base=81563449 pulo=False municao=5
+tiro 13 t=143,5887 delta=0,8101196 alvo=Morcego Anciao (0, 0) arco=0 ang=100,041 corda=0,2105892 state=True norm=0,5022757 base=788460410 pulo=True municao=4
+tiro 14 t=144,3989 delta=0,8102722 alvo=Morcego Anciao (0, 0) arco=0 ang=57,00762 corda=0,2032295 state=True norm=0,49096 base=81563449 pulo=False municao=3
+tiro 15 t=145,2058 delta=0,806839 alvo=Morcego Anciao (0, 0) arco=0 ang=59,00686 corda=0,2039276 state=True norm=0,4925523 base=81563449 pulo=False municao=2
+tiro 16 t=146,0124 delta=0,8065796 alvo=Morcego Anciao (0, 0) arco=0 ang=31,54235 corda=0,2061966 state=True norm=0,4963126 base=788460410 pulo=False municao=1
+tiro 17 t=146,8192 delta=0,8068542 alvo=Morcego Anciao (0, 0) arco=0 ang=4,613418 corda=0,205186 state=True norm=0,4947776 base=788460410 pulo=True municao=0
+tiro 18 t=169,093 delta=22,2738 alvo=Morcego Anciao (0, 0) arco=0 ang=33,64893 corda=0,202562 state=True norm=0,4884111 base=81563449 pulo=False municao=14
+tiro 19 t=169,8957 delta=0,8026428 alvo=Morcego (-1, 5) arco=0 ang=2,984259 corda=0,2024763 state=True norm=0,4873493 base=81563449 pulo=False municao=13
+FIM Derrota voltas=4 tiros=19 comuns=3 chefe=16 pulos=102 molas=0 pv=0
