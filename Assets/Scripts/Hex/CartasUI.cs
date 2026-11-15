@@ -49,6 +49,9 @@ namespace Loopia.Hex
         GUIStyle _estiloCarta;
         GUIStyle _estiloTexto;
 
+        string _textoPendentes;
+        int _pendentesNoTexto = -1;
+
         /// <summary>A carta que o jogador esta segurando agora, ou null.</summary>
         public PlataformaDef CartaArrastada =>
             _espacoArrastado >= 0 && mao != null ? mao.CartaNoEspaco(_espacoArrastado) : null;
@@ -257,6 +260,30 @@ namespace Loopia.Hex
                     Event.current.Use();
                 }
             }
+
+            DesenharPendentes(x + larguraTotal, y);
+        }
+
+        /// <summary>
+        /// G2: "+N pendentes" logo acima do canto direito da barra, fora da area clicavel das cartas.
+        /// So um aviso: a pendente nao vira carta arrastavel ate ocupar um espaco da mao.
+        /// </summary>
+        void DesenharPendentes(float direitaDaBarra, float topoDaBarra)
+        {
+            int pendentes = mao.Pendentes;
+            if (pendentes <= 0) return;
+
+            // Texto em cache: OnGUI roda varias vezes por frame e nao deve alocar string a cada chamada.
+            if (pendentes != _pendentesNoTexto || _textoPendentes == null)
+            {
+                _pendentesNoTexto = pendentes;
+                _textoPendentes = "+" + pendentes + (pendentes == 1 ? " pendente" : " pendentes");
+            }
+
+            const float largura = 92f;
+            const float altura = 20f;
+            var area = new Rect(direitaDaBarra - largura, topoDaBarra - altura - 4f, largura, altura);
+            GUI.Box(area, _textoPendentes, _estiloCarta);
         }
 
         /// <summary>

@@ -2,10 +2,12 @@
 
 Handoff da frente de gameplay (não substitui `docs/handoff/ESTADO_ATUAL.md`, que é coordenado entre as frentes).
 
-## Status: **G1 validada no Editor e em Play Mode — aguardando aprovação do responsável**
+## Status: **G1 CONCLUÍDA — validada no Editor e em Play Mode, aprovada pelo responsável em 2026-11-15**
+Merge dos PRs #7 e #8 continua dependendo de autorização explícita do responsável.
+
 Suíte inteira rodada no Editor da worktree (exclusivo desta frente), cena integrada pelo Editor, 4 voltas reais,
 chefe, combate, vitória e derrota observados em Play Mode. Valores do chefe continuam **hipóteses** (medições em
-`BALANCE_BASELINE.md` §8.2–8.3). G2 não começou.
+`BALANCE_BASELINE.md` §8.2–8.3). G2 liberada pela aprovação, ainda não iniciada.
 
 ## Onde está
 | Item | Branch / PR | Base |
@@ -87,7 +89,7 @@ ambiente), `ProjectSettings/TimeManager.asset` (upgrade de formato do 6000.3), `
 `Morcegp.fbx`, `ArvoreGrande.png`, `Morcego.png` (o dono dos assets decide; a pilha de arte tem um commit local com eles).
 
 ## Pendências e riscos
-1. Aprovação do responsável para considerar G1 concluída e liberar G2.
+1. Merge dos PRs #7 e #8 (autorização do responsável; #8 depende da pilha de arte #1–#6).
 2. Balanceamento do chefe: mais amostras com semente fixa antes de mudar números (G4).
 3. Duração da partida abaixo da meta: decisão de design.
 4. Mira visual do Lucca: frente de personagem.

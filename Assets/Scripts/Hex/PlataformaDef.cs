@@ -64,6 +64,22 @@ namespace Loopia.Hex
         /// <summary>Bonus de dano das flechas, em fracao (0.08 = +8%).</summary>
         public virtual float BonusDeDano(Plataforma plataforma) => 0f;
 
+        /// <summary>Flechas maximas extras (G2: Oficina de Arqueiro).</summary>
+        public virtual int BonusDeFlechas(Plataforma plataforma) => 0;
+
+        /// <summary>PV extra a cada coracao coletado (G2: Fonte Restauradora).</summary>
+        public virtual int BonusDeCuraPorCoracao(Plataforma plataforma) => 0;
+
+        /// <summary>
+        /// Tudo o que esta plataforma soma ao Lucca, montado a partir dos ganchos acima. O mapa soma isto;
+        /// subclasses sobrescrevem os ganchos, nao este metodo.
+        /// </summary>
+        public ModificadoresDoLucca Modificadores(Plataforma plataforma)
+        {
+            return new ModificadoresDoLucca(BonusDePv(plataforma), BonusDeDano(plataforma),
+                BonusDeFlechas(plataforma), BonusDeCuraPorCoracao(plataforma));
+        }
+
         /// <summary>Chamado quando o Lucca termina de entrar nesta casa.</summary>
         public virtual void AoPlayerPassar(Plataforma plataforma, LuccaStatus status) { }
 

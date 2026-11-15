@@ -140,32 +140,37 @@ namespace Loopia.Hex.Tests
         }
 
         [Test]
-        public void Characterization_MaoCheia_ComprarFalhaEACartaDoLevelUpESimplesmentePerdida()
+        public void MaoCheia_ComprarFalha_MasACartaDoLevelUpFicaPendenteEEntraAoAbrirEspaco()
         {
-            // CARACTERIZACAO, NAO CORRECAO. Documenta o achado da auditoria: "recompensa de level-up e
-            // perdida com a mao cheia". Hoje Comprar() devolve false e nada e guardado para depois.
-            // Se isto mudar de proposito (fila de recompensas), este teste deve ser atualizado.
+            // ATUALIZADO DE PROPOSITO na G2 (fila de recompensas). Antes: Characterization_MaoCheia_
+            // ComprarFalhaEACartaDoLevelUpESimplesmentePerdida — o nivel com a mao cheia perdia a carta.
+            // Agora Comprar() continua sem efeito com a mao cheia, mas o level-up guarda um direito pendente.
             var cartas = new[] { Carta("1"), Carta("2"), Carta("3"), Carta("4") };
             foreach (var c in cartas) _mao.DarCarta(c);
-            _mao.baralho.Add(Carta("Recompensa"));
+            var recompensa = Carta("Recompensa");
+            _mao.baralho.Add(recompensa);
 
             int mudou = 0;
             _mao.AoMudar += () => mudou++;
 
-            Assert.IsFalse(_mao.Comprar(), "mao cheia: Comprar nao entrega nada");
+            Assert.IsFalse(_mao.Comprar(), "mao cheia: Comprar nao entrega nada (inalterado)");
             Assert.AreEqual(0, _mao.EspacosLivres);
             for (int i = 0; i < 4; i++) Assert.AreSame(cartas[i], _mao.CartaNoEspaco(i), "a mao nao muda");
             Assert.AreEqual(0, mudou, "AoMudar nao dispara");
+            Assert.AreEqual(0, _mao.Pendentes, "Comprar direto nao cria pendente");
 
-            // Mesmo caminho que o level-up usa (SubiuDeNivel -> Comprar): continua sem efeito.
+            // O level-up com a mao cheia: a mao nao muda, mas a recompensa fica guardada.
             Reflexao.Chamar(_mao, "SubiuDeNivel", 1);
             Assert.AreEqual(0, _mao.EspacosLivres);
-            Assert.AreEqual(0, mudou);
+            Assert.AreEqual(0, mudou, "a mao nao mudou");
+            Assert.AreEqual(1, _mao.Pendentes, "a carta do level-up fica pendente");
 
-            // Liberar um espaco depois NAO devolve a recompensa perdida.
+            // Liberar um espaco entrega a recompensa nele.
             _mao.Gastar(2);
-            Assert.AreEqual(1, _mao.EspacosLivres);
-            Assert.IsNull(_mao.CartaNoEspaco(2), "a carta do level-up nao fica pendente");
+            Assert.AreEqual(0, _mao.EspacosLivres);
+            Assert.AreSame(recompensa, _mao.CartaNoEspaco(2), "a pendente ocupa o espaco liberado");
+            Assert.AreEqual(0, _mao.Pendentes);
+            Assert.AreEqual(1, mudou, "uma unica notificacao para gastar + entregar");
         }
 
         [Test]
