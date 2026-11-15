@@ -1,0 +1,74 @@
+[
+ {
+  "carta": "Mola",
+  "casa": "(-3, 3)",
+  "ok": true,
+  "x": -7.79422855,
+  "y": 0.0,
+  "z": 13.5,
+  "marcador": false
+ },
+ {
+  "carta": "IlhaAlta",
+  "casa": "(-4, 2)",
+  "ok": true,
+  "x": -15.5884571,
+  "y": 2.2,
+  "z": 9.0,
+  "marcador": true
+ },
+ {
+  "carta": "Basica",
+  "casa": "(-2, -2)",
+  "ok": true,
+  "x": -15.5884571,
+  "y": 0.0,
+  "z": -9.0,
+  "marcador": true
+ },
+ {
+  "carta": "Floresta",
+  "casa": "(1, -4)",
+  "ok": true,
+  "x": -5.196152,
+  "y": 0.0,
+  "z": -18.0,
+  "marcador": true
+ },
+ {
+  "carta": "Torre",
+  "casa": "(2, 2)",
+  "ok": true,
+  "x": 15.5884571,
+  "y": 0.0,
+  "z": 9.0,
+  "marcador": true
+ },
+ {
+  "carta": "Cabana",
+  "casa": "(-3, 5)",
+  "ok": true,
+  "x": -2.598076,
+  "y": 0.0,
+  "z": 22.5,
+  "marcador": true
+ },
+ {
+  "carta": "CampoPacifico",
+  "casa": "(-4, 1)",
+  "ok": true,
+  "x": -18.186533,
+  "y": 0.0,
+  "z": 4.5,
+  "marcador": true
+ },
+ {
+  "carta": "AreaDeTreino",
+  "casa": "(-2, -3)",
+  "ok": true,
+  "x": -18.186533,
+  "y": 0.0,
+  "z": -13.5,
+  "marcador": true
+ }
+]
