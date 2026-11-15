@@ -1,0 +1,157 @@
+[
+ {
+  "metodo": "Camera.Render",
+  "seed": 27,
+  "hora": 12.0,
+  "largura": 1920,
+  "altura": 1080,
+  "aspect": 1.77777779,
+  "orthographic": true,
+  "orthographicSize": 20.3428345,
+  "cameraPos": [
+   -41.6536369,
+   34.9999962,
+   -42.866066
+  ],
+  "cameraRotEuler": [
+   29.9999981,
+   45.0,
+   0.0
+  ],
+  "near": 0.1,
+  "far": 1000.0,
+  "msaaRT": 4,
+  "timeScale": 0.0,
+  "realtimeSinceStartup": 21.2054768,
+  "frameCount": 1158,
+  "comprimentoDaVolta": 30,
+  "ilhas": 30,
+  "inimigosVivos": 0,
+  "luminanciaMedia0a255": 110.113686,
+  "arquivo": "depois_s27_h12_1920x1080.jpg"
+ },
+ {
+  "metodo": "Camera.Render",
+  "seed": 27,
+  "hora": 18.0,
+  "largura": 1920,
+  "altura": 1080,
+  "aspect": 1.77777779,
+  "orthographic": true,
+  "orthographicSize": 20.3428345,
+  "cameraPos": [
+   -41.6536369,
+   34.9999962,
+   -42.866066
+  ],
+  "cameraRotEuler": [
+   29.9999981,
+   45.0,
+   0.0
+  ],
+  "near": 0.1,
+  "far": 1000.0,
+  "msaaRT": 4,
+  "timeScale": 0.0,
+  "realtimeSinceStartup": 24.4419022,
+  "frameCount": 1357,
+  "comprimentoDaVolta": 30,
+  "ilhas": 30,
+  "inimigosVivos": 0,
+  "luminanciaMedia0a255": 75.1316,
+  "arquivo": "depois_s27_h18_1920x1080.jpg"
+ },
+ {
+  "metodo": "Camera.Render",
+  "seed": 27,
+  "hora": 22.0,
+  "largura": 1920,
+  "altura": 1080,
+  "aspect": 1.77777779,
+  "orthographic": true,
+  "orthographicSize": 20.3428345,
+  "cameraPos": [
+   -41.6536369,
+   34.9999962,
+   -42.866066
+  ],
+  "cameraRotEuler": [
+   29.9999981,
+   45.0,
+   0.0
+  ],
+  "near": 0.1,
+  "far": 1000.0,
+  "msaaRT": 4,
+  "timeScale": 0.0,
+  "realtimeSinceStartup": 27.69092,
+  "frameCount": 1566,
+  "comprimentoDaVolta": 30,
+  "ilhas": 30,
+  "inimigosVivos": 0,
+  "luminanciaMedia0a255": 51.8326,
+  "arquivo": "depois_s27_h22_1920x1080.jpg"
+ },
+ {
+  "metodo": "Camera.Render",
+  "seed": 27,
+  "hora": 18.0,
+  "largura": 2520,
+  "altura": 1080,
+  "aspect": 2.33333325,
+  "orthographic": true,
+  "orthographicSize": 19.6183071,
+  "cameraPos": [
+   -41.6536369,
+   34.9999962,
+   -42.866066
+  ],
+  "cameraRotEuler": [
+   29.9999981,
+   45.0,
+   0.0
+  ],
+  "near": 0.1,
+  "far": 1000.0,
+  "msaaRT": 4,
+  "timeScale": 0.0,
+  "realtimeSinceStartup": 30.9546146,
+  "frameCount": 1786,
+  "comprimentoDaVolta": 30,
+  "ilhas": 30,
+  "inimigosVivos": 0,
+  "luminanciaMedia0a255": 73.40835,
+  "arquivo": "depois_s27_h18_2520x1080.jpg"
+ },
+ {
+  "metodo": "Camera.Render",
+  "seed": 27,
+  "hora": 18.0,
+  "largura": 1440,
+  "altura": 1080,
+  "aspect": 1.33333337,
+  "orthographic": true,
+  "orthographicSize": 27.1237774,
+  "cameraPos": [
+   -48.6171265,
+   40.68566,
+   -49.8295555
+  ],
+  "cameraRotEuler": [
+   29.9999981,
+   45.0,
+   0.0
+  ],
+  "near": 0.1,
+  "far": 1000.0,
+  "msaaRT": 4,
+  "timeScale": 0.0,
+  "realtimeSinceStartup": 34.2848854,
+  "frameCount": 1999,
+  "comprimentoDaVolta": 30,
+  "ilhas": 30,
+  "inimigosVivos": 0,
+  "luminanciaMedia0a255": 87.06688,
+  "arquivo": "depois_s27_h18_1440x1080.jpg"
+ }
+]
