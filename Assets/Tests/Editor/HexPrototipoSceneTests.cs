@@ -85,7 +85,9 @@ namespace Loopia.Hex.Tests
 
             var g = Unico<HexLoopGenerator>();
             Assert.AreEqual(4, g.raioMinimo);
-            Assert.AreEqual(6, g.raioMaximo);
+            // Sprint 4 (legibilidade): 6 gerava aneis de 36 casas, que nunca foram validados e deixavam as ilhas com
+            // ~60% do tamanho medido no Pass A (anel 24-30). Com 5 todos os aneis ficam na faixa validada.
+            Assert.AreEqual(5, g.raioMaximo);
             Assert.AreEqual(400, g.deformacoes);
             Assert.AreEqual(9, g.mioloMinimo);
             Assert.IsFalse(g.usarSementeFixa, "o jogo sorteia um mapa novo a cada partida");
