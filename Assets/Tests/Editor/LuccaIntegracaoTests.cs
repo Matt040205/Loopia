@@ -43,14 +43,49 @@ namespace Loopia.Hex.Tests
                 Assert.AreEqual("Hand.L", Osso(visual, "Bow_Grip").parent.name);
                 Assert.AreEqual("Hand.R", Osso(visual, "Socket_DrawHand").parent.name);
                 Assert.AreEqual("Bow_Grip", Osso(visual, "Arrow_Spawn").parent.name);
-                Assert.AreEqual(6, animator.runtimeAnimatorController.animationClips.Length);
+                Assert.AreEqual(7, animator.runtimeAnimatorController.animationClips.Length);
                 var clipes = animator.runtimeAnimatorController.animationClips.ToDictionary(c => c.name);
-                Assert.IsTrue(clipes["Idle"].isLooping && clipes["Walk"].isLooping);
+                Assert.IsTrue(new[] { "Idle", "Walk", "Run" }.All(n => clipes[n].isLooping && clipes[n].isHumanMotion));
+                Assert.That(clipes["Walk"].length, Is.EqualTo(52f / 60f).Within(0.001f));
+                Assert.That(clipes["Run"].length, Is.EqualTo(0.5f).Within(0.001f));
                 float tempo = clipes["Bow Shot"].events.Single(e => e.functionName == "OnBowRelease").time;
                 Assert.AreEqual(19f / 60f, tempo, 0.0001f);
             }
             finally { CenaDoTeste.Restaurar(); }
         }
+
+        [UnityTest, Category("PlayModeSmoke")]
+        public IEnumerator LocomocaoSegueVelocidadeRealERetomaMarchaAposPulo()
+        {
+            yield return new EnterPlayMode();
+            yield return VerificarLocomocao();
+            yield return new ExitPlayMode();
+        }
+
+        static IEnumerator VerificarLocomocao()
+        {
+            Application.runInBackground = true;
+            for (int i = 0; i < 5; i++) yield return null;
+            var player = Achar<HexPlayer>();
+            PrepararCampo(player, Achar<InimigoSpawner>());
+            var animator = AnimatorDoPlayer(player);
+            var loop = Achar<HexLoopGenerator>().Loop;
+            player.Agente.speed = 0.9f;
+            Assert.IsTrue(player.MoverPara(loop[4]));
+            yield return Aguardar(() => Peso(animator, "Walk") > 0.7f, "Walk a 0,9 u/s");
+            yield return Aguardar(() => player.EstaPulando, "pulo a partir do Walk");
+            yield return Aguardar(() => !player.EstaPulando && Peso(animator, "Walk") > 0.7f, "retomada do Walk");
+            player.Agente.speed = player.velocidade;
+            yield return Aguardar(() => Peso(animator, "Run") > 0.8f, "Run a 3,5 u/s");
+            yield return Aguardar(() => player.EstaPulando, "pulo a partir do Run");
+            yield return Aguardar(() => !player.EstaPulando && Peso(animator, "Run") > 0.8f, "retomada do Run");
+            yield return Aguardar(() => player.Coord == loop[4] && Peso(animator, "Idle") > 0.98f, "parada no destino");
+            Assert.IsTrue(player.Agente.isOnNavMesh);
+            Assert.IsFalse(animator.applyRootMotion);
+        }
+
+        static float Peso(Animator animator, string clipe) =>
+            animator.GetCurrentAnimatorClipInfo(0).Where(info => info.clip.name == clipe).Sum(info => info.weight);
 
         [UnityTest, Category("PlayModeSmoke")]
         public IEnumerator Tiro_ConfirmaUmaVez_UsaSocketEToleraEventoAusente()

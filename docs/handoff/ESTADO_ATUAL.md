@@ -1,5 +1,11 @@
 # Estado atual — 2026-11-15
 
+## Sprint 2C.2 — Locomoção na branch Lucca
+
+- `feature/lucca-locomotion-2c2` parte da integração `89dc640` na worktree `loopia-lucca`.
+- A cena usa Run como movimento principal e Walk para baixa velocidade. O prefab combina Idle/Walk/Run pela velocidade medida, mantém a mira da camada superior e sincroniza a aterrissagem ao NavMesh Link.
+- Estado e reprodução em [LOCOMOTION_REWORK.md](../character-integration/LOCOMOTION_REWORK.md). A cena de gameplay continua sendo `Assets/Scenes/HexPrototipo.unity`.
+
 ## Integração de Lucca nesta branch
 
 - `feature/lucca-character-integration` parte de `sprint-3/gameplay-cena` em `ee46799` (PR #8). A worktree separada é `loopia-lucca`.

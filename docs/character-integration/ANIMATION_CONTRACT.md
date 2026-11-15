@@ -3,15 +3,16 @@
 | Camada | Estado | Duração de origem | Loop |
 | --- | --- | ---: | --- |
 | Base Layer | Idle | 3,20 s | Sim |
-| Base Layer | Walk | 1,20 s | Sim |
+| Base Layer | Walk | 0,8667 s | Sim |
+| Base Layer | Run | 0,50 s | Sim |
 | Base Layer | Jump | 0,35 s | Não |
 | Base Layer | Spring Jump | 0,70 s | Não |
 | Upper Body | Bow Ready | 1 frame a 60 fps | Sim |
 | Upper Body | Bow Shot | 0,65 s | Não |
 
-`Andando` seleciona Idle ou Walk. `Ritmo` escala Walk pela velocidade horizontal observada. `RitmoPulo` ajusta o clipe ao tempo que `HexPlayer` comunica. `AoIniciarPulo(bool usaMola, float duracao)` nasce dentro da travessia do link. `EstaPulando` comanda o retorno à locomoção, inclusive em teleporte. `HexPlayer` e o NavMeshAgent são donos da trajetória. Root Motion está desligado.
+`MoveSpeed` alimenta a Blend Tree 1D de `Locomotion`, com Idle a 0, Walk a 0,90 e Run a 3,50 u/s. Walk e Run compartilham o contato inicial esquerdo. `RitmoPulo` ajusta o clipe ao tempo que `HexPlayer` comunica. `AoIniciarPulo(bool usaMola, float duracao)` nasce dentro da travessia do link. `EstaPulando` comanda o retorno à locomoção, inclusive em teleporte. A absorção de impacto está nos clipes de salto e na mistura curta para `Locomotion`. `HexPlayer` e o NavMeshAgent são donos da trajetória. Root Motion está desligado. Os testes de velocidade e transição estão em [LOCOMOTION_REWORK.md](LOCOMOTION_REWORK.md).
 
-A base já carrega o arco em Idle, Walk e nos saltos. A camada superior tem peso zero em Bow Ready e recebe peso durante Bow Shot. `Loopia_BowUpper` exclui Hips, pernas, Root e saia, preservando a contribuição da base. Saia, capa, mãos e arco continuam com curvas auxiliares no .anim quando aplicável.
+A base já carrega o arco em Idle, Walk, Run e nos saltos. A camada superior tem peso zero em Bow Ready e recebe peso durante Bow Shot. `Loopia_BowUpper` exclui Hips, pernas, Root e saia, preservando a contribuição da base. Saia, capa, mãos e arco continuam com curvas auxiliares no .anim quando aplicável.
 
 `OnBowRelease(AnimationEvent)` ocorre a 19/60 s (0,316667 s). O callback valida clipe e estado. O bridge confirma a soltura depois de aplicar a mira ao frame. Se o evento for omitido, a passagem pelo mesmo ponto do estado confirma a soltura. O combate tem uma reserva identificada por tiro e consome essa reserva antes do disparo, descartando confirmações repetidas. A cadência mínima é medida entre lançamentos reais. `AoDisparar(Inimigo, Vector3)` é emitido após criar o projétil e descontar uma flecha. A munição permanece intacta em preparações canceladas.
 
