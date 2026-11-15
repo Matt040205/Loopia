@@ -1,0 +1,82 @@
+{
+  "fbx": {
+    "Loopia-Game-Ready-2B.2.fbx": {
+      "sha256": "d698ff7103980f389617ad616b252d5c791a87df5cab1ac4832cfe8afe9c0640",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 0,
+      "differences": []
+    },
+    "BowReady.fbx": {
+      "sha256": "d0688eec0742b7b2242e88610eeac2cccaf4d911e25e4e8a1f2a74fce4d9911b",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    },
+    "BowShot.fbx": {
+      "sha256": "b09dad94f0d13583753c34fdaeb5fab1feb58f686668a871c36f9e5d411f0fe4",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    },
+    "Idle.fbx": {
+      "sha256": "ff12e6fa3291480f9b7f3dcb990b84b84284f68858c4c5a515e48cf50f16e23d",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    },
+    "Jump.fbx": {
+      "sha256": "d967b8c91ef23f224bd7f0c5e12e80d58c4f4373e564d7ba062d40f52215ee50",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    },
+    "SpringJump.fbx": {
+      "sha256": "1743c93f532207e70ea08e4eb72f7a7d3a4b20d3d89694d87d641335b6989d55",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    },
+    "Walk.fbx": {
+      "sha256": "f8c9d2d79f3a53e8d0646a58e2e0389b57d229b64bf4d47f5b76acbe275b5730",
+      "hierarchy_matches": true,
+      "bones": 57,
+      "takes": 1,
+      "differences": []
+    }
+  },
+  "actions": {
+    "Idle": {
+      "duration": 3.2,
+      "root_translation_drift": 0.0
+    },
+    "Walk": {
+      "duration": 1.2,
+      "root_translation_drift": 0.0,
+      "left_stance_median_blender_units_s": 0.5603892356157303,
+      "right_stance_median_blender_units_s": 0.5604013055562973
+    },
+    "Bow Ready": {
+      "duration": 0.016666666666666666,
+      "root_translation_drift": 0.0
+    },
+    "Bow Shot": {
+      "duration": 0.65,
+      "root_translation_drift": 0.0
+    },
+    "Jump": {
+      "duration": 0.35,
+      "root_translation_drift": 0.0
+    },
+    "Spring Jump": {
+      "duration": 0.7,
+      "root_translation_drift": 0.0
+    }
+  },
+  "blend_sha256": "4a43045d1fefd38b43687e36ff6a3afc761cafafb6a289d1a27d1451996b6212"
+}

@@ -1,0 +1,23 @@
+jump,False,0.35,1.6
+tile,(1, 2),2.36666656
+release,False,2.7,0
+jump,False,0.35,2.7166667
+tile,(0, 2),3.48333335
+release,False,3.5,0
+jump,False,0.35,3.83333325
+release,False,4.3166666,0
+tile,(-1, 3),4.6
+jump,False,0.35,4.95
+release,True,5.116667,0
+tile,(-2, 4),5.7166667
+jump,False,0.35,6.0666666
+release,True,6.133333,0
+tile,(-3, 4),6.83333349
+jump,True,0.7,7.1833334
+release,True,7.5,0
+tile,(-3, 3),8.3
+jump,False,0.35,8.65
+tile,(-4, 3),9.416667
+jump,False,0.35,10.6833334
+tile,(-4, 2),12.6333332
+end,voltas=0,normal=7,spring=1,shots=6,runShots=3,airStarts=2,airShots=3,nav=True,t=12.6333332

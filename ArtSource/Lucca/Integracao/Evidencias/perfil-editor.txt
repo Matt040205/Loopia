@@ -1,0 +1,2 @@
+Lucca marcador=Animators.Update unidade=TimeNanoseconds n=12 medianaDrawCalls=427 medianaAnimator=50200
+Prototipo marcador=Animators.Update unidade=TimeNanoseconds n=12 medianaDrawCalls=427 medianaAnimator=0

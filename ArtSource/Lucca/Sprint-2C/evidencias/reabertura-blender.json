@@ -1,0 +1,85 @@
+{
+  "blender": "5.2.0 LTS",
+  "fps": 60,
+  "equal_mesh_coords_topology_uv_weights_and_slots": true,
+  "mesh_count": 67,
+  "equal_rig_rest_and_parents": true,
+  "bone_count": 57,
+  "source_sha256": "682a46b87cbe8c2c0bff7bd6e65874d433933decd70c80ea70d9ed764f2fb3ac",
+  "blend_sha256": "4a43045d1fefd38b43687e36ff6a3afc761cafafb6a289d1a27d1451996b6212",
+  "actions": {
+    "Idle": {
+      "range": [
+        1.0,
+        193.0
+      ],
+      "duration_s": 3.2,
+      "loop": true,
+      "bones": 57,
+      "f_curves": 240,
+      "root_animated": true,
+      "release_s": null
+    },
+    "Walk": {
+      "range": [
+        1.0,
+        73.0
+      ],
+      "duration_s": 1.2,
+      "loop": true,
+      "bones": 57,
+      "f_curves": 261,
+      "root_animated": true,
+      "release_s": null
+    },
+    "Bow Ready": {
+      "range": [
+        1.0,
+        2.0
+      ],
+      "duration_s": 0.016666666666666666,
+      "loop": true,
+      "bones": 57,
+      "f_curves": 240,
+      "root_animated": true,
+      "release_s": null
+    },
+    "Bow Shot": {
+      "range": [
+        1.0,
+        40.0
+      ],
+      "duration_s": 0.65,
+      "loop": false,
+      "bones": 21,
+      "f_curves": 90,
+      "root_animated": false,
+      "release_s": 0.31666666666666665
+    },
+    "Jump": {
+      "range": [
+        1.0,
+        22.0
+      ],
+      "duration_s": 0.35,
+      "loop": false,
+      "bones": 57,
+      "f_curves": 246,
+      "root_animated": true,
+      "release_s": null
+    },
+    "Spring Jump": {
+      "range": [
+        1.0,
+        43.0
+      ],
+      "duration_s": 0.7,
+      "loop": false,
+      "bones": 57,
+      "f_curves": 243,
+      "root_animated": true,
+      "release_s": null
+    }
+  },
+  "preview_project_only": true
+}
