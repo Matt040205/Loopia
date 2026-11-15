@@ -96,8 +96,9 @@ namespace Loopia.Hex
                 Inimigo inimigo = vivos[i];
                 if (inimigo == null || !inimigo.EstaVivo) continue;
 
+                // A prioridade e pela distancia real; o alcance extra so vale para alvos grandes (o chefe).
                 int distancia = HexCoord.Distance(player.Coord, inimigo.Casa);
-                if (distancia > alcance) continue;
+                if (!RegrasDoChefe.DentroDoAlcance(distancia, alcance, inimigo.AlcanceExtraComoAlvo)) continue;
                 if (distancia >= menorDistancia) continue;
                 if (!EstaAFrente(inimigo)) continue;
 
@@ -111,6 +112,9 @@ namespace Loopia.Hex
         bool EstaAFrente(Inimigo inimigo)
         {
             if (!somenteAFrente) return true;
+
+            // Alvo grande (chefe no centro do anel): fica de lado o tempo todo enquanto o Lucca contorna.
+            if (inimigo.AlvoDeQualquerAngulo) return true;
 
             // Quem esta na mesma casa conta sempre: nao da para ignorar quem esta em cima de voce.
             if (inimigo.Casa == player.Coord) return true;

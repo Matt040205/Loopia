@@ -29,6 +29,10 @@ namespace Loopia.Hex
         [Tooltip("Inverte o sentido da volta.")]
         public bool inverterSentido = false;
 
+        [Tooltip("Desligado: passar pelo acampamento nao fecha volta (o LoopDirector desliga no confronto final). " +
+                 "O Lucca continua andando.")]
+        public bool contarVoltas = true;
+
         /// <summary>Quantas voltas inteiras o Lucca ja fechou.</summary>
         public int VoltasCompletas { get; private set; }
 
@@ -40,6 +44,9 @@ namespace Loopia.Hex
 
         /// <summary>Disparado ao fechar a volta. O argumento e o numero da volta recem-completada.</summary>
         public event Action<int> AoCompletarVolta;
+
+        /// <summary>Disparado toda vez que o Lucca entra no acampamento, contando volta ou nao (antes do AoCompletarVolta).</summary>
+        public event Action AoPassarPeloAcampamento;
 
         bool _pronto;
         bool _inscritoNoPlayer;
@@ -74,6 +81,7 @@ namespace Loopia.Hex
         {
             VoltasCompletas = 0;
             PassosNaVoltaAtual = 0;
+            contarVoltas = true;
         }
 
         /// <summary>
@@ -148,8 +156,13 @@ namespace Loopia.Hex
 
             if (casa != _casaDoAcampamento) return;
 
-            // Chegou de novo no acampamento: volta fechada.
             PassosNaVoltaAtual = 0;
+            AoPassarPeloAcampamento?.Invoke();
+
+            // No confronto final a contagem fica congelada: nao existe 5a volta.
+            if (!contarVoltas) return;
+
+            // Chegou de novo no acampamento: volta fechada.
             VoltasCompletas++;
             AoCompletarVolta?.Invoke(VoltasCompletas);
         }

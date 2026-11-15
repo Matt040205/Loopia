@@ -52,6 +52,22 @@ namespace Loopia.Hex
         public bool EstaVivo => PvAtual > 0;
         public bool EstaEmRasante => _estado != Estado.Pousado;
 
+        /// <summary>
+        /// Casas a mais de alcance para o tiro do Lucca acertar este inimigo. 0 para os comuns. O chefe fica
+        /// no centro do miolo, longe demais para o alcance normal (ver RegrasDoChefe).
+        /// </summary>
+        public int AlcanceExtraComoAlvo { get; private set; }
+
+        /// <summary>Ligado: pode ser alvo mesmo de lado ou atras do Lucca (alvo grande, como o chefe).</summary>
+        public bool AlvoDeQualquerAngulo { get; private set; }
+
+        /// <summary>Marca este inimigo como alvo grande: alcance extra e qualquer angulo.</summary>
+        public void TornarAlvoGrande(int alcanceExtra)
+        {
+            AlcanceExtraComoAlvo = Mathf.Max(0, alcanceExtra);
+            AlvoDeQualquerAngulo = true;
+        }
+
         HexPlayer _player;
         HexWorld _mundo;
         NavMeshAgent _agente;

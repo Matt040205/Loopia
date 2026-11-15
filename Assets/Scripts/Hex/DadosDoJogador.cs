@@ -18,12 +18,17 @@ namespace Loopia.Hex
     {
         const string NomeDoArquivo = "loopia_save.json";
 
-        /// <summary>O formato do arquivo. Os nomes dos campos sao as chaves do JSON.</summary>
+        /// <summary>
+        /// O formato do arquivo. Os nomes dos campos sao as chaves do JSON. Campo novo precisa ter 0 como
+        /// padrao valido: o JsonUtility deixa o padrao quando a chave nao existe, e e isso que mantem os
+        /// saves antigos (sem "vitorias") carregando sem erro.
+        /// </summary>
         [Serializable]
         class Save
         {
             public int moedas;
             public int recordeDeVoltas;
+            public int vitorias;
         }
 
         static DadosDoJogador _instancia;
@@ -47,6 +52,9 @@ namespace Loopia.Hex
 
         public int MoedasTotais { get; private set; }
         public int RecordeDeVoltas { get; private set; }
+
+        /// <summary>Quantas jornadas terminaram com o chefe derrotado.</summary>
+        public int Vitorias { get; private set; }
 
         public string CaminhoDoArquivo => Path.Combine(Application.persistentDataPath, NomeDoArquivo);
 
@@ -92,9 +100,17 @@ namespace Loopia.Hex
             return true;
         }
 
+        /// <summary>Uma jornada terminou com o chefe derrotado. Grava na hora.</summary>
+        public void RegistrarVitoria()
+        {
+            Vitorias++;
+            Salvar();
+            AoMudar?.Invoke();
+        }
+
         public void Salvar()
         {
-            var dados = new Save { moedas = MoedasTotais, recordeDeVoltas = RecordeDeVoltas };
+            var dados = new Save { moedas = MoedasTotais, recordeDeVoltas = RecordeDeVoltas, vitorias = Vitorias };
 
             try
             {
@@ -110,22 +126,72 @@ namespace Loopia.Hex
         {
             MoedasTotais = 0;
             RecordeDeVoltas = 0;
+            Vitorias = 0;
 
             if (!File.Exists(CaminhoDoArquivo)) return;
 
+            string json;
             try
             {
-                Save dados = JsonUtility.FromJson<Save>(File.ReadAllText(CaminhoDoArquivo));
-                if (dados == null) return;
-
-                MoedasTotais = Mathf.Max(0, dados.moedas);
-                RecordeDeVoltas = Mathf.Max(0, dados.recordeDeVoltas);
+                json = File.ReadAllText(CaminhoDoArquivo);
             }
             catch (Exception erro)
             {
-                // Arquivo corrompido: melhor comecar do zero do que travar o jogo na abertura.
-                Debug.LogWarning("[DadosDoJogador] Save ilegivel, comecando do zero: " + erro.Message, this);
+                Debug.LogWarning("[DadosDoJogador] Nao consegui ler " + CaminhoDoArquivo + ": " + erro.Message, this);
+                return;
             }
+
+            if (!TentarLer(json, out int moedas, out int recorde, out int vitorias, out string motivo))
+            {
+                // Arquivo corrompido: melhor comecar do zero do que travar o jogo na abertura.
+                Debug.LogWarning("[DadosDoJogador] Save ilegivel, comecando do zero: " + motivo, this);
+                return;
+            }
+
+            MoedasTotais = moedas;
+            RecordeDeVoltas = recorde;
+            Vitorias = vitorias;
+        }
+
+        /// <summary>
+        /// Interpreta o conteudo do save sem tocar em disco nem no singleton (os testes usam isto).
+        /// Valores negativos viram 0; chaves ausentes (saves antigos) ficam 0.
+        /// </summary>
+        public static bool TentarLer(string json, out int moedas, out int recordeDeVoltas, out int vitorias,
+                                     out string motivo)
+        {
+            moedas = 0;
+            recordeDeVoltas = 0;
+            vitorias = 0;
+            motivo = null;
+
+            if (string.IsNullOrWhiteSpace(json))
+            {
+                motivo = "arquivo vazio";
+                return false;
+            }
+
+            Save dados;
+            try
+            {
+                dados = JsonUtility.FromJson<Save>(json);
+            }
+            catch (Exception erro)
+            {
+                motivo = erro.Message;
+                return false;
+            }
+
+            if (dados == null)
+            {
+                motivo = "conteudo nulo";
+                return false;
+            }
+
+            moedas = Mathf.Max(0, dados.moedas);
+            recordeDeVoltas = Mathf.Max(0, dados.recordeDeVoltas);
+            vitorias = Mathf.Max(0, dados.vitorias);
+            return true;
         }
 
         /// <summary>Zera o progresso salvo. Util para testar a partir do inicio.</summary>
@@ -134,6 +200,7 @@ namespace Loopia.Hex
         {
             MoedasTotais = 0;
             RecordeDeVoltas = 0;
+            Vitorias = 0;
             Salvar();
             AoMudar?.Invoke();
         }
