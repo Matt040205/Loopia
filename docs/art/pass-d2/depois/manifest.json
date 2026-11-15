@@ -1,0 +1,1713 @@
+{
+ "gerado_em": "2026-11-15T10:40:02",
+ "cena": "Assets/Scenes/HexPrototipo.unity",
+ "unity": "6000.3.10f1",
+ "ambiente": "Editor Play Mode (nao e build)",
+ "metodo": "Camera.Render() da Main Camera em RenderTexture ARGB32 sRGB + ReadPixels + EncodeToJPG(85)",
+ "limitacao": "UI Screen Space Overlay e IMGUI nao entram (nao fazem parte do render de camera).",
+ "timeScale": 0.0,
+ "capturas": [
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 16.8824043,
+   "frameCount": 1560,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 108.988869,
+   "arquivo": "s12345_h12_1920x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 12.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 19.84639,
+   "frameCount": 1884,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 106.579361,
+   "arquivo": "s12345_h12_2520x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 18.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 22.6942787,
+   "frameCount": 2190,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 74.3612442,
+   "arquivo": "s12345_h18_1920x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 18.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 25.5847759,
+   "frameCount": 2492,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 72.72361,
+   "arquivo": "s12345_h18_2520x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 22.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 28.5209,
+   "frameCount": 2776,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 51.66673,
+   "arquivo": "s12345_h22_1920x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 22.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 31.4068317,
+   "frameCount": 3138,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 50.5844078,
+   "arquivo": "s12345_h22_2520x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 5.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 34.30071,
+   "frameCount": 3448,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 74.35929,
+   "arquivo": "s12345_h5_1920x1080.jpg",
+   "rotulo_hora": "pre-alvorada",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.7756075,
+     0.6155617,
+     0.7089244,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.7862651,
+     0.5901906,
+     0.7045706,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7620539,
+     0.757642746,
+     0.8597997,
+     1.5
+    ],
+    "solIntensidade": 0.470370352,
+    "solRotEuler": [
+     26.0,
+     330.0,
+     0.0
+    ],
+    "solCor": [
+     0.8816904,
+     0.712412834,
+     0.5816989,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 6.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 37.2555122,
+   "frameCount": 3791,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 83.38449,
+   "arquivo": "s12345_h6_1920x1080.jpg",
+   "rotulo_hora": "alvorada",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.89404726,
+     0.7007274,
+     0.780512631,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9097926,
+     0.6627385,
+     0.7647004,
+     1.0
+    ],
+    "ambienteSky": [
+     0.750699162,
+     0.713641047,
+     0.7289353,
+     1.0
+    ],
+    "solIntensidade": 1.0,
+    "solRotEuler": [
+     26.0,
+     330.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.7843071,
+     0.5882347,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 7.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 40.16329,
+   "frameCount": 4066,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 87.32995,
+   "arquivo": "s12345_h7_1920x1080.jpg",
+   "rotulo_hora": "manha",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.858456433,
+     0.726498842,
+     0.801169336,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.8620966,
+     0.693460763,
+     0.7888863,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7550866,
+     0.7297912,
+     0.744105041,
+     1.0
+    ],
+    "solIntensidade": 1.02962959,
+    "solRotEuler": [
+     34.28221,
+     345.0,
+     5.166412e-07
+    ],
+    "solCor": [
+     0.9915042,
+     0.8137224,
+     0.656855464,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 17.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 43.0463562,
+   "frameCount": 4337,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 80.77856,
+   "arquivo": "s12345_h17_1920x1080.jpg",
+   "rotulo_hora": "tarde",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.87616,
+     0.66237545,
+     0.606627762,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.8947737,
+     0.6215666,
+     0.5503235,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7075467,
+     0.666565657,
+     0.6558792,
+     1.0
+    ],
+    "solIntensidade": 1.49259257,
+    "solRotEuler": [
+     34.28221,
+     135.0,
+     -1.03328227e-06
+    ],
+    "solCor": [
+     0.991503656,
+     0.712416053,
+     0.6241796,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 12345,
+   "hora": 19.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 16.8288536,
+   "cameraPos": [
+    -43.190834,
+    34.9999962,
+    -43.053566
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 45.8929634,
+   "frameCount": 4662,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 65.9392853,
+   "arquivo": "s12345_h19_1920x1080.jpg",
+   "rotulo_hora": "crepusculo",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.793721735,
+     0.54831773,
+     0.5056408,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.818944335,
+     0.518296242,
+     0.46601212,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7145149,
+     0.6944177,
+     0.771575034,
+     1.5
+    ],
+    "solIntensidade": 0.7018518,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.8816903,
+     0.6111072,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 18.559042,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 51.3002319,
+   "frameCount": 5567,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 109.4596,
+   "arquivo": "s7_h12_1920x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 12.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 18.4515781,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 53.4033775,
+   "frameCount": 5882,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 107.540108,
+   "arquivo": "s7_h12_2520x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 18.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 18.559042,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 55.50271,
+   "frameCount": 6209,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 74.59279,
+   "arquivo": "s7_h18_1920x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 18.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 18.4515781,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 57.5960541,
+   "frameCount": 6527,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 73.34396,
+   "arquivo": "s7_h18_2520x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 22.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 18.559042,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 59.6644974,
+   "frameCount": 6824,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 51.8032875,
+   "arquivo": "s7_h22_1920x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 7,
+   "hora": 22.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 18.4515781,
+   "cameraPos": [
+    -42.34646,
+    34.9999962,
+    -43.1660652
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 61.72945,
+   "frameCount": 7121,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 50.94003,
+   "arquivo": "s7_h22_2520x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 30,
+    "volta": 30
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 67.12248,
+   "frameCount": 8215,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 108.547119,
+   "arquivo": "s2024_h12_1920x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 12.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 69.18787,
+   "frameCount": 8536,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 106.3759,
+   "arquivo": "s2024_h12_2520x1080.jpg",
+   "rotulo_hora": "noon",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.6804368,
+     0.8553374,
+     0.9044363,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.623538136,
+     0.84705323,
+     0.9097995,
+     1.0
+    ],
+    "ambienteSky": [
+     0.7769853,
+     0.810512543,
+     0.819924533,
+     1.0
+    ],
+    "solIntensidade": 1.4,
+    "solRotEuler": [
+     58.0,
+     60.0000038,
+     0.0
+    ],
+    "solCor": [
+     0.949021161,
+     0.960778952,
+     0.9999874,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 18.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 71.256546,
+   "frameCount": 8888,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 73.91247,
+   "arquivo": "s2024_h18_1920x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 18.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 73.36043,
+   "frameCount": 9252,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 72.6131439,
+   "arquivo": "s2024_h18_2520x1080.jpg",
+   "rotulo_hora": "dusk",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.9152937,
+     0.623779237,
+     0.547066867,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.9490077,
+     0.5764653,
+     0.478430241,
+     1.0
+    ],
+    "ambienteSky": [
+     0.6936524,
+     0.637771,
+     0.62306577,
+     1.0
+    ],
+    "solIntensidade": 1.5,
+    "solRotEuler": [
+     25.9999981,
+     150.0,
+     0.0
+    ],
+    "solCor": [
+     0.999989152,
+     0.6627404,
+     0.549019635,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 22.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 75.42249,
+   "frameCount": 9575,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 51.7881165,
+   "arquivo": "s2024_h22_1920x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2024,
+   "hora": 22.0,
+   "largura": 2520,
+   "altura": 1080,
+   "aspect": 2.33333325,
+   "orthographic": true,
+   "orthographicSize": 15.96646,
+   "cameraPos": [
+    -42.8660736,
+    34.9999962,
+    -43.616066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 77.49495,
+   "frameCount": 9920,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 50.6123619,
+   "arquivo": "s2024_h22_2520x1080.jpg",
+   "rotulo_hora": "night",
+   "setup": {
+    "gerou": true,
+    "ilhas": 24,
+    "volta": 24
+   },
+   "luz": {
+    "fogCor": [
+     0.4196392,
+     0.3474188,
+     0.41964224,
+     1.0
+    ],
+    "fogModo": "Linear",
+    "fogInicio": 105.0,
+    "fogFim": 230.0,
+    "fogDensidade": 0.01,
+    "fundoCamera": [
+     0.4287542,
+     0.343789071,
+     0.4287578,
+     1.0
+    ],
+    "ambienteSky": [
+     0.5771024,
+     0.61435765,
+     0.7971029,
+     2.0
+    ],
+    "solIntensidade": 0.35,
+    "solRotEuler": [
+     57.4999962,
+     330.0,
+     3.178017e-06
+    ],
+    "solCor": [
+     0.56,
+     0.66,
+     0.88,
+     1.0
+    ],
+    "modoAntigo": false
+   }
+  }
+ ]
+}
