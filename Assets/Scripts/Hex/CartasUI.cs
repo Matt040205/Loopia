@@ -74,9 +74,12 @@ namespace Loopia.Hex
 
         bool LuccaMorreu => mao != null && mao.status != null && !mao.status.EstaVivo;
 
+        /// <summary>Lucca morto ou jornada encerrada (vitoria/derrota): sem arraste e sem barra de cartas.</summary>
+        bool JornadaEncerrada => LuccaMorreu || (mapa != null && mapa.diretor != null && mapa.diretor.Terminou);
+
         void Update()
         {
-            if (LuccaMorreu)
+            if (JornadaEncerrada)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
                 return;
@@ -200,8 +203,8 @@ namespace Loopia.Hex
 
         void OnGUI()
         {
-            // IMGUI desenha por cima de qualquer Canvas: no Game Over sai da frente da tela de morte.
-            if (mao == null || LuccaMorreu) return;
+            // IMGUI desenha por cima de qualquer Canvas: no fim da jornada sai da frente da tela de resultado.
+            if (mao == null || JornadaEncerrada) return;
 
             if (_estiloCarta == null)
             {
