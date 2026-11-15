@@ -1,6 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Loopia.Hex
 {
@@ -50,8 +55,12 @@ namespace Loopia.Hex
         public UnityEvent aoVencer = new UnityEvent();
 
         [Header("Depuracao")]
-        [Tooltip("Painel no canto da tela com voltas, PV, flechas e a escala dos inimigos.")]
+        [Tooltip("Painel no canto da tela com voltas, PV, flechas e moedas. Os dados tecnicos (passos, XP, total de " +
+                 "moedas, inimigos e escala) so aparecem no Editor e em Development Build; F3 alterna em qualquer build.")]
         public bool mostrarPainelNaTela = true;
+
+        /// <summary>Painel com os dados tecnicos. Comeca ligado no Editor e em Development Build; F3 alterna.</summary>
+        public bool MostrandoDepuracao { get; set; }
 
         readonly CicloDaPartida _ciclo = new CicloDaPartida();
 
@@ -94,6 +103,21 @@ namespace Loopia.Hex
         void Awake()
         {
             _ciclo.AoMudar += RepassarMudanca;
+            MostrandoDepuracao = Debug.isDebugBuild;
+        }
+
+        void Update()
+        {
+            if (TeclaDeDepuracao()) MostrandoDepuracao = !MostrandoDepuracao;
+        }
+
+        static bool TeclaDeDepuracao()
+        {
+#if ENABLE_INPUT_SYSTEM
+            return Keyboard.current != null && Keyboard.current.f3Key.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.F3);
+#endif
         }
 
         void Start()
@@ -271,39 +295,75 @@ namespace Loopia.Hex
             }
         }
 
+        readonly List<string> _linhas = new List<string>();
+
         void DesenharPainel()
         {
-            // Canto superior esquerdo: a base da tela e das cartas, como manda a HUD do GDD.
-            const float largura = 172f;
-            const float altura = 168f;
-            GUILayout.BeginArea(new Rect(12f, 12f, largura, altura), GUI.skin.box);
-
-            GUILayout.Label(Estado == EstadoDaPartida.Chefe
-                    ? "Voltas: " + VoltasCompletas + "  (CHEFE!)"
-                    : "Voltas: " + VoltasCompletas + " / " + voltasParaOBoss + (BossLiberado ? "  (BOSS!)" : ""),
-                _estiloDoPainel);
-
-            if (corredor != null)
+            var dados = new DadosDoPainel
             {
-                GUILayout.Label("Passos: " + corredor.PassosNaVoltaAtual +
-                                " / " + corredor.TamanhoDoLoop, _estiloDoPainel);
-            }
-
+                voltas = VoltasCompletas, voltasParaOBoss = voltasParaOBoss,
+                chefe = Estado == EstadoDaPartida.Chefe, bossLiberado = BossLiberado,
+                temCorredor = corredor != null,
+                passos = corredor != null ? corredor.PassosNaVoltaAtual : 0,
+                passosNaVolta = corredor != null ? corredor.TamanhoDoLoop : 0,
+                temStatus = status != null,
+                inimigosVivos = inimigos != null ? inimigos.Vivos.Count : 0,
+                multiplicador = MultiplicadorDosInimigos,
+            };
             if (status != null)
             {
-                GUILayout.Label("PV: " + status.PvAtual + " / " + status.PvMaximoTotal, _estiloDoPainel);
-                GUILayout.Label("Flechas: " + status.FlechasAtuais + " / " + status.FlechasMaximoTotal, _estiloDoPainel);
-                GUILayout.Label("Nivel " + status.Nivel + "  (XP " + status.Xp +
-                                "/" + status.XpParaOProximoNivel + ")", _estiloDoPainel);
-                GUILayout.Label("Moedas: " + status.Moedas + "  (total " +
-                                DadosDoJogador.Instancia.MoedasTotais + ")", _estiloDoPainel);
+                dados.pv = status.PvAtual; dados.pvMaximo = status.PvMaximoTotal;
+                dados.flechas = status.FlechasAtuais; dados.flechasMaximo = status.FlechasMaximoTotal;
+                dados.nivel = status.Nivel; dados.xp = status.Xp; dados.xpParaOProximo = status.XpParaOProximoNivel;
+                dados.moedas = status.Moedas;
+                if (MostrandoDepuracao) dados.moedasTotais = DadosDoJogador.Instancia.MoedasTotais;
+            }
+            LinhasDoPainel(dados, MostrandoDepuracao, _linhas);
+
+            // Canto superior esquerdo: a base da tela e das cartas, como manda a HUD do GDD. A altura segue as linhas:
+            // na apresentacao sao 5 (volta, PV, flechas, nivel, moedas), com depuracao 7.
+            const float largura = 172f;
+            float altura = 14f + _linhas.Count * 22f;
+            GUILayout.BeginArea(new Rect(12f, 12f, largura, altura), GUI.skin.box);
+            foreach (string linha in _linhas) GUILayout.Label(linha, _estiloDoPainel);
+            GUILayout.EndArea();
+        }
+
+        /// <summary>Valores lidos pelo painel (separados para o texto poder ser testado sem cena).</summary>
+        public struct DadosDoPainel
+        {
+            public int voltas, voltasParaOBoss;
+            public bool chefe, bossLiberado;
+            public bool temCorredor;
+            public int passos, passosNaVolta;
+            public bool temStatus;
+            public int pv, pvMaximo, flechas, flechasMaximo, nivel, xp, xpParaOProximo, moedas, moedasTotais;
+            public int inimigosVivos;
+            public float multiplicador;
+        }
+
+        /// <summary>
+        /// Linhas do painel. Sem depuracao so o que o jogador usa (volta, PV, flechas, nivel, moedas da jornada); com
+        /// depuracao tambem passos, XP, total de moedas do save, inimigos vivos e a escala por volta.
+        /// </summary>
+        public static void LinhasDoPainel(DadosDoPainel d, bool depuracao, List<string> linhas)
+        {
+            linhas.Clear();
+            linhas.Add(d.chefe
+                ? "Voltas: " + d.voltas + "  (CHEFE!)"
+                : "Voltas: " + d.voltas + " / " + d.voltasParaOBoss + (d.bossLiberado ? "  (BOSS!)" : ""));
+
+            if (depuracao && d.temCorredor) linhas.Add("Passos: " + d.passos + " / " + d.passosNaVolta);
+
+            if (d.temStatus)
+            {
+                linhas.Add("PV: " + d.pv + " / " + d.pvMaximo);
+                linhas.Add("Flechas: " + d.flechas + " / " + d.flechasMaximo);
+                linhas.Add(depuracao ? "Nivel " + d.nivel + "  (XP " + d.xp + "/" + d.xpParaOProximo + ")" : "Nivel " + d.nivel);
+                linhas.Add(depuracao ? "Moedas: " + d.moedas + "  (total " + d.moedasTotais + ")" : "Moedas: " + d.moedas);
             }
 
-            int vivos = inimigos != null ? inimigos.Vivos.Count : 0;
-            GUILayout.Label("Inimigos: " + vivos + " vivos, x" +
-                            MultiplicadorDosInimigos.ToString("F2"), _estiloDoPainel);
-
-            GUILayout.EndArea();
+            if (depuracao) linhas.Add("Inimigos: " + d.inimigosVivos + " vivos, x" + d.multiplicador.ToString("F2"));
         }
     }
 }
