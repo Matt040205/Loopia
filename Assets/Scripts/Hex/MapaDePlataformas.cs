@@ -38,6 +38,9 @@ namespace Loopia.Hex
         /// <summary>Soma do bonus de PV maximo de todas as plataformas.</summary>
         public int BonusDePvTotal { get; private set; }
 
+        /// <summary>Tudo o que as plataformas somam ao Lucca (G2). BonusDePvTotal/BonusDeDanoTotal saem daqui.</summary>
+        public ModificadoresDoLucca Modificadores { get; private set; }
+
         public int Quantas => _plataformas.Count;
         public IEnumerable<Plataforma> Todas => _plataformas.Values;
         public bool TemMola
@@ -365,21 +368,19 @@ namespace Loopia.Hex
         /// </summary>
         void Recalcular()
         {
-            int pv = 0;
-            float dano = 0f;
+            var total = ModificadoresDoLucca.Zero;
 
             foreach (Plataforma plataforma in _plataformas.Values)
             {
                 if (plataforma == null) continue;
-
-                pv += plataforma.Def.BonusDePv(plataforma);
-                dano += plataforma.Def.BonusDeDano(plataforma);
+                total += plataforma.Def.Modificadores(plataforma);
             }
 
-            BonusDePvTotal = pv;
-            BonusDeDanoTotal = dano;
+            Modificadores = total;
+            BonusDePvTotal = total.PvMaximo;
+            BonusDeDanoTotal = total.Dano;
 
-            if (status != null) status.DefinirBonusDePvMaximo(pv);
+            if (status != null) status.DefinirModificadores(total);
             AoMudar?.Invoke();
         }
     }

@@ -200,7 +200,7 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(EstadoDaPartida.Chefe, p.diretor.Estado);
             Assert.AreEqual(1, p.estadosChefe);
             Assert.AreEqual(1, p.inimigos.QuantosVivos(p.encontro.DefDoChefe), "continua um chefe so");
-            Assert.AreEqual(p.status.flechasMaximo, p.status.FlechasAtuais, "o acampamento recarrega flechas no chefe");
+            Assert.AreEqual(p.status.FlechasMaximoTotal, p.status.FlechasAtuais, "o acampamento recarrega flechas no chefe");
             Assert.AreEqual(pvAntes, p.status.PvAtual, "mas nao restaura a vida");
 
             // No chefe ainda se constroi (preparo durante o confronto).

@@ -27,11 +27,23 @@ namespace Loopia.Hex
                  "seria 0.75 e deixaria os niveis cada vez mais baratos — confirmar com o time.")]
         [Min(0.1f)] public float crescimentoDoNivel = 1.75f;
 
-        /// <summary>PV maximo somado pelas plataformas colocadas (campo pacifico, cabana, vila...).</summary>
-        public int BonusDePvMaximo { get; private set; }
+        /// <summary>O que as plataformas somam agora (G2). Definido pelo MapaDePlataformas.</summary>
+        public ModificadoresDoLucca Modificadores { get; private set; }
+
+        /// <summary>PV maximo somado pelas plataformas colocadas (campo pacifico, cabana, santuario...).</summary>
+        public int BonusDePvMaximo => Modificadores.PvMaximo;
 
         /// <summary>O teto de vida de verdade: o base do GDD mais o que as plataformas deram.</summary>
         public int PvMaximoTotal => pvMaximo + BonusDePvMaximo;
+
+        /// <summary>Flechas maximas somadas pelas plataformas (oficina de arqueiro).</summary>
+        public int BonusDeFlechasMaximo => Modificadores.FlechasMaximo;
+
+        /// <summary>O teto de flechas de verdade: base mais plataformas. Recargas e itens respeitam este teto.</summary>
+        public int FlechasMaximoTotal => flechasMaximo + BonusDeFlechasMaximo;
+
+        /// <summary>PV extra a cada coracao coletado (fonte restauradora).</summary>
+        public int BonusDeCuraPorCoracao => Modificadores.CuraPorCoracao;
 
         public int PvAtual { get; private set; }
         public int FlechasAtuais { get; private set; }
@@ -54,7 +66,7 @@ namespace Loopia.Hex
         void Awake()
         {
             PvAtual = PvMaximoTotal;
-            FlechasAtuais = flechasMaximo;
+            FlechasAtuais = FlechasMaximoTotal;
             Moedas = 0;
             Nivel = 0;
             Xp = 0;
@@ -72,26 +84,43 @@ namespace Loopia.Hex
             if (!EstaVivo) return;
 
             PvAtual = PvMaximoTotal;
-            FlechasAtuais = flechasMaximo;
+            FlechasAtuais = FlechasMaximoTotal;
             AoMudar?.Invoke();
         }
 
         /// <summary>
-        /// Define o bonus de PV vindo das plataformas. O PV atual sobe junto com o teto, senao
-        /// colocar uma cabana daria vida maxima maior sem dar vida nenhuma na hora.
+        /// Define tudo o que as plataformas somam (G2). Valores negativos viram 0.
+        ///
+        /// PV e flechas seguem a mesma regra: se o teto sobe, o valor atual sobe a mesma diferenca (senao
+        /// colocar uma cabana daria vida maxima maior sem dar vida nenhuma na hora); se o teto desce, o valor
+        /// atual so e limitado ao novo teto, sem cura nem dano extra. Morto, so o teto muda.
         /// </summary>
-        public void DefinirBonusDePvMaximo(int bonus)
+        public void DefinirModificadores(ModificadoresDoLucca modificadores)
         {
-            bonus = Mathf.Max(0, bonus);
-            if (bonus == BonusDePvMaximo) return;
+            var novo = new ModificadoresDoLucca(
+                Mathf.Max(0, modificadores.PvMaximo),
+                Mathf.Max(0f, modificadores.Dano),
+                Mathf.Max(0, modificadores.FlechasMaximo),
+                Mathf.Max(0, modificadores.CuraPorCoracao));
+            if (novo == Modificadores) return;
 
-            int diferenca = bonus - BonusDePvMaximo;
-            BonusDePvMaximo = bonus;
+            int difPv = novo.PvMaximo - Modificadores.PvMaximo;
+            int difFlechas = novo.FlechasMaximo - Modificadores.FlechasMaximo;
+            Modificadores = novo;
 
-            if (EstaVivo && diferenca > 0) PvAtual += diferenca;
+            if (EstaVivo && difPv > 0) PvAtual += difPv;
             PvAtual = Mathf.Clamp(PvAtual, 0, PvMaximoTotal);
 
+            if (EstaVivo && difFlechas > 0) FlechasAtuais += difFlechas;
+            FlechasAtuais = Mathf.Clamp(FlechasAtuais, 0, FlechasMaximoTotal);
+
             AoMudar?.Invoke();
+        }
+
+        /// <summary>Atalho anterior a G2: troca so o bonus de PV, mantendo os outros modificadores.</summary>
+        public void DefinirBonusDePvMaximo(int bonus)
+        {
+            DefinirModificadores(Modificadores.ComPvMaximo(bonus));
         }
 
         public void ReceberDano(int dano)
@@ -114,6 +143,16 @@ namespace Loopia.Hex
             AoMudar?.Invoke();
         }
 
+        /// <summary>
+        /// Cura de coracao coletado: a cura do item mais o bonus das Fontes (G2). So para coracoes; as
+        /// outras curas usam Curar. Item sem cura (cura &lt;= 0) nao ganha bonus. Nao ressuscita.
+        /// </summary>
+        public void CurarComCoracao(int cura)
+        {
+            if (cura <= 0) return;
+            Curar(cura + BonusDeCuraPorCoracao);
+        }
+
         public bool GastarFlecha()
         {
             if (FlechasAtuais <= 0) return false;
@@ -123,12 +162,12 @@ namespace Loopia.Hex
             return true;
         }
 
-        /// <summary>Item flecha do GDD: +10. Limitado ao maximo, senao a recarga da volta viraria castigo.</summary>
+        /// <summary>Item flecha do GDD: +10. Limitado ao maximo efetivo, senao a recarga da volta viraria castigo.</summary>
         public void GanharFlechas(int quantidade)
         {
-            if (quantidade <= 0 || FlechasAtuais >= flechasMaximo) return;
+            if (quantidade <= 0 || FlechasAtuais >= FlechasMaximoTotal) return;
 
-            FlechasAtuais = Mathf.Min(flechasMaximo, FlechasAtuais + quantidade);
+            FlechasAtuais = Mathf.Min(FlechasMaximoTotal, FlechasAtuais + quantidade);
             AoMudar?.Invoke();
         }
 
