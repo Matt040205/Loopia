@@ -51,6 +51,10 @@ namespace Loopia.Hex.Tests
             var mapa = Object.FindFirstObjectByType<MapaDePlataformas>();
             g.usarSementeFixa = true; g.semente = 12345;
             Assert.IsTrue(g.Gerar());
+            // A carta de relevo e bloqueada durante um pulo; este teste so exercita seus marcadores.
+            var corredor = Object.FindFirstObjectByType<HexLoopRunner>();
+            corredor.andando = false;
+            corredor.player.NascerNoAcampamento();
             yield return null;
             mapa.LimparTudo();
             var loop = g.Loop; int n = loop.Count;
