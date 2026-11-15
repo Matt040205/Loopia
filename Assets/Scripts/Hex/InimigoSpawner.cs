@@ -62,6 +62,9 @@ namespace Loopia.Hex
 
         public IReadOnlyList<Inimigo> Vivos => _vivos;
 
+        /// <summary>Qualquer inimigo do spawner derrotado (antes de dar o XP). Para metricas e feedback.</summary>
+        public event System.Action<Inimigo> AoInimigoDerrotado;
+
         public int QuantosVivos(InimigoDef def)
         {
             int total = 0;
@@ -182,6 +185,7 @@ namespace Loopia.Hex
         void Morreu(Inimigo inimigo)
         {
             _vivos.Remove(inimigo);
+            AoInimigoDerrotado?.Invoke(inimigo);
 
             // GDD: "Derrotar inimigos concede XP ao jogador".
             if (status != null) status.GanharXp(inimigo.Xp);
