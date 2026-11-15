@@ -90,6 +90,15 @@ namespace Loopia.Hex
         public List<RegraDeCategoria> regras = RegrasPadrao();
         public List<ModeloDeArte> modelos = new List<ModeloDeArte>();
 
+        [Header("Vegetacao baixa (Pass C): segunda camada, sorteio proprio")]
+        [Tooltip("Arbustos, tufos de capim/flores. Vai para o filho 'VegetacaoBaixa' da ilha, depois da decoracao principal.")]
+        public List<ModeloDeArte> vegetacaoBaixa = new List<ModeloDeArte>();
+        [Tooltip("Quantas pecas por ilha (sorteado entre minimo e maximo, por coordenada). 0/0 desliga a camada.")]
+        [Range(0, 12)] public int vegetacaoMinima = 0;
+        [Range(0, 12)] public int vegetacaoMaxima = 0;
+        [Tooltip("Variacao da mistura por ilha: cada peso e multiplicado por 1 +- isto (sorteado por ilha).")]
+        [Range(0f, 1f)] public float variacaoDaMistura = 0f;
+
         /// <summary>Tabela da Scene Bible, secao 2.</summary>
         public static List<RegraDeCategoria> RegrasPadrao() => new List<RegraDeCategoria>
         {
@@ -131,22 +140,26 @@ namespace Loopia.Hex
         }
 
         /// <summary>Sorteio ponderado pelo peso. Ignora entradas sem prefab ou com peso zero; null se nao sobrar nenhuma.</summary>
-        public ModeloDeArte Sortear(System.Random random)
+        public ModeloDeArte Sortear(System.Random random) => SortearDe(modelos, random, null);
+
+        /// <summary>Sorteio ponderado numa lista qualquer; multiplicadores (opcional, mesmo tamanho) ajustam o peso de cada item.</summary>
+        public static ModeloDeArte SortearDe(List<ModeloDeArte> lista, System.Random random, float[] multiplicadores)
         {
-            if (modelos == null) return null;
+            if (lista == null) return null;
+            double Peso(int i) => lista[i].peso * (multiplicadores != null && i < multiplicadores.Length ? Mathf.Max(0f, multiplicadores[i]) : 1f);
             double total = 0.0;
-            for (int i = 0; i < modelos.Count; i++)
-                if (Valido(modelos[i])) total += modelos[i].peso;
+            for (int i = 0; i < lista.Count; i++)
+                if (Valido(lista[i])) total += Peso(i);
             if (total <= 0.0) return null;
 
             double alvo = random.NextDouble() * total;
             ModeloDeArte ultimo = null;
-            for (int i = 0; i < modelos.Count; i++)
+            for (int i = 0; i < lista.Count; i++)
             {
-                if (!Valido(modelos[i])) continue;
-                ultimo = modelos[i];
-                alvo -= modelos[i].peso;
-                if (alvo < 0.0) return modelos[i];
+                if (!Valido(lista[i])) continue;
+                ultimo = lista[i];
+                alvo -= Peso(i);
+                if (alvo < 0.0) return lista[i];
             }
             return ultimo;
         }

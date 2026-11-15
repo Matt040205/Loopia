@@ -135,6 +135,58 @@ namespace Loopia.Hex
                 }
                 if (!colocou) Descartar(go);
             }
+            DecorarVegetacaoBaixa(ilha, raio, frente, direcaoDaCamera, mundo.tamanhoDoHexagono, ocupadas, pegadas);
+        }
+
+        /// <summary>
+        /// Pass C: segunda camada (arbustos, tufos) com sorteio proprio, para nao mexer na decoracao principal.
+        /// Quantidade e mistura variam por ilha (perfil); mesmas regras de corredor/centro/borda; nao sobrepoe a primeira camada.
+        /// </summary>
+        void DecorarVegetacaoBaixa(HexTile ilha, float raio, Vector3 frente, Vector3 direcaoDaCamera, float tamanhoDoHexagono,
+                                   List<Vector3> ocupadas, List<float> pegadas)
+        {
+            var lista = perfil.vegetacaoBaixa;
+            if (lista == null || lista.Count == 0 || perfil.vegetacaoMaxima <= 0) return;
+            var random = new System.Random(unchecked(semente * 7919 + ilha.Coord.GetHashCode() * 31 + 17));
+            int n = random.Next(Mathf.Min(perfil.vegetacaoMinima, perfil.vegetacaoMaxima), perfil.vegetacaoMaxima + 1);
+            var mistura = new float[lista.Count];
+            for (int i = 0; i < mistura.Length; i++)
+                mistura[i] = 1f + perfil.variacaoDaMistura * ((float)random.NextDouble() * 2f - 1f);
+            var raiz = new GameObject("VegetacaoBaixa").transform;
+            raiz.SetParent(ilha.transform, false);
+            for (int i = 0; i < n; i++)
+            {
+                ModeloDeArte modelo = ArtScaleProfile.SortearDe(lista, random, mistura);
+                if (modelo == null || !perfil.TryRegra(modelo.categoria, out RegraDeCategoria regra)) continue;
+                float tamanho = perfil.SortearTamanho(regra, random);
+                var go = VisualDeIlha.Criar(modelo.prefab, raiz, tamanho, false, regra.eixo);
+                go.transform.localRotation = Quaternion.Euler(0f, random.Next(360), 0f);
+                Bounds b = VisualDeIlha.LimitesLocais(go.transform);
+                float pegada = new Vector2(b.extents.x, b.extents.z).magnitude * regra.fracaoDaPegada;
+                bool colocou = false;
+                for (int tentativa = 0; tentativa < 40; tentativa++)
+                {
+                    float angulo = (float)random.NextDouble() * 360f;
+                    float distancia = raio * Mathf.Lerp(0.6f, 0.86f, (float)random.NextDouble());
+                    Vector3 p = Quaternion.Euler(0f, angulo, 0f) * Vector3.forward * distancia;
+                    if (regra.soNoLadoLongeDaCamera && !EstaLongeDaCamera(p, frente, regra.limiarDoLadoLonge)) continue;
+                    if (!PosicaoLivre(p, pegada, raio, larguraDoCorredor)) continue;
+                    bool sobrepoe = false;
+                    for (int j = 0; j < ocupadas.Count; j++)
+                        if (Vector3.Distance(ocupadas[j], p) < pegada + pegadas[j] + 0.05f) sobrepoe = true;
+                    if (sobrepoe) continue;
+                    if (regra.evitarCobrirCaminho && CobreOCaminho(p, b, direcaoDaCamera, tamanhoDoHexagono)) continue;
+                    go.transform.localPosition = p;
+                    ocupadas.Add(p);
+                    pegadas.Add(pegada);
+                    colocou = true;
+                    break;
+                }
+                if (!colocou) Descartar(go);
+            }
+            // Em jogo, a camada vira um static batch com raiz movel (a ilha pode subir com o relevo): sem isso cada tufo
+            // custava um draw call (medido: 421 -> 1120 batches no Editor).
+            if (Application.isPlaying && raiz.childCount > 0) StaticBatchingUtility.Combine(raiz.gameObject);
         }
 
         /// <summary>Lado oposto a camera: a posicao aponta (em mais de 0.2 de cosseno) na mesma direcao em que a camera olha.</summary>
