@@ -12,10 +12,8 @@ namespace Loopia.Hex.Tests
     /// <summary>
     /// Ciclo completo da jornada em Play Mode na HexPrototipo: 4 voltas -> chefe -> vitoria/derrota.
     ///
-    /// A cena ainda nao tem EncontroDoChefe (integracao pendente, docs/gameplay/IMPLEMENTATION_PLAN.md
-    /// §G1.8). Cada teste monta o encontro em tempo de execucao (AddComponent no Play Mode, nada e salvo) e,
-    /// quando precisa, liga aoVencer -> TelaDeMorte.MostrarVitoria por codigo, como o PR de cena fara no
-    /// Inspector.
+    /// Usa o EncontroDoChefe integrado na cena (com aoVencer -> TelaDeMorte.MostrarVitoria no Inspector). Numa
+    /// cena sem a integracao, monta o encontro em tempo de execucao e liga o aoVencer por codigo (nada e salvo).
     ///
     /// As voltas passam pelo caminho real corredor -> diretor: o teste chama o handler privado do
     /// HexLoopRunner (o mesmo que o HexPlayer dispara ao entrar numa casa) com a casa do acampamento.
@@ -103,11 +101,18 @@ namespace Loopia.Hex.Tests
             p.inimigos.LimparTodos();
             p.corredor.andando = false;
 
-            var go = new GameObject("Encontro do chefe (teste)");
-            p.encontro = go.AddComponent<EncontroDoChefe>();
+            // Usa o encontro integrado na cena; sem ele (cena antiga), monta um em tempo de execucao.
+            p.encontro = UnityEngine.Object.FindFirstObjectByType<EncontroDoChefe>();
+            if (p.encontro == null)
+            {
+                var go = new GameObject("Encontro do chefe (teste)");
+                p.encontro = go.AddComponent<EncontroDoChefe>();
+                go.AddComponent<BarraDeVidaDoChefe>();
+                go.AddComponent<IndicadorDePerigoDoChefe>();
+            }
             p.encontro.usarRevoada = usarRevoada;
-            p.barra = go.AddComponent<BarraDeVidaDoChefe>();
-            p.indicador = go.AddComponent<IndicadorDePerigoDoChefe>();
+            p.barra = Achar<BarraDeVidaDoChefe>();
+            p.indicador = Achar<IndicadorDePerigoDoChefe>();
 
             Partida q = p;
             p.diretor.AoMudarEstado += (_, novo) => { if (novo == EstadoDaPartida.Chefe) q.estadosChefe++; };
@@ -123,6 +128,12 @@ namespace Loopia.Hex.Tests
             var basica = AssetDatabase.LoadAssetAtPath<PlataformaDef>("Assets/Dados/Plataformas/Basica.asset");
             Assert.IsNotNull(basica);
             return basica;
+        }
+
+        /// <summary>A cena integrada ja liga aoVencer -> MostrarVitoria no Inspector; so liga por codigo se faltar.</summary>
+        static void LigarVitoriaSeFaltar(Partida p)
+        {
+            if (p.diretor.aoVencer.GetPersistentEventCount() == 0) p.diretor.aoVencer.AddListener(p.tela.MostrarVitoria);
         }
 
         /// <summary>Casa do anel do lado oposto ao acampamento (longe do Lucca parado).</summary>
@@ -264,7 +275,7 @@ namespace Loopia.Hex.Tests
             yield return null;
             yield return null;
             Partida p = Montar(usarRevoada: false);
-            p.diretor.aoVencer.AddListener(p.tela.MostrarVitoria); // o que o PR de cena faz no Inspector
+            LigarVitoriaSeFaltar(p);
             yield return null;
 
             DadosDoJogador dados = DadosDoJogador.Instancia;
@@ -339,7 +350,7 @@ namespace Loopia.Hex.Tests
             yield return null;
             yield return null;
             Partida p = Montar(usarRevoada: false);
-            p.diretor.aoVencer.AddListener(p.tela.MostrarVitoria);
+            LigarVitoriaSeFaltar(p);
             yield return null;
 
             int vitoriasAntes = DadosDoJogador.Instancia.Vitorias;

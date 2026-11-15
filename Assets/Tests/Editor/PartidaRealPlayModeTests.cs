@@ -96,11 +96,17 @@ namespace Loopia.Hex.Tests
             inimigos.nascerMorcegos = false;
             inimigos.LimparTodos();
 
-            var go = new GameObject("Encontro do chefe (teste)");
-            var encontro = go.AddComponent<EncontroDoChefe>();
-            go.AddComponent<BarraDeVidaDoChefe>();
-            go.AddComponent<IndicadorDePerigoDoChefe>();
-            var medidor = go.AddComponent<MedidorDaPartida>();
+            // Encontro da cena (integrado); sem ele, monta em tempo de execucao. O medidor e so do teste.
+            var encontro = UnityEngine.Object.FindFirstObjectByType<EncontroDoChefe>();
+            if (encontro == null)
+            {
+                var novo = new GameObject("Encontro do chefe (teste)");
+                encontro = novo.AddComponent<EncontroDoChefe>();
+                novo.AddComponent<BarraDeVidaDoChefe>();
+                novo.AddComponent<IndicadorDePerigoDoChefe>();
+            }
+            var medidor = new GameObject("Medidor (teste)").AddComponent<MedidorDaPartida>();
+            medidor.encontro = encontro;
 
             if (comCartas)
             {
