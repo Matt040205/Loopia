@@ -5,14 +5,18 @@ using UnityEngine.Events;
 namespace Loopia.Hex
 {
     /// <summary>
-    /// Junta as regras do GDD que dependem de fechar a volta:
+    /// Dono do estado da jornada (Preparando -> Correndo -> Chefe -> Vitoria / Derrota) e das regras do
+    /// GDD que dependem de fechar a volta:
     ///
     /// - "Quando Lucca completa uma volta inteira no caminho em loop, ele recupera toda a
     ///   sua Vida e recarrega sua Municao";
     /// - a barraca, na mesma passagem, faz "os inimigos aumentam sua PV, ATK e XP em 10%";
     /// - "Apos o jogador completar 4 loops, um Boss e gerado".
     ///
-    /// O Boss em si ainda nao existe: aqui a contagem chega no numero e dispara o evento.
+    /// Na 4a volta, se a cena tiver um EncontroDoChefe, a partida entra no estado Chefe: a contagem de
+    /// voltas para (o corredor continua andando), o chefe nasce uma vez e a morte dele e a vitoria.
+    /// Sem EncontroDoChefe na cena vale o comportamento antigo (so o evento AoLiberarBoss, e as voltas
+    /// seguem contando), para uma cena ainda nao integrada nao ficar presa num confronto sem chefe.
     /// </summary>
     [DisallowMultipleComponent]
     public class LoopDirector : MonoBehaviour
@@ -23,6 +27,9 @@ namespace Loopia.Hex
         public LuccaStatus status;
         public InimigoSpawner inimigos;
 
+        [Tooltip("Confronto final. Vazio: procura na cena quando a 4a volta fechar.")]
+        public EncontroDoChefe encontro;
+
         [Header("Regras do GDD")]
         [Tooltip("Quanto os inimigos ganham de PV, ATK e XP a cada volta fechada. 0.10 = +10%.")]
         [Range(0f, 1f)] public float crescimentoDosInimigos = 0.10f;
@@ -30,13 +37,32 @@ namespace Loopia.Hex
         [Tooltip("Voltas necessarias para liberar o Boss.")]
         [Min(1)] public int voltasParaOBoss = 4;
 
+        [Header("Confronto final")]
+        [Tooltip("Durante o chefe, passar pelo acampamento recarrega as flechas (nao a vida nem as cartas). " +
+                 "Evita um impasse sem municao.")]
+        public bool recarregarFlechasNoChefe = true;
+
         [Header("Eventos")]
         [Tooltip("Disparado quando o Lucca morre. Na cena, ligado a TelaDeMorte.Mostrar.")]
         public UnityEvent aoGameOver = new UnityEvent();
 
+        [Tooltip("Disparado uma vez quando o chefe cai. Ligar a TelaDeMorte.MostrarVitoria.")]
+        public UnityEvent aoVencer = new UnityEvent();
+
         [Header("Depuracao")]
         [Tooltip("Painel no canto da tela com voltas, PV, flechas e a escala dos inimigos.")]
         public bool mostrarPainelNaTela = true;
+
+        readonly CicloDaPartida _ciclo = new CicloDaPartida();
+
+        public EstadoDaPartida Estado => _ciclo.Estado;
+
+        /// <summary>Vitoria ou Derrota: nada mais muda nesta jornada.</summary>
+        public bool Terminou => _ciclo.Terminou;
+
+        /// <summary>O Lucca caiu durante o confronto final.</summary>
+        public bool DerrotaNoChefe =>
+            Estado == EstadoDaPartida.Derrota && _ciclo.EstadoAntesDoFim == EstadoDaPartida.Chefe;
 
         public int VoltasCompletas { get; private set; }
 
@@ -49,14 +75,26 @@ namespace Loopia.Hex
         public bool BossLiberado { get; private set; }
 
         /// <summary>GDD: "Se sua vida chegar a zero, a partida terminou (Game Over)".</summary>
-        public bool GameOver { get; private set; }
+        public bool GameOver => Estado == EstadoDaPartida.Derrota;
+
+        public bool Venceu => Estado == EstadoDaPartida.Vitoria;
 
         public event Action<int> AoCompletarVolta;
         public event Action AoLiberarBoss;
         public event Action AoPerder;
+        public event Action AoVencer;
+
+        /// <summary>Toda transicao de estado aceita: (anterior, novo).</summary>
+        public event Action<EstadoDaPartida, EstadoDaPartida> AoMudarEstado;
 
         GUIStyle _estiloDoPainel;
         bool _inscrito;
+        EncontroDoChefe _encontroInscrito;
+
+        void Awake()
+        {
+            _ciclo.AoMudar += RepassarMudanca;
+        }
 
         void Start()
         {
@@ -72,33 +110,72 @@ namespace Loopia.Hex
             }
 
             corredor.AoCompletarVolta += FechouUmaVolta;
+            corredor.AoPassarPeloAcampamento += PassouPeloAcampamento;
             if (status != null) status.AoMorrer += LuccaMorreu;
             _inscrito = true;
+
+            _ciclo.Comecar();
         }
 
         void OnDestroy()
         {
+            _ciclo.AoMudar -= RepassarMudanca;
+            if (_encontroInscrito != null) _encontroInscrito.AoChefeDerrotado -= ChefeDerrotado;
+            _encontroInscrito = null;
+
             if (!_inscrito) return;
 
-            if (corredor != null) corredor.AoCompletarVolta -= FechouUmaVolta;
+            if (corredor != null)
+            {
+                corredor.AoCompletarVolta -= FechouUmaVolta;
+                corredor.AoPassarPeloAcampamento -= PassouPeloAcampamento;
+            }
             if (status != null) status.AoMorrer -= LuccaMorreu;
             _inscrito = false;
         }
 
+        void RepassarMudanca(EstadoDaPartida anterior, EstadoDaPartida novo)
+        {
+            Debug.Log("[LoopDirector] Estado: " + anterior + " -> " + novo + ".", this);
+            AoMudarEstado?.Invoke(anterior, novo);
+        }
+
         void LuccaMorreu()
         {
-            if (GameOver) return;
+            // Depois da vitoria (ou de uma derrota ja registrada) nada muda.
+            if (!_ciclo.RegistrarDerrota()) return;
 
-            GameOver = true;
             if (corredor != null) corredor.andando = false;
 
             // O recorde tambem e checado aqui, para uma morte na primeira volta nao passar batida.
             DadosDoJogador.Instancia.RegistrarVoltas(VoltasCompletas);
             DadosDoJogador.Instancia.Salvar();
 
-            Debug.Log("[LoopDirector] Game Over: o Lucca caiu na volta " + (VoltasCompletas + 1) + ".", this);
+            Debug.Log(DerrotaNoChefe
+                ? "[LoopDirector] Game Over: o Lucca caiu diante do chefe."
+                : "[LoopDirector] Game Over: o Lucca caiu na volta " + (VoltasCompletas + 1) + ".", this);
             AoPerder?.Invoke();
             aoGameOver.Invoke();
+        }
+
+        void ChefeDerrotado()
+        {
+            // Se o Lucca ja tinha caido (flecha em voo matando o chefe depois), a derrota vale.
+            if (!_ciclo.RegistrarVitoria()) return;
+
+            if (corredor != null) corredor.andando = false;
+            if (inimigos != null)
+            {
+                inimigos.pausarSpawnComum = true;
+                inimigos.CongelarTodos();
+            }
+
+            DadosDoJogador.Instancia.RegistrarVoltas(VoltasCompletas);
+            DadosDoJogador.Instancia.RegistrarVitoria();
+
+            Debug.Log("[LoopDirector] Vitoria: o chefe caiu depois de " + VoltasCompletas + " voltas.", this);
+            AoVencer?.Invoke();
+            aoVencer.Invoke();
         }
 
         /// <summary>Aplica a escala acumulada num valor base de inimigo (PV, ATK ou XP).</summary>
@@ -109,6 +186,9 @@ namespace Loopia.Hex
 
         void FechouUmaVolta(int volta)
         {
+            // So conta enquanto a partida corre: no chefe, na vitoria e na derrota nao existe volta nova.
+            if (!_ciclo.ContaVoltas) return;
+
             VoltasCompletas = volta;
 
             // Recorde de voltas vai para o JSON, pelo singleton.
@@ -125,15 +205,54 @@ namespace Loopia.Hex
             if (!BossLiberado && VoltasCompletas >= voltasParaOBoss)
             {
                 BossLiberado = true;
-                Debug.Log("[LoopDirector] " + voltasParaOBoss + " voltas completas: o Boss deveria aparecer agora.", this);
+                Debug.Log("[LoopDirector] " + voltasParaOBoss + " voltas completas: hora do chefe.", this);
                 AoLiberarBoss?.Invoke();
+                ComecarConfronto();
             }
+        }
+
+        void ComecarConfronto()
+        {
+            if (encontro == null) encontro = FindFirstObjectByType<EncontroDoChefe>();
+            if (encontro == null)
+            {
+                Debug.LogWarning("[LoopDirector] Sem EncontroDoChefe na cena: o chefe nao nasce e as voltas " +
+                                 "continuam contando (comportamento antigo).", this);
+                return;
+            }
+
+            if (!encontro.PodeIniciar(out string motivo))
+            {
+                Debug.LogWarning("[LoopDirector] O confronto nao pode comecar (" + motivo + "): as voltas " +
+                                 "continuam contando.", this);
+                return;
+            }
+
+            if (!_ciclo.ComecarChefe()) return;
+
+            // O Lucca segue andando; so a contagem para.
+            if (corredor != null) corredor.contarVoltas = false;
+
+            encontro.AoChefeDerrotado += ChefeDerrotado;
+            _encontroInscrito = encontro;
+
+            if (!encontro.Iniciar())
+            {
+                // PodeIniciar acabou de aceitar; isto so acontece se o spawner recusar o chefe.
+                Debug.LogWarning("[LoopDirector] O EncontroDoChefe recusou o inicio depois de aceitar.", this);
+            }
+        }
+
+        void PassouPeloAcampamento()
+        {
+            if (Estado != EstadoDaPartida.Chefe) return;
+            if (recarregarFlechasNoChefe && status != null) status.GanharFlechas(status.flechasMaximo);
         }
 
         void OnGUI()
         {
-            // IMGUI desenha por cima de qualquer Canvas: no Game Over sai da frente da tela de morte.
-            if (!mostrarPainelNaTela || GameOver) return;
+            // IMGUI desenha por cima de qualquer Canvas: no fim da jornada sai da frente da tela de resultado.
+            if (!mostrarPainelNaTela || Terminou) return;
 
             if (_estiloDoPainel == null)
             {
@@ -145,8 +264,10 @@ namespace Loopia.Hex
             const float altura = 168f;
             GUILayout.BeginArea(new Rect(12f, 12f, largura, altura), GUI.skin.box);
 
-            GUILayout.Label("Voltas: " + VoltasCompletas + " / " + voltasParaOBoss +
-                            (BossLiberado ? "  (BOSS!)" : ""), _estiloDoPainel);
+            GUILayout.Label(Estado == EstadoDaPartida.Chefe
+                    ? "Voltas: " + VoltasCompletas + "  (CHEFE!)"
+                    : "Voltas: " + VoltasCompletas + " / " + voltasParaOBoss + (BossLiberado ? "  (BOSS!)" : ""),
+                _estiloDoPainel);
 
             if (corredor != null)
             {
