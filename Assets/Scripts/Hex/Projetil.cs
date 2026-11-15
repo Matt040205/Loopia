@@ -15,26 +15,17 @@ namespace Loopia.Hex
         float _morreEm;
 
         /// <summary>Cria e lanca uma flecha. Devolve null se nao houver alvo vivo.</summary>
-        public static Projetil Disparar(Vector3 origem, Inimigo alvo, int dano, float velocidade, Color cor)
+        public static Projetil Disparar(Vector3 origem, Inimigo alvo, int dano, float velocidade, Color cor,
+            GameObject visual = null)
         {
             if (alvo == null || !alvo.EstaVivo) return null;
 
-            var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            go.name = "Flecha";
-
-            Collider colisor = go.GetComponent<Collider>();
-            if (colisor != null) Destroy(colisor);
-
-            go.transform.position = origem;
-            go.transform.localScale = new Vector3(0.08f, 0.08f, 0.34f);
-
-            var renderizador = go.GetComponent<MeshRenderer>();
-            if (renderizador != null)
-            {
-                // um material por cor, reaproveitado (antes: new Material a cada flecha, nunca destruido)
-                renderizador.sharedMaterial = MateriaisCompartilhados.Lit("Flecha", cor);
-                renderizador.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            }
+            var go = new GameObject("Flecha");
+            Vector3 direcao = alvo.transform.position - origem;
+            go.transform.SetPositionAndRotation(origem,
+                direcao.sqrMagnitude > 0.0001f ? Quaternion.LookRotation(direcao) : Quaternion.identity);
+            if (visual != null) Instantiate(visual, go.transform, false);
+            else CriarVisualProvisorio(go.transform, cor);
 
             var projetil = go.AddComponent<Projetil>();
             projetil._alvo = alvo;
@@ -45,6 +36,19 @@ namespace Loopia.Hex
             projetil._morreEm = Time.time + 5f;
 
             return projetil;
+        }
+
+        static void CriarVisualProvisorio(Transform pai, Color cor)
+        {
+            var visual = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            visual.transform.SetParent(pai, false);
+            visual.transform.localScale = new Vector3(0.08f, 0.08f, 0.34f);
+            var colisor = visual.GetComponent<Collider>();
+            colisor.enabled = false;
+            Destroy(colisor);
+            var renderizador = visual.GetComponent<MeshRenderer>();
+            renderizador.sharedMaterial = MateriaisCompartilhados.Lit("Flecha", cor);
+            renderizador.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
 
         void Update()
