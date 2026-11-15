@@ -120,3 +120,5 @@ atributos. Mudança de número só com medição antes/depois registrada.
   impasse e impacto das cartas de dano/munição.
 - Orientação visual do arco/tronco: planejar e coordenar com a frente de personagem; não tocar rig nem animações.
 - G2 não começa antes de G1 validada e aprovada.
+- **2026-11-15: G1 aprovada pelo responsável** após a validação no Editor (`RELATORIO_G1.md`). G2 liberada; 1ª tarefa: fila
+  de recompensas pendentes.
