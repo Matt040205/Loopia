@@ -55,6 +55,7 @@ namespace Loopia.Hex.Tests
             public HexWorld mundo;
             public HexLoopGenerator gerador;
             public TelaDeMorte tela;
+            public MapaDePlataformas mapa;
             public EncontroDoChefe encontro;
             public BarraDeVidaDoChefe barra;
             public IndicadorDePerigoDoChefe indicador;
@@ -95,6 +96,7 @@ namespace Loopia.Hex.Tests
                 mundo = Achar<HexWorld>(),
                 gerador = Achar<HexLoopGenerator>(),
                 tela = Achar<TelaDeMorte>(),
+                mapa = Achar<MapaDePlataformas>(),
             };
 
             p.inimigos.nascerMorcegos = false;
@@ -115,6 +117,16 @@ namespace Loopia.Hex.Tests
             p.encontro.AoChefeNascer += _ => q.nasceu++;
             return p;
         }
+
+        static PlataformaDef Basica()
+        {
+            var basica = AssetDatabase.LoadAssetAtPath<PlataformaDef>("Assets/Dados/Plataformas/Basica.asset");
+            Assert.IsNotNull(basica);
+            return basica;
+        }
+
+        /// <summary>Casa do anel do lado oposto ao acampamento (longe do Lucca parado).</summary>
+        static HexCoord CasaLonge(Partida p) => p.gerador.Loop[p.gerador.Loop.Count / 2];
 
         static void PassarPeloAcampamento(Partida p) =>
             Reflexao.Chamar(p.corredor, "AoEntrarNoHexagono", p.mundo.Acampamento);
@@ -179,6 +191,9 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(1, p.inimigos.QuantosVivos(p.encontro.DefDoChefe), "continua um chefe so");
             Assert.AreEqual(p.status.flechasMaximo, p.status.FlechasAtuais, "o acampamento recarrega flechas no chefe");
             Assert.AreEqual(pvAntes, p.status.PvAtual, "mas nao restaura a vida");
+
+            // No chefe ainda se constroi (preparo durante o confronto).
+            Assert.IsTrue(p.mapa.PodeColocar(Basica(), CasaLonge(p), out string motivo), "carta no chefe: " + motivo);
 
             // Pedir de novo nao faz nascer outro.
             Assert.IsFalse(p.encontro.Iniciar());
@@ -274,6 +289,8 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(vitoriasAntes + 1, dados.Vitorias);
             Assert.GreaterOrEqual(dados.RecordeDeVoltas, 4);
             Assert.AreEqual(-1f, p.barra.FracaoVisivel, "a barra some");
+            Assert.IsFalse(p.mapa.PodeColocar(Basica(), CasaLonge(p), out string motivoVitoria), "carta depois da vitoria");
+            Assert.AreEqual("a jornada terminou", motivoVitoria);
 
             // Nada desfaz a vitoria: Lucca morrendo depois, ou o chefe "caindo" de novo.
             p.status.ReceberDano(p.status.PvMaximoTotal + 1000);
@@ -293,6 +310,7 @@ namespace Loopia.Hex.Tests
 
             // Voltar ao acampamento pelo botao da tela preserva tudo.
             yield return null;
+            Assert.IsTrue(p.combate.AlvoAtual == null, "o Lucca para de mirar depois da vitoria");
             p.tela.VoltarAoAcampamento();
             yield return Esperar(() => SceneManager.GetActiveScene().name == "Acampamento", 20f,
                 () => "carregar o Acampamento (cena ativa " + SceneManager.GetActiveScene().name + ")");
@@ -336,6 +354,8 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(1, p.derrotas);
             Assert.IsTrue(p.tela.painel.activeSelf, "aoGameOver da cena mostra a tela");
             StringAssert.Contains("diante do chefe", p.tela.textoResumo.text);
+            Assert.IsFalse(p.mapa.PodeColocar(Basica(), CasaLonge(p), out string motivoDerrota), "carta depois da derrota");
+            Assert.AreEqual("a jornada terminou", motivoDerrota);
 
             // Uma flecha em voo que mata o chefe depois nao transforma a derrota em vitoria.
             chefe.ReceberDano(chefe.PvMaximo);
