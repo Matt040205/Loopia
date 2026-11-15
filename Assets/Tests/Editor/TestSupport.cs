@@ -13,19 +13,76 @@ namespace Loopia.Hex.Tests
     /// Isola o arquivo de save do jogador (loopia_save.json). O backup fica em disco (pasta temporaria)
     /// e NAO em campo estatico, porque entrar em Play Mode recarrega o dominio e zera a memoria.
     /// Backup() e idempotente: se ja existe um backup, ele e o original e nao e sobrescrito.
+    ///
+    /// Varios Editors (uma worktree cada) compartilham o MESMO save e a mesma pasta temporaria. Por isso o
+    /// backup leva um id do projeto no nome, e uma trava comum impede duas suites ao mesmo tempo: a segunda
+    /// falha logo no inicio, antes de tocar no save (incidente da G2, docs/gameplay/g2/G2_TEST_REPORT.md).
     /// </summary>
     public static class SaveIsolado
     {
         static string Save => Path.Combine(Application.persistentDataPath, "loopia_save.json");
-        static string ArquivoDeBackup => Path.Combine(Path.GetTempPath(), "loopia_tests_save.bak");
-        static string MarcaDeAusente => Path.Combine(Path.GetTempPath(), "loopia_tests_save.absent");
+        static string Temp => Path.GetTempPath();
+        static string ArquivoDeBackup => Path.Combine(Temp, "loopia_tests_save_" + IdDoProjeto + ".bak");
+        static string MarcaDeAusente => Path.Combine(Temp, "loopia_tests_save_" + IdDoProjeto + ".absent");
+        static string Trava => Path.Combine(Temp, "loopia_tests_save.lock");
+
+        // Formato antigo (branches sem esta correcao): se existir, ha uma suite de outra worktree rodando agora.
+        static string BackupAntigo => Path.Combine(Temp, "loopia_tests_save.bak");
+        static string AusenteAntigo => Path.Combine(Temp, "loopia_tests_save.absent");
+
+        /// <summary>Trava mais velha que isto e considerada sobra de uma suite interrompida.</summary>
+        const double MinutosDeTravaValida = 30;
+
+        static string _id;
+        static string IdDoProjeto
+        {
+            get
+            {
+                if (_id != null) return _id;
+                using (var sha = SHA256.Create())
+                {
+                    byte[] h = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(Application.dataPath.ToLowerInvariant()));
+                    _id = BitConverter.ToString(h, 0, 4).Replace("-", "").ToLowerInvariant();
+                }
+                return _id;
+            }
+        }
 
         public static void Backup()
         {
+            GarantirExclusividade();
             if (File.Exists(ArquivoDeBackup) || File.Exists(MarcaDeAusente)) return;
 
             if (File.Exists(Save)) File.Copy(Save, ArquivoDeBackup, true);
             else File.WriteAllText(MarcaDeAusente, "o save nao existia antes dos testes");
+        }
+
+        /// <summary>Falha antes de tocar no save se outra worktree estiver no meio de uma suite.</summary>
+        static void GarantirExclusividade()
+        {
+            if (File.Exists(BackupAntigo) || File.Exists(AusenteAntigo))
+                Assert.Fail("Outra worktree (backup no formato antigo em " + Temp + ") esta rodando testes que mexem no " +
+                            "save. Espere ela terminar; se for sobra de uma execucao interrompida, confira o save e apague o arquivo.");
+
+            if (File.Exists(Trava))
+            {
+                string[] linhas = File.ReadAllLines(Trava);
+                bool minha = linhas.Length > 0 && linhas[0] == Application.dataPath;
+                bool recente = (DateTime.Now - File.GetLastWriteTime(Trava)).TotalMinutes < MinutosDeTravaValida;
+                if (!minha && recente && ProcessoVivo(linhas.Length > 1 ? linhas[1] : null))
+                    Assert.Fail("Outra worktree (" + linhas[0] + ") esta rodando testes que mexem no save. " +
+                                "Rode uma suite por vez (trava: " + Trava + ").");
+            }
+
+            File.WriteAllLines(Trava, new[] { Application.dataPath,
+                System.Diagnostics.Process.GetCurrentProcess().Id.ToString() });
+        }
+
+        static bool ProcessoVivo(string pid)
+        {
+            if (!int.TryParse(pid, out int id)) return false;
+            try { return !System.Diagnostics.Process.GetProcessById(id).HasExited; }
+            catch (ArgumentException) { return false; }
         }
 
         /// <summary>Devolve o save ao estado original. Mantem o backup, para poder ser chamado de novo.</summary>
@@ -40,6 +97,11 @@ namespace Loopia.Hex.Tests
         {
             if (File.Exists(ArquivoDeBackup)) File.Delete(ArquivoDeBackup);
             if (File.Exists(MarcaDeAusente)) File.Delete(MarcaDeAusente);
+            if (File.Exists(Trava))
+            {
+                string[] linhas = File.ReadAllLines(Trava);
+                if (linhas.Length > 0 && linhas[0] == Application.dataPath) File.Delete(Trava);
+            }
         }
 
         static string Sha(string caminho)
