@@ -17,7 +17,7 @@ try {
     foreach (var c in UnityEngine.Object.FindObjectsByType<Loopia.Hex.CenarioContinuo>(UnityEngine.FindObjectsSortMode.None)) c.Ajustar();
     foreach (var r in UnityEngine.Object.FindObjectsByType<Loopia.Hex.RioDeFundo>(UnityEngine.FindObjectsSortMode.None)) r.Ajustar();
     var fundoRaizes = new System.Collections.Generic.List<UnityEngine.Transform>();
-    foreach (var nome in new string[]{ "Cenario background", "Rio de fundo", "Camada de nuvens" }) { var go = UnityEngine.GameObject.Find(nome); if (go != null) fundoRaizes.Add(go.transform); }
+    foreach (var nome in new string[]{ "Cenario background", "Rio de fundo", "Camada de nuvens", "Fundo de paisagem" }) { var go = UnityEngine.GameObject.Find(nome); if (go != null) fundoRaizes.Add(go.transform); }
     System.Func<UnityEngine.Transform, bool> ehFundo = tr => { foreach (var fr in fundoRaizes) if (tr.IsChildOf(fr)) return true; return false; };
     var oclusores = new System.Collections.Generic.List<UnityEngine.Renderer>();
     foreach (var r in UnityEngine.Object.FindObjectsByType<UnityEngine.Renderer>(UnityEngine.FindObjectsSortMode.None)) {
