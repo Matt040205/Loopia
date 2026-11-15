@@ -26,6 +26,7 @@ do tiro automático. Mudança mínima: propriedades novas no `Inimigo` e a regra
 |---|---|---|
 | Compilação dos scripts de gameplay (`Scripts/Hex` + `testes shaders`) | **0 erros, 0 avisos nos arquivos tocados** | Roslyn do próprio Unity 6000.3.10f1 (`Editor/Data/DotNetSdkRoslyn/csc.dll`) fora do Editor, contra as DLLs da Unity e dos pacotes. **Não é** a compilação do Editor |
 | Compilação de `Assets/Tests/Editor` (suíte antiga + nova) | **0 erros** | idem |
+| Merge com a pilha de arte (`origin/sprint-1/pass-d2-render` @ `56c6bf1`) | **sem conflito**; árvore mesclada compila (jogo, testes e `Assets/Editor`) com 0 erros | `git merge-tree --write-tree` + mesma compilação fora do Editor |
 | Suíte Logic + SceneStatic + PlayModeSmoke no Editor | **PENDENTE** | o Editor aberto (pasta principal, branch de arte) pertence a outra frente; esta frente não usou o MCP |
 | Console do Editor | **PENDENTE** | idem |
 | Chefe em Play Mode | **PENDENTE** | não declarar funcionamento antes de rodar `EncontroDoChefePlayModeTests` e uma partida manual |
