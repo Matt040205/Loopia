@@ -35,7 +35,7 @@ namespace Loopia.Hex
 
             plataforma.Carregada = false;
 
-            status.Curar(cura);
+            status.CurarComCoracao(cura); // G2: soma o bonus das Fontes; so coracao
             status.GanharFlechas(flechas);
             status.GanharMoedas(moedas);
         }

@@ -246,7 +246,7 @@ namespace Loopia.Hex
         void PassouPeloAcampamento()
         {
             if (Estado != EstadoDaPartida.Chefe) return;
-            if (recarregarFlechasNoChefe && status != null) status.GanharFlechas(status.flechasMaximo);
+            if (recarregarFlechasNoChefe && status != null) status.GanharFlechas(status.FlechasMaximoTotal);
         }
 
         void OnGUI()
@@ -278,7 +278,7 @@ namespace Loopia.Hex
             if (status != null)
             {
                 GUILayout.Label("PV: " + status.PvAtual + " / " + status.PvMaximoTotal, _estiloDoPainel);
-                GUILayout.Label("Flechas: " + status.FlechasAtuais + " / " + status.flechasMaximo, _estiloDoPainel);
+                GUILayout.Label("Flechas: " + status.FlechasAtuais + " / " + status.FlechasMaximoTotal, _estiloDoPainel);
                 GUILayout.Label("Nivel " + status.Nivel + "  (XP " + status.Xp +
                                 "/" + status.XpParaOProximoNivel + ")", _estiloDoPainel);
                 GUILayout.Label("Moedas: " + status.Moedas + "  (total " +
