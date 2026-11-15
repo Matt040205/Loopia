@@ -107,3 +107,7 @@ InitTestScene*.unity*
 
 # Python (tools/)
 __pycache__/
+
+# Previas locais do Pass B (cenas + malhas geradas, ~80 MB): nao versionar
+/Assets/Previa/
+/Assets/Previa.meta
