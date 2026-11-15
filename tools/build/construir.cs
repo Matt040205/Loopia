@@ -9,7 +9,7 @@ var opcoes = new UnityEditor.BuildPlayerOptions
     target = UnityEditor.BuildTarget.StandaloneWindows64,
     options = %%DEV%% ? UnityEditor.BuildOptions.Development : UnityEditor.BuildOptions.None,
 };
-if (System.IO.Directory.Exists(@"%%PASTA%%")) return "ERRO: a pasta ja existe, nao sobrescrevo: %%PASTA%%";
+if (System.IO.Directory.Exists(@"%%PASTA%%")) return @"ERRO: a pasta ja existe, nao sobrescrevo: %%PASTA%%";
 var relatorio = UnityEditor.BuildPipeline.BuildPlayer(opcoes);
 var s = relatorio.summary;
 return Newtonsoft.Json.JsonConvert.SerializeObject(new {
