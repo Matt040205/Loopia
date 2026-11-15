@@ -2,83 +2,107 @@
 
 Handoff da frente de gameplay (não substitui `docs/handoff/ESTADO_ATUAL.md`, que é coordenado entre as frentes).
 
-## Status: **G1 NÃO concluída** — implementada, compilada fora do Editor, sem execução no Editor
-G0, GDD v2 e arquitetura aprovados pelo responsável (2026-11-15). G1 só conclui com a suíte rodando no Editor e a
-validação em Play Mode (GDD_V2 §6).
+## Status: **G1 validada no Editor e em Play Mode — aguardando aprovação do responsável**
+Suíte inteira rodada no Editor da worktree (exclusivo desta frente), cena integrada pelo Editor, 4 voltas reais,
+chefe, combate, vitória e derrota observados em Play Mode. Valores do chefe continuam **hipóteses** (medições em
+`BALANCE_BASELINE.md` §8.2–8.3). G2 não começou.
 
 ## Onde está
-- Worktree `C:\Users\Sitr3n\Documents\Github\loopia-gameplay`, branch `sprint-3/gameplay-loop`, PR #7 (rascunho,
-  base `sprint-0/preparacao-tecnica`). Commit-base: `85c5276`.
-- Nenhuma cena, prefab, material ou asset serializado alterado. Só scripts, testes e `docs/gameplay/`.
-
-## O que foi feito
-| Entrega | Arquivos |
-|---|---|
-| Auditoria G0 e planejamento | `GAMEPLAY_AUDIT.md`, `BALANCE_BASELINE.md`, `GDD_V2.md`, `IMPLEMENTATION_PLAN.md`, `APRESENTACAO_DO_CHEFE.md` |
-| Máquina de estados pura | `EstadoDaPartida.cs`, `CicloDaPartida.cs` |
-| Regras do chefe | `RegrasDoChefe.cs` (alcance extra), `VarianteDoChefe.cs` (morcego ampliado, sem asset) |
-| Encontro | `EncontroDoChefe.cs` (nasce 1×, alvo grande, Revoada), `BarraDeVidaDoChefe.cs`, `IndicadorDePerigoDoChefe.cs` |
-| Fluxo | `LoopDirector` (estados, congela voltas, recarga de flechas no chefe, vitória, `aoVencer`), `HexLoopRunner` (`contarVoltas`, `AoPassarPeloAcampamento`), `InimigoSpawner` (`pausarSpawnComum`, `CongelarTodos`, `NascerNoAnel`, `AoInimigoDerrotado`), `DadosDoJogador` (`vitorias`, `TentarLer`), `TelaDeMorte` (`MostrarVitoria`) |
-| Cartas bloqueadas no fim | `MapaDePlataformas.PodeColocar` ("a jornada terminou"), `CartasUI` (barra some) |
-| Alvo grande + gancho de mira | `Inimigo` (`TornarAlvoGrande`), `LuccaCombate` (regra de alvo, `AlvoAtual`, `AoDisparar`, para no fim) |
-| Medição | `MetricasDaPartida.cs`, `MedidorDaPartida.cs` |
-
-Motivo para tocar `Inimigo.cs`/`LuccaCombate.cs`: o chefe precisa ser alvo do tiro automático; a frente de personagem
-precisa de um dado de leitura para orientar o arco. Inimigos comuns: alcance extra 0, comportamento igual.
-`HexPlayer.cs`, rig e animações: não tocados.
-
-## Testes escritos
-| Arquivo | Categoria | Testes | Cobre |
-|---|---|---|---|
-| `CicloDaPartidaTests` | Logic | 10 | transições, terminais exclusivos e únicos, tabela completa |
-| `RegrasDoChefeTests` | Logic | 16 | chefe alcançável de todo o anel (11 sementes), sem extra fica fora, variante sem alterar o asset |
-| `DadosDoJogadorFormatoTests` | Logic | 7 | save antigo sem `vitorias`, novo, negativos, ilegível |
-| `ColocacaoNoFimDaJornadaTests` | Logic | 4 | cartas aceitas correndo/no chefe, recusadas na vitória/derrota |
-| `MetricasDaPartidaTests` | Logic | 3 | contagem por volta e do chefe, impasse, término único |
-| `EncontroDoChefePlayModeTests` | PlayModeSmoke | 5 | 4 voltas pelo corredor → 1 confronto, 5ª não conta, chefe 1×, golpe via UnityEvent, flechas reais ferem o chefe, vitória 1× + save + volta ao acampamento, derrota no chefe, Revoada + indicador, cartas no fim |
-| `PartidaRealPlayModeTests` | PlayModeSmoke (1) + PlayModeMedicao (1) | 2 | 4 voltas **reais** no NavMesh → chefe → combate automático até o fim; métricas |
-Total novo: 40 Logic + 6 PlayModeSmoke + 1 PlayModeMedicao. Suíte anterior: 119.
-
-## Evidências
-| Verificação | Resultado | Fonte |
+| Item | Branch / PR | Base |
 |---|---|---|
-| Compilação de `Scripts/Hex` + `testes shaders` | 0 erros, 0 avisos nos arquivos tocados | Roslyn do Unity 6000.3.10f1 fora do Editor. **Não é** a compilação do Editor |
-| Compilação de `Assets/Tests/Editor` | 0 erros | idem |
-| Merge com a pilha de arte (`56c6bf1`) | sem conflito; árvore mesclada compila | `git merge-tree` + mesma compilação |
-| Suíte no Editor (Logic, SceneStatic, PlayModeSmoke) | **PENDENTE** | Editor ocupado por outra frente; MCP não usado |
-| Console do Editor | **PENDENTE** | idem |
-| 4 voltas reais, chefe, combate, vitória, derrota em Play Mode | **PENDENTE** | não declarar funcionamento antes de rodar |
-| Métricas do chefe (duração, flechas, recargas, dano, Revoada, impasse, cartas) | **PENDENTE** | `PartidaRealPlayModeTests` |
+| Código, testes e docs de G1 | `sprint-3/gameplay-loop`, PR #7 (rascunho) | `sprint-0/preparacao-tecnica` (`85c5276`) |
+| Integração de cena + testes ajustados + este relatório | `sprint-3/gameplay-cena` (PR de cena) | `sprint-1/pass-d2-render` (`56c6bf1`, ponta da pilha de arte) + merge de `sprint-3/gameplay-loop` |
+Worktree: `C:\Users\Sitr3n\Documents\Github\loopia-gameplay`. Editor: Unity 6000.3.10f1 aberto nessa pasta (bridge MCP
+próprio; o Editor da pasta principal, da frente de ambiente, não foi usado).
 
-## Correção de processo
-Os 4 arquivos de teste do primeiro commit entraram **sem `.meta`** (contra AGENTS.md §4.2); os `.meta` foram
-adicionados no commit seguinte, antes de qualquer import pela Unity, então não há GUID divergente em nenhuma máquina.
+## O que mudou na cena (`HexPrototipo.unity`, pelo Editor, com Undo + SaveScene)
+- Objeto novo na raiz **`Encontro do chefe`**: `EncontroDoChefe` (referências preenchidas, `chefe` vazio → variante do
+  morcego), `BarraDeVidaDoChefe`, `IndicadorDePerigoDoChefe`.
+- `LoopDirector.encontro` → esse objeto; **`LoopDirector.aoVencer` → `TelaDeMorte.MostrarVitoria`** (persistent call,
+  igual ao `aoGameOver`).
+- `MapaDePlataformas.diretor` e `LuccaCombate.diretor` → `Diretor do Loop`.
+- Campos novos serializados com o padrão: `HexLoopRunner.contarVoltas`, `InimigoSpawner.pausarSpawnComum`,
+  `LoopDirector.recarregarFlechasNoChefe`.
+- Diff da cena: só adições (135 linhas); nada da arte foi alterado.
+
+## Testes atualizados de propósito
+| Teste | Antes | Agora | Motivo |
+|---|---|---|---|
+| `HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez` | a 5ª volta contava (5 voltas, ×1,1⁵) | 4ª volta abre o confronto; 5ª não conta (4 voltas, ×1,1⁴) | regra de G1 com o encontro na cena |
+| `EncontroDoChefePlayModeTests`, `PartidaRealPlayModeTests` | montavam o encontro em tempo de execução | usam o da cena (montam só se faltar) | integração |
+Novo: `EncontroDoChefeSceneTests` (SceneStatic, 4): encontro único com barra e indicador, referências do Inspector,
+`aoVencer → TelaDeMorte.MostrarVitoria`, cena abre limpa.
+
+## Evidências (Editor da worktree, 2026-11-15)
+| Execução | Job / fonte | Total | Passou | Falhou |
+|---|---|---|---|---|
+| Logic (antes da cena) | `cc7e31feb4f54a3598dd9cdb1d880704` | 265 | 265 | 0 |
+| SceneStatic (antes da cena) | `e868e53271154cfe9a03306e66480c94` | 31 | 31 | 0 |
+| PlayModeSmoke (antes da cena) | `TestResults.xml` 14:44:01Z–14:44:36Z | 13 | 13 | 0 |
+| PlayModeMedicao (antes da cena) | `TestResults.xml` 14:45:46Z–14:46:27Z | 1 | 1 | 0 |
+| **Logic (cena integrada)** | `e900b674b6234dc4844f63c163af06ab` | 265 | 265 | 0 |
+| **SceneStatic (cena integrada)** | `a26fda7ae27c410895385cac2e24a429` | 35 | 35 | 0 |
+| **PlayModeSmoke (cena integrada)** | `TestResults.xml` 14:51:56Z–14:52:40Z (job `a69763de…`) | 13 | 13 | 0 |
+Os 40 Logic novos estão nos 265 (conferido por nome). Nenhum `Inconclusive`, nenhum teste ignorado.
+Total da suíte na branch de integração: 265 + 35 + 13 + 1 (medição) = **314**.
+
+**Console:** 1 erro, `ArgumentOutOfRangeException` em `UnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase`
+(`SearchInit.IndexationOnStartup`) — indexação da busca do próprio Unity na 1ª abertura com Library nova; não vem
+do projeto e não se repetiu. Nenhum erro novo depois de todas as execuções e partidas. Avisos: só os do rastreador MCP.
+
+**Save:** os testes restauram o `loopia_save.json` sozinhos; as partidas manuais gravaram nele e ele foi restaurado da
+cópia feita antes (SHA-256 igual: `67be087c…a2f0c3`).
+
+## Validação em Play Mode (o que o responsável pediu)
+| Pedido | Evidência |
+|---|---|
+| 4 voltas reais | `QuatroVoltasReais_ChefeNasce_EAJornadaTermina` (NavMesh real, sem reflexão) + 4 partidas manuais: 4 voltas → `Chefe` |
+| Chefe nasce (1×) | testes + capturas `*_02_chefe_nasceu` |
+| Combate (flechas reais no chefe) | `Chefe_EAlvoDoTiroAutomatico_*`; métricas: 15–20 flechas no chefe por partida |
+| Vitória | partidas 3, 6, 7 (§Medições); captura `hd-preparada_04_vitoria.png` |
+| Derrota | partidas 1, 2, 4, 5; capturas `flechas-torre-*_04_derrota.png` ("O Lucca caiu diante do chefe.") |
+| 5ª volta não conta | `QuatroVoltas_IniciamUmConfronto_EAQuintaNaoConta`; na partida real as recargas no chefe aconteceram e `VoltasCompletas` ficou 4 |
+| Cartas bloqueadas no fim | `ColocacaoNoFimDaJornadaTests` + asserts nos Play; barra de cartas some na tela final (captura de vitória) |
+| Vitórias persistidas e volta ao acampamento | `MorteDoChefe_VitoriaUmaVez_SalvaEVoltaAoAcampamentoComOsDados` (disco + troca de cena); manual: `vitorias` 0→1→2 no save |
+
+## Medições do confronto (resumo; tabela completa em `BALANCE_BASELINE.md` §8.2)
+- Sem cartas: **derrota 2/2** (28,8 s e 37,8 s de chefe; 15,8–22,6 s sem flechas; 1 recarga).
+- Flechas + Torre: vitória 1/3 (morcegos desligados); com morcegos ligados, **2 derrotas com o chefe a 10/732** — 19
+  flechas × 38 de dano, uma flecha a menos que o necessário (teto de 15 flechas).
+- Flechas + Coração + Torre + Área de Treino: **vitória 2/2**.
+- Jornada inteira: 2,3–2,9 min (volta de 27–34 s), abaixo da meta de 5–7 min do GDD.
+Nenhum valor foi alterado: decisões de balanceamento ficam para depois de mais amostras com semente (G4).
+
+## Achados visuais (capturas em `docs/gameplay/capturas/`)
+- O chefe (esfera vermelho-escura no centro) e a barra de vida leem bem; a barra fica amarela durante o aviso.
+- O disco de perigo aparece sob o chefe e o acompanha no mergulho (`hd-preparada_03_aviso_revoada.png`).
+- O painel de depuração (IMGUI, canto superior esquerdo) cobre parte do anel em resoluções pequenas — HUD antigo,
+  não desta sprint; registrar para a HUD definitiva.
+- Mira do arco/tronco ainda não existe (plano em `APRESENTACAO_DO_CHEFE.md`, depende da frente de personagem).
+
+## Arquivos que o Unity mexeu e que NÃO entram nos commits
+`Assets/Modelos/Dressing/Materiais/Dressing_Vegetacao.mat` (ganhou `_MainTex` ao importar — material da frente de
+ambiente), `ProjectSettings/TimeManager.asset` (upgrade de formato do 6000.3), `ShaderGraphSettings.asset` e
+`EditorBuildSettings.asset` (só fim de linha), `.vscode/settings.json`, e os `.meta` gerados para `ArvoreGrande.fbx`,
+`Morcegp.fbx`, `ArvoreGrande.png`, `Morcego.png` (o dono dos assets decide; a pilha de arte tem um commit local com eles).
 
 ## Pendências e riscos
-1. Rodar a suíte e os testes Play (`PartidaRealPlayModeTests` leva alguns minutos: 4 voltas reais a timeScale 4).
-2. Integração de cena: base a decidir (`IMPLEMENTATION_PLAN.md` §G1.8; recomendado: empilhar sobre a pilha de arte).
-3. Na integração, atualizar de propósito `HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez`.
-4. Números do chefe: hipóteses até as medições.
-5. `IndicadorDePerigoDoChefe` usa `Shader.Find("Universal Render Pipeline/Unlit")` com fallback; conferir em build.
-6. Testes Play compartilham o `loopia_save.json` e o backup em `%TEMP%` com qualquer outro Editor do projeto aberto
-   ao mesmo tempo: rodar só com o outro Editor parado (sem Play Mode nem testes).
+1. Aprovação do responsável para considerar G1 concluída e liberar G2.
+2. Balanceamento do chefe: mais amostras com semente fixa antes de mudar números (G4).
+3. Duração da partida abaixo da meta: decisão de design.
+4. Mira visual do Lucca: frente de personagem.
+5. `IndicadorDePerigoDoChefe` usa `Shader.Find("Universal Render Pipeline/Unlit")`: conferir em build.
+6. O PR de cena vai empilhado sobre o #6: a frente de ambiente não deve editar a `HexPrototipo` até ele entrar.
 
-## Como testar
-1. Editor exclusivo, aberto no projeto desta branch (worktree) ou da branch de integração.
-2. Test Runner → EditMode: `Logic`, `SceneStatic` (resultado no `get_test_job`), depois `PlayModeSmoke` e
-   `PlayModeMedicao` (resultado no `TestResults.xml`; ver `tools/unity-mcp/README.md`).
-3. Esperado: 119 antigos + 47 novos. Avisos esperados no console: "Sem EncontroDoChefe na cena" (teste antigo das
-   4 voltas), resumos `[Metricas]`.
+## Rollback
+Reverter o PR de cena (`git revert` do commit de integração) antes do PR #7. Sem o objeto `Encontro do chefe` na cena,
+o código de G1 volta ao comportamento antigo (aviso no console, voltas seguem contando).
 
-## Checklist do PR
-- [x] Escopo: só scripts de gameplay listados, testes e `docs/gameplay/`; `git diff --stat` revisado
-- [x] `.meta` de todo arquivo novo incluído (GUIDs únicos); nenhum `.asset` novo
-- [ ] Testes: **PENDENTE** (Editor); compilação verificada fora do Editor
-- [ ] Console: **PENDENTE**
-- [x] Cenas tocadas: nenhuma
-- [ ] Captura antes/depois: na integração de cena
-- [x] Rollback: `git revert` dos commits do G1 (sem listeners de cena órfãos)
-
-## Próximo passo
-Validar G1 no Editor e integrar a cena. G2 só depois da aprovação do responsável: 1º fila de recompensas, depois as
-três cartas, depois Mirante.
+## Checklist do PR de cena
+- [x] Escopo: cena + testes ajustados + docs; arquivos que o Unity mexeu por fora excluídos (lista acima)
+- [x] `.meta` de todo arquivo novo; nenhum `m_Script: {fileID: 0}`
+- [x] Testes: Logic 265/265, SceneStatic 35/35, PlayModeSmoke 13/13, PlayModeMedicao 1/1 (jobs/XML acima)
+- [x] Console: 1 erro externo do Unity Search na 1ª abertura; nenhum erro do projeto
+- [x] Cena tocada: `HexPrototipo` (encontro, `aoVencer`, referências) — só adições
+- [x] Capturas: chefe, aviso, vitória, derrota
+- [x] Rollback descrito

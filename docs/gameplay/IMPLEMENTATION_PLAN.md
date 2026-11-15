@@ -80,7 +80,7 @@ preserva moedas/recorde/vitórias; tela de resultado aparece pelo UnityEvent `ao
 Todos os testes acima e a suíte anterior passam no Editor (job id + XML); console sem erros novos; nenhuma cena,
 prefab ou asset alterado neste PR.
 
-### G1.8 Integração pendente (PR de cena, exclusivo no Editor)
+### G1.8 Integração de cena — **feita em 2026-11-15** (opção (a), branch `sprint-3/gameplay-cena`; ver `RELATORIO_G1.md`)
 **Base da cena (decisão do responsável).** A pilha de arte (#1–#6) já reescreveu a `HexPrototipo.unity` várias
 vezes. Integrar sobre a cena da `sprint-0` garantiria conflito de YAML quando as duas linhas se juntarem (AGENTS.md
 §4.1). Opções:

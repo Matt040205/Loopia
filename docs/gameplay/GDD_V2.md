@@ -87,7 +87,7 @@ Progressão permanente: só desenho (§5), compatível com saves antigos (campos
 ## 4. Critérios de game design (metas para orientar testes — nenhum número aqui foi medido)
 | Critério | Meta (hipótese) | Como medir / observar |
 |---|---|---|
-| Duração-alvo da partida | 5–7 min até o fim do chefe (4 voltas de ~60–75 s + confronto de 1–2 min) | `MetricasDaPartida.duracaoTotal`; a 1ª volta observada hoje dura ~60–76 s de jogo (`BALANCE_BASELINE.md` §1) |
+| Duração-alvo da partida | 5–7 min até o fim do chefe (4 voltas de ~60–75 s + confronto de 1–2 min) | `MetricasDaPartida.duracaoTotal`. **Medido no G1: jornada de 2,3–2,9 min** (volta de 27–34 s) — abaixo da meta; decisão aberta (`BALANCE_BASELINE.md` §8.3) |
 | Decisões por volta | ≥ 2 decisões reais por volta (colocar/substituir/guardar uma carta), não só "jogar a carta que chegou" | contar colocações por volta (métrica nova em G2); playtest: o jogador hesita entre opções? |
 | Percepção do impacto das cartas | cada carta muda algo visível em ≤ 1 volta: número no HUD (PV/flechas/dano) ou comportamento (flechas por morcego, alcance) | pontos de corte de `BALANCE_BASELINE.md` §3; playtest: o jogador explica o que a carta fez |
 | Preparação para o chefe | as 4 voltas constroem munição, dano e sustento; sem uma fonte extra (Flechas no caminho ou dano) o 1º ciclo de munição não basta (21 flechas para 15 de recarga, cálculo) | cenários "sem cartas" × "Flechas+Torre" (`PartidaRealPlayModeTests`): duração do chefe, recargas, dano recebido |

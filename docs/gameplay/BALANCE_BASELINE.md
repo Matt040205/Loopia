@@ -27,6 +27,7 @@ Nada aqui é resultado empírico de balanceamento. Estimativas de dano recebido 
 | Torre / Área de Treino | +8 % dano / +8 % +15 % por Torre vizinha | [valor] assets |
 | Moeda no anel | 20 % por ilha, por volta | [valor] cena (`GeradorDeMoedas`) |
 | Duração da 1ª volta | ~15–19 s reais com timeScale 4 (≈ 60–76 s de jogo) | [observado] `docs/sprint-0/TEST_REPORT.md` §4, 4 execuções, inclui o início da cena |
+| Duração da volta (G1) | 27,1 s (anel de 24) a 34,0 s (anel de 30) de jogo, ≈ 1,13 s por casa | [observado] `MetricasDaPartida`, 3 partidas, 12 voltas (§8.2). Substitui a estimativa acima para as contas novas |
 
 ## 2. Escala dos inimigos por volta [cálculo]
 `round(base × 1,1^k)`, `Mathf.RoundToInt`, k = voltas fechadas quando o inimigo nasce.
@@ -98,15 +99,45 @@ já existem). Mede o que o responsável pediu para o chefe:
 | Impacto das cartas de dano/munição | comparar os campos acima entre cenários |
 Por volta: `duracao`, `flechasDisparadas`, `danoRecebido`, `inimigosDerrotados`, `pvAoFechar`.
 
-### 8.2 Cenários já escritos (`PartidaRealPlayModeTests`)
-| Cenário | Categoria | Cartas | Resultado |
-|---|---|---|---|
-| sem-cartas | PlayModeSmoke | nenhuma | **PENDENTE** (rodar no Editor) |
-| flechas+torre | PlayModeMedicao | Flechas no caminho + Torre fora | **PENDENTE** |
-Morcegos comuns desligados nos dois (só a Revoada): isola o confronto. Mapa sorteado (a cena não usa semente fixa)
-→ 1 execução = 1 amostra, não uma conclusão. O resumo sai no console e em `%TEMP%/loopia_metricas_<cenario>.txt`.
+### 8.2 Medições do G1 [observado] — 2026-11-15, Editor da worktree, branch `sprint-3/gameplay-cena`
+Segundos **de jogo** (timeScale 4). Cada linha = **uma** partida num mapa sorteado: amostras, não conclusões.
+Valores do chefe = hipóteses de §7 (732 PV efetivos, 9 de dano por mergulho, Revoada a cada 14 s).
 
-### 8.3 Próximos passos (G4)
+**Com `MedidorDaPartida` (testes `PartidaRealPlayModeTests`; morcegos comuns desligados, só a Revoada):**
+| # | Cartas | Anel | Volta | Chefe | Resultado | Flechas chefe / outros | Recargas | Dano recebido | Revoadas (morcegos) | Sem flechas (maior trecho) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | nenhuma | 24 | 27,1 s | 28,8 s | **Derrota** | 15 / 3 | 1 | 50 (de 50) | 2 (4) | 15,8 s (15,8 s) |
+| 2 | nenhuma | 30 | 33,9 s | 37,8 s | **Derrota** | 16 / 4 | 1 | 50 (de 50) | 2 (4) | 22,6 s (22,6 s) |
+| 3 | Flechas + Torre | 30 | 34,0 s | 22,1 s | **Vitória** | 20 / 2 | 0 | 34 | 1 (2) | 5,7 s (5,7 s) |
+
+**Partidas manuais pelo Editor (morcegos comuns LIGADOS, estado lido a cada 0,5 s; sem medidor):**
+| # | Cartas | Anel | Lucca ao chegar no chefe | Chefe | Resultado |
+|---|---|---|---|---|---|
+| 4 | Flechas + Torre | — | 50 PV, 14 flechas | ~24 s | **Derrota com o chefe a 10/732** |
+| 5 | Flechas + Torre | 24 | 50 PV, 13 flechas | ~24 s | **Derrota com o chefe a 10/732** |
+| 6 | Flechas + Coração + Torre + Área de Treino (46 de dano) | 30 | 50 PV, 12 flechas | ~20 s | **Vitória**, 30 PV no fim |
+| 7 | idem 6 | 24 | — | — | **Vitória**, 37 PV no fim |
+
+### 8.3 Leitura das medições (hipóteses para G4, nenhum valor foi alterado)
+1. **Sem cartas, o chefe vence (2/2).** O 1º ciclo de munição (15 flechas × 35 = 525) não basta para 732 PV, e o Lucca
+   morre antes de a recarga do acampamento fazer diferença: ficou sem flechas por 15,8–22,6 s (55–60 % do confronto).
+   Não houve impasse infinito; o risco real é a "espiral" sem munição, não o impasse.
+2. **Ponto de corte do teto de flechas.** Com Torre (38 de dano) são 20 flechas; nas partidas 4 e 5 o Lucca acertou 19
+   e o chefe ficou com 10 PV (732 − 19 × 38). O teto de 15 limita o que a carta Flechas soma no meio da luta. Pequenas
+   diferenças (1 flecha, +3 % de dano) decidem o final. Isso favorece a Oficina de Arqueiro (+2 flechas máx., G2) como
+   decisão legível — **mas o número final do chefe só deve mudar depois de mais amostras com semente fixa.**
+3. **Cartas de dano e munição mudam o resultado.** Sem cartas 0/2; Flechas+Torre 1/3; Flechas+Coração+Torre+Área 2/2.
+   É o efeito desejado ("preparar para o chefe"), mas a faixa do meio está apertada demais.
+4. **Morcegos comuns no chefe.** O spawn pausa, mas quem já existia continua: o Lucca chega com 12–14 flechas (não 15)
+   e esses morcegos ainda disputam flechas e causam dano.
+5. **Revoada** dispara no intervalo configurado (2 em ~29–38 s, 1 em 22 s).
+6. **Duração da partida.** Volta de 27–34 s (≈ 1,13 s por casa) e jornada inteira de 2,3–2,9 min — bem abaixo da meta
+   de 5–7 min do GDD v2 §4 (que partia da estimativa antiga de 60–76 s por volta). Questão de design aberta para o
+   responsável: aceitar partidas curtas ou alongar (mais voltas, anel maior, Lucca mais lento) — não decidido aqui.
+
+Os resumos completos saem no console (`[Metricas]`) e em `%TEMP%/loopia_metricas_<cenario>.txt`.
+
+### 8.4 Próximos passos (G4)
 1. RNG com semente para spawn e compra (`System.Random` injetável) — pré-requisito de qualquer número reproduzível.
 2. Teste Play com semente fixa do mapa e do RNG, timeScale 4, registrando por volta: flechas gastas, flechas que
    sobraram, dano recebido por fonte, inimigos mortos, XP, nível, PV ao fechar a volta, duração.
