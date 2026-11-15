@@ -1,5 +1,20 @@
 # Estado atual — 2026-11-15
 
+## Sprint 4, passo 1 — Legibilidade em telas grandes — **último trabalho**
+- Branch `sprint-4/legibilidade-tela` (base `integration/mvp-20261117` @ `f49cee1`), worktree `loopia-mvp`.
+  Registro completo, backlog da sprint (problemas do playtest + §9 do relatório do MVP) e medidas:
+  [SPRINT-4.md](../sprints/SPRINT-4.md).
+- Feito: zoom do jogador (roda + arraste, padrão = anel inteiro), nuvens presas ao mundo no zoom, resolução nativa no
+  build (`ResolucaoDaTela`, só no player), HUD IMGUI escalando acima de 1080p, MSAA 4× no PC, janela redimensionável,
+  anel de no máximo 30 casas (`raioMaximo` 5). Topo da ilha no caso do playtest: ~52 px → 109–125 px sem zoom.
+- Testes: **396/396** (Logic + SceneStatic 371/371 job `eb1ff800…`; PlayModeSmoke + PlayModeMedicao 25/25,
+  `TestResults.xml` 22:29Z). Console limpo (só o `LogAssert` esperado). Save restaurado (SHA `3d27854e…`).
+- **Pendente:** custo do MSAA e `ResolucaoDaTela` só se validam num build novo. A Unity caiu numa medição minha de
+  custo do MSAA (muitos `Camera.Render()` num frame, sem memória D3D12); nada se perdeu. Não repetir esse método.
+- Arquivos regravados pelo build (`PC_RPAsset` pré-filtragem, `UniversalRenderPipelineGlobalSettings`,
+  `GraphicsSettings`, batching em `ProjectSettings`, `TimeManager`) continuam fora dos commits; do `PC_RPAsset` e do
+  `ProjectSettings` só entram `m_MSAA` e `resizableWindow`.
+
 ## Integração do MVP (base para o polimento) — **comece por aqui**
 - Branch `integration/mvp-20261117`, worktree `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. É a única base com tudo
   junto: G1 + arte (PR #8), Lucca do Codex (PR #10), G2 (PR #9), Mirante ligado ao combate e as 3 cartas G2 no baralho.
