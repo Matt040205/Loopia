@@ -41,7 +41,20 @@ namespace Loopia.Hex
                  "Desligado: atira no mais proximo, esteja onde estiver.")]
         public bool somenteAFrente = true;
 
+        [Tooltip("Opcional. Com a jornada encerrada (vitoria/derrota) o Lucca para de atirar.")]
+        public LoopDirector diretor;
+
         float _proximoTiro;
+
+        /// <summary>
+        /// Quem o Lucca esta mirando agora (dentro do alcance, com ou sem flecha), ou null. Atualizado todo frame.
+        /// Gancho de leitura para a frente de personagem orientar arco/tronco (ex.: o chefe no centro do anel)
+        /// sem mexer no movimento automatico. Ver docs/gameplay/APRESENTACAO_DO_CHEFE.md.
+        /// </summary>
+        public Inimigo AlvoAtual { get; private set; }
+
+        /// <summary>Disparado a cada flecha: (alvo, ponto de saida). Para animacao/som do tiro.</summary>
+        public event System.Action<Inimigo, Vector3> AoDisparar;
 
         void Start()
         {
@@ -51,6 +64,7 @@ namespace Loopia.Hex
             if (status == null) status = FindFirstObjectByType<LuccaStatus>();
             if (inimigos == null) inimigos = FindFirstObjectByType<InimigoSpawner>();
             if (plataformas == null) plataformas = FindFirstObjectByType<MapaDePlataformas>();
+            if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
 
             if (player == null || status == null || inimigos == null)
             {
@@ -61,11 +75,16 @@ namespace Loopia.Hex
 
         void Update()
         {
-            if (!status.EstaVivo) return;
-            if (Time.time < _proximoTiro) return;
+            if (!status.EstaVivo || (diretor != null && diretor.Terminou))
+            {
+                AlvoAtual = null;
+                return;
+            }
 
             Inimigo alvo = EscolherAlvo();
+            AlvoAtual = alvo;
             if (alvo == null) return;
+            if (Time.time < _proximoTiro) return;
 
             // Sem flecha ele ignora o inimigo e segue andando: o intervalo nem chega a reiniciar,
             // entao no instante em que ganhar municao ele ja volta a atirar.
@@ -75,6 +94,7 @@ namespace Loopia.Hex
 
             Vector3 origem = transform.position + Vector3.up * alturaDoTiro;
             Projetil.Disparar(origem, alvo, DanoDoTiro(), velocidadeDoProjetil, corDaFlecha);
+            AoDisparar?.Invoke(alvo, origem);
         }
 
         /// <summary>ATK do Lucca mais o que torres e areas de treino somam.</summary>
@@ -96,8 +116,9 @@ namespace Loopia.Hex
                 Inimigo inimigo = vivos[i];
                 if (inimigo == null || !inimigo.EstaVivo) continue;
 
+                // A prioridade e pela distancia real; o alcance extra so vale para alvos grandes (o chefe).
                 int distancia = HexCoord.Distance(player.Coord, inimigo.Casa);
-                if (distancia > alcance) continue;
+                if (!RegrasDoChefe.DentroDoAlcance(distancia, alcance, inimigo.AlcanceExtraComoAlvo)) continue;
                 if (distancia >= menorDistancia) continue;
                 if (!EstaAFrente(inimigo)) continue;
 
@@ -111,6 +132,9 @@ namespace Loopia.Hex
         bool EstaAFrente(Inimigo inimigo)
         {
             if (!somenteAFrente) return true;
+
+            // Alvo grande (chefe no centro do anel): fica de lado o tempo todo enquanto o Lucca contorna.
+            if (inimigo.AlvoDeQualquerAngulo) return true;
 
             // Quem esta na mesma casa conta sempre: nao da para ignorar quem esta em cima de voce.
             if (inimigo.Casa == player.Coord) return true;

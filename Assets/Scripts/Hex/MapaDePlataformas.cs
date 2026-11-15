@@ -24,6 +24,9 @@ namespace Loopia.Hex
         public HexLoopGenerator gerador;
         public InimigoSpawner inimigos;
 
+        [Tooltip("Com a jornada encerrada (vitoria ou derrota) nenhuma carta pode ser colocada.")]
+        public LoopDirector diretor;
+
         readonly Dictionary<HexCoord, Plataforma> _plataformas = new Dictionary<HexCoord, Plataforma>();
 
         Transform _raiz;
@@ -56,6 +59,7 @@ namespace Loopia.Hex
             if (corredor == null) corredor = FindFirstObjectByType<HexLoopRunner>();
             if (gerador == null) gerador = FindFirstObjectByType<HexLoopGenerator>();
             if (inimigos == null) inimigos = FindFirstObjectByType<InimigoSpawner>();
+            if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
 
             if (mundo == null || player == null)
             {
@@ -119,6 +123,13 @@ namespace Loopia.Hex
             if (def == null)
             {
                 motivo = "sem carta";
+                return false;
+            }
+
+            // Vitoria ou derrota: o mapa fica como terminou (durante o chefe ainda vale colocar).
+            if (diretor != null && diretor.Terminou)
+            {
+                motivo = "a jornada terminou";
                 return false;
             }
 
