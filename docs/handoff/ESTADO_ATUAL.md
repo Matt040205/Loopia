@@ -1,6 +1,20 @@
 # Estado atual — 2026-11-16
 
-## Consolidação definitiva — **comece por aqui**
+## Sprint corretiva de UI/UX — **comece por aqui**
+- Branch `fix/sprint-ui-polish` (base `main` @ `5f5f532`), PR para `main` **aguardando aprovação do responsável**
+  (não mesclar sem ele). Registro completo: [SPRINT-UI-POLISH.md](../sprints/SPRINT-UI-POLISH.md).
+- Feito: tooltip não fica preso depois de soltar (causa: a plataforma recém-construída sob o cursor virava hover);
+  mão legível em 1080p (escala 0,6, títulos 11–16 px, valor e ícone maiores, resumo no tooltip); tooltip ampliado com
+  nome, resumo · valor, efeito, regra e condição; fantasma do arraste afastado da casa-alvo e aviso junto dele;
+  "Espaço livre" no espaço vazio; acentuação dos textos e "Morcego Ancião"; fallback da Marcellus.
+- Testes: **445/445** (Logic + SceneStatic 407, PlayModeSmoke 34, PlayModeMedicao 4); 9 novos.
+- Builds: `Documents\Loopia_Builds\loopia-ui-polish-cf407af-{release,dev}\` (0 erros).
+- **PENDENTE:** validação com mouse real na build nova (o controle da janela foi recusado nesta sessão). Roteiro no
+  §9 do registro; evitar a faixa superior da tela (outra janela intercepta o cursor ali).
+- Próxima sprint: proposta em [PROPOSTA-PROXIMA-SPRINT.md](../sprints/PROPOSTA-PROXIMA-SPRINT.md) (medição do ritmo,
+  leitura da Lucca, morcego/chefe com modelo, feedback de combate, construções). Não iniciada.
+
+## Consolidação definitiva
 - **Uma versão só, na `main`:** `main` @ `5a0944d` = merge do PR #14 (`integration/loopia-unified`: estabilização
   PR #12 + revisão de interface, que já contém as cartas do Codex PR #13). Novas sprints partem da `main`. Relatório:
   [FINAL_CONSOLIDATION_REPORT.md](../integration/FINAL_CONSOLIDATION_REPORT.md).
