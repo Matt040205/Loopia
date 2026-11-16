@@ -12,8 +12,8 @@ cenas oficiais.
 | Ponto de partida | `fix/mvp-stabilization` @ `c0b56db` (PR #12) |
 | Incorporada | `sprint-4/revisao-interface` @ `2d36c27` (contém `feature/card-visual-system` @ `850aabe`, PR #13) |
 | Merge | `18b2da9` — `git merge --no-ff`, **sem conflitos** (`ESTADO_ATUAL.md` combinado automaticamente) |
-| PR de consolidação | ver §8 |
-| SHA final | ver §8 (o commit deste relatório) |
+| PR de consolidação | [#14](https://github.com/Matt040205/Loopia/pull/14), mesclado na `main` |
+| SHA final | `main` = `5a0944d` (merge do #14; árvore idêntica a `integration/loopia-unified` @ `a1ca91b`) |
 
 SHAs de referência confirmados após `git fetch --all --prune` (todos iguais aos do pedido):
 `integration/mvp-20261117` `f49cee1`, `fix/mvp-stabilization` `c0b56db`, `feature/card-visual-system` `850aabe`,
@@ -237,4 +237,9 @@ Nada disso foi implementado nesta tarefa.
   conteúdo publicado na ancestralidade da consolidação e as diferenças locais salvas no checkpoint. **Podem ser
   removidas numa limpeza autorizada** (`git worktree remove` sem `--force`, depois de conferir o status). A
   `loopia-hud-preview` está em HEAD destacado (`4f5d3ef`, já incluído).
-- PR de consolidação, SHA final e merge: registrados em `docs/handoff/ESTADO_ATUAL.md`.
+- PR de consolidação #14 mesclado em 2026-11-16: `main` `0b9513e` → `5a0944d` (merge commit, histórico preservado).
+- Os PRs #1–#13 receberam comentário apontando para o #14; seus heads estão na história da `main`, mas **nenhum foi
+  mesclado individualmente**. O GitHub marcou o #11 como merged automaticamente (ele aponta para a `main` e o head
+  passou a estar contido nela). Os demais continuam abertos como registro.
+- Worktree `loopia-mvp` agora em `main` @ `5a0944d`; Editor reaberto sobre ela sem erros; Logic + SceneStatic
+  404/404 (job `e713b0d6…`) na `main`.
