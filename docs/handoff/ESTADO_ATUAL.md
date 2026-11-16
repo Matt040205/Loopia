@@ -1,8 +1,8 @@
 # Estado atual — 2026-11-16
 
 ## Consolidação definitiva — **comece por aqui**
-- **Uma versão só:** `integration/loopia-unified` (estabilização PR #12 + revisão de interface, que já contém as cartas
-  do Codex PR #13). Relatório completo, PR e SHA final:
+- **Uma versão só, na `main`:** `main` @ `5a0944d` = merge do PR #14 (`integration/loopia-unified`: estabilização
+  PR #12 + revisão de interface, que já contém as cartas do Codex PR #13). Novas sprints partem da `main`. Relatório:
   [FINAL_CONSOLIDATION_REPORT.md](../integration/FINAL_CONSOLIDATION_REPORT.md).
 - **Um Editor, uma worktree:** `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. As demais worktrees são backup (não
   abrir Editors nelas; nenhuma sprint nova em branch antiga). O que pode ser removido: relatório, §8.
