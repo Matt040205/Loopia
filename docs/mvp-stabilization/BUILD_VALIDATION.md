@@ -55,9 +55,26 @@ Nenhum arquivo de Project Settings/URP ficou modificado depois das duas builds (
 | Perfil de QA (`-loopia-perfil qa`) | log: "Perfil 'qa': save em …Loopia\loopia_save_qa.json"; arquivo novo zerado; save do jogador intacto | — |
 | Exceções nos logs do player | 0 `Exception`, 0 `Error` | — |
 
-### 2.2 Release — partida completa com vitória: **PENDENTE**
-Interrompida antes do primeiro clique: o computador estava em uso (partida de League of Legends em primeiro plano).
-Não tomei mouse e teclado do responsável. Roteiro pronto para retomar (ou para um humano):
+### 2.2 Release `7bf6492` — partida completa com **vitória** (2026-11-16 ~00:20, `-loopia-perfil qa`)
+1ª tentativa (15/11 ~21:00): parada antes do primeiro clique porque o computador estava em uso (partida de League of
+Legends). 2ª: chegou ao chefe e o jogo foi fechado de fora enquanto a sessão estava parada. 3ª, com o responsável
+liberando mouse e teclado:
+
+| Passo | Resultado | Evidência |
+|---|---|---|
+| Abrir com `-loopia-perfil qa` | Acampamento do perfil de QA; foco por clique na janela (o Windows bloqueia `SetForegroundWindow`) | — |
+| Mão inicial | Mola, Coração, **Torre**, Flechas | — |
+| Cartas pela UI real | Flechas, Coração, Mola no anel; Torre fora (0,6); **Área de Treino vizinha da Torre** (1,6); 2ª Flechas; Santuário (1,5) → PV 47/53. Recusas com motivo na tela: "espere o Lucca terminar o salto", "o Lucca precisa passar por uma mola antes de cada subida alta" | — |
+| 4 voltas → chefe | "Voltas: 4 (CHEFE!)"; barra "Morcego Ancião 226/732" logo no começo do confronto | — |
+| **Vitória** | "O Lucca derrotou o chefe depois de 4 voltas! Moedas nesta jornada: 27"; log `Estado: Chefe -> Vitoria` | `evidencias/release_vitoria_tela.png` |
+| Save de QA | `vitorias` 0 → **1** (uma vez); moedas 19 → 47 (**+28**, a tela disse 27 → corrigido em `a7a5c56`) | — |
+| Botão "Volte ao acampamento" (clique real) | ok: Acampamento "Moedas: 47", "Recorde de voltas: 4", "Salvo em …loopia_save_qa.json" | `evidencias/release_vitoria_volta_acampamento.png` |
+| Fechar e reabrir com o mesmo perfil | ok: 47 moedas, 1 vitória | `evidencias/release_vitoria_reabertura.png` |
+| Exceções | 0 nas duas execuções | — |
+| Save do jogador | não tocado pelas partidas de QA | — |
+
+Derrota numa build nova: não repetida; o caminho (mesma `TelaDeMorte`, mesmo botão, mesmo `DadosDoJogador`) foi
+comprovado com mouse real na build de fallback (§1). Roteiro para repetir à mão:
 1. `Loopia.exe -loopia-perfil qa` (save separado; o do jogador não muda).
 2. Acampamento → "Nova jornada". A mão começa com Mola, Coração, **Torre**, Flechas.
 3. Arrastar Flechas e Coração para ilhas do anel; Torre numa casa livre fora do anel; Área de Treino (se vier) numa
@@ -70,3 +87,14 @@ Não tomei mouse e teclado do responsável. Roteiro pronto para retomar (ou para
 Observações durante a partida:
 - Mesmo uma execução curta (≈30 s de jornada) somou 5 moedas ao save pessoal: motivo do perfil de save de QA (P0-2).
 - O processo do Editor que caiu (medição de MSAA, ver `FIX_REPORT.md`) gravou o save ao terminar (`OnApplicationQuit`).
+
+## 3. Builds finais (`a7a5c56`, com a correção da moeda depois da vitória)
+| Build | Pasta | Resultado |
+|---|---|---|
+| Release (apresentação) | `Documents\Loopia_Builds\mvp-estabilizacao-a7a5c56-release\Loopia.exe` | Succeeded, 0 erros, 0 avisos, 129,9 MB |
+| Development (QA) | `Documents\Loopia_Builds\mvp-estabilizacao-a7a5c56-dev\Loopia.exe` | Succeeded, 0 erros, 0 avisos, 193,5 MB |
+
+Fumaça da Release final: abre no Acampamento do perfil de QA ("Moedas: 47", `evidencias/release_final_abertura.png`)
+e fecha sem exceções. **A jornada nela não foi jogada**: o acesso do computer use a essa build foi negado pelo
+responsável. A diferença para a `7bf6492` (validada acima) é só `a7a5c56` (moeda depois do fim), coberta por teste
+Logic e pelo PlayModeSmoke da vitória.

@@ -23,12 +23,15 @@ causa, solução, commit, teste, resultado, captura (quando visual) e risco resi
 - **Reprodução:** build de fallback com mouse real (`BUILD_VALIDATION.md` §1).
 - **Causa:** nenhum defeito no jogo: o relatório do MVP usou clique por mensagem de janela, que o Input System
   ignora. Com mouse real o botão funciona.
-- **Resultado:** derrota → resultado → botão → acampamento → save → reabertura comprovados na build de fallback.
-  Vitória: ver a validação da build nova.
+- **Resultado:** derrota → resultado → botão → acampamento → save → reabertura comprovados na build de fallback;
+  **vitória** → resultado → botão → acampamento → save (vitória registrada uma vez) → reabertura comprovados na build
+  Release `7bf6492` com mouse real (`BUILD_VALIDATION.md` §2.2).
 - **Achado lateral corrigido:** a tela de derrota mostrou 43 moedas e o save ganhou 44. Causa: na derrota o corpo do
   Lucca termina o trecho do NavMesh, entra na casa seguinte e coleta uma moeda depois do resumo; `GanharMoedas` não
   conferia se ele estava vivo. Solução: morto não coleta (`LuccaStatus.GanharMoedas`), teste Logic
-  `Morto_NaoColetaMoedas`. Commit `31b7cdf`.
+  `Morto_NaoColetaMoedas`. Commit `31b7cdf`. A vitória na Release mostrou o mesmo defeito com o Lucca vivo (tela 27,
+  save +28): `a7a5c56` encerra as recompensas na vitória e na derrota (`LuccaStatus.EncerrarRecompensas`, chamado pelo
+  `LoopDirector` antes da tela de resultado); testes Logic e PlayModeSmoke.
 
 ## P0-2 · Save do jogador compartilhado por Editor, build e build de QA
 - **Estado inicial:** um único `loopia_save.json`; qualquer Play no Editor ou build altera o progresso do responsável.

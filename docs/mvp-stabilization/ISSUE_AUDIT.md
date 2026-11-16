@@ -18,7 +18,7 @@ Legenda de estado: **aberto** · **reproduzido** · **corrigido** (commit) · **
 - Solução: zoom do jogador, resolução nativa no build, HUD escalável, MSAA 4×, anel de até 30. Commits `9d7a759`…`0340291`.
 - Validação: suíte 396/396 no Editor; falta confirmar `ResolucaoDaTela` num build novo.
 
-### P0-1 · Vitória, derrota e retorno ao acampamento na build — **parcial**: derrota e retorno validados na build de fallback; migração e instalação nova validadas na Release; vitória na build **pendente** (computador em uso)
+### P0-1 · Vitória, derrota e retorno ao acampamento na build — **validado**: derrota e retorno na build de fallback; vitória, retorno, save e reabertura na Release `7bf6492`
 - Estado inicial: no Editor, vitória/derrota/retorno validados (`MVP_INTEGRATION_REPORT.md` §7). Na build: derrota
   pela build de QA (sem clique); vitória e o botão "Voltar ao acampamento" **não** comprovados (o clique por mensagem
   de janela não chega ao Input System).

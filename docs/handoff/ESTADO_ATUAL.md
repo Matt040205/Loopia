@@ -8,15 +8,16 @@
   (copia, nunca apaga), cenas legadas fora do build, settings que o build regravava versionados, faixa rosa corrigida
   (borda de chão no `FundoDePaisagem`), painel de jogo enxuto (dados técnicos com F3 / Development), moeda pós-morte,
   mão inicial com Torre no lugar de Moedas (medido: 0/3 → 2/3 vitórias).
-- Testes: **416/416** (Logic+SceneStatic 391, job `61a50745…`; PlayModeSmoke+Medicao 25, XML 23:49Z).
-- Builds: Release `Documents\Loopia_Builds\mvp-estabilizacao-7bf6492-release\` (apresentação) e Development
-  `...-dev\` (QA). Fallback `mvp-20261117-dev-55442a5` intacto.
-- Validado na build: derrota → resultado → botão → acampamento → save → reabertura (fallback, mouse real);
-  instalação nova e antiga com migração (Release). **Pendente:** vitória numa partida real na build — parou porque o
-  computador estava em uso; roteiro em `BUILD_VALIDATION.md` §2.2. O Bloco C (Mirante, pés/arco, fim de partida) só
-  começa depois disso.
-- Save do responsável: agora em `...\DefaultCompany\Loopia\loopia_save.json` (cópia idêntica, `3d27854e…`); o
-  antigo continua em `...\GameJam13-06\`. Ao validar no Editor ou na build, use backup ou `-loopia-perfil qa`.
+- Testes: **417/417** (Logic+SceneStatic 392, job `67d7335a…`; PlayModeSmoke+Medicao 25, XML 03:33Z de 16/11).
+- Builds finais (`a7a5c56`): Release `Documents\Loopia_Builds\mvp-estabilizacao-a7a5c56-release\` (apresentação) e
+  Development `...-a7a5c56-dev\` (QA). As `7bf6492` ficam como versão anterior; fallback `mvp-20261117-dev-55442a5` intacto.
+- Validado na build com mouse real: **vitória** → resultado → botão → acampamento → save (1 vitória) → reabertura
+  (Release `7bf6492`, perfil QA); derrota → retorno (fallback); instalação nova e antiga com migração (Release). A
+  build final só teve abertura/fechamento (acesso do computer use negado); difere só pela correção da moeda.
+- Save do responsável: em `...\DefaultCompany\Loopia\loopia_save.json` (migrado). **Atenção:** outras frentes
+  (`loopia-cards`, `loopia-hud-preview`) gravaram nele e no antigo depois das validações (210 e 212 moedas); não
+  restaurado sem o responsável decidir. Ao validar no Editor ou na build, use backup ou `-loopia-perfil qa`.
+- Próximo: Bloco C (Mirante, pés/arco, fim de partida), liberado pela build validada, aguardando decisão.
 - Ferramentas: `tools/balanceamento/medir_chefe.py` (cenários do chefe), `tools/build/construir.cs` (build pelo
   bridge). **Nunca** dezenas de `Camera.Render()` num `execute_code` (derrubou a Unity).
 

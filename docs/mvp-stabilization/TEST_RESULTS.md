@@ -25,7 +25,7 @@ desde a renomeação do produto o XML fica em `%USERPROFILE%\AppData\LocalLow\De
   que foi apagado depois de cada sessão para a build nova fazer a migração de verdade.
 - Nenhuma trava (`loopia_tests_save.lock`) nem backup (`loopia_tests_save_<id>.bak`) sobrou em `%TEMP%`.
 
-## Suíte completa final (código de `31b7cdf`/`b8881e1`, antes das builds)
+## Suíte antes das builds `7bf6492` (código de `31b7cdf`/`b8881e1`)
 | Categoria | Job ou XML | Total | Passou | Falhou |
 |---|---|---|---|---|
 | Logic + SceneStatic | job `61a5074535bb45b0a44118f0218e6071` | 391 | 391 | 0 |
@@ -36,3 +36,14 @@ Linha de base 370 → 396 (legibilidade) → **416** (+20 nesta sprint): `SaveDo
 `ConfiguracaoDeBuildTests` 3, `SaveIsoladoConcorrenciaTests` 2, `FundoDePaisagemCoberturaTests` 2, `PainelDoJogoTests`
 4, `LuccaStatusTests.Morto_NaoColetaMoedas` 1, `HexPrototipoSceneTests.MaoInicial_…` 1. Nenhum teste removido ou
 ignorado. Console no fim: 0 erros (só o aviso informativo do MCP ao limpar o job de Play Mode).
+
+## Suíte final (código de `a7a5c56`, antes das builds finais)
+| Categoria | Job ou XML | Total | Passou | Falhou |
+|---|---|---|---|---|
+| Logic + SceneStatic | job `67d7335ae02149249e2e2bf6027e0e88` | 392 | 392 | 0 |
+| PlayModeSmoke + PlayModeMedicao | job `ad60b6d226bd41e39af5c475e62ca368`, XML 03:33:54Z–03:34:29Z (`evidencias/TestResults_playmode_final.xml`) | 25 | 25 | 0 |
+| **Total** | | **417** | **417** | **0** |
+
++1 em relação a 416: `LuccaStatusTests.JornadaEncerrada_VivoTambemNaoColetaMoedas`; o PlayModeSmoke da vitória
+ganhou a conferência de moeda depois do fim. Save do jogador com o mesmo hash antes e depois da suíte; nenhuma
+trava ou backup sobrando em `%TEMP%`.
