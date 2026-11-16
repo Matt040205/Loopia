@@ -2,11 +2,14 @@
 
 ## Prévia local da interface
 
-Esta worktree combina localmente os snapshots dos PRs #12 e #13 para revisar a interface.
-As cópias locais em **Assets/Previa/Hud** têm o tema aplicado em Acampamento e HexPrototipo.
-O menu **Loopia → Prévia da interface → Recriar cópias locais** refaz a montagem nesta worktree.
-Inicie no Acampamento da prévia. Os botões navegam entre as cópias. O Editor de revisão usa
-o perfil de save **hud-preview**. F3 alterna a depuração durante a jornada e o caminho de save no Acampamento.
+A branch **sprint-4/revisao-interface** reúne os snapshots dos PRs #12 e #13 para revisar a interface.
+Abra o projeto no Unity e use **Loopia → Prévia da interface → Recriar cópias locais**. O gerador
+grava Acampamento e HexPrototipo em **Assets/Previa/Hud**, onde os botões navegam entre as cópias.
+A primeira tela exibe o título **Loopia**. O gerador e a navegação ficam versionados. As cópias
+geradas ficam no diretório ignorado pelo Git.
+
+No Editor, pressione **Play** no Acampamento da prévia. Para isolar o save, inicie o Editor com
+**-loopia-perfil hud-preview**. F3 alterna a depuração durante a jornada e o caminho de save no Acampamento.
 
 - Jornada normal e F3, barra do chefe com Revoada, dica até o primeiro zoom, pendentes e tooltips,
   Acampamento e três resultados aplicados. As cenas versionadas mantêm os assets de estabilização.
