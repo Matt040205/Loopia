@@ -39,6 +39,16 @@ namespace Loopia.Hex.Tests
         }
 
         [Test]
+        public void LimiteDoCorpo_CaiComAVelocidade_ENuncaPassaDoParado()
+        {
+            Assert.AreEqual(120f, LuccaAnimationBridge.LimiteDoCorpo(120f, 30f, 0f), 1e-4f, "parado: giro inteiro");
+            Assert.AreEqual(30f, LuccaAnimationBridge.LimiteDoCorpo(120f, 30f, 1f), 1e-4f, "correndo: pes deslizam menos");
+            Assert.AreEqual(75f, LuccaAnimationBridge.LimiteDoCorpo(120f, 30f, 0.5f), 1e-4f);
+            Assert.AreEqual(30f, LuccaAnimationBridge.LimiteDoCorpo(120f, 30f, 1.4f), 1e-4f, "rapidez acima de 1 satura");
+            Assert.AreEqual(0f, LuccaAnimationBridge.LimiteDoCorpo(0f, 30f, 1f), 1e-4f, "sem giro parado, sem giro correndo");
+        }
+
+        [Test]
         public void ErroHorizontal_IgnoraAAltura()
         {
             Assert.AreEqual(0f, LuccaAnimationBridge.ErroHorizontal(new Vector3(0, 0, 1), new Vector3(0, 5, 3), Vector3.up), 1e-3f);

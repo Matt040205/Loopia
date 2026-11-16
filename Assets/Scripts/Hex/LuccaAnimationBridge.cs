@@ -29,6 +29,10 @@ namespace Loopia.Hex
         [Tooltip("O que passa da folga do tronco vira o CORPO visual inteiro (este objeto), ate este angulo, so durante o " +
                  "tiro. A raiz de navegacao (NavMeshAgent) nao gira; o tronco continua limitado a giroMaximo.")]
         [SerializeField, Range(0, 150)] float giroMaximoDoCorpo = 120f;
+        [Tooltip("Limite do giro do corpo com o Lucca correndo na velocidade cheia: as pernas seguem correndo para a " +
+                 "frente, entao o pe de apoio desliza ~2 x velocidade x sen(giro/2). Parado vale giroMaximoDoCorpo; entre " +
+                 "os dois, proporcional a velocidade da locomocao.")]
+        [SerializeField, Range(0, 150)] float giroDoCorpoCorrendo = 30f;
         [Tooltip("Fracao do giroMaximo do tronco usada antes de o corpo comecar a virar (sobra para a mira fina).")]
         [SerializeField, Range(0.3f, 1f)] float folgaDoTronco = 0.8f;
 
@@ -278,7 +282,9 @@ namespace Loopia.Hex
                 // Direcao do arco na pose da animacao, descontado o giro do corpo do frame anterior (o transform guarda).
                 float arcoSemCorpo = Angulos(raiz.InverseTransformDirection(direcao.position - origem.position)).x - _giroDoCorpo;
                 float paraOAlvo = Angulos(raiz.InverseTransformDirection(alvo.transform.position - origem.position)).x;
-                alvoDoCorpo = GiroDoCorpo(Mathf.DeltaAngle(arcoSemCorpo, paraOAlvo), giroMaximo * folgaDoTronco, giroMaximoDoCorpo);
+                float rapidez = _animator.GetFloat(MoveSpeed) / Mathf.Max(0.1f, _player.velocidade);
+                alvoDoCorpo = GiroDoCorpo(Mathf.DeltaAngle(arcoSemCorpo, paraOAlvo), giroMaximo * folgaDoTronco,
+                    LimiteDoCorpo(giroMaximoDoCorpo, giroDoCorpoCorrendo, rapidez));
             }
             _giroDoCorpo = Mathf.SmoothDampAngle(_giroDoCorpo, alvoDoCorpo, ref _velocidadeDoGiroDoCorpo,
                 alvoDoCorpo != 0f ? 0.07f : 0.16f);
@@ -313,6 +319,13 @@ namespace Loopia.Hex
             float excesso = Mathf.Abs(Mathf.DeltaAngle(0f, desejado)) - folgaDoTronco;
             return excesso <= 0f ? 0f : Mathf.Sign(Mathf.DeltaAngle(0f, desejado)) * Mathf.Min(excesso, maximoDoCorpo);
         }
+
+        /// <summary>
+        /// Limite do giro do corpo para a rapidez da locomocao (0 parado, 1 na velocidade cheia): de parado ate correndo,
+        /// sem nunca passar do limite parado.
+        /// </summary>
+        public static float LimiteDoCorpo(float parado, float correndo, float rapidez) =>
+            Mathf.Lerp(parado, Mathf.Min(correndo, parado), Mathf.Clamp01(rapidez));
 
         /// <summary>Angulo (graus) entre dois vetores projetados no plano horizontal.</summary>
         public static float ErroHorizontal(Vector3 arco, Vector3 alvo, Vector3 cima) =>
