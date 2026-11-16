@@ -35,6 +35,10 @@ namespace Loopia.Hex
         HexWorld _mundo;
         int _origemDoArraste = -1;
         int _hover = -1;
+        // Depois de soltar (ou cancelar) um arraste, a plataforma que ficou sob o cursor nao e um hover novo:
+        // so passa a valer quando o ponteiro sai dela (ou vai para outra plataforma ou carta).
+        bool _acabouDeSoltar;
+        Plataforma _ignorarAteSair;
         float _tempoConsumo;
         bool _iniciada;
         bool _ativa;
@@ -195,11 +199,19 @@ namespace Loopia.Hex
             _conteudo.gameObject.SetActive(visivel);
             if (!visivel)
             {
-                _hover = -1;
-                _tooltip.Ocultar();
+                LimparTransitorios();
                 _consumida.gameObject.SetActive(false);
                 _pulso.Apagar();
             }
+        }
+
+        /// <summary>Fecha o tooltip e esquece hover e supressao (fim da jornada, HUD desligada, perda de foco).</summary>
+        internal void LimparTransitorios()
+        {
+            _hover = -1;
+            _acabouDeSoltar = false;
+            _ignorarAteSair = null;
+            _tooltip?.Ocultar();
         }
 
         Camera CameraDaUi => _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
@@ -227,6 +239,7 @@ namespace Loopia.Hex
         {
             _hover = _origemDoArraste < 0 ? EspacoSobCursor(ponto) : -1;
             PlataformaDef def = _mao.CartaNoEspaco(_hover);
+            apontada = FiltrarHoverDepoisDeSoltar(apontada, def != null);
             Vector2 movimento = def != null ? DirecaoDoCursor(_espacos[_hover].Caixa, ponto) : Vector2.zero;
 
             if (def != null) _tooltip.Mostrar(def, catalogo.Buscar(def), true);
@@ -243,9 +256,28 @@ namespace Loopia.Hex
             _pulso.Atualizar(dt, _mundo.tamanhoDoHexagono);
         }
 
+        Plataforma FiltrarHoverDepoisDeSoltar(Plataforma apontada, bool sobreCarta)
+        {
+            if (_acabouDeSoltar)
+            {
+                // Primeiro quadro depois de soltar: o que estiver sob o cursor fica ignorado ate ele sair.
+                _acabouDeSoltar = false;
+                _ignorarAteSair = apontada;
+            }
+            if (_ignorarAteSair == null) return apontada;
+            if (sobreCarta || apontada != _ignorarAteSair)
+            {
+                _ignorarAteSair = null;
+                return apontada;
+            }
+            return null;
+        }
+
         internal void IniciarArraste(int espaco, PlataformaDef def, Vector2 ponto)
         {
             _origemDoArraste = espaco;
+            _acabouDeSoltar = false;
+            _ignorarAteSair = null;
             _espacos[espaco].Opacidade(.27f);
             _arrastada.Exibir(def, catalogo.Buscar(def));
             _arrastada.gameObject.SetActive(true);
@@ -283,6 +315,8 @@ namespace Loopia.Hex
             var entrada = _espacos[_origemDoArraste];
             entrada.Opacidade(entrada.Def == null ? .31f : 1f);
             _origemDoArraste = -1;
+            _acabouDeSoltar = true;
+            _tooltip.Ocultar();
             _arrastada.gameObject.SetActive(false);
             _faixaStatus.gameObject.SetActive(false);
         }

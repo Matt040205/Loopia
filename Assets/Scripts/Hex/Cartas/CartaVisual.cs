@@ -22,6 +22,8 @@ namespace Loopia.Hex
 
         public RectTransform Caixa => (RectTransform)transform;
         public PlataformaDef Def { get; private set; }
+        /// <summary>Espaco da mao sem carta (leitura propria, diferente de carta, pendente e arraste).</summary>
+        public bool Vazio => Def == null;
         public bool Pronta => grupo != null && conteudo != null && moldura != null && parallax != null;
         float _altura;
         float _brilho;

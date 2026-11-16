@@ -119,7 +119,9 @@ namespace Loopia.Hex
 
         void OnApplicationFocus(bool temFoco)
         {
-            if (!temFoco && _espacoArrastado >= 0) CancelarArraste();
+            if (temFoco) return;
+            if (_espacoArrastado >= 0) CancelarArraste();
+            if (_hud != null) _hud.LimparTransitorios();
         }
 
         void Update()
