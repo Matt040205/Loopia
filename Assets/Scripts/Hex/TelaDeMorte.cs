@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,10 +6,11 @@ using UnityEngine.SceneManagement;
 namespace Loopia.Hex
 {
     /// <summary>
-    /// A tela que aparece quando o Lucca morre, com o botao "Volte ao acampamento".
+    /// A tela de fim de jornada, com o botao "Volte ao acampamento". Serve aos dois finais: o titulo
+    /// ("Fim da jornada") e neutro e so o resumo muda.
     ///
-    /// Tudo aqui e ligado por UnityEvent no Inspector: o LoopDirector.aoGameOver chama Mostrar(),
-    /// e o onClick do botao chama VoltarAoAcampamento().
+    /// Tudo aqui e ligado por UnityEvent no Inspector: o LoopDirector.aoGameOver chama Mostrar(), o
+    /// LoopDirector.aoVencer chama MostrarVitoria() e o onClick do botao chama VoltarAoAcampamento().
     /// </summary>
     [DisallowMultipleComponent]
     public class TelaDeMorte : MonoBehaviour
@@ -29,6 +31,10 @@ namespace Loopia.Hex
         [Tooltip("Nome da cena do acampamento. Ela precisa estar no Build Settings.")]
         public string cenaDoAcampamento = "Acampamento";
 
+        [Tooltip("Segundos (tempo real) para o painel aparecer por completo. O painel ja fica ativo e clicavel desde o " +
+                 "inicio; so a opacidade sobe. 0 = aparece de uma vez.")]
+        [Min(0f)] public float fade = 0.35f;
+
         void Awake()
         {
             if (painel != null) painel.SetActive(false);
@@ -41,13 +47,55 @@ namespace Loopia.Hex
 
             if (textoResumo != null)
             {
-                int volta = diretor != null ? diretor.VoltasCompletas + 1 : 1;
                 int moedas = status != null ? status.Moedas : 0;
-                textoResumo.text = "O Lucca caiu na volta " + volta + ".\n" +
+                string queda = diretor != null && diretor.DerrotaNoChefe
+                    ? "O Lucca caiu diante do chefe."
+                    : "O Lucca caiu na volta " + (diretor != null ? diretor.VoltasCompletas + 1 : 1) + ".";
+                textoResumo.text = queda + "\n" + "Moedas nesta jornada: " + moedas;
+            }
+
+            AbrirPainel();
+        }
+
+        /// <summary>Final bom: o chefe caiu. Mesmo painel (o titulo "Fim da jornada" e neutro), outro resumo.</summary>
+        public void MostrarVitoria()
+        {
+            if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
+            if (status == null) status = FindFirstObjectByType<LuccaStatus>();
+
+            if (textoResumo != null)
+            {
+                int voltas = diretor != null ? diretor.VoltasCompletas : 0;
+                int moedas = status != null ? status.Moedas : 0;
+                textoResumo.text = "O Lucca derrotou o chefe depois de " + voltas + " voltas!\n" +
                                    "Moedas nesta jornada: " + moedas;
             }
 
-            if (painel != null) painel.SetActive(true);
+            AbrirPainel();
+        }
+
+        void AbrirPainel()
+        {
+            if (painel == null) return;
+            painel.SetActive(true);
+            if (fade <= 0f || !isActiveAndEnabled) return;
+            var grupo = painel.GetComponent<CanvasGroup>();
+            if (grupo == null) grupo = painel.AddComponent<CanvasGroup>();
+            StartCoroutine(Aparecer(grupo));
+        }
+
+        /// <summary>Fade discreto em tempo real; o botao funciona desde o primeiro frame.</summary>
+        IEnumerator Aparecer(CanvasGroup grupo)
+        {
+            float t = 0f;
+            grupo.alpha = 0f;
+            while (t < fade)
+            {
+                t += Time.unscaledDeltaTime;
+                grupo.alpha = Mathf.Clamp01(t / fade);
+                yield return null;
+            }
+            grupo.alpha = 1f;
         }
 
         public void VoltarAoAcampamento()

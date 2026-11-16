@@ -24,6 +24,9 @@ namespace Loopia.Hex
         public HexLoopGenerator gerador;
         public InimigoSpawner inimigos;
 
+        [Tooltip("Com a jornada encerrada (vitoria ou derrota) nenhuma carta pode ser colocada.")]
+        public LoopDirector diretor;
+
         readonly Dictionary<HexCoord, Plataforma> _plataformas = new Dictionary<HexCoord, Plataforma>();
 
         Transform _raiz;
@@ -34,6 +37,9 @@ namespace Loopia.Hex
 
         /// <summary>Soma do bonus de PV maximo de todas as plataformas.</summary>
         public int BonusDePvTotal { get; private set; }
+
+        /// <summary>Tudo o que as plataformas somam ao Lucca (G2). BonusDePvTotal/BonusDeDanoTotal saem daqui.</summary>
+        public ModificadoresDoLucca Modificadores { get; private set; }
 
         public int Quantas => _plataformas.Count;
         public IEnumerable<Plataforma> Todas => _plataformas.Values;
@@ -56,6 +62,7 @@ namespace Loopia.Hex
             if (corredor == null) corredor = FindFirstObjectByType<HexLoopRunner>();
             if (gerador == null) gerador = FindFirstObjectByType<HexLoopGenerator>();
             if (inimigos == null) inimigos = FindFirstObjectByType<InimigoSpawner>();
+            if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
 
             if (mundo == null || player == null)
             {
@@ -119,6 +126,13 @@ namespace Loopia.Hex
             if (def == null)
             {
                 motivo = "sem carta";
+                return false;
+            }
+
+            // Vitoria ou derrota: o mapa fica como terminou (durante o chefe ainda vale colocar).
+            if (diretor != null && diretor.Terminou)
+            {
+                motivo = "a jornada terminou";
                 return false;
             }
 
@@ -354,21 +368,19 @@ namespace Loopia.Hex
         /// </summary>
         void Recalcular()
         {
-            int pv = 0;
-            float dano = 0f;
+            var total = ModificadoresDoLucca.Zero;
 
             foreach (Plataforma plataforma in _plataformas.Values)
             {
                 if (plataforma == null) continue;
-
-                pv += plataforma.Def.BonusDePv(plataforma);
-                dano += plataforma.Def.BonusDeDano(plataforma);
+                total += plataforma.Def.Modificadores(plataforma);
             }
 
-            BonusDePvTotal = pv;
-            BonusDeDanoTotal = dano;
+            Modificadores = total;
+            BonusDePvTotal = total.PvMaximo;
+            BonusDeDanoTotal = total.Dano;
 
-            if (status != null) status.DefinirBonusDePvMaximo(pv);
+            if (status != null) status.DefinirModificadores(total);
             AoMudar?.Invoke();
         }
     }

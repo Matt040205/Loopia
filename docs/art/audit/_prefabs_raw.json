@@ -1,0 +1,1161 @@
+[
+ {
+  "path": "Assets/Modelos/HexPrototype/IlhaFlutuante.prefab",
+  "nome": "IlhaFlutuante",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 498,
+  "boundsCru": {
+   "center": [
+    -0.0154275894,
+    2.08873725,
+    -0.03503537
+   ],
+   "size": [
+    4.82564259,
+    4.1774745,
+    5.080712
+   ],
+   "min": [
+    -2.428249,
+    0.0,
+    -2.57539129
+   ],
+   "max": [
+    2.3973937,
+    4.1774745,
+    2.50532055
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.0154275894,
+    2.08873725,
+    -0.03503537
+   ],
+   "size": [
+    4.82564259,
+    4.1774745,
+    5.080712
+   ],
+   "min": [
+    -2.428249,
+    0.0,
+    -2.57539129
+   ],
+   "max": [
+    2.3973937,
+    4.1774745,
+    2.50532055
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   -0.0154275894,
+   -0.03503537
+  ],
+  "materiais": [
+   "IlhaFlutuante"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Arvore.prefab",
+  "nome": "Arvore",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 310,
+  "boundsCru": {
+   "center": [
+    -0.009103298,
+    1.20983934,
+    -0.00416898727
+   ],
+   "size": [
+    1.19315,
+    2.41967821,
+    1.21061158
+   ],
+   "min": [
+    -0.6056783,
+    2.38418579e-07,
+    -0.6094748
+   ],
+   "max": [
+    0.5874717,
+    2.41967845,
+    0.6011368
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.009103298,
+    1.20983934,
+    -0.00416898727
+   ],
+   "size": [
+    1.19315,
+    2.41967821,
+    1.21061158
+   ],
+   "min": [
+    -0.6056783,
+    2.38418579e-07,
+    -0.6094748
+   ],
+   "max": [
+    0.5874717,
+    2.41967845,
+    0.6011368
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   -0.009103298,
+   -0.00416898727
+  ],
+  "materiais": [
+   "Arvore"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Pedra.prefab",
+  "nome": "Pedra",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 48,
+  "boundsCru": {
+   "center": [
+    -0.004299611,
+    0.0176765025,
+    0.0228858739
+   ],
+   "size": [
+    0.3324447,
+    0.241440177,
+    0.383681774
+   ],
+   "min": [
+    -0.17052196,
+    -0.103043586,
+    -0.168955013
+   ],
+   "max": [
+    0.161922738,
+    0.138396591,
+    0.214726761
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.004299611,
+    0.0176765025,
+    0.0228858739
+   ],
+   "size": [
+    0.3324447,
+    0.241440177,
+    0.383681774
+   ],
+   "min": [
+    -0.17052196,
+    -0.103043586,
+    -0.168955013
+   ],
+   "max": [
+    0.161922738,
+    0.138396591,
+    0.214726761
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   -0.004299611,
+   0.0228858739
+  ],
+  "materiais": [
+   "Pedra"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/CogumeloMarrom.prefab",
+  "nome": "CogumeloMarrom",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 316,
+  "boundsCru": {
+   "center": [
+    0.00264672935,
+    0.0575828925,
+    0.00291428715
+   ],
+   "size": [
+    0.139042556,
+    0.1151658,
+    0.146227553
+   ],
+   "min": [
+    -0.06687455,
+    -7.450581e-09,
+    -0.07019949
+   ],
+   "max": [
+    0.07216801,
+    0.115165792,
+    0.0760280639
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.00264672935,
+    0.0575828925,
+    0.00291428715
+   ],
+   "size": [
+    0.139042556,
+    0.1151658,
+    0.146227553
+   ],
+   "min": [
+    -0.06687455,
+    -7.450581e-09,
+    -0.07019949
+   ],
+   "max": [
+    0.07216801,
+    0.115165792,
+    0.0760280639
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   0.00264672935,
+   0.00291428715
+  ],
+  "materiais": [
+   "CogumeloMarrom"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/CogumeloVermelho.prefab",
+  "nome": "CogumeloVermelho",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 728,
+  "boundsCru": {
+   "center": [
+    0.00253167748,
+    0.0658020452,
+    -0.00260363519
+   ],
+   "size": [
+    0.191717744,
+    0.131604716,
+    0.201583952
+   ],
+   "min": [
+    -0.0933271945,
+    -3.12924385e-07,
+    -0.103395611
+   ],
+   "max": [
+    0.09839055,
+    0.1316044,
+    0.09818834
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.00253167748,
+    0.0658020452,
+    -0.00260363519
+   ],
+   "size": [
+    0.191717744,
+    0.131604716,
+    0.201583952
+   ],
+   "min": [
+    -0.0933271945,
+    -3.12924385e-07,
+    -0.103395611
+   ],
+   "max": [
+    0.09839055,
+    0.1316044,
+    0.09818834
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   0.00253167748,
+   -0.00260363519
+  ],
+  "materiais": [
+   "CogumeloVermelho"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/CepoDeMadeira.prefab",
+  "nome": "CepoDeMadeira",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 136,
+  "boundsCru": {
+   "center": [
+    0.0,
+    0.06414235,
+    1.78813934e-07
+   ],
+   "size": [
+    0.44028914,
+    0.128284872,
+    0.462947428
+   ],
+   "min": [
+    -0.22014457,
+    -8.940697e-08,
+    -0.231473535
+   ],
+   "max": [
+    0.22014457,
+    0.128284782,
+    0.2314739
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.0,
+    0.06414235,
+    1.78813934e-07
+   ],
+   "size": [
+    0.44028914,
+    0.128284872,
+    0.462947428
+   ],
+   "min": [
+    -0.22014457,
+    -8.940697e-08,
+    -0.231473535
+   ],
+   "max": [
+    0.22014457,
+    0.128284782,
+    0.2314739
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   0.0,
+   1.78813934e-07
+  ],
+  "materiais": [
+   "CepoDeMadeira"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/TroncoDeMadeira.prefab",
+  "nome": "TroncoDeMadeira",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 328,
+  "boundsCru": {
+   "center": [
+    0.0006403625,
+    0.01327461,
+    0.00435364246
+   ],
+   "size": [
+    0.428893328,
+    0.31279707,
+    1.11076784
+   ],
+   "min": [
+    -0.2138063,
+    -0.143123925,
+    -0.5510303
+   ],
+   "max": [
+    0.215087026,
+    0.169673145,
+    0.559737563
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.0006403625,
+    0.01327461,
+    0.00435364246
+   ],
+   "size": [
+    0.428893328,
+    0.31279707,
+    1.11076784
+   ],
+   "min": [
+    -0.2138063,
+    -0.143123925,
+    -0.5510303
+   ],
+   "max": [
+    0.215087026,
+    0.169673145,
+    0.559737563
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   0.0006403625,
+   0.00435364246
+  ],
+  "materiais": [
+   "TroncoDeMadeira"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Coracao.prefab",
+  "nome": "Coracao",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 256,
+  "boundsCru": {
+   "center": [
+    0.0,
+    -0.07634568,
+    0.0
+   ],
+   "size": [
+    0.96,
+    0.8673086,
+    0.2
+   ],
+   "min": [
+    -0.48,
+    -0.51,
+    -0.1
+   ],
+   "max": [
+    0.48,
+    0.357308626,
+    0.1
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.0,
+    -0.07634568,
+    0.0
+   ],
+   "size": [
+    0.96,
+    0.8673086,
+    0.2
+   ],
+   "min": [
+    -0.48,
+    -0.51,
+    -0.1
+   ],
+   "max": [
+    0.48,
+    0.357308626,
+    0.1
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   0.0,
+   0.0
+  ],
+  "materiais": [
+   "Coracao"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Flecha.prefab",
+  "nome": "Flecha",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 974,
+  "boundsCru": {
+   "center": [
+    0.2053903,
+    0.389721364,
+    -0.3657964
+   ],
+   "size": [
+    0.7862275,
+    1.26905727,
+    1.22034609
+   ],
+   "min": [
+    -0.187723458,
+    -0.244807273,
+    -0.975969434
+   ],
+   "max": [
+    0.598504066,
+    1.02425,
+    0.244376659
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.2053903,
+    0.389721364,
+    -0.3657964
+   ],
+   "size": [
+    0.7862275,
+    1.26905727,
+    1.22034609
+   ],
+   "min": [
+    -0.187723458,
+    -0.244807273,
+    -0.975969434
+   ],
+   "max": [
+    0.598504066,
+    1.02425,
+    0.244376659
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   0.2053903,
+   -0.3657964
+  ],
+  "materiais": [
+   "Flecha"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Moeda.prefab",
+  "nome": "Moeda",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 1436,
+  "boundsCru": {
+   "center": [
+    0.07776874,
+    0.3743162,
+    1.873821e-06
+   ],
+   "size": [
+    0.6734947,
+    0.868596733,
+    0.12165013
+   ],
+   "min": [
+    -0.2589786,
+    -0.05998218,
+    -0.06082319
+   ],
+   "max": [
+    0.4145161,
+    0.808614552,
+    0.06082694
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.07776874,
+    0.3743162,
+    1.873821e-06
+   ],
+   "size": [
+    0.6734947,
+    0.868596733,
+    0.12165013
+   ],
+   "min": [
+    -0.2589786,
+    -0.05998218,
+    -0.06082319
+   ],
+   "max": [
+    0.4145161,
+    0.808614552,
+    0.06082694
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   0.07776874,
+   1.873821e-06
+  ],
+  "materiais": [
+   "Moeda"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/Mola.prefab",
+  "nome": "Mola",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 3,
+  "triangulos": 2208,
+  "boundsCru": {
+   "center": [
+    2.98023224e-08,
+    0.450000018,
+    -8.940697e-08
+   ],
+   "size": [
+    0.8000001,
+    0.880000055,
+    0.8000002
+   ],
+   "min": [
+    -0.4,
+    0.00999999,
+    -0.400000185
+   ],
+   "max": [
+    0.400000066,
+    0.890000045,
+    0.4
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    2.98023224e-08,
+    0.450000018,
+    -8.940697e-08
+   ],
+   "size": [
+    0.8000001,
+    0.880000055,
+    0.8000002
+   ],
+   "min": [
+    -0.4,
+    0.00999999,
+    -0.400000185
+   ],
+   "max": [
+    0.400000066,
+    0.890000045,
+    0.4
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   2.98023224e-08,
+   -8.940697e-08
+  ],
+  "materiais": [
+   "Mola",
+   "Mola",
+   "Mola"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/HexPrototype/BarracaArmada.prefab",
+  "nome": "BarracaArmada",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 5536,
+  "boundsCru": {
+   "center": [
+    0.0,
+    0.486320555,
+    0.0
+   ],
+   "size": [
+    1.89387524,
+    0.9726411,
+    1.93587518
+   ],
+   "min": [
+    -0.9469376,
+    0.0,
+    -0.9679376
+   ],
+   "max": [
+    0.9469376,
+    0.9726411,
+    0.9679376
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.0,
+    0.486320555,
+    0.0
+   ],
+   "size": [
+    1.89387524,
+    0.9726411,
+    1.93587518
+   ],
+   "min": [
+    -0.9469376,
+    0.0,
+    -0.9679376
+   ],
+   "max": [
+    0.9469376,
+    0.9726411,
+    0.9679376
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   0.0,
+   0.0
+  ],
+  "materiais": [
+   "BarracaArmada"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/MateusModelos/ArvoreGrande.fbx",
+  "nome": "ArvoreGrande",
+  "rootScale": [
+   100.0,
+   100.0,
+   100.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 6030,
+  "boundsCru": {
+   "center": [
+    -0.00111060962,
+    0.00105594564,
+    0.0114490455
+   ],
+   "size": [
+    0.01879222,
+    0.0183030013,
+    0.0230021048
+   ],
+   "min": [
+    -0.0105067194,
+    -0.008095555,
+    -5.20069152e-05
+   ],
+   "max": [
+    0.0082855,
+    0.0102074463,
+    0.0229500979
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.00111060962,
+    0.00105594564,
+    0.0114490455
+   ],
+   "size": [
+    0.01879222,
+    0.0183030013,
+    0.0230021048
+   ],
+   "min": [
+    -0.0105067194,
+    -0.008095555,
+    -5.20069152e-05
+   ],
+   "max": [
+    0.0082855,
+    0.0102074463,
+    0.0229500979
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   -0.00111060962,
+   0.0114490455
+  ],
+  "materiais": [
+   "Lit"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/MateusModelos/Arvore.fbx",
+  "nome": "Arvore",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 310,
+  "boundsCru": {
+   "center": [
+    -0.009103298,
+    1.20983934,
+    -0.00416898727
+   ],
+   "size": [
+    1.19315,
+    2.41967821,
+    1.21061158
+   ],
+   "min": [
+    -0.6056783,
+    2.38418579e-07,
+    -0.6094748
+   ],
+   "max": [
+    0.5874717,
+    2.41967845,
+    0.6011368
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.009103298,
+    1.20983934,
+    -0.00416898727
+   ],
+   "size": [
+    1.19315,
+    2.41967821,
+    1.21061158
+   ],
+   "min": [
+    -0.6056783,
+    2.38418579e-07,
+    -0.6094748
+   ],
+   "max": [
+    0.5874717,
+    2.41967845,
+    0.6011368
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   -0.009103298,
+   -0.00416898727
+  ],
+  "materiais": [
+   "Lit"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/MateusModelos/Morcegp.fbx",
+  "nome": "Morcegp",
+  "rootScale": [
+   100.0,
+   100.0,
+   100.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 612,
+  "boundsCru": {
+   "center": [
+    0.00107465021,
+    2.79396772e-09,
+    0.000952856848
+   ],
+   "size": [
+    0.00577000249,
+    0.0102988817,
+    0.00759049
+   ],
+   "min": [
+    -0.001810351,
+    -0.005149438,
+    -0.002842388
+   ],
+   "max": [
+    0.00395965157,
+    0.00514944363,
+    0.004748102
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    0.00107465021,
+    2.79396772e-09,
+    0.000952856848
+   ],
+   "size": [
+    0.00577000249,
+    0.0102988817,
+    0.00759049
+   ],
+   "min": [
+    -0.001810351,
+    -0.005149438,
+    -0.002842388
+   ],
+   "max": [
+    0.00395965157,
+    0.00514944363,
+    0.004748102
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "centro (center.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   0.00107465021,
+   0.000952856848
+  ],
+  "materiais": [
+   "Morcego"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/Lucca.prefab",
+  "nome": "Lucca",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": true,
+  "malhas": 2,
+  "triangulos": 3870,
+  "boundsCru": {
+   "center": [
+    -0.339737177,
+    0.4556074,
+    0.156024814
+   ],
+   "size": [
+    4.39007425,
+    2.3485744,
+    3.90274
+   ],
+   "min": [
+    -2.5347743,
+    -0.7186798,
+    -1.79534519
+   ],
+   "max": [
+    1.8553,
+    1.62989461,
+    2.1073947
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.3560965,
+    0.6967121,
+    0.033557266
+   ],
+   "size": [
+    0.182073712,
+    1.63681948,
+    0.8700212
+   ],
+   "min": [
+    -0.447133362,
+    -0.121697664,
+    -0.401453346
+   ],
+   "max": [
+    -0.26505965,
+    1.51512182,
+    0.468567878
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "outro",
+  "pivoHorizontalDesvio_xz": [
+   -0.339737177,
+   0.156024814
+  ],
+  "materiais": [
+   "Lit",
+   "UV"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ },
+ {
+  "path": "Assets/Modelos/MateusModelos/IlhaFlutuante.fbx",
+  "nome": "IlhaFlutuante",
+  "rootScale": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "usaMeshFilter": true,
+  "usaSkinnedMeshRenderer": false,
+  "malhas": 1,
+  "triangulos": 498,
+  "boundsCru": {
+   "center": [
+    -0.0154275894,
+    2.08873725,
+    -0.03503537
+   ],
+   "size": [
+    4.82564259,
+    4.1774745,
+    5.080712
+   ],
+   "min": [
+    -2.428249,
+    0.0,
+    -2.57539129
+   ],
+   "max": [
+    2.3973937,
+    4.1774745,
+    2.50532055
+   ]
+  },
+  "boundsSoMeshFilter_usadoPorVisualDeIlha": {
+   "center": [
+    -0.0154275894,
+    2.08873725,
+    -0.03503537
+   ],
+   "size": [
+    4.82564259,
+    4.1774745,
+    5.080712
+   ],
+   "min": [
+    -2.428249,
+    0.0,
+    -2.57539129
+   ],
+   "max": [
+    2.3973937,
+    4.1774745,
+    2.50532055
+   ]
+  },
+  "pivoVerticalRelativoAoBounds": "base (min.y ~ 0)",
+  "pivoHorizontalDesvio_xz": [
+   -0.0154275894,
+   -0.03503537
+  ],
+  "materiais": [
+   "Lit"
+  ],
+  "shaders": [
+   "Universal Render Pipeline/Lit"
+  ]
+ }
+]

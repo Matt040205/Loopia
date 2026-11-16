@@ -15,7 +15,7 @@ namespace Loopia.Hex
     /// casa sob o mouse: verde quando da para soltar, vermelho quando nao da, e o motivo aparece
     /// escrito. Quem decide se pode e sempre o MapaDePlataformas — aqui so se pergunta.
     ///
-    /// Isto e IMGUI de prototipo, para a mecanica poder ser jogada antes da HUD de verdade.
+    /// A apresentacao Canvas e opcional. Na sua ausencia, a barra IMGUI continua disponivel.
     /// </summary>
     [DisallowMultipleComponent]
     public class CartasUI : MonoBehaviour
@@ -46,8 +46,19 @@ namespace Loopia.Hex
         MeshRenderer _marcadorRenderer;
         MaterialPropertyBlock _bloco;
 
+        HudDeCartas _hud;
+        Mesh _malhaMarcador;
+        Material _materialMarcador;
+
         GUIStyle _estiloCarta;
         GUIStyle _estiloTexto;
+
+        string _textoPendentes;
+        int _pendentesNoTexto = -1;
+
+        // Tamanho logico da tela no OnGUI (Screen dividido pelo fator da EscalaDaInterface).
+        float _larguraDaTela;
+        float _alturaDaTela;
 
         /// <summary>A carta que o jogador esta segurando agora, ou null.</summary>
         public PlataformaDef CartaArrastada =>
@@ -74,22 +85,89 @@ namespace Loopia.Hex
 
         bool LuccaMorreu => mao != null && mao.status != null && !mao.status.EstaVivo;
 
+        /// <summary>Lucca morto ou jornada encerrada (vitoria/derrota): sem arraste e sem barra de cartas.</summary>
+        bool JornadaEncerrada => LuccaMorreu || (mapa != null && mapa.diretor != null && mapa.diretor.Terminou);
+
+        internal bool AtivarHud(HudDeCartas hud)
+        {
+            if (!isActiveAndEnabled || _hud != null || mao == null || mundo == null || !hud.Preparar(mao, mundo))
+                return false;
+            CancelarArraste();
+            _hud = hud;
+            return true;
+        }
+
+        internal void DesativarHud(HudDeCartas hud)
+        {
+            if (_hud != hud) return;
+            CancelarArraste();
+            _hud = null;
+        }
+
+        void OnDisable()
+        {
+            CancelarArraste();
+            if (_hud != null) _hud.Visivel(false);
+        }
+
+        void OnDestroy()
+        {
+            if (_marcador != null) Destroy(_marcador.gameObject);
+            Destroy(_malhaMarcador);
+            Destroy(_materialMarcador);
+        }
+
+        void OnApplicationFocus(bool temFoco)
+        {
+            if (!temFoco && _espacoArrastado >= 0) CancelarArraste();
+        }
+
         void Update()
         {
-            if (LuccaMorreu)
+            bool encerrada = JornadaEncerrada;
+            if (_hud != null) _hud.Visivel(!encerrada);
+            if (encerrada)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
                 return;
             }
 
-            if (CartaArrastada == null)
+            bool temPonteiro = TryPosicaoDoMouse(out Vector3 ponteiro);
+            float dt = Time.unscaledDeltaTime;
+
+            if (_hud != null && temPonteiro)
+            {
+                Plataforma apontada = null;
+                if (_espacoArrastado < 0 && !_hud.SobreAMao(ponteiro))
+                    ApontandoPlataforma(out apontada);
+                _hud.Observar(ponteiro, apontada, dt);
+
+                if (_espacoArrastado < 0 && BotaoEsquerdoPressionado())
+                {
+                    int espaco = _hud.EspacoSobCursor(ponteiro);
+                    var carta = mao.CartaNoEspaco(espaco);
+                    if (carta != null)
+                    {
+                        ComecarArraste(espaco);
+                        _hud.IniciarArraste(espaco, carta, ponteiro);
+                    }
+                }
+            }
+
+            if (CartaArrastada == null || !temPonteiro)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
                 return;
             }
 
-            AtualizarCasaSobOMouse();
+            AtualizarCasaSobOMouse(ponteiro);
             AtualizarMarcador();
+            if (_hud != null)
+            {
+                string retorno = _podeSoltarAqui ? "Solte para construir"
+                    : _motivo ?? "Aponte para uma casa do tabuleiro";
+                _hud.Arrastando(ponteiro, _podeSoltarAqui, retorno, dt);
+            }
 
             if (BotaoEsquerdoSolto()) Soltar();
         }
@@ -105,6 +183,7 @@ namespace Loopia.Hex
         void CancelarArraste()
         {
             _espacoArrastado = -1;
+            if (_hud != null) _hud.EncerrarArraste();
             if (grade != null) grade.Esconder();
             if (_marcador != null) _marcador.gameObject.SetActive(false);
         }
@@ -115,19 +194,24 @@ namespace Loopia.Hex
 
             if (carta != null && _casaValida && _podeSoltarAqui)
             {
-                if (mapa.Colocar(carta, _casaSobOMouse) != null) mao.Gastar(_espacoArrastado);
+                if (mapa.Colocar(carta, _casaSobOMouse) != null && mao.Gastar(_espacoArrastado) && _hud != null)
+                    _hud.Consumir(carta, _casaSobOMouse);
             }
 
             CancelarArraste();
         }
 
-        void AtualizarCasaSobOMouse()
+        void AtualizarCasaSobOMouse(Vector3 naTela)
         {
             _casaValida = false;
             _podeSoltarAqui = false;
             _motivo = null;
 
-            if (!TryPosicaoDoMouse(out Vector3 naTela)) return;
+            if (_hud != null && _hud.SobreAMao(naTela))
+            {
+                _motivo = "Aponte para fora da mão";
+                return;
+            }
 
             Ray raio = camera3d.ScreenPointToRay(naTela);
             if (!mundo.TryCasaNoRaio(raio, out _casaSobOMouse)) return;
@@ -146,11 +230,12 @@ namespace Loopia.Hex
             // viraria chao andavel no proximo bake.
             go.AddComponent<Unity.AI.Navigation.NavMeshModifier>().ignoreFromBuild = true;
 
-            go.AddComponent<MeshFilter>().sharedMesh =
-                HexMesh.Create(mundo.tamanhoDoHexagono * (1f - mundo.folgaEntreHexagonos), 0f);
+            _malhaMarcador = HexMesh.Create(mundo.tamanhoDoHexagono * (1f - mundo.folgaEntreHexagonos), 0f);
+            go.AddComponent<MeshFilter>().sharedMesh = _malhaMarcador;
 
+            _materialMarcador = CriarMaterialTransparente();
             _marcadorRenderer = go.AddComponent<MeshRenderer>();
-            _marcadorRenderer.sharedMaterial = CriarMaterialTransparente();
+            _marcadorRenderer.sharedMaterial = _materialMarcador;
             _marcadorRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             _marcadorRenderer.receiveShadows = false;
 
@@ -174,7 +259,9 @@ namespace Loopia.Hex
             // Um pouco acima da superficie, senao briga por profundidade com a ilha embaixo.
             _marcador.position = mundo.PosicaoDe(_casaSobOMouse) + mundo.transform.up * 0.05f;
 
-            Color cor = _podeSoltarAqui ? corPodeColocar : corNaoPode;
+            Color cor = _hud == null
+                ? (_podeSoltarAqui ? corPodeColocar : corNaoPode)
+                : (_podeSoltarAqui ? new Color(.43f, .89f, .69f, .40f) : new Color(.95f, .44f, .42f, .36f));
             _marcadorRenderer.GetPropertyBlock(_bloco);
             _bloco.SetColor("_BaseColor", cor);
             _bloco.SetColor("_Color", cor);
@@ -200,8 +287,8 @@ namespace Loopia.Hex
 
         void OnGUI()
         {
-            // IMGUI desenha por cima de qualquer Canvas: no Game Over sai da frente da tela de morte.
-            if (mao == null || LuccaMorreu) return;
+            // IMGUI desenha por cima de qualquer Canvas: no fim da jornada sai da frente da tela de resultado.
+            if (_hud != null || mao == null || JornadaEncerrada) return;
 
             if (_estiloCarta == null)
             {
@@ -214,21 +301,30 @@ namespace Loopia.Hex
                 _estiloTexto = new GUIStyle(GUI.skin.label) { fontSize = 10, wordWrap = true };
             }
 
-            DesenharBarra();
-            DesenharDescricao();
+            // Telas acima de 1080p: tudo escala junto (EscalaDaInterface); o layout usa o tamanho logico da tela.
+            Matrix4x4 anterior = EscalaDaInterface.Aplicar(out _larguraDaTela, out _alturaDaTela);
+            try
+            {
+                DesenharBarra();
+                DesenharDescricao();
+            }
+            finally
+            {
+                GUI.matrix = anterior;
+            }
         }
 
         void DesenharBarra()
         {
             int espacos = mao.Mao.Count;
 
-            float alturaDaCarta = Mathf.Min(96f, Screen.height * 0.22f);
+            float alturaDaCarta = Mathf.Min(96f, _alturaDaTela * 0.22f);
             float larguraDaCarta = alturaDaCarta * 0.86f;
             const float folga = 6f;
 
             float larguraTotal = espacos * larguraDaCarta + (espacos - 1) * folga;
-            float x = (Screen.width - larguraTotal) * 0.5f;
-            float y = Screen.height - alturaDaCarta - 8f;
+            float x = (_larguraDaTela - larguraTotal) * 0.5f;
+            float y = _alturaDaTela - alturaDaCarta - 8f;
 
             _espacoSobOMouse = -1;
 
@@ -254,6 +350,30 @@ namespace Loopia.Hex
                     Event.current.Use();
                 }
             }
+
+            DesenharPendentes(x + larguraTotal, y);
+        }
+
+        /// <summary>
+        /// G2: "+N pendentes" logo acima do canto direito da barra, fora da area clicavel das cartas.
+        /// So um aviso: a pendente nao vira carta arrastavel ate ocupar um espaco da mao.
+        /// </summary>
+        void DesenharPendentes(float direitaDaBarra, float topoDaBarra)
+        {
+            int pendentes = mao.Pendentes;
+            if (pendentes <= 0) return;
+
+            // Texto em cache: OnGUI roda varias vezes por frame e nao deve alocar string a cada chamada.
+            if (pendentes != _pendentesNoTexto || _textoPendentes == null)
+            {
+                _pendentesNoTexto = pendentes;
+                _textoPendentes = "+" + pendentes + (pendentes == 1 ? " pendente" : " pendentes");
+            }
+
+            const float largura = 92f;
+            const float altura = 20f;
+            var area = new Rect(direitaDaBarra - largura, topoDaBarra - altura - 4f, largura, altura);
+            GUI.Box(area, _textoPendentes, _estiloCarta);
         }
 
         /// <summary>
@@ -289,7 +409,7 @@ namespace Loopia.Hex
 
             const float largura = 210f;
             const float altura = 86f;
-            var area = new Rect(Screen.width - largura - 12f, Screen.height - altura - 12f, largura, altura);
+            var area = new Rect(_larguraDaTela - largura - 12f, _alturaDaTela - altura - 12f, largura, altura);
 
             GUILayout.BeginArea(area, GUI.skin.box);
             GUILayout.Label(titulo, _estiloCarta);
@@ -311,6 +431,15 @@ namespace Loopia.Hex
         }
 
         // --- Entrada ---
+
+        static bool BotaoEsquerdoPressionado()
+        {
+#if ENABLE_INPUT_SYSTEM
+            return Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+#else
+            return Input.GetMouseButtonDown(0);
+#endif
+        }
 
         static bool BotaoEsquerdoSolto()
         {

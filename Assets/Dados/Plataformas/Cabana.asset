@@ -17,6 +17,12 @@ MonoBehaviour:
   cor: {r: 0.72, g: 0.5, b: 0.32, a: 1}
   onde: 1
   podeSerSubstituida: 1
+  modelo: {fileID: 0}
+  tamanhoDoModelo: 0.8
+  alturaDoModelo: 0.25
+  girarModelo: 0
+  marcador: {fileID: 5814612609444383606, guid: 481fdd8765be5a448886ff9cb4f27edb, type: 3}
+  ocultarDecoracao: 0
   bonusDePv: 2
   bonusDeDano: 0
   tipoQueConta: {fileID: 11400000, guid: 5a82117b50fb09241b2c461714cd92cb, type: 2}

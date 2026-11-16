@@ -22,4 +22,6 @@ MonoBehaviour:
   tamanhoDoModelo: 0.8
   alturaDoModelo: 0.25
   girarModelo: 0
+  marcador: {fileID: 3668624367327319124, guid: 7145ee28c93ce464faa9be7a826eae2f, type: 3}
+  ocultarDecoracao: 0
   altura: 2.2

@@ -1,0 +1,3636 @@
+[
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 5.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    344.999969,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.8816904,
+    0.712412834,
+    0.5816989,
+    1.0
+   ],
+   "intensidade": 0.199186176,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.7862651,
+    0.5901906,
+    0.7045706,
+    1.0
+   ],
+   "equator": [
+    0.81489265,
+    0.6268573,
+    0.667709053,
+    1.0
+   ],
+   "ground": [
+    0.393132538,
+    0.2950953,
+    0.3522853,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.7862651,
+    0.5901906,
+    0.7045706,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.7862651,
+    0.5901906,
+    0.7045706,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.7862651,
+    0.5901906,
+    0.7045706,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 5.0,
+  "rotulo": "pre-alvorada",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 6.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    0.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.999989152,
+    0.7843071,
+    0.5882347,
+    1.0
+   ],
+   "intensidade": 1.0,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9097926,
+    0.6627385,
+    0.7647004,
+    1.0
+   ],
+   "equator": [
+    0.936851561,
+    0.6992091,
+    0.7117607,
+    1.0
+   ],
+   "ground": [
+    0.4548963,
+    0.331369251,
+    0.3823502,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9097926,
+    0.6627385,
+    0.7647004,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9097926,
+    0.6627385,
+    0.7647004,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9097926,
+    0.6627385,
+    0.7647004,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 6.0,
+  "rotulo": "alvorada",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 7.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    15.000001,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.9915042,
+    0.8137224,
+    0.656855464,
+    1.0
+   ],
+   "intensidade": 1.02962959,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.8620966,
+    0.693460763,
+    0.7888863,
+    1.0
+   ],
+   "equator": [
+    0.9009189,
+    0.7295393,
+    0.749277055,
+    1.0
+   ],
+   "ground": [
+    0.4310483,
+    0.346730381,
+    0.394443154,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.8620966,
+    0.693460763,
+    0.7888863,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.8620966,
+    0.693460763,
+    0.7888863,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.8620966,
+    0.693460763,
+    0.7888863,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 7.0,
+  "rotulo": "manha",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 17.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    15.0000076,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.991503656,
+    0.712416053,
+    0.6241796,
+    1.0
+   ],
+   "intensidade": 0.7518519,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.8947737,
+    0.6215666,
+    0.5503235,
+    1.0
+   ],
+   "equator": [
+    0.9237927,
+    0.6488214,
+    0.5724803,
+    1.0
+   ],
+   "ground": [
+    0.447386861,
+    0.3107833,
+    0.275161743,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.8947737,
+    0.6215666,
+    0.5503235,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.8947737,
+    0.6215666,
+    0.5503235,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.8947737,
+    0.6215666,
+    0.5503235,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 17.0,
+  "rotulo": "tarde",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 19.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    345.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.8816903,
+    0.6111072,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.511921167,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.818944335,
+    0.518296242,
+    0.46601212,
+    1.0
+   ],
+   "equator": [
+    0.837768137,
+    0.546139538,
+    0.490914375,
+    1.0
+   ],
+   "ground": [
+    0.409472167,
+    0.259148121,
+    0.23300606,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.818944335,
+    0.518296242,
+    0.46601212,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.818944335,
+    0.518296242,
+    0.46601212,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.818944335,
+    0.518296242,
+    0.46601212,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 12345,
+  "hora_pedida": 19.0,
+  "rotulo": "crepusculo",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 7,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 12.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    90.0,
+    330.0,
+    0.0
+   ],
+   "cor": [
+    0.949021161,
+    0.960778952,
+    0.9999874,
+    1.0
+   ],
+   "intensidade": 1.4,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "equator": [
+    0.721183062,
+    0.8811709,
+    0.9368559,
+    1.0
+   ],
+   "ground": [
+    0.311769068,
+    0.423526615,
+    0.454899758,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.623538136,
+    0.84705323,
+    0.9097995,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 12.0,
+  "rotulo": "noon",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 18.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    -5.008957e-06,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.999989152,
+    0.6627404,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.7,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "equator": [
+    0.9643021,
+    0.602347851,
+    0.499607056,
+    1.0
+   ],
+   "ground": [
+    0.474503845,
+    0.288232654,
+    0.239215121,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.9490077,
+    0.5764653,
+    0.478430241,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 18.0,
+  "rotulo": "dusk",
+  "resolucao": "2520x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "1920x1080"
+ },
+ {
+  "timeOfDay": 22.0,
+  "sunriseHour": 6.0,
+  "sunsetHour": 18.0,
+  "autoAdvance": false,
+  "syncFog": true,
+  "syncAmbient": true,
+  "fogDensityDoController": 0.01,
+  "sol": {
+   "nome": "Sun",
+   "tipo": "Directional",
+   "rotEuler": [
+    300.0,
+    150.0,
+    180.0
+   ],
+   "cor": [
+    0.5267938,
+    0.456207573,
+    0.549019635,
+    1.0
+   ],
+   "intensidade": 0.158299029,
+   "sombras": "Soft",
+   "forcaSombra": 1.0,
+   "temperatura": false
+  },
+  "ambiente": {
+   "modo": "Trilight",
+   "sky": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "equator": [
+    0.4581661,
+    0.377514631,
+    0.464836329,
+    1.0
+   ],
+   "ground": [
+    0.2143771,
+    0.171894535,
+    0.2143789,
+    0.5
+   ],
+   "intensidade": 1.0,
+   "luzAmbienteFlat": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "skybox": "null",
+   "sunSource": "Sun"
+  },
+  "fog": {
+   "ligado": true,
+   "modo": "Exponential",
+   "cor": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "densidade": 0.01,
+   "inicio": 105.0,
+   "fim": 260.0
+  },
+  "camera": {
+   "clearFlags": "SolidColor",
+   "background": [
+    0.4287542,
+    0.343789071,
+    0.4287578,
+    1.0
+   ],
+   "fov": 60.0,
+   "orthographic": true,
+   "allowHDR": true,
+   "allowMSAA": true
+  },
+  "cameraURP": {
+   "renderPostProcessing": true,
+   "antialiasing": "None",
+   "renderShadows": true,
+   "volumeMask": 1
+  },
+  "volumes": [
+   {
+    "objeto": "Global Volume",
+    "global": true,
+    "peso": 1.0,
+    "prioridade": 0.0,
+    "perfil": "VolumeCena",
+    "componentes": [
+     {
+      "tipo": "Bloom",
+      "ativo": true,
+      "parametros": {
+       "skipIterations [default]": "1",
+       "threshold [override]": "1",
+       "intensity [override]": "0.6",
+       "scatter [override]": "0.6",
+       "clamp [default]": "65472",
+       "tint [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "highQualityFiltering [default]": "False",
+       "filter [default]": "Gaussian",
+       "downscale [default]": "Half",
+       "maxIterations [default]": "6",
+       "dirtTexture [default]": "null",
+       "dirtIntensity [default]": "0"
+      }
+     },
+     {
+      "tipo": "ColorAdjustments",
+      "ativo": true,
+      "parametros": {
+       "postExposure [override]": "0.1",
+       "contrast [override]": "12",
+       "colorFilter [default]": "RGBA(1.000, 1.000, 1.000, 1.000)",
+       "hueShift [default]": "0",
+       "saturation [override]": "20"
+      }
+     },
+     {
+      "tipo": "ShadowsMidtonesHighlights",
+      "ativo": true,
+      "parametros": {
+       "shadows [override]": "(0.84, 0.87, 1.00, 0.00)",
+       "midtones [default]": "(1.00, 1.00, 1.00, 0.00)",
+       "highlights [override]": "(1.00, 0.99, 0.84, 0.00)",
+       "shadowsStart [default]": "0",
+       "shadowsEnd [default]": "0.3",
+       "highlightsStart [default]": "0.55",
+       "highlightsEnd [default]": "1"
+      }
+     },
+     {
+      "tipo": "Vignette",
+      "ativo": true,
+      "parametros": {
+       "color [default]": "RGBA(0.000, 0.000, 0.000, 1.000)",
+       "center [default]": "(0.50, 0.50)",
+       "intensity [override]": "0.2",
+       "smoothness [override]": "0.45",
+       "rounded [default]": "False"
+      }
+     }
+    ]
+   }
+  ],
+  "seed": 2024,
+  "hora_pedida": 22.0,
+  "rotulo": "night",
+  "resolucao": "2520x1080"
+ }
+]

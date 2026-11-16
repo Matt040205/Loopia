@@ -1,0 +1,239 @@
+{
+  "antes_60": {
+    "end": [
+      [
+        "26.8333321",
+        "1",
+        "24"
+      ]
+    ],
+    "walk_foot": {
+      "state": "81563449",
+      "samples": 611,
+      "median_m_s": 2.55112388489091,
+      "p95_m_s": 3.0144060370374444
+    }
+  },
+  "depois_60": {
+    "same_tiles": true,
+    "tile_time_max_abs_s": 1.900000000887303e-06,
+    "max_root_world_delta_u": 0.15833272690912123,
+    "common_frames": 1616
+  },
+  "depois_30": {
+    "same_tiles": true,
+    "end": [
+      [
+        "27.9",
+        "1",
+        "24"
+      ]
+    ],
+    "jumps": 24,
+    "matching_jump_states": 24
+  },
+  "volta": {
+    "contatos": [
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ]
+    ],
+    "matching": 24,
+    "jumps": 24,
+    "eof": "end,voltas=1,normal=24,spring=0,shots=5,runShots=3,airStarts=1,airShots=2,nav=True,t=26.833334",
+    "drift": 2.166616e-08,
+    "grip_drift": 0.0,
+    "max_idle": 0.9972295,
+    "max_walk": 0.9644351,
+    "max_run": 1.0,
+    "run_foot": {
+      "samples": 213,
+      "median": 0.44601133377596164,
+      "p95": 2.3888736753057027
+    },
+    "walk_foot": {
+      "samples": 0,
+      "median": null,
+      "p95": null
+    }
+  },
+  "ciclo": {
+    "contatos": [
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "spring",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ],
+      [
+        "jump",
+        true,
+        0.0667
+      ]
+    ],
+    "matching": 8,
+    "jumps": 8,
+    "eof": "end,voltas=0,normal=7,spring=1,shots=6,runShots=3,airStarts=2,airShots=3,nav=True,t=12.6333332",
+    "drift": 1.51739084e-08,
+    "grip_drift": 0.0,
+    "max_idle": 1.0,
+    "max_walk": 0.9999999,
+    "max_run": 1.0,
+    "run_foot": {
+      "samples": 60,
+      "median": 0.4459832979874374,
+      "p95": 2.3780651015236094
+    },
+    "walk_foot": {
+      "samples": 124,
+      "median": 0.12428640490812085,
+      "p95": 0.5381138649777946
+    }
+  }
+}

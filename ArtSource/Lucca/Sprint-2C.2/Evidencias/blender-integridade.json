@@ -1,0 +1,72 @@
+{
+  "source_sha256": "4a43045d1fefd38b43687e36ff6a3afc761cafafb6a289d1a27d1451996b6212",
+  "blend_sha256": "e30bb109c6ee2eda44d34ef124f939b922b38b8f1bfe23d30371467262a7f460",
+  "rig_rest_and_hierarchy_equal": true,
+  "meshes_uv_and_weights_equal": 67,
+  "fbx": {
+    "Jump.fbx": {
+      "sha256": "8d027cc53faef4c40b62a971b6382b4cd7dcf7918f3f236c2536f4a9ea5291ed",
+      "bones": 57,
+      "takes": 1
+    },
+    "Run.fbx": {
+      "sha256": "ef36c3f8a1929f2a04c43480cdc16c7bf9e771f1ed1970be5d0ff584c3e3e63b",
+      "bones": 57,
+      "takes": 1
+    },
+    "SpringJump.fbx": {
+      "sha256": "1daa81cfceb1820cd99c876097ac1bb68a8bc0227e1cd3338f407f8e8d2b18bb",
+      "bones": 57,
+      "takes": 1
+    },
+    "Walk.fbx": {
+      "sha256": "996739c6af30331b62c949bbe02f6d2ff903348bbb22cc745f9aa623b6c8014d",
+      "bones": 57,
+      "takes": 1
+    }
+  },
+  "actions": {
+    "Idle": [
+      [
+        1.0,
+        193.0
+      ],
+      true
+    ],
+    "Walk": [
+      [
+        1.0,
+        53.0
+      ],
+      true
+    ],
+    "Run": [
+      [
+        1.0,
+        31.0
+      ],
+      true
+    ],
+    "Jump": [
+      [
+        1.0,
+        22.0
+      ],
+      false
+    ],
+    "Spring Jump": [
+      [
+        1.0,
+        43.0
+      ],
+      false
+    ],
+    "Demonstração · Sprint 2C.2": [
+      [
+        1.0,
+        474.0
+      ],
+      false
+    ]
+  }
+}

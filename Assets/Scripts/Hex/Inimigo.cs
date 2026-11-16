@@ -52,6 +52,22 @@ namespace Loopia.Hex
         public bool EstaVivo => PvAtual > 0;
         public bool EstaEmRasante => _estado != Estado.Pousado;
 
+        /// <summary>
+        /// Casas a mais de alcance para o tiro do Lucca acertar este inimigo. 0 para os comuns. O chefe fica
+        /// no centro do miolo, longe demais para o alcance normal (ver RegrasDoChefe).
+        /// </summary>
+        public int AlcanceExtraComoAlvo { get; private set; }
+
+        /// <summary>Ligado: pode ser alvo mesmo de lado ou atras do Lucca (alvo grande, como o chefe).</summary>
+        public bool AlvoDeQualquerAngulo { get; private set; }
+
+        /// <summary>Marca este inimigo como alvo grande: alcance extra e qualquer angulo.</summary>
+        public void TornarAlvoGrande(int alcanceExtra)
+        {
+            AlcanceExtraComoAlvo = Mathf.Max(0, alcanceExtra);
+            AlvoDeQualquerAngulo = true;
+        }
+
         HexPlayer _player;
         HexWorld _mundo;
         NavMeshAgent _agente;
@@ -296,14 +312,8 @@ namespace Loopia.Hex
             var renderizador = corpo.GetComponent<MeshRenderer>();
             if (renderizador == null) return;
 
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit");
-            if (shader == null) shader = Shader.Find("Standard");
-
-            var material = new Material(shader) { name = def.nome };
-            if (material.HasProperty("_BaseColor")) material.SetColor("_BaseColor", def.cor);
-            if (material.HasProperty("_Color")) material.SetColor("_Color", def.cor);
-            if (material.HasProperty("_Smoothness")) material.SetFloat("_Smoothness", 0.1f);
-            renderizador.sharedMaterial = material;
+            // um material por tipo/cor, reaproveitado (antes: new Material a cada spawn, nunca destruido)
+            renderizador.sharedMaterial = MateriaisCompartilhados.Lit(def.nome, def.cor, 0.1f);
         }
     }
 }

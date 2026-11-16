@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="28" result="Passed" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34,8310565">
+  <test-suite type="TestSuite" id="1000" name="Loopia" fullname="Loopia" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.831057" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1514" name="Assembly-CSharp-Editor.dll" fullname="C:/Users/Sitr3n/Documents/Github/loopia-mvp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.748413" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="27364" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1515" name="Loopia" fullname="Loopia" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.742155" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1516" name="Hex" fullname="Loopia.Hex" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.737370" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="SetUpFixture" id="1488" name="Tests" fullname="Loopia.Hex.Tests.GuardaDaSuite" classname="Loopia.Hex.Tests.GuardaDaSuite" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.725230" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1025" name="CartasVisuaisTests" fullname="Loopia.Hex.Tests.CartasVisuaisTests" classname="Loopia.Hex.Tests.CartasVisuaisTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-16 12:38:25Z" end-time="2026-11-16 12:38:26Z" duration="0.658423" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1027" name="Arraste_ValidaAntesDeGastar_EntregaPendente_EOcultaAoTerminar" fullname="Loopia.Hex.Tests.CartasVisuaisTests.Arraste_ValidaAntesDeGastar_EntregaPendente_EOcultaAoTerminar" methodname="Arraste_ValidaAntesDeGastar_EntregaPendente_EOcultaAoTerminar" classname="Loopia.Hex.Tests.CartasVisuaisTests" runstate="Runnable" seed="1016944784" result="Passed" start-time="2026-11-16 12:38:18Z" end-time="2026-11-16 12:38:26Z" duration="7.783952" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+                <output><![CDATA[[LoopDirector] Estado: Correndo -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu na volta 1.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1119" name="EncontroDoChefePlayModeTests" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-16 12:39:05Z" end-time="2026-11-16 12:39:07Z" duration="2.570496" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1121" name="Chefe_EAlvoDoTiroAutomatico_ESofreDanoDeFlechasReais" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests.Chefe_EAlvoDoTiroAutomatico_ESofreDanoDeFlechasReais" methodname="Chefe_EAlvoDoTiroAutomatico_ESofreDanoDeFlechasReais" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" seed="567330244" result="Passed" start-time="2026-11-16 12:38:26Z" end-time="2026-11-16 12:38:34Z" duration="8.237462" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 1).
+]]></output>
+              </test-case>
+              <test-case id="1122" name="MorteDoChefe_VitoriaUmaVez_SalvaEVoltaAoAcampamentoComOsDados" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests.MorteDoChefe_VitoriaUmaVez_SalvaEVoltaAoAcampamentoComOsDados" methodname="MorteDoChefe_VitoriaUmaVez_SalvaEVoltaAoAcampamentoComOsDados" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" seed="1577113037" result="Passed" start-time="2026-11-16 12:38:34Z" end-time="2026-11-16 12:38:43Z" duration="8.930189" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 1).
+[LoopDirector] Estado: Chefe -> Vitoria.
+[LoopDirector] Vitoria: o chefe caiu depois de 4 voltas.
+]]></output>
+              </test-case>
+              <test-case id="1123" name="MorteDoLuccaNoChefe_EDerrota_EOChefeCaindoDepoisNaoViraVitoria" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests.MorteDoLuccaNoChefe_EDerrota_EOChefeCaindoDepoisNaoViraVitoria" methodname="MorteDoLuccaNoChefe_EDerrota_EOChefeCaindoDepoisNaoViraVitoria" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" seed="559755264" result="Passed" start-time="2026-11-16 12:38:43Z" end-time="2026-11-16 12:38:50Z" duration="7.270869" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 1).
+[LoopDirector] Estado: Chefe -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu diante do chefe.
+]]></output>
+              </test-case>
+              <test-case id="1120" name="QuatroVoltas_IniciamUmConfronto_EAQuintaNaoConta" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests.QuatroVoltas_IniciamUmConfronto_EAQuintaNaoConta" methodname="QuatroVoltas_IniciamUmConfronto_EAQuintaNaoConta" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" seed="1519264599" result="Passed" start-time="2026-11-16 12:38:50Z" end-time="2026-11-16 12:38:57Z" duration="7.314159" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 2).
+[EncontroDoChefe] Nao deu para iniciar: o chefe ja nasceu nesta partida
+]]></output>
+              </test-case>
+              <test-case id="1124" name="Revoada_AvisaComIndicadorEChamaMorcegosComuns" fullname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests.Revoada_AvisaComIndicadorEChamaMorcegosComuns" methodname="Revoada_AvisaComIndicadorEChamaMorcegosComuns" classname="Loopia.Hex.Tests.EncontroDoChefePlayModeTests" runstate="Runnable" seed="961822495" result="Passed" start-time="2026-11-16 12:38:57Z" end-time="2026-11-16 12:39:07Z" duration="9.969411" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 2).
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1143" name="EscalaDeArtePlayModeTests" fullname="Loopia.Hex.Tests.EscalaDeArtePlayModeTests" classname="Loopia.Hex.Tests.EscalaDeArtePlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 12:39:15Z" end-time="2026-11-16 12:39:15Z" duration="0.621374" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1144" name="Decoracoes_SaoArtePura_SemColliderLigado_ESemEntrarNoBake" fullname="Loopia.Hex.Tests.EscalaDeArtePlayModeTests.Decoracoes_SaoArtePura_SemColliderLigado_ESemEntrarNoBake" methodname="Decoracoes_SaoArtePura_SemColliderLigado_ESemEntrarNoBake" classname="Loopia.Hex.Tests.EscalaDeArtePlayModeTests" runstate="Runnable" seed="864078975" result="Passed" start-time="2026-11-16 12:39:08Z" end-time="2026-11-16 12:39:15Z" duration="7.756261" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[Testes] Play Mode: 78 decoracoes em 24/24 ilhas, 5 arvores grandes
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1174" name="FundoDePaisagemPlayModeTests" fullname="Loopia.Hex.Tests.FundoDePaisagemPlayModeTests" classname="Loopia.Hex.Tests.FundoDePaisagemPlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 12:39:22Z" end-time="2026-11-16 12:39:23Z" duration="0.529702" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1175" name="FundoGeradoEmPlay_AnelIntacto_NavMeshForaDoVale" fullname="Loopia.Hex.Tests.FundoDePaisagemPlayModeTests.FundoGeradoEmPlay_AnelIntacto_NavMeshForaDoVale" methodname="FundoGeradoEmPlay_AnelIntacto_NavMeshForaDoVale" classname="Loopia.Hex.Tests.FundoDePaisagemPlayModeTests" runstate="Runnable" seed="1851177218" result="Passed" start-time="2026-11-16 12:39:15Z" end-time="2026-11-16 12:39:23Z" duration="7.479417" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[FundoDePaisagem] Play: 416368 tris em 43,4 ms
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1189" name="G2PlayModeTests" fullname="Loopia.Hex.Tests.G2PlayModeTests" classname="Loopia.Hex.Tests.G2PlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-16 12:39:38Z" end-time="2026-11-16 12:39:38Z" duration="0.565759" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1191" name="CartasDeSobrevivencia_ColocarSubstituirRemover_SemBonusFantasma_EValemNoChefe" fullname="Loopia.Hex.Tests.G2PlayModeTests.CartasDeSobrevivencia_ColocarSubstituirRemover_SemBonusFantasma_EValemNoChefe" methodname="CartasDeSobrevivencia_ColocarSubstituirRemover_SemBonusFantasma_EValemNoChefe" classname="Loopia.Hex.Tests.G2PlayModeTests" runstate="Runnable" seed="616740648" result="Passed" start-time="2026-11-16 12:39:23Z" end-time="2026-11-16 12:39:31Z" duration="7.867728" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, -1) com 732 PV (alcance extra como alvo: 2).
+]]></output>
+              </test-case>
+              <test-case id="1190" name="FilaDeRecompensas_MaoInicialCheia_LevelUpFicaPendente_EEntraAoJogarUmaCarta" fullname="Loopia.Hex.Tests.G2PlayModeTests.FilaDeRecompensas_MaoInicialCheia_LevelUpFicaPendente_EEntraAoJogarUmaCarta" methodname="FilaDeRecompensas_MaoInicialCheia_LevelUpFicaPendente_EEntraAoJogarUmaCarta" classname="Loopia.Hex.Tests.G2PlayModeTests" runstate="Runnable" seed="801776651" result="Passed" start-time="2026-11-16 12:39:31Z" end-time="2026-11-16 12:39:38Z" duration="7.505883" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] Estado: Correndo -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu na volta 1.
+[MaoDeCartas] 5 recompensas pendentes (limite de alerta 4). Nenhuma foi descartada; a mao esta travada.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1277" name="HexPrototipoPlayModeTests" fullname="Loopia.Hex.Tests.HexPrototipoPlayModeTests" classname="Loopia.Hex.Tests.HexPrototipoPlayModeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-16 12:40:06Z" end-time="2026-11-16 12:40:07Z" duration="0.490447" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1278" name="Cena_GeraAnelValido_TemNavMesh_ELuccaAndaEFechaUmaVolta" fullname="Loopia.Hex.Tests.HexPrototipoPlayModeTests.Cena_GeraAnelValido_TemNavMesh_ELuccaAndaEFechaUmaVolta" methodname="Cena_GeraAnelValido_TemNavMesh_ELuccaAndaEFechaUmaVolta" classname="Loopia.Hex.Tests.HexPrototipoPlayModeTests" runstate="Runnable" seed="571721763" result="Passed" start-time="2026-11-16 12:39:38Z" end-time="2026-11-16 12:39:53Z" duration="14.381502" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1280" name="Morte_DisparaGameOver_MostraATelaEParaOCorredor" fullname="Loopia.Hex.Tests.HexPrototipoPlayModeTests.Morte_DisparaGameOver_MostraATelaEParaOCorredor" methodname="Morte_DisparaGameOver_MostraATelaEParaOCorredor" classname="Loopia.Hex.Tests.HexPrototipoPlayModeTests" runstate="Runnable" seed="941986601" result="Passed" start-time="2026-11-16 12:39:53Z" end-time="2026-11-16 12:40:00Z" duration="6.912916" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] Estado: Correndo -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu na volta 1.
+]]></output>
+              </test-case>
+              <test-case id="1279" name="Quatro_Voltas_LiberamOBossUmaUnicaVez" fullname="Loopia.Hex.Tests.HexPrototipoPlayModeTests.Quatro_Voltas_LiberamOBossUmaUnicaVez" methodname="Quatro_Voltas_LiberamOBossUmaUnicaVez" classname="Loopia.Hex.Tests.HexPrototipoPlayModeTests" runstate="Runnable" seed="1284229847" result="Passed" start-time="2026-11-16 12:40:00Z" end-time="2026-11-16 12:40:07Z" duration="6.872346" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 1).
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1293" name="InterfaceIntegradaTests" fullname="Loopia.Hex.Tests.InterfaceIntegradaTests" classname="Loopia.Hex.Tests.InterfaceIntegradaTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-16 12:40:22Z" end-time="2026-11-16 12:40:23Z" duration="0.846572" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1299" name="Derrota_ResultadoNovo_VoltaAoAcampamentoPeloBotaoRuntime" fullname="Loopia.Hex.Tests.InterfaceIntegradaTests.Derrota_ResultadoNovo_VoltaAoAcampamentoPeloBotaoRuntime" methodname="Derrota_ResultadoNovo_VoltaAoAcampamentoPeloBotaoRuntime" classname="Loopia.Hex.Tests.InterfaceIntegradaTests" runstate="Runnable" seed="1058748682" result="Passed" start-time="2026-11-16 12:40:07Z" end-time="2026-11-16 12:40:15Z" duration="8.487960" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+                <output><![CDATA[[LoopDirector] Estado: Correndo -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu na volta 1.
+]]></output>
+              </test-case>
+              <test-case id="1300" name="Vitoria_BarraDoChefeNovaEResultadoNovo" fullname="Loopia.Hex.Tests.InterfaceIntegradaTests.Vitoria_BarraDoChefeNovaEResultadoNovo" methodname="Vitoria_BarraDoChefeNovaEResultadoNovo" classname="Loopia.Hex.Tests.InterfaceIntegradaTests" runstate="Runnable" seed="309619048" result="Passed" start-time="2026-11-16 12:40:15Z" end-time="2026-11-16 12:40:23Z" duration="7.738991" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 2).
+[LoopDirector] Estado: Chefe -> Vitoria.
+[LoopDirector] Vitoria: o chefe caiu depois de 4 voltas.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1301" name="LegibilidadeDaTelaPlayModeTests" fullname="Loopia.Hex.Tests.LegibilidadeDaTelaPlayModeTests" classname="Loopia.Hex.Tests.LegibilidadeDaTelaPlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 12:40:30Z" end-time="2026-11-16 12:40:31Z" duration="1.459710" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1302" name="Zoom_AproximaArrastaEVolta_NuvensFicamPresasAoMundo" fullname="Loopia.Hex.Tests.LegibilidadeDaTelaPlayModeTests.Zoom_AproximaArrastaEVolta_NuvensFicamPresasAoMundo" methodname="Zoom_AproximaArrastaEVolta_NuvensFicamPresasAoMundo" classname="Loopia.Hex.Tests.LegibilidadeDaTelaPlayModeTests" runstate="Runnable" seed="1441628059" result="Passed" start-time="2026-11-16 12:40:23Z" end-time="2026-11-16 12:40:31Z" duration="8.399703" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1331" name="LuccaIntegracaoTests" fullname="Loopia.Hex.Tests.LuccaIntegracaoTests" classname="Loopia.Hex.Tests.LuccaIntegracaoTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-16 12:41:12Z" end-time="2026-11-16 12:41:15Z" duration="2.972531" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1333" name="LocomocaoSegueVelocidadeRealERetomaMarchaAposPulo" fullname="Loopia.Hex.Tests.LuccaIntegracaoTests.LocomocaoSegueVelocidadeRealERetomaMarchaAposPulo" methodname="LocomocaoSegueVelocidadeRealERetomaMarchaAposPulo" classname="Loopia.Hex.Tests.LuccaIntegracaoTests" runstate="Runnable" seed="1935338250" result="Passed" start-time="2026-11-16 12:40:31Z" end-time="2026-11-16 12:40:45Z" duration="13.640465" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+              </test-case>
+              <test-case id="1336" name="MolaRealUsaSpringJumpEDepoisRetomaONavMesh" fullname="Loopia.Hex.Tests.LuccaIntegracaoTests.MolaRealUsaSpringJumpEDepoisRetomaONavMesh" methodname="MolaRealUsaSpringJumpEDepoisRetomaONavMesh" classname="Loopia.Hex.Tests.LuccaIntegracaoTests" runstate="Runnable" seed="1212984373" result="Passed" start-time="2026-11-16 12:40:45Z" end-time="2026-11-16 12:40:57Z" duration="11.549681" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+              </test-case>
+              <test-case id="1335" name="SemAnimatorUsaFallback_ESemFlechasSegueCaminhando" fullname="Loopia.Hex.Tests.LuccaIntegracaoTests.SemAnimatorUsaFallback_ESemFlechasSegueCaminhando" methodname="SemAnimatorUsaFallback_ESemFlechasSegueCaminhando" classname="Loopia.Hex.Tests.LuccaIntegracaoTests" runstate="Runnable" seed="705524909" result="Passed" start-time="2026-11-16 12:40:57Z" end-time="2026-11-16 12:41:05Z" duration="8.481237" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+              </test-case>
+              <test-case id="1334" name="Tiro_ConfirmaUmaVez_UsaSocketEToleraEventoAusente" fullname="Loopia.Hex.Tests.LuccaIntegracaoTests.Tiro_ConfirmaUmaVez_UsaSocketEToleraEventoAusente" methodname="Tiro_ConfirmaUmaVez_UsaSocketEToleraEventoAusente" classname="Loopia.Hex.Tests.LuccaIntegracaoTests" runstate="Runnable" seed="1300889807" result="Passed" start-time="2026-11-16 12:41:05Z" end-time="2026-11-16 12:41:15Z" duration="9.775073" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                </properties>
+                <output><![CDATA[[LoopDirector] Estado: Correndo -> Derrota.
+[LoopDirector] Game Over: o Lucca caiu na volta 1.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1385" name="MarcadoresPlayModeTests" fullname="Loopia.Hex.Tests.MarcadoresPlayModeTests" classname="Loopia.Hex.Tests.MarcadoresPlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 12:41:22Z" end-time="2026-11-16 12:41:22Z" duration="0.569312" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1386" name="Marcadores_FilhosDaIlha_SobemComORelevo_FlorestaEscondeEDevolveDecoracao" fullname="Loopia.Hex.Tests.MarcadoresPlayModeTests.Marcadores_FilhosDaIlha_SobemComORelevo_FlorestaEscondeEDevolveDecoracao" methodname="Marcadores_FilhosDaIlha_SobemComORelevo_FlorestaEscondeEDevolveDecoracao" classname="Loopia.Hex.Tests.MarcadoresPlayModeTests" runstate="Runnable" seed="2070549551" result="Passed" start-time="2026-11-16 12:41:15Z" end-time="2026-11-16 12:41:22Z" duration="7.473098" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1394" name="MirantePlayModeTests" fullname="Loopia.Hex.Tests.MirantePlayModeTests" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-16 12:42:01Z" end-time="2026-11-16 12:42:01Z" duration="0.570128" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1397" name="Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura" fullname="Loopia.Hex.Tests.MirantePlayModeTests.Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura" methodname="Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" seed="190371397" result="Passed" start-time="2026-11-16 12:41:23Z" end-time="2026-11-16 12:41:31Z" duration="8.559048" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[Mirante] erro horizontal da mira na soltura, alvo atras: com o corpo 14,9 graus; so o tronco (antes) 98,0 graus
+]]></output>
+              </test-case>
+              <test-case id="1396" name="Mirante_AlvoAtrasA4Casas_EEscolhidoEAtingido_ForaDoMiranteNao" fullname="Loopia.Hex.Tests.MirantePlayModeTests.Mirante_AlvoAtrasA4Casas_EEscolhidoEAtingido_ForaDoMiranteNao" methodname="Mirante_AlvoAtrasA4Casas_EEscolhidoEAtingido_ForaDoMiranteNao" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" seed="1099046300" result="Passed" start-time="2026-11-16 12:41:31Z" end-time="2026-11-16 12:41:39Z" duration="7.765449" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1395" name="Mirante_EntradaESaida_MudaOAlcanceDoCombate" fullname="Loopia.Hex.Tests.MirantePlayModeTests.Mirante_EntradaESaida_MudaOAlcanceDoCombate" methodname="Mirante_EntradaESaida_MudaOAlcanceDoCombate" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" seed="1965431277" result="Passed" start-time="2026-11-16 12:41:39Z" end-time="2026-11-16 12:41:46Z" duration="7.340351" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1399" name="Mirante_NaoMudaARegraDoChefe" fullname="Loopia.Hex.Tests.MirantePlayModeTests.Mirante_NaoMudaARegraDoChefe" methodname="Mirante_NaoMudaARegraDoChefe" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" seed="67282593" result="Passed" start-time="2026-11-16 12:41:46Z" end-time="2026-11-16 12:41:54Z" duration="7.450897" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1398" name="Mirante_TiroReservado_ECanceladoSeOLuccaSairAntesDaSoltura" fullname="Loopia.Hex.Tests.MirantePlayModeTests.Mirante_TiroReservado_ECanceladoSeOLuccaSairAntesDaSoltura" methodname="Mirante_TiroReservado_ECanceladoSeOLuccaSairAntesDaSoltura" classname="Loopia.Hex.Tests.MirantePlayModeTests" runstate="Runnable" seed="1815893215" result="Passed" start-time="2026-11-16 12:41:54Z" end-time="2026-11-16 12:42:01Z" duration="7.637262" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1423" name="NevoaPlayModeTests" fullname="Loopia.Hex.Tests.NevoaPlayModeTests" classname="Loopia.Hex.Tests.NevoaPlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 12:42:08Z" end-time="2026-11-16 12:42:09Z" duration="0.615094" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties>
+                <property name="Category" value="PlayModeSmoke" />
+              </properties>
+              <test-case id="1424" name="IlhasFicamAntesDoInicioDaNevoa_Seeds12345_7_2024_4" fullname="Loopia.Hex.Tests.NevoaPlayModeTests.IlhasFicamAntesDoInicioDaNevoa_Seeds12345_7_2024_4" methodname="IlhasFicamAntesDoInicioDaNevoa_Seeds12345_7_2024_4" classname="Loopia.Hex.Tests.NevoaPlayModeTests" runstate="Runnable" seed="1390073707" result="Passed" start-time="2026-11-16 12:42:01Z" end-time="2026-11-16 12:42:09Z" duration="7.538084" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[[Testes] profundidade maxima das ilhas nas seeds testadas: 94,83 u; fogStartDistance=105
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1435" name="PartidaRealPlayModeTests" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-16 12:42:16Z" end-time="2026-11-16 12:42:51Z" duration="34.691944" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1436" name="QuatroVoltasReais_ChefeNasce_EAJornadaTermina" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests.QuatroVoltasReais_ChefeNasce_EAJornadaTermina" methodname="QuatroVoltasReais_ChefeNasce_EAJornadaTermina" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" seed="717414596" result="Passed" start-time="2026-11-16 12:42:09Z" end-time="2026-11-16 12:42:51Z" duration="41.746713" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeSmoke" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 1).
+[LoopDirector] Estado: Chefe -> Derrota.
+[Metricas] anel=24 casas, resultado=Derrota, total=136.7s
+  volta 1: 27.1s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 27.1s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 28.1s, flechas no chefe 15, em outros 1, recargas 1, dano recebido 50 (PV inicial 50), revoadas 2 (4 morcegos), sem flechas 15.4s (maior trecho 15.4s)
+[LoopDirector] Game Over: o Lucca caiu diante do chefe.
+[sem-cartas] [Metricas] anel=24 casas, resultado=Derrota, total=136.7s
+  volta 1: 27.1s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 27.1s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 28.1s, flechas no chefe 15, em outros 1, recargas 1, dano recebido 50 (PV inicial 50), revoadas 2 (4 morcegos), sem flechas 15.4s (maior trecho 15.4s)
+[Testes] SHA-256 do save: backup=76e429e46548d036bb103995389d92d6d5116328e12d29d03ed8422544c61da9 depois=76e429e46548d036bb103995389d92d6d5116328e12d29d03ed8422544c61da9
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/Sitr3n/AppData/LocalLow/DefaultCompany/Loopia\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

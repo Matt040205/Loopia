@@ -1,0 +1,52 @@
+{
+ "metodo": "Metrica de legibilidade (Pass D1): luminancia relativa do topo das ilhas vs fundo imediato.",
+ "raio_fundo_px": 60,
+ "janela_px": 5,
+ "capturas": {
+  "s12345_h12_1920x1080.jpg": {
+   "L_topo": 0.5044595297445404,
+   "L_fundo": 0.19027607273363048,
+   "razao": 2.6511979278169084,
+   "michelson": 0.4522345708067867,
+   "pontos_topo": 126,
+   "celulas_fundo": 5811,
+   "matiz_topo_graus": 102.45464092223999,
+   "saturacao_topo": 0.5742831541803005,
+   "matiz_fundo_graus": 144.9251779423025,
+   "saturacao_fundo": 0.3240685302401842,
+   "seed": 12345,
+   "hora": 12,
+   "resolucao": "1920x1080"
+  },
+  "s12345_h18_1920x1080.jpg": {
+   "L_topo": 0.15615119360182272,
+   "L_fundo": 0.08054886320543489,
+   "razao": 1.9385896633149096,
+   "michelson": 0.31940140368428394,
+   "pontos_topo": 126,
+   "celulas_fundo": 5811,
+   "matiz_topo_graus": 70.6687260663489,
+   "saturacao_topo": 0.7000883041266315,
+   "matiz_fundo_graus": 29.1931859710794,
+   "saturacao_fundo": 0.41062415406045855,
+   "seed": 12345,
+   "hora": 18,
+   "resolucao": "1920x1080"
+  },
+  "s12345_h22_1920x1080.jpg": {
+   "L_topo": 0.09556828526683868,
+   "L_fundo": 0.0315574583821119,
+   "razao": 3.028389805974071,
+   "michelson": 0.5035237163409522,
+   "pontos_topo": 126,
+   "celulas_fundo": 5811,
+   "matiz_topo_graus": 146.57597362073193,
+   "saturacao_topo": 0.535453316465534,
+   "matiz_fundo_graus": 204.2805848841177,
+   "saturacao_fundo": 0.4003344606065995,
+   "seed": 12345,
+   "hora": 22,
+   "resolucao": "1920x1080"
+  }
+ }
+}

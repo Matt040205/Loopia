@@ -1,0 +1,6 @@
+[flechas+torre] [Metricas] anel=24 casas, resultado=Vitoria, total=126.8s
+  volta 1: 27.0s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 27.3s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 27.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 18.1s, flechas no chefe 21, em outros 0, recargas 0, dano recebido 18 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 1.8s (maior trecho 1.8s)

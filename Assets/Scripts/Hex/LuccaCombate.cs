@@ -35,13 +35,46 @@ namespace Loopia.Hex
         public float alturaDoTiro = 0.6f;
 
         public Color corDaFlecha = new Color(1f, 0.85f, 0.35f);
+        [Tooltip("Visual opcional do projetil, com ponta no eixo +Z.")]
+        public GameObject visualDaFlecha;
 
         [Header("Mira")]
         [Tooltip("Ligado: so atira em quem esta a frente, como diz o GDD. " +
                  "Desligado: atira no mais proximo, esteja onde estiver.")]
         public bool somenteAFrente = true;
 
+        [Tooltip("Opcional. Com a jornada encerrada (vitoria/derrota) o Lucca para de atirar.")]
+        public LoopDirector diretor;
+
+        [Tooltip("G2-C: Ilha alta como Mirante (+alcance, qualquer direcao). Vazio: criado no Lucca em tempo de execucao.")]
+        public MiranteDoLucca mirante;
+
         float _proximoTiro;
+        LuccaAnimationBridge _animacao;
+        Inimigo _alvoDoTiro;
+        int _sequenciaDoTiro;
+        int _tiroPendente;
+        float _prazoDoTiro;
+
+        /// <summary>
+        /// Quem o Lucca esta mirando agora (dentro do alcance, com ou sem flecha), ou null. Atualizado todo frame.
+        /// Gancho de leitura para a frente de personagem orientar arco/tronco (ex.: o chefe no centro do anel)
+        /// sem mexer no movimento automatico. Ver docs/gameplay/APRESENTACAO_DO_CHEFE.md.
+        /// </summary>
+        public Inimigo AlvoAtual { get; private set; }
+
+        /// <summary>Disparado apos criar a flecha e gastar municao: (alvo, ponto de saida).</summary>
+        public event System.Action<Inimigo, Vector3> AoDisparar;
+
+        public bool PodeAgir => status != null && status.EstaVivo && (diretor == null || !diretor.Terminou);
+        public Inimigo AlvoDaPreparacao => _alvoDoTiro;
+        internal bool CadenciaPermiteSoltar => Time.time >= _proximoTiro;
+
+        /// <summary>O Lucca esta agora num Mirante (Ilha alta levantada).</summary>
+        public bool NoMirante => mirante != null && mirante.Ativo;
+
+        /// <summary>Alcance do tiro agora: o base, mais o bonus do Mirante enquanto estiver nele.</summary>
+        public int AlcanceAtual => mirante != null ? mirante.AlcanceDoTiro(alcance) : alcance;
 
         void Start()
         {
@@ -51,6 +84,10 @@ namespace Loopia.Hex
             if (status == null) status = FindFirstObjectByType<LuccaStatus>();
             if (inimigos == null) inimigos = FindFirstObjectByType<InimigoSpawner>();
             if (plataformas == null) plataformas = FindFirstObjectByType<MapaDePlataformas>();
+            if (diretor == null) diretor = FindFirstObjectByType<LoopDirector>();
+            _animacao = GetComponentInChildren<LuccaAnimationBridge>(true);
+            if (mirante == null) mirante = GetComponent<MiranteDoLucca>();
+            if (mirante == null) mirante = gameObject.AddComponent<MiranteDoLucca>(); // sem editar a cena
 
             if (player == null || status == null || inimigos == null)
             {
@@ -61,20 +98,76 @@ namespace Loopia.Hex
 
         void Update()
         {
-            if (!status.EstaVivo) return;
-            if (Time.time < _proximoTiro) return;
+            if (!PodeAgir)
+            {
+                AlvoAtual = null;
+                CancelarTiro(_tiroPendente);
+                return;
+            }
 
-            Inimigo alvo = EscolherAlvo();
-            if (alvo == null) return;
+            // Casa atual antes de escolher e de revalidar o tiro reservado (cobre teleporte sem AoEntrarNoHexagono).
+            if (mirante != null && player != null) mirante.SincronizarCom(player.Coord);
 
-            // Sem flecha ele ignora o inimigo e segue andando: o intervalo nem chega a reiniciar,
-            // entao no instante em que ganhar municao ele ja volta a atirar.
-            if (!status.GastarFlecha()) return;
+            AlvoAtual = EscolherAlvo();
+            if (_tiroPendente != 0)
+            {
+                if (!PodeDispararEm(_alvoDoTiro) || status.FlechasAtuais == 0 || Time.time > _prazoDoTiro)
+                    CancelarTiro(_tiroPendente);
+                return;
+            }
 
+            if (AlvoAtual == null || status.FlechasAtuais == 0) return;
+
+            if (_animacao != null && _animacao.AnimaTiros)
+            {
+                if (!_animacao.PodePrepararTiro || Time.time < _proximoTiro - _animacao.TempoDeSoltura) return;
+                _tiroPendente = ++_sequenciaDoTiro;
+                _alvoDoTiro = AlvoAtual;
+                _prazoDoTiro = Time.time + _animacao.DuracaoDoTiro + 0.12f;
+                _animacao.PrepararTiro(_tiroPendente);
+            }
+            else if (Time.time >= _proximoTiro)
+            {
+                Disparar(AlvoAtual, transform.position + Vector3.up * alturaDoTiro);
+            }
+        }
+
+        // Chamado depois de avaliar a pose e a mira, no frame da soltura.
+        internal bool SoltarTiro(int id, Transform origem)
+        {
+            if (!isActiveAndEnabled || id == 0 || id != _tiroPendente || !CadenciaPermiteSoltar) return false;
+            Inimigo alvo = _alvoDoTiro;
+            _tiroPendente = 0;
+            _alvoDoTiro = null;
+            return Disparar(alvo, origem != null ? origem.position : transform.position + Vector3.up * alturaDoTiro);
+        }
+
+        internal void CancelarTiro(int id)
+        {
+            if (id == 0 || id != _tiroPendente) return;
+            _tiroPendente = 0;
+            _alvoDoTiro = null;
+            if (_animacao != null) _animacao.CancelarTiro(id);
+        }
+
+        void OnDisable() => CancelarTiro(_tiroPendente);
+
+        bool Disparar(Inimigo alvo, Vector3 origem)
+        {
+            if (!PodeAgir || !PodeDispararEm(alvo) || status.FlechasAtuais == 0) return false;
+            if (Projetil.Disparar(origem, alvo, DanoDoTiro(), velocidadeDoProjetil, corDaFlecha, visualDaFlecha) == null)
+                return false;
             _proximoTiro = Time.time + intervaloDeTiro;
+            status.GastarFlecha();
+            AoDisparar?.Invoke(alvo, origem);
+            return true;
+        }
 
-            Vector3 origem = transform.position + Vector3.up * alturaDoTiro;
-            Projetil.Disparar(origem, alvo, DanoDoTiro(), velocidadeDoProjetil, corDaFlecha);
+        bool PodeDispararEm(Inimigo inimigo)
+        {
+            return inimigo != null && inimigo.EstaVivo && EstaAFrente(inimigo)
+                && RegrasDoChefe.DentroDoAlcance(HexCoord.Distance(player.Coord, inimigo.Casa),
+                    AlcanceAtual, inimigo.AlcanceExtraComoAlvo);
         }
 
         /// <summary>ATK do Lucca mais o que torres e areas de treino somam.</summary>
@@ -96,8 +189,9 @@ namespace Loopia.Hex
                 Inimigo inimigo = vivos[i];
                 if (inimigo == null || !inimigo.EstaVivo) continue;
 
+                // A prioridade e pela distancia real; o alcance extra so vale para alvos grandes (o chefe).
                 int distancia = HexCoord.Distance(player.Coord, inimigo.Casa);
-                if (distancia > alcance) continue;
+                if (!RegrasDoChefe.DentroDoAlcance(distancia, AlcanceAtual, inimigo.AlcanceExtraComoAlvo)) continue;
                 if (distancia >= menorDistancia) continue;
                 if (!EstaAFrente(inimigo)) continue;
 
@@ -111,6 +205,11 @@ namespace Loopia.Hex
         bool EstaAFrente(Inimigo inimigo)
         {
             if (!somenteAFrente) return true;
+
+            // Alvo grande (chefe no centro do anel): fica de lado o tempo todo enquanto o Lucca contorna.
+            // No Mirante (G2-C) qualquer alvo vale, de qualquer direcao.
+            if (RegrasDoMirante.IgnoraDirecao(NoMirante, mirante != null && mirante.TiroEmQualquerDirecao,
+                    inimigo.AlvoDeQualquerAngulo)) return true;
 
             // Quem esta na mesma casa conta sempre: nao da para ignorar quem esta em cima de voce.
             if (inimigo.Casa == player.Coord) return true;

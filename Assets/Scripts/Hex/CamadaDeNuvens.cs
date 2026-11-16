@@ -36,6 +36,7 @@ namespace Loopia.Hex
         Mesh _malhaAtual;
         float _baseDasIlhas = -3.5f;
         float _proximaMedicao;
+        HexIsoCamera _iso;
         const float Margem = 0.28f;
 
         void OnEnable() => _proximaMedicao = 0f;
@@ -61,7 +62,16 @@ namespace Loopia.Hex
                     if (min < float.MaxValue) _baseDasIlhas = min;
                 }
             }
-            float viewHeight = camera3d.orthographic ? camera3d.orthographicSize * 2f :
+            // Zoom do jogador (HexIsoCamera, Sprint 4): as nuvens se medem pela vista do anel inteiro, nao pela vista
+            // aproximada; senao ficariam presas a tela (mesmo tamanho e lugar) enquanto o mundo cresce e anda por baixo.
+            if (_iso == null || _iso.gameObject != camera3d.gameObject) _iso = camera3d.GetComponent<HexIsoCamera>();
+            Vector3 origemBase = Vector3.zero;
+            Quaternion rotacaoBase = Quaternion.identity;
+            float meiaAlturaBase = 0f;
+            bool usarVistaBase = _iso != null && _iso.TryVistaBase(out origemBase, out rotacaoBase, out meiaAlturaBase);
+
+            float viewHeight = usarVistaBase ? meiaAlturaBase * 2f :
+                camera3d.orthographic ? camera3d.orthographicSize * 2f :
                 2f * Vector3.Distance(camera3d.transform.position, transform.position) *
                 Mathf.Tan(camera3d.fieldOfView * 0.5f * Mathf.Deg2Rad);
             Vector2 direction = vento.sqrMagnitude > 0.001f ? vento.normalized : Vector2.right;
@@ -80,7 +90,10 @@ namespace Loopia.Hex
                 bool valid = true;
                 for (int i = 0; i < 4; i++)
                 {
-                    Ray ray = camera3d.ViewportPointToRay(new Vector3(i % 2, i / 2, 0f));
+                    var viewport = new Vector3(i % 2, i / 2, 0f);
+                    Ray ray = usarVistaBase
+                        ? RaioDaVistaBase(viewport, origemBase, rotacaoBase, meiaAlturaBase, camera3d.aspect)
+                        : camera3d.ViewportPointToRay(viewport);
                     if (!plane.Raycast(ray, out float distance)) { valid = false; break; }
                     _cantos[i] = ray.GetPoint(distance);
                 }
@@ -94,6 +107,14 @@ namespace Loopia.Hex
                 nuvem.controle.opacityMultiplier = opacidade * Mathf.Lerp(0.72f, 1f, nuvem.tamanho);
                 nuvem.controle.AtualizarAparencia();
             }
+        }
+
+        /// <summary>Raio de um ponto da vista ortografica do anel inteiro (igual a ViewportPointToRay sem zoom).</summary>
+        public static Ray RaioDaVistaBase(Vector3 viewport, Vector3 origem, Quaternion rotacao, float meiaAltura, float aspecto)
+        {
+            Vector3 lado = rotacao * Vector3.right * ((viewport.x * 2f - 1f) * meiaAltura * aspecto);
+            Vector3 cima = rotacao * Vector3.up * ((viewport.y * 2f - 1f) * meiaAltura);
+            return new Ray(origem + lado + cima, rotacao * Vector3.forward);
         }
 
         public static float ReciclarCoordenada(float coordinate)

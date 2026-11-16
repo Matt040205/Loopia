@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Loopia.Hex
 {
@@ -18,6 +21,9 @@ namespace Loopia.Hex
         [Tooltip("Opcional: mostra onde o JSON esta salvo.")]
         public TMP_Text textoArquivo;
 
+        [Tooltip("Quando marcado, o caminho do save comeca escondido e F3 alterna (como a depuracao da jornada).")]
+        public bool arquivoSoComF3;
+
         [Header("Cena")]
         [Tooltip("Nome da cena da jornada. Ela precisa estar no Build Settings.")]
         public string cenaDaJornada = "HexPrototipo";
@@ -28,7 +34,23 @@ namespace Loopia.Hex
         {
             _dados = DadosDoJogador.Instancia;
             _dados.AoMudar += Atualizar;
+            if (arquivoSoComF3 && textoArquivo != null) textoArquivo.gameObject.SetActive(false);
             Atualizar();
+        }
+
+        void Update()
+        {
+            if (!arquivoSoComF3 || textoArquivo == null || !TeclaDeDepuracao()) return;
+            textoArquivo.gameObject.SetActive(!textoArquivo.gameObject.activeSelf);
+        }
+
+        static bool TeclaDeDepuracao()
+        {
+#if ENABLE_INPUT_SYSTEM
+            return Keyboard.current != null && Keyboard.current.f3Key.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.F3);
+#endif
         }
 
         void OnDestroy()

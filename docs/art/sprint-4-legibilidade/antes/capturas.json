@@ -1,0 +1,142 @@
+{
+ "fase": "antes",
+ "sementes": {
+  "24": 1,
+  "36": 2,
+  "30": 5
+ },
+ "capturas": [
+  {
+   "metodo": "Camera.Render",
+   "seed": 2,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 22.6603813,
+   "cameraPos": [
+    -43.51559,
+    34.9999962,
+    -42.741066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 24.8190136,
+   "frameCount": 2116,
+   "comprimentoDaVolta": 36,
+   "ilhas": 36,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 110.068466,
+   "arquivo": "antes_volta36_s2_1920x1080.jpg",
+   "pixelsPorUnidade": 23.8301374037338,
+   "topoDaIlhaPx": 94.6056454928232
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 2,
+   "hora": 12.0,
+   "largura": 1280,
+   "altura": 720,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 22.6603813,
+   "cameraPos": [
+    -43.51559,
+    34.9999962,
+    -42.741066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 27.7089653,
+   "frameCount": 2645,
+   "comprimentoDaVolta": 36,
+   "ilhas": 36,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 109.902023,
+   "arquivo": "antes_volta36_s2_1280x720.jpg",
+   "pixelsPorUnidade": 15.886758269155868,
+   "topoDaIlhaPx": 63.070430328548795
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 5,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 19.67809,
+   "cameraPos": [
+    -42.5196648,
+    34.9999962,
+    -42.2660675
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 33.2026939,
+   "frameCount": 4153,
+   "comprimentoDaVolta": 30,
+   "ilhas": 30,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 109.335922,
+   "arquivo": "antes_volta30_s5_1920x1080.jpg",
+   "pixelsPorUnidade": 27.44168768411975,
+   "topoDaIlhaPx": 108.94350010595541
+  },
+  {
+   "metodo": "Camera.Render",
+   "seed": 1,
+   "hora": 12.0,
+   "largura": 1920,
+   "altura": 1080,
+   "aspect": 1.77777779,
+   "orthographic": true,
+   "orthographicSize": 17.2098465,
+   "cameraPos": [
+    -42.43306,
+    34.9999962,
+    -42.866066
+   ],
+   "cameraRotEuler": [
+    29.9999981,
+    45.0,
+    0.0
+   ],
+   "near": 0.1,
+   "far": 1000.0,
+   "msaaRT": 1,
+   "timeScale": 0.0,
+   "realtimeSinceStartup": 40.8897247,
+   "frameCount": 5410,
+   "comprimentoDaVolta": 24,
+   "ilhas": 24,
+   "inimigosVivos": 0,
+   "luminanciaMedia0a255": 108.370659,
+   "arquivo": "antes_volta24_s1_1920x1080.jpg",
+   "pixelsPorUnidade": 31.377386195745554,
+   "topoDaIlhaPx": 124.56822319710986
+  }
+ ]
+}

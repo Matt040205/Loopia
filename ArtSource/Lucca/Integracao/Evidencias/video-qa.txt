@@ -1,0 +1,13 @@
+Cena HexPrototipo, Unity 6000.3.10f1, seed 12345. Alvo comum de captura com PV aumentado e sem dano.
+travessia Jump duracao=0,35 t=2,422803
+soltura t=2,659488 norm=0,4897891 origem=0 mov=0 daUltima=2,659488
+soltura t=3,471951 norm=0,502796 origem=0 mov=3,499976 daUltima=0,8124635
+travessia Jump duracao=0,35 t=3,53906
+soltura t=4,276065 norm=0,4913774 origem=0 mov=3,499947 daUltima=0,8041136
+travessia Jump duracao=0,35 t=4,65681
+soltura t=5,093669 norm=0,5128472 origem=0 mov=3,500004 daUltima=0,8176045
+travessia Jump duracao=0,35 t=5,771302
+travessia Jump duracao=0,35 t=6,978818
+travessia Jump duracao=0,35 t=8,093205
+travessia Spring Jump duracao=0,7 t=9,217059
+FIM frames=220 tiros=4 driftVisualERoot=1,995972E-08 nockSamples=8 gapMin=2,384186E-07 gapMax=0,1707156 navmesh=True

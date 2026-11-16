@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42,252282">
+  <test-suite type="TestSuite" id="1000" name="GameJam13-06" fullname="GameJam13-06" runstate="Runnable" testcasecount="370" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.252282" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1434" name="Assembly-CSharp-Editor.dll" fullname="C:/Users/Sitr3n/Documents/Github/loopia-mvp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="370" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.162504" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="46204" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1435" name="Loopia" fullname="Loopia" runstate="Runnable" testcasecount="370" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.154392" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1436" name="Hex" fullname="Loopia.Hex" runstate="Runnable" testcasecount="370" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.146761" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="SetUpFixture" id="1408" name="Tests" fullname="Loopia.Hex.Tests.GuardaDaSuite" classname="Loopia.Hex.Tests.GuardaDaSuite" runstate="Runnable" testcasecount="370" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.137308" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1367" name="PartidaRealPlayModeTests" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-15 18:34:48Z" end-time="2026-11-15 18:35:30Z" duration="42.112563" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1369" name="Medicao_ComFlechasNoCaminhoETorre" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests.Medicao_ComFlechasNoCaminhoETorre" methodname="Medicao_ComFlechasNoCaminhoETorre" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" seed="714635378" result="Passed" start-time="2026-11-15 18:34:41Z" end-time="2026-11-15 18:35:30Z" duration="49.012824" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeMedicao" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 2).
+[LoopDirector] Estado: Chefe -> Vitoria.
+[Metricas] anel=30 casas, resultado=Vitoria, total=157.0s
+  volta 1: 33.8s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 34.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 33.7s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 33.7s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 21.6s, flechas no chefe 21, em outros 0, recargas 0, dano recebido 18 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 5.1s (maior trecho 5.1s)
+[LoopDirector] Vitoria: o chefe caiu depois de 4 voltas.
+[flechas+torre] [Metricas] anel=30 casas, resultado=Vitoria, total=157.0s
+  volta 1: 33.8s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 34.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 33.7s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 33.7s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 21.6s, flechas no chefe 21, em outros 0, recargas 0, dano recebido 18 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 5.1s (maior trecho 5.1s)
+[Testes] SHA-256 do save: backup=3d27854e1ccb1bea5c62840ea90321d018f37fe0bdc3f386660d8daa0f551efb depois=3d27854e1ccb1bea5c62840ea90321d018f37fe0bdc3f386660d8daa0f551efb
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/Sitr3n/AppData/LocalLow/DefaultCompany/GameJam13-06\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -88,6 +88,9 @@ namespace Loopia.Hex
         /// <summary>Disparado quando o player chega ao ultimo hexagono do caminho.</summary>
         public event Action<HexCoord> AoChegarNoDestino;
 
+        /// <summary>Tipo e duracao do link em travessia, para sincronizar a pose com a trajetoria.</summary>
+        public event Action<bool, float> AoIniciarPulo;
+
         void Awake()
         {
             _agente = GetComponent<NavMeshAgent>();
@@ -288,6 +291,7 @@ namespace Loopia.Hex
                 _subidaComMola = true;
                 _destinoDaMola = _caminho[0];
             }
+            AoIniciarPulo?.Invoke(usaMola, duracao);
 
             Vector3 direcao = fim - inicio;
             direcao.y = 0f;

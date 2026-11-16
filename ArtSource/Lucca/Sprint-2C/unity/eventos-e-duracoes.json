@@ -1,0 +1,73 @@
+{
+  "fps_blender": 60,
+  "raiz": {
+    "blender": "Root",
+    "unity_apply_root_motion": false
+  },
+  "animacoes": [
+    {
+      "nome": "Bow Ready",
+      "arquivo": "Bow Ready.anim",
+      "duracao_s": 0.016666666666666666,
+      "loop": true,
+      "uso": "pose sustentada de referência do arco"
+    },
+    {
+      "nome": "Bow Shot",
+      "arquivo": "Bow Shot.anim",
+      "duracao_s": 0.65,
+      "loop": false,
+      "camada": "Override superior",
+      "mascara": "Loopia_BowUpper.mask",
+      "evento": {
+        "nome": "OnBowRelease",
+        "tempo_s": 0.31666666666666665,
+        "frame_blender": 20,
+        "intervalo_frame_desde_zero": 19,
+        "tempo_normalizado": 0.48717948717948717,
+        "origem": "Arrow_Spawn",
+        "direcao": "normalize(Arrow_Aim.position - Arrow_Spawn.position)",
+        "recebedor": "integração futura"
+      },
+      "peso_diagnostico": {
+        "entrada_s": 0.067,
+        "saida_s": 0.084
+      },
+      "intervalo_minimo_de_gameplay_s": 0.8
+    },
+    {
+      "nome": "Jump",
+      "arquivo": "Jump.anim",
+      "duracao_s": 0.35,
+      "loop": false,
+      "frame_apice_blender": 12
+    },
+    {
+      "nome": "Spring Jump",
+      "arquivo": "Spring Jump.anim",
+      "duracao_s": 0.7,
+      "loop": false,
+      "frame_apice_blender": 24
+    },
+    {
+      "nome": "Idle",
+      "arquivo": "Idle.anim",
+      "duracao_s": 3.2,
+      "loop": true
+    },
+    {
+      "nome": "Walk",
+      "arquivo": "Walk.anim",
+      "duracao_s": 1.2,
+      "loop": true,
+      "velocidade_padrao_navmesh_u_s": 3.5
+    }
+  ],
+  "sockets": {
+    "empunhadura": "Bow_Grip",
+    "mão_do_arco": "Hand.L",
+    "mão_da_tracao": "Hand.R",
+    "socket_da_tracao": "Socket_DrawHand",
+    "corda": "Bow_StringNock"
+  }
+}
