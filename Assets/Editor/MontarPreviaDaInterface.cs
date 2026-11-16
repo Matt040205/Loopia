@@ -16,32 +16,76 @@ public static class MontarPreviaDaInterface
     const string Pasta = NavegacaoDaPreviaHud.Pasta;
     const string PastaArte = "Assets/Arte/Cartas/";
 
+    const string PastaCenas = "Assets/Scenes/";
+
+    /// <summary>
+    /// Instala a interface aprovada (HUD de cartas, painel da jornada, barra do chefe, acampamento e
+    /// resultado) nas cenas oficiais. Os botoes continuam nos metodos runtime (TelaDoAcampamento.NovaJornada
+    /// e TelaDeMorte.VoltarAoAcampamento); nada Editor-only entra nas cenas. Roda uma vez: recusa se a cena
+    /// ja tiver a interface.
+    /// </summary>
+    [MenuItem("Loopia/Interface/Aplicar nas cenas oficiais")]
+    public static void AplicarNasCenasOficiais()
+    {
+        var tema = Preparar();
+        Scene jogo = EditorSceneManager.OpenScene(PastaCenas + "HexPrototipo.unity");
+        if (InterfaceInstalada())
+            throw new InvalidOperationException("A HexPrototipo ja tem a interface da jornada.");
+        MontarJogo(jogo, tema);
+        Gravar(jogo, PastaCenas);
+
+        Scene camp = EditorSceneManager.OpenScene(PastaCenas + "Acampamento.unity");
+        if (Object.FindFirstObjectByType<TelaDoAcampamento>().arquivoSoComF3)
+            throw new InvalidOperationException("O Acampamento ja tem a interface nova.");
+        MontarAcampamento(tema);
+        Gravar(camp, PastaCenas);
+        Debug.Log("[HUD] Interface aplicada nas cenas oficiais.");
+    }
+
+    /// <summary>
+    /// Copias locais (ignoradas pelo Git) das cenas oficiais com navegacao entre as copias. Desde a
+    /// consolidacao as cenas oficiais ja trazem a interface; o gerador so a monta se faltar.
+    /// </summary>
     [MenuItem("Loopia/Prévia da interface/Recriar cópias locais")]
     public static void Montar()
     {
-        if (EditorApplication.isPlayingOrWillChangePlaymode)
-            throw new InvalidOperationException("Saia do Play antes de recriar a prévia.");
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-            if (SceneManager.GetSceneAt(i).isDirty)
-                throw new InvalidOperationException("Salve as cenas abertas antes de recriar a prévia.");
-
-        var tema = AssetDatabase.LoadAssetAtPath<CatalogoVisualDeCartas>(PastaArte + "Catalogo.asset");
-        if (tema == null || !tema.Completo) throw new InvalidOperationException("Catalogo de arte ausente.");
-
+        var tema = Preparar();
         if (!AssetDatabase.IsValidFolder("Assets/Previa"))
             AssetDatabase.CreateFolder("Assets", "Previa");
         if (!AssetDatabase.IsValidFolder("Assets/Previa/Hud"))
             AssetDatabase.CreateFolder("Assets/Previa", "Hud");
 
         Scene jogo = Copiar("HexPrototipo");
-        MontarJogo(jogo, tema);
-        Gravar(jogo);
+        if (!InterfaceInstalada()) MontarJogo(jogo, tema);
+        var tela = Object.FindFirstObjectByType<TelaDeMorte>();
+        TrocarAcao(tela.painel.GetComponentInChildren<Button>(true), "VoltarAoAcampamento",
+            tela.gameObject.AddComponent<NavegacaoDaPreviaHud>().Voltar);
+        Gravar(jogo, Pasta);
 
         Scene camp = Copiar("Acampamento");
-        MontarAcampamento(tema);
-        Gravar(camp);
+        var acampamento = Object.FindFirstObjectByType<TelaDoAcampamento>();
+        if (!acampamento.arquivoSoComF3) MontarAcampamento(tema);
+        TrocarAcao(acampamento.GetComponentInChildren<Button>(true), "NovaJornada",
+            acampamento.gameObject.AddComponent<NavegacaoDaPreviaHud>().NovaJornada);
+        Gravar(camp, Pasta);
         Debug.Log("[HUD] Prévia local do Acampamento e da jornada pronta.");
     }
+
+    static CatalogoVisualDeCartas Preparar()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+            throw new InvalidOperationException("Saia do Play antes de montar a interface.");
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+            if (SceneManager.GetSceneAt(i).isDirty)
+                throw new InvalidOperationException("Salve as cenas abertas antes de montar a interface.");
+        var tema = AssetDatabase.LoadAssetAtPath<CatalogoVisualDeCartas>(PastaArte + "Catalogo.asset");
+        if (tema == null || !tema.Completo) throw new InvalidOperationException("Catalogo de arte ausente.");
+        return tema;
+    }
+
+    static bool InterfaceInstalada() =>
+        Object.FindFirstObjectByType<InterfaceDaJornada>(FindObjectsInactive.Include) != null ||
+        Object.FindFirstObjectByType<HudDeCartas>(FindObjectsInactive.Include) != null;
 
     static Scene Copiar(string nome)
     {
@@ -51,10 +95,10 @@ public static class MontarPreviaDaInterface
         return EditorSceneManager.OpenScene(Pasta + nome + ".unity");
     }
 
-    static void Gravar(Scene cena)
+    static void Gravar(Scene cena, string pastaPermitida)
     {
-        if (!cena.path.StartsWith(Pasta, StringComparison.Ordinal))
-            throw new InvalidOperationException("Caminho de cena fora da previa.");
+        if (!cena.path.StartsWith(pastaPermitida, StringComparison.Ordinal))
+            throw new InvalidOperationException("Caminho de cena inesperado: " + cena.path);
         EditorSceneManager.MarkSceneDirty(cena);
         if (!EditorSceneManager.SaveScene(cena))
             throw new InvalidOperationException("Falha ao salvar " + cena.path);
@@ -87,8 +131,6 @@ public static class MontarPreviaDaInterface
         var titulo = Texto(tela.painel.transform, "Titulo");
         var botao = tela.painel.GetComponentInChildren<Button>(true);
         var rotulo = botao.GetComponentInChildren<TMP_Text>(true);
-        var nav = tela.gameObject.AddComponent<NavegacaoDaPreviaHud>();
-        TrocarAcao(botao, "VoltarAoAcampamento", nav.Voltar);
 
         tela.painel.GetComponent<Image>().color = TemaDaJornada.Cor("#121020C4");
         var moldura = TemaDaJornada.Janela(tela.painel.transform, "Resultado", new Vector2(.5f,.5f),
@@ -119,12 +161,10 @@ public static class MontarPreviaDaInterface
         var rotulo = botao.GetComponentInChildren<TMP_Text>(true);
         var fundo = tela.GetComponentsInChildren<Image>(true).FirstOrDefault(img => img.name == "Fundo");
         if (fundo != null) fundo.color = TemaDaJornada.Cor("#181524");
-        var nav = tela.gameObject.AddComponent<NavegacaoDaPreviaHud>();
-        TrocarAcao(botao, "NovaJornada", nav.NovaJornada);
-        nav.diagnostico = tela.textoArquivo;
-        if (nav.diagnostico != null)
+        tela.arquivoSoComF3 = true;
+        if (tela.textoArquivo != null)
         {
-            var diagnostico = nav.diagnostico;
+            var diagnostico = tela.textoArquivo;
             diagnostico.font = tema.fonteCorpo;
             diagnostico.color = TemaDaJornada.Secundario;
             diagnostico.fontSize = 14;
@@ -143,7 +183,7 @@ public static class MontarPreviaDaInterface
         Estatistica(tela.textoMoedas, faixa.rectTransform, tema.fonteCorpo, TemaDaJornada.Ouro, new Rect(9, 2, 251, 60));
         Estatistica(tela.textoRecorde, faixa.rectTransform, tema.fonteCorpo, TemaDaJornada.Marfim, new Rect(278, 2, 248, 60));
         TemaDaJornada.EstilizarBotao(botao, rotulo, tema.fonteCorpo, moldura, new Rect(164, 288, 304, 51));
-        if (nav.diagnostico != null) nav.diagnostico.transform.SetAsLastSibling();
+        if (tela.textoArquivo != null) tela.textoArquivo.transform.SetAsLastSibling();
         Selection.activeGameObject = moldura.gameObject;
     }
 
