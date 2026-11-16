@@ -171,15 +171,21 @@ namespace Loopia.Hex
             AoMudar?.Invoke();
         }
 
+        /// <summary>Jornada encerrada (vitoria ou derrota): nenhuma moeda entra mais. O LoopDirector liga ao terminar.</summary>
+        public bool RecompensasEncerradas { get; private set; }
+
+        public void EncerrarRecompensas() => RecompensasEncerradas = true;
+
         /// <summary>
         /// Moedas vao para dois lugares: o contador desta jornada (Moedas, que a HUD mostra) e o
         /// total que sobrevive entre partidas, guardado no singleton DadosDoJogador e no JSON.
         /// </summary>
         public void GanharMoedas(int quantidade)
         {
-            // Morto nao coleta: na derrota o corpo ainda termina o trecho do NavMesh e entrava na casa seguinte, somando
-            // uma moeda ao save depois de a tela de resultado ja ter mostrado "Moedas nesta jornada" (43 na tela, +44 no save).
-            if (quantidade <= 0 || !EstaVivo) return;
+            // Fim de jornada nao coleta: na derrota e na vitoria o Lucca ainda termina o trecho do NavMesh e entrava na casa
+            // seguinte, somando uma moeda ao save depois de a tela de resultado ja ter mostrado "Moedas nesta jornada"
+            // (build: derrota 43 na tela e +44 no save; vitoria 27 e +28).
+            if (quantidade <= 0 || !EstaVivo || RecompensasEncerradas) return;
 
             Moedas += quantidade;
             DadosDoJogador.Instancia.AdicionarMoedas(quantidade);

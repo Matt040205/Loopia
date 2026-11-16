@@ -169,6 +169,7 @@ namespace Loopia.Hex
             // Depois da vitoria (ou de uma derrota ja registrada) nada muda.
             if (!_ciclo.RegistrarDerrota()) return;
 
+            if (status != null) status.EncerrarRecompensas();
             if (corredor != null) corredor.andando = false;
 
             // O recorde tambem e checado aqui, para uma morte na primeira volta nao passar batida.
@@ -187,6 +188,8 @@ namespace Loopia.Hex
             // Se o Lucca ja tinha caido (flecha em voo matando o chefe depois), a derrota vale.
             if (!_ciclo.RegistrarVitoria()) return;
 
+            // Antes do aoVencer: a tela escreve "Moedas nesta jornada" e nada mais pode entrar depois disso.
+            if (status != null) status.EncerrarRecompensas();
             if (corredor != null) corredor.andando = false;
             if (inimigos != null)
             {

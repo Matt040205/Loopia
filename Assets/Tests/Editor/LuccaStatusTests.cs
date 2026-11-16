@@ -52,6 +52,16 @@ namespace Loopia.Hex.Tests
         }
 
         [Test]
+        public void JornadaEncerrada_VivoTambemNaoColetaMoedas()
+        {
+            // Na vitoria o Lucca esta vivo e ainda entrava numa casa com moeda depois do resumo (27 na tela, +28 no save).
+            _s.EncerrarRecompensas();
+            Assert.IsTrue(_s.EstaVivo);
+            _s.GanharMoedas(3);
+            Assert.AreEqual(0, _s.Moedas);
+        }
+
+        [Test]
         public void ReceberDano_ZeraEDisparaAoMorrerUmaVez_ENaoRessuscita()
         {
             int mortes = 0;

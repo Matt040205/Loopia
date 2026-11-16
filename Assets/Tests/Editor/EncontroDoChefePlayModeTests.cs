@@ -303,6 +303,13 @@ namespace Loopia.Hex.Tests
             Assert.IsFalse(p.mapa.PodeColocar(Basica(), CasaLonge(p), out string motivoVitoria), "carta depois da vitoria");
             Assert.AreEqual("a jornada terminou", motivoVitoria);
 
+            // Estabilizacao do MVP: o resumo da tela ja foi escrito; moeda depois da vitoria nao entra nem no save.
+            Assert.IsTrue(p.status.RecompensasEncerradas);
+            int moedasDaJornada = p.status.Moedas, moedasNoSave = dados.MoedasTotais;
+            p.status.GanharMoedas(3);
+            Assert.AreEqual(moedasDaJornada, p.status.Moedas, "moeda depois da vitoria entrou na jornada");
+            Assert.AreEqual(moedasNoSave, dados.MoedasTotais, "moeda depois da vitoria entrou no save");
+
             // Nada desfaz a vitoria: Lucca morrendo depois, ou o chefe "caindo" de novo.
             p.status.ReceberDano(p.status.PvMaximoTotal + 1000);
             Reflexao.Chamar(p.diretor, "ChefeDerrotado");
