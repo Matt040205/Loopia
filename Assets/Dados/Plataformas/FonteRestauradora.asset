@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FonteRestauradora
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaSimplesDef
   nomeExibido: Fonte Restauradora
-  descricao: Cada coracao que o Lucca pega cura +2 de PV a mais.
+  descricao: "Cada cora\xE7\xE3o que o Lucca pega cura +2 de PV a mais."
   cor: {r: 0.42, g: 0.62, b: 0.95, a: 1}
   onde: 1
   podeSerSubstituida: 1

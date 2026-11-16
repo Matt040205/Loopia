@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31260d29130adad46b6a7ad00f97430e, type: 3}
   m_Name: IlhaAlta
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaRelevoDef
-  nomeExibido: Ilha alta
-  descricao: Relevo de 2,2 metros. Exige impulso de uma mola antes da subida; a carta
-    so aparece com uma mola no mapa.
+  nomeExibido: Ilha Alta
+  descricao: "Relevo de 2,2 metros. Exige o impulso de uma Mola antes da subida;
+    a carta s\xF3 aparece com uma Mola no mapa."
   cor: {r: 0.72, g: 0.5, b: 0.95, a: 1}
   onde: 0
   podeSerSubstituida: 1
@@ -25,3 +25,6 @@ MonoBehaviour:
   marcador: {fileID: 3668624367327319124, guid: 7145ee28c93ce464faa9be7a826eae2f, type: 3}
   ocultarDecoracao: 0
   altura: 2.2
+  ehMirante: 1
+  bonusDeAlcance: 1
+  tiroEmQualquerDirecao: 1

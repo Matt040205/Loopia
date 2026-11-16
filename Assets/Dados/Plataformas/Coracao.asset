@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf0ae19393644c6b5d147a8a8fae52e, type: 3}
   m_Name: Coracao
   m_EditorClassIdentifier: Assembly-CSharp:Loopia.Hex:PlataformaRecompensaDef
-  nomeExibido: Coracao
-  descricao: 'O Lucca pega um coracao ao passar: +5 de PV. Volta a cada volta.'
+  nomeExibido: "Cora\xE7\xE3o"
+  descricao: "O Lucca pega um cora\xE7\xE3o ao passar: +5 de PV. Volta a cada volta."
   cor: {r: 0.9, g: 0.32, b: 0.4, a: 1}
   onde: 0
   podeSerSubstituida: 1
@@ -21,6 +21,8 @@ MonoBehaviour:
   tamanhoDoModelo: 0.9
   alturaDoModelo: 0.35
   girarModelo: 1
+  marcador: {fileID: 0}
+  ocultarDecoracao: 0
   cura: 5
   flechas: 0
   moedas: 0

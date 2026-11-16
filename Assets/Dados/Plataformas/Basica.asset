@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59850aeba616ac34894a5ec83e38f57c, type: 3}
   m_Name: Basica
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaSimplesDef
-  nomeExibido: Basica
-  descricao: 'Caminho comum. Nao faz nada: existe para voce trocar por outra depois.'
+  nomeExibido: "B\xE1sica"
+  descricao: "Caminho comum. N\xE3o faz nada: existe para voc\xEA trocar por outra
+    depois."
   cor: {r: 0.62, g: 0.78, b: 0.42, a: 1}
   onde: 0
   podeSerSubstituida: 1
@@ -25,3 +26,5 @@ MonoBehaviour:
   ocultarDecoracao: 0
   bonusDePv: 0
   bonusDeDano: 0
+  bonusDeFlechas: 0
+  bonusDeCuraPorCoracao: 0

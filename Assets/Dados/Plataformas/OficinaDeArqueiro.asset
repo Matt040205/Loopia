@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OficinaDeArqueiro
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaSimplesDef
   nomeExibido: Oficina de Arqueiro
-  descricao: +2 flechas maximas ao Lucca.
+  descricao: "+2 flechas m\xE1ximas ao Lucca."
   cor: {r: 0.72, g: 0.66, b: 0.3, a: 1}
   onde: 1
   podeSerSubstituida: 1

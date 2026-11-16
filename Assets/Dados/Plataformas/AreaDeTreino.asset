@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a20798f6394ab7ac2cf01a6e64541a, type: 3}
   m_Name: AreaDeTreino
   m_EditorClassIdentifier: Assembly-CSharp:Loopia.Hex:PlataformaVizinhancaDef
-  nomeExibido: Area de Treino
+  nomeExibido: "\xC1rea de Treino"
   descricao: +8% de dano, e mais +15% para cada Torre vizinha.
   cor: {r: 0.85, g: 0.62, b: 0.45, a: 1}
   onde: 1
@@ -25,6 +25,8 @@ MonoBehaviour:
   ocultarDecoracao: 0
   bonusDePv: 0
   bonusDeDano: 0.08
+  bonusDeFlechas: 0
+  bonusDeCuraPorCoracao: 0
   tipoQueConta: {fileID: 11400000, guid: 8f741c52845874a4db81fda60351466b, type: 2}
   raio: 1
   pvPorVizinha: 0

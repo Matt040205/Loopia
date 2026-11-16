@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mola
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaMolaDef
   nomeExibido: Mola
-  descricao: Carrega um impulso para a proxima subida alta do percurso. Libera a
-    carta Ilha alta.
+  descricao: "Carrega um impulso para a pr\xF3xima subida alta do percurso. Libera
+    a carta Ilha Alta."
   cor: {r: 0.3, g: 0.8, b: 0.95, a: 1}
   onde: 0
   podeSerSubstituida: 1
@@ -22,4 +22,6 @@ MonoBehaviour:
   tamanhoDoModelo: 0.95
   alturaDoModelo: 0.03
   girarModelo: 0
+  marcador: {fileID: 0}
+  ocultarDecoracao: 0
   alturaDoImpulso: 3
