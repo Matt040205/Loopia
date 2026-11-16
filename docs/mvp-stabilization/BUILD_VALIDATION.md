@@ -98,3 +98,21 @@ Fumaça da Release final: abre no Acampamento do perfil de QA ("Moedas: 47", `ev
 e fecha sem exceções. **A jornada nela não foi jogada**: o acesso do computer use a essa build foi negado pelo
 responsável. A diferença para a `7bf6492` (validada acima) é só `a7a5c56` (moeda depois do fim), coberta por teste
 Logic e pelo PlayModeSmoke da vitória.
+
+## 4. Builds do Bloco C (`6dd6206`: P2-1, P2-2, P2-3)
+| Build | Pasta | Resultado |
+|---|---|---|
+| Release (apresentação) | `Documents\Loopia_Builds\mvp-estabilizacao-6dd6206-release\Loopia.exe` | Succeeded, 0 erros, 0 avisos, 129,9 MB, 28 s |
+| Development (QA) | `Documents\Loopia_Builds\mvp-estabilizacao-6dd6206-dev\Loopia.exe` | Succeeded, 0 erros, 0 avisos, 193,6 MB, 19 s |
+
+Fumaça da Release (2026-11-16 ~02:25, sem computer use): aberta com `-loopia-perfil qa` em janela 1280×720, captura
+da própria janela (`evidencias/release_6dd6206_abertura.png`: Acampamento do perfil de QA, "Moedas: 47", "Recorde de
+voltas: 4"), fechada; log sem exceções; save do jogador com o mesmo hash antes e depois (`76e429e4…`).
+
+**A jornada nesta build não foi jogada.** O Bloco C só mexe no visual do Lucca (`LuccaAnimationBridge`) e na tela de
+resultado (fade); regras, save, cenas e troca de cena não mudaram, e os PlayModeSmoke de vitória/derrota do chefe e do
+Mirante cobrem os caminhos. Para conferir à mão na Release: roteiro do §2.2, olhando também (a) o Lucca virando o corpo
+para atirar no chefe e num alvo atrás no Mirante, (b) a corrida antes dos pulos sem os pés escorregando de lado, (c) a
+pose de comemoração ou de queda e o fade da tela de resultado.
+
+As builds `a7a5c56` e `7bf6492` continuam como versões anteriores; o fallback `mvp-20261117-dev-55442a5` não foi tocado.

@@ -87,6 +87,11 @@ Legenda de estado: **aberto** · **reproduzido** · **corrigido** (commit) · **
   disponibilidade de cartas de dano, fila de recompensas.
 
 ## Bloco C — condicional (só depois de uma build validada como fallback)
-- P2-1 · Mira do Mirante limitada a 65° de yaw (`KNOWN_ISSUES.md`).
-- P2-2 · Deslizamento dos pés (P95 2,39 u/s) e contato do arco com túnica/saia.
-- P2-3 · Fim de partida em Idle, sem pose de vitória/derrota.
+- P2-1 · Mira do Mirante limitada a 65° de yaw (`KNOWN_ISSUES.md`) — **corrigido** (`2b9ba2d`, `478751d`): o corpo
+  visual gira o excesso (120° parado, 30° correndo); no Mirante o erro na soltura caiu de ~99° para ~15°. Correndo, alvo
+  bem atrás segue com erro (precisa de clipe lateral/de costas).
+- P2-2 · Deslizamento dos pés (P95 2,39 u/s) e contato do arco com túnica/saia — **pés corrigidos** (`c615e42`): a causa
+  medida era a raiz do agente atrasada antes de cada pulo; o corpo visual olha para onde anda (antes do pulo 3,05 → 0,76
+  u/s, mediana). **Arco × túnica: pendente** (exige editar o clipe no Blender).
+- P2-3 · Fim de partida em Idle, sem pose de vitória/derrota — **corrigido** (`295f7d0`): comemoração na vitória,
+  agachado na derrota, fade de 0,35 s na tela de resultado.

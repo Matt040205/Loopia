@@ -1,4 +1,4 @@
-# Estado atual — 2026-11-15
+# Estado atual — 2026-11-16
 
 ## Sprint de estabilização do MVP — **comece por aqui**
 - Branch `fix/mvp-stabilization` (base `integration/mvp-20261117` @ `f49cee1` + os 7 commits de legibilidade),
@@ -8,16 +8,23 @@
   (copia, nunca apaga), cenas legadas fora do build, settings que o build regravava versionados, faixa rosa corrigida
   (borda de chão no `FundoDePaisagem`), painel de jogo enxuto (dados técnicos com F3 / Development), moeda pós-morte,
   mão inicial com Torre no lugar de Moedas (medido: 0/3 → 2/3 vitórias).
-- Testes: **417/417** (Logic+SceneStatic 392, job `67d7335a…`; PlayModeSmoke+Medicao 25, XML 03:33Z de 16/11).
-- Builds finais (`a7a5c56`): Release `Documents\Loopia_Builds\mvp-estabilizacao-a7a5c56-release\` (apresentação) e
-  Development `...-a7a5c56-dev\` (QA). As `7bf6492` ficam como versão anterior; fallback `mvp-20261117-dev-55442a5` intacto.
+- Testes: **427/427** depois do Bloco C (Logic+SceneStatic 398, job `f9bde7ad…`; PlayModeSmoke 25, job `606df17d…`;
+  PlayModeMedicao 4, job `9e92549d…`). Antes do Bloco C: 417/417.
+- Builds mais novas (`6dd6206`, com o Bloco C): Release `Documents\Loopia_Builds\mvp-estabilizacao-6dd6206-release\`
+  (apresentação) e Development `...-6dd6206-dev\` (QA); só a fumaça (abre/fecha) foi feita nelas, a jornada não foi
+  jogada. As `a7a5c56` (última com jornada validada na linha: vitória na `7bf6492`) e `7bf6492` ficam como versões
+  anteriores; fallback `mvp-20261117-dev-55442a5` intacto.
 - Validado na build com mouse real: **vitória** → resultado → botão → acampamento → save (1 vitória) → reabertura
   (Release `7bf6492`, perfil QA); derrota → retorno (fallback); instalação nova e antiga com migração (Release). A
   build final só teve abertura/fechamento (acesso do computer use negado); difere só pela correção da moeda.
 - Save do responsável: em `...\DefaultCompany\Loopia\loopia_save.json` (migrado). **Atenção:** outras frentes
   (`loopia-cards`, `loopia-hud-preview`) gravaram nele e no antigo depois das validações (210 e 212 moedas); não
   restaurado sem o responsável decidir. Ao validar no Editor ou na build, use backup ou `-loopia-perfil qa`.
-- Próximo: Bloco C (Mirante, pés/arco, fim de partida), liberado pela build validada, aguardando decisão.
+- **Bloco C (P2) feito** em 16/11: fim de partida com pose (`295f7d0`); mira do Mirante com o corpo visual girando o
+  excesso além do tronco, 120° parado e 30° correndo (`2b9ba2d`, `478751d`; erro na soltura ~99° → ~15°); pés: o
+  corpo visual olha para onde a raiz anda, a causa medida era a raiz do agente atrasada antes de cada pulo (`c615e42`;
+  3,05 → 0,76 u/s antes do pulo, mediana). Arco × túnica e corrida com alvo bem atrás ficaram pendentes (Blender).
+  Medição reprodutível: `ApoioDosPesMedicaoTests` (PlayModeMedicao); detalhes em `FIX_REPORT.md` P2-1/2/3.
 - Ferramentas: `tools/balanceamento/medir_chefe.py` (cenários do chefe), `tools/build/construir.cs` (build pelo
   bridge). **Nunca** dezenas de `Camera.Render()` num `execute_code` (derrubou a Unity).
 

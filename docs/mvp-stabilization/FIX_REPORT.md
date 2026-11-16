@@ -138,6 +138,61 @@ causa, solução, commit, teste, resultado, captura (quando visual) e risco resi
 - **Risco residual:** amostra pequena e RNG sem semente; partida mais curta que a meta do GDD; a vitória na build
   com a mão nova ainda precisa de uma partida real (`BUILD_VALIDATION.md` §2.2).
 
+## P2-1 · Mira do Mirante para alvos atrás
+- **Antes:** o tronco gira no máximo 65°. No Mirante o Lucca atira em qualquer direção e, com o alvo atrás, o arco
+  soltava **98–100°** fora do alvo (medido na soltura; a flecha segue o alvo assim mesmo).
+- **Solução:** o que passa de 80% do limite do tronco gira o **corpo visual inteiro** (o objeto do Animator) só durante
+  o tiro e fora do pulo: até 120° parado e até 30° correndo, proporcional à velocidade da locomoção. A raiz do
+  NavMeshAgent não gira (o teste confere), o tronco continua ≤ 65° (sem torção de 180°) e o tiro reservado do Codex não
+  mudou (`Mirante_TiroReservado_…` passa).
+- **Primeira versão corrigida no caminho:** em `2b9ba2d` o corpo girava até 120° mesmo correndo. A medição mostrou as
+  pernas correndo para um lado e o corpo indo para outro: deslize mediano de **4,4 u/s** nos tiros a mais de 52°,
+  contra 1,8 sem o giro. `478751d` limitou o giro a 30° correndo.
+- **Resultado:**
+  - Mirante, Lucca parado, alvo atrás: erro na soltura **14–15°** (antes 98,5–100,5°; 4 execuções).
+  - Correndo, alvo grande no miolo como o chefe (medição, n pequeno): de lado (52–100°) mediana **3°** (sem o giro, 14°;
+    n 6/5); atrás (> 100°) mediana **29°**, máximo 55° (sem o giro, 40°, máximo 82°; n 8/8). Custo: deslize mediano
+    nesses tiros 1,56 u/s contra 0,97 sem o giro (o giro sem limite dava 2,35).
+- **Limite que fica:** correndo, alvo bem atrás (> ~95°) segue com erro grande. Resolver de vez exige clipes de corrida
+  lateral/de costas (Blender) ou IK de braço, fora do escopo do P2.
+- **Evidência:** `evidencias/pes_e_mira/mira_atras_antes_so_tronco.png` × `mira_atras_depois_corpo_vira.png` (mesmo
+  cenário, um quadro depois da soltura); `apoio_tiro_por_giro_do_corpo.txt`.
+- **Commits:** `2b9ba2d`, `478751d`. Testes: `LuccaMiraTests` (Logic), `Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura`
+  (PlayModeSmoke).
+
+## P2-2 · Deslizamento dos pés e contato do arco
+- **Medição nova** (`ApoioDosPesMedicaoTests`, PlayModeMedicao, fora da suíte padrão): velocidade horizontal do pé que
+  está no chão (o mais baixo, a menos de 3,5 cm da sola calibrada parado), com o corredor real andando, separada por
+  contexto. O critério pega também quadros do pé em balanço rente ao chão: o P95 fica perto de 5 u/s até na reta, então
+  a comparação é pela **mediana**. Não é a métrica da Sprint 2C.2 (só o meio do apoio de cada clipe, P95 2,39 u/s).
+- **Diagnóstico (só locomoção, sem alvos):** reta 0,75 u/s; pouso 0,92; **curva até 0,3 s antes do pulo 3,05** (22% das
+  amostras); curva longe de pulo 4,86 (4%). Os quadros antes do pulo mostram a causa: o caminho vira para o ponto do
+  link e a raiz do NavMeshAgent fica até **~52°** fora da direção em que anda, convergindo em ~0,3 s. A corrida empurra
+  os pés para a frente do corpo enquanto ele anda de lado. O `angularSpeed` do agente (360, 720 e 1440) não muda nada.
+  A sincronia Blend Tree × clipes não é a causa (a reta fica em 0,75).
+- **Solução (localizada, sem Blender):** o corpo visual vira para o deslocamento real da raiz (máximo 75°, suavização
+  35 ms), também no pulo; teleporte não conta. Raiz, combate (`EstaAFrente`) e navegação não mudam.
+- **Resultado (mesma métrica):** antes do pulo **3,05 → 0,76 u/s**; todas as amostras **1,27 → 0,86 u/s (−32%)**; pouso
+  igual (~0,95). O visual alinha em ~50 ms (−25° → −1°, depois 3–5°) enquanto a raiz ainda está a ~50°. A curva longe
+  de pulo (4% das amostras) piorou um pouco (4,86 → 5,61): o pé de apoio gira junto com o corpo. Limitar a velocidade do
+  giro (600 e 400°/s) foi testado: piorou a mediana antes do pulo (1,58 e 1,73) sem ganho claro, e não ficou.
+- **Contato do arco com a túnica/saia:** não mexido. Vem da mistura de tiro autorada no Blender (registrada na 2C.2) e
+  só se corrige editando o clipe, com backup. As mudanças desta sprint não pioram: o giro do corpo tira carga do
+  tronco, que continua ≤ 65°.
+- **Evidência:** `evidencias/pes_e_mira/apoio_locomocao_marcha_0_e_75.txt` (resumo e quadros antes de dois pulos com o
+  giro desligado e ligado).
+- **Commit:** `c615e42`. Teste: `GiroDaMarcha_OlhaParaAVelocidade_ComLimite_EZeroDevagar` (Logic).
+
+## P2-3 · Fim de partida sem pose
+- **Antes:** o Lucca ficava em Idle na vitória e na derrota.
+- **Solução (sem clipe novo, sem mexer no rig):** na vitória o Spring Jump toca no lugar e para com o braço erguido
+  (0,78 do clipe); na derrota o Lucca afunda no agachamento do Jump e fica parado. Só o parâmetro `RitmoPulo` (velocidade
+  desses estados); a raiz continua com o NavMeshAgent e a camada do arco vai a 0. A tela de resultado aparece com fade de
+  0,35 s em tempo real, ativa e clicável desde o primeiro quadro; troca de cena e save inalterados.
+- **Evidência:** `evidencias/fim_de_partida/poses_do_fim.png`. Teste: os PlayModeSmoke de vitória e derrota do chefe
+  conferem a pose parada, o estado, `RitmoPulo` 0 e a camada do arco em 0.
+- **Commit:** `295f7d0`.
+
 ## Incidente · Queda da Unity numa medição
 Durante o LEG-1, uma medição de custo do MSAA com dezenas de `Camera.Render()` num único frame do Editor estourou a
 memória D3D12 (`8007000e`) e fechou a Unity. Nada se perdeu; o save foi restaurado. Método descartado (registrado

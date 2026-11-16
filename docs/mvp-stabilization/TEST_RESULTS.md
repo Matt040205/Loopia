@@ -47,3 +47,24 @@ ignorado. Console no fim: 0 erros (só o aviso informativo do MCP ao limpar o jo
 +1 em relação a 416: `LuccaStatusTests.JornadaEncerrada_VivoTambemNaoColetaMoedas`; o PlayModeSmoke da vitória
 ganhou a conferência de moeda depois do fim. Save do jogador com o mesmo hash antes e depois da suíte; nenhuma
 trava ou backup sobrando em `%TEMP%`.
+
+## Bloco C (P2-1, P2-2, P2-3) — código de `c615e42`
+| Categoria | Job ou XML | Total | Passou | Falhou |
+|---|---|---|---|---|
+| Logic + SceneStatic | job `f9bde7adb9414c7590dfc1cb7d943204` | 398 | 398 | 0 |
+| PlayModeSmoke | job `606df17d2ea84846a51a5cf88eb30272`, XML 05:11:35Z (`evidencias/TestResults_playmodesmoke_blocoC.xml`) | 25 | 25 | 0 |
+| PlayModeMedicao | job `9e92549dd95948de87d1d6e0e821673a`, XML 05:17:15Z (`evidencias/TestResults_playmodemedicao_blocoC.xml`) | 4 | 4 | 0 |
+| **Total** | | **427** | **427** | **0** |
+
+Base 417 → **427**: +6 Logic (`LuccaMiraTests`: divisão tronco/corpo, limite correndo, giro da marcha, erro horizontal), +1 PlayModeSmoke
+(`Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura`), +3 PlayModeMedicao (`ApoioDosPesMedicaoTests`: deslize por
+contexto, só locomoção com a marcha ligada/desligada, captura antes/depois da mira). O PlayModeSmoke da vitória e da
+derrota do chefe passou a conferir a pose do fim (P2-3). Nenhum teste removido ou ignorado. Save do jogador com o
+mesmo hash (`76e429e4…`) antes e depois de cada execução.
+
+Execuções parciais no caminho (todas com o save conferido):
+| Item | Job | Resultado |
+|---|---|---|
+| P2-3: grupo do chefe | XML da sessão | 5/5 |
+| P2-1: mira, Mirante, integração do Lucca | job `08e0da7836074aefb90e61c6f6a5d1d6` | 14/14 |
+| P2-1/P2-2: mira, integração, Mirante, chefe | job `78aca0a695b34d0589bdeeefb7446736` | 21/21 |

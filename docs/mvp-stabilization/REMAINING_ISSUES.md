@@ -4,11 +4,11 @@ O que ficou em aberto, por quê e o que fazer a seguir. Atualizado ao fim de cad
 
 | Prioridade | Item | Situação | Próximo passo |
 |---|---|---|---|
-| Validação | Jornada jogada na build **final** `a7a5c56`; derrota numa build nova | vitória validada na `7bf6492` (difere só pela correção da moeda, coberta por testes); acesso à build final negado; derrota validada no fallback | roteiro em `BUILD_VALIDATION.md` §2.2 |
+| Validação | Jornada jogada nas builds `a7a5c56` e **`6dd6206`** (Bloco C); derrota numa build nova | vitória validada na `7bf6492`; a `a7a5c56` difere só pela moeda e a `6dd6206` só no visual do Lucca e no fade (cobertos por PlayModeSmoke); só fumaça nas duas; derrota validada no fallback | roteiro em `BUILD_VALIDATION.md` §2.2 e §4 |
 | **Saves** | Outras frentes (worktrees `loopia-cards`, `loopia-hud-preview`, Editors abertos 21:48 e 22:41) gravaram no save do jogador: `Loopia\loopia_save.json` 209 → 210 (15/11 21:41) e `GameJam13-06\loopia_save.json` 209 → 212 (22:09) | não foi esta sessão; **não restaurado** sem confirmação do responsável | decidir se volta a `3d27854e…` (cópia em `Documents\Loopia_Recovery_20261115\save\`); orientar as outras frentes a usar `-loopia-perfil` ou backup |
-| P2 | Mira do Mirante limitada a 65° de yaw (arco não aponta para alvos atrás) | não iniciado: liberado (há build validada), aguardando decisão de começar | ver `KNOWN_ISSUES.md`; avaliar distribuir rotação entre tronco/ombros e feedback de trajetória |
-| P2 | Deslizamento dos pés (P95 2,39 u/s) e contato do arco com túnica/saia | não iniciado (Bloco C) | sincronia Blend Tree × fase dos clipes antes de mexer no Blender |
-| P2 | Fim de partida em Idle, sem pose de vitória/derrota | não iniciado (Bloco C) | pose/estado existente reaproveitado, sem atrasar a troca de cena |
+| P2 | Mira correndo com o alvo bem atrás (> ~95°): o corpo só gira 30° correndo para não deslizar os pés | parado (Mirante) corrigido: ~99° → ~15°; de lado (chefe) corrigido | clipes de corrida lateral/de costas no Blender (com backup) ou IK de braço; sem eles, mais giro = mais deslize |
+| P2 | Contato do arco com a túnica/saia na mistura de tiro | não mexido (não piorou: o tronco continua ≤ 65°) | editar o clipe Bow Shot no Blender com backup; varredura de ângulos no Unity |
+| P2 | Deslize do pé numa curva longe de pulo (4% das amostras, 4,86 → 5,61 u/s) e no pouso (~0,95) | antes do pulo corrigido (3,05 → 0,76); estes ficaram | IK de pé (travar o apoio) seria o próximo passo; medir com `ApoioDosPesMedicaoTests` |
 | Medição | Custo de GPU do MSAA 4× (1080p e 4K) | pendente: a medição no Editor derrubou a Unity | medir no build com um render por frame; em GPU fraca, alternativa MSAA 2× |
 | Medição | Desempenho em build (pendente desde o Pass D2) | pendente | fps/frame time na build Release |
 | Ferramenta | Play Mode do Editor grava no save do Editor | mitigado (backup/restauração nas ferramentas; perfil `-loopia-perfil` só para builds) | se incomodar, perfil automático no Editor em PR próprio |
