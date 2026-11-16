@@ -9,8 +9,9 @@
   "Espaço livre" no espaço vazio; acentuação dos textos e "Morcego Ancião"; fallback da Marcellus.
 - Testes: **445/445** (Logic + SceneStatic 407, PlayModeSmoke 34, PlayModeMedicao 4); 9 novos.
 - Builds: `Documents\Loopia_Builds\loopia-ui-polish-cf407af-{release,dev}\` (0 erros).
-- **PENDENTE:** validação com mouse real na build nova (o controle da janela foi recusado nesta sessão). Roteiro no
-  §9 do registro; evitar a faixa superior da tela (outra janela intercepta o cursor ali).
+- Build Release validada com mouse real (hover, cancelar, soltar inválido e válido, recompensa, chefe, vitória,
+  volta ao acampamento, reabertura; `Player.log` limpo) — §9 do registro. Ao validar com computer use, evitar a
+  faixa superior da tela (outra janela intercepta o cursor ali).
 - Próxima sprint: proposta em [PROPOSTA-PROXIMA-SPRINT.md](../sprints/PROPOSTA-PROXIMA-SPRINT.md) (medição do ritmo,
   leitura da Lucca, morcego/chefe com modelo, feedback de combate, construções). Não iniciada.
 

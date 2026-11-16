@@ -14,7 +14,7 @@ animações, modelos, saves ou geração do mapa.
 | 4 | Espaço vazio pouco informativo | **Corrigido** ("Espaço livre", silhueta a 42%, chegada da recompensa) |
 | 5 | Textos sem acento / aviso de reticências | **Corrigido** (dados, cena e motivos; fallback da Marcellus) |
 | 6 | Composição e escalonamento | Revisado em 1920×1080, 1280×720 e 3440×1440 (as duas últimas só no Editor) |
-| — | Validação física na build nova | **PENDENTE** — o acesso de controle à build foi recusado nesta sessão |
+| — | Validação física na build nova | **Feita** com mouse real na Release `cf407af` (até a vitória, volta e reabertura) — §9 |
 
 ## 1. Tooltip preso
 
@@ -153,12 +153,30 @@ mudança visual). "Depois": Editor com a Game View em 1920 × 1080 real e mouse 
 Cenas: Acampamento e HexPrototipo. Builds anteriores intactas. A Release abriu com o perfil `qa-ui-polish`; o
 `Player.log` dessa abertura não tem exceções nem o aviso de reticências.
 
-**PENDENTE — validação com mouse real na build nova.** O pedido de controle da janela da build foi recusado nesta
-sessão, então hover, arraste, cancelamento, soltura inválida/válida, recompensa, chefe, fim da jornada, volta ao
-acampamento e reabertura **não** foram feitos com mouse físico nesta build. O comportamento está coberto por testes
-de Play Mode com eventos reais do Input System e pelas capturas do Editor em 1080p real. Roteiro para a validação:
-`Loopia.exe -loopia-perfil qa-ui-polish -screen-fullscreen 1 -window-mode borderless -screen-width 1920 -screen-height 1080`,
-mantendo o cursor fora da faixa superior da tela.
+**Validação com mouse real na Release** (autorizada pelo responsável depois de uma primeira recusa; tela cheia
+1920 × 1080, `-loopia-perfil qa-ui-polish`, cursor fora da faixa superior). Capturas da janela do jogo em
+[ui-polish/build/](ui-polish/build/):
+
+| Passo | Resultado | Evidência |
+|---|---|---|
+| Iniciar jornada (clique em "Nova jornada") | ok; mão com as cartas maiores | — |
+| Hover na Torre | tooltip ampliado com "Dano de flechas · +8%", efeito e regra | [02](ui-polish/build/02_hover_tooltip_torre_1080.jpg) |
+| Cancelar arraste (soltar sobre a mão) | carta volta, nada consumido, sem tooltip | — |
+| Soltar no centro do anel | marcador vermelho, "O centro do anel é reservado ao chefe." ao lado do fantasma; carta volta, sem tooltip | [03](ui-polish/build/03_arraste_invalido_1080.jpg) |
+| Soltar em casa válida perto da borda esquerda | fantasma à direita do alvo, hexágono verde visível | [04](ui-polish/build/04_arraste_valido_borda_esquerda_1080.jpg) |
+| Cursor parado sobre a Torre recém-construída | **sem tooltip** (na build consolidada aparecia "Torre" aqui) | [05](ui-polish/build/05_apos_soltar_sem_tooltip_1080.jpg) |
+| Hover voluntário na Torre / sair dela | tooltip da plataforma abre / fecha | [06](ui-polish/build/06_apos_sair_da_plataforma_sem_tooltip_1080.jpg) |
+| Receber recompensa | pendente entrou no espaço consumido; "+N pendentes" | [05](ui-polish/build/05_apos_soltar_sem_tooltip_1080.jpg) |
+| Tooltip da Fonte Restauradora | "Cura por coração · +2", efeito e regra legíveis | [07](ui-polish/build/07_tooltip_fonte_restauradora_1080.jpg) |
+| Coração e Flechas no caminho, Fonte e Campo Pacífico fora | todos construídos e consumidos | — |
+| Chefe | barra "Morcego Ancião", painel da jornada, "Espaço livre" na mão | [08](ui-polish/build/08_chefe_hud_espaco_livre_1080.jpg) |
+| Fim da jornada | **vitória**, "Chefe derrotado", 28 moedas | [09](ui-polish/build/09_vitoria_resultado_1080.jpg) |
+| Voltar ao acampamento (clique) | 28 → 56 moedas | — |
+| Fechar e reabrir | 56 moedas, 1 vitória no perfil de QA | [10](ui-polish/build/10_reabertura_56_moedas_1080.jpg) |
+
+`Player.log` da sessão ([Player_sessao_validacao.log](ui-polish/build/Player_sessao_validacao.log)): sem exceções,
+erros ou aviso de reticências. Save pessoal intacto (`76e429e4…`). Detalhe menor visto na build: com o alvo logo acima
+da mão, o aviso de validade fica sobre a placa "+N pendentes" (não cobre o alvo).
 
 ## 10. Riscos residuais
 
