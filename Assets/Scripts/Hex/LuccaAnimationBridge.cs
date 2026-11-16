@@ -36,6 +36,15 @@ namespace Loopia.Hex
         [Tooltip("Fracao do giroMaximo do tronco usada antes de o corpo comecar a virar (sobra para a mira fina).")]
         [SerializeField, Range(0.3f, 1f)] float folgaDoTronco = 0.8f;
 
+        [Header("Corpo para onde anda (a raiz do agente leva ~0,3 s para encarar cada nova direcao)")]
+        [Tooltip("Antes de cada pulo e depois de cada pouso o caminho muda de direcao e a raiz do NavMeshAgent ainda olha " +
+                 "para a direcao antiga (ate ~60 graus). O corpo visual vira para onde a raiz anda nesse meio tempo; sem isso a " +
+                 "corrida empurra os pes para a frente do corpo enquanto ele anda de lado e o pe de apoio desliza. " +
+                 "A raiz e o combate (EstaAFrente) nao mudam. 0 = desligado.")]
+        [SerializeField, Range(0, 90)] float giroDaMarchaMaximo = 75f;
+        [Tooltip("Suavizacao (s) do giro da marcha. Precisa ser bem mais rapida que a raiz.")]
+        [SerializeField, Range(0.01f, 0.2f)] float suavizacaoDaMarcha = 0.035f;
+
         [Header("Fim da jornada (sem clipe proprio: reaproveita os saltos, a raiz fica com o NavMeshAgent)")]
         [Tooltip("Vitoria: o Spring Jump no lugar para neste ponto (0..1), com o braco erguido.")]
         [SerializeField, Range(0f, 1f)] float poseDaVitoria = 0.78f;
@@ -52,12 +61,19 @@ namespace Loopia.Hex
         Quaternion _rotacaoBase = Quaternion.identity;
         float _giroDoCorpo;
         float _velocidadeDoGiroDoCorpo;
+        float _giroDaMarcha;
+        float _velocidadeDoGiroDaMarcha;
+        Vector3 _posicaoAnterior;
+        Vector3 _velocidadeDaRaiz;
 
         /// <summary>Angulo horizontal (graus) entre o arco e o alvo no instante da ultima soltura. NaN antes do 1o tiro.</summary>
         public float ErroDeMiraNaSoltura { get; private set; } = float.NaN;
 
-        /// <summary>Giro atual do corpo visual em relacao a raiz (graus).</summary>
+        /// <summary>Giro atual do corpo visual em relacao a raiz para a mira (graus).</summary>
         public float GiroDoCorpoAtual => _giroDoCorpo;
+
+        /// <summary>Giro atual do corpo visual em relacao a raiz para olhar para onde anda (graus).</summary>
+        public float GiroDaMarchaAtual => _giroDaMarcha;
         int _idDoTiro;
         bool _esperandoEstadoDeTiro;
         bool _recebeuSoltura;
@@ -86,6 +102,7 @@ namespace Loopia.Hex
             _combate = GetComponentInParent<LuccaCombate>();
             _status = GetComponentInParent<LuccaStatus>();
             _rotacaoBase = transform.localRotation;
+            if (_player != null) _posicaoAnterior = _player.transform.position;
             _animator.applyRootMotion = false;
             if (bowShot == null) return;
             foreach (AnimationEvent evento in bowShot.events)
@@ -275,11 +292,21 @@ namespace Loopia.Hex
             float pesoDoTiro = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.14f, 0.42f, progresso))
                 * (1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.56f, 0.93f, progresso)));
 
+            // Marcha: o corpo olha para onde a raiz de fato anda enquanto ela ainda gira. Mede o deslocamento da raiz (e nao
+            // a velocidade do agente) para valer tambem no pulo, que move a raiz a mao; teleporte (ColocarEm) nao conta.
+            Vector3 deslocamento = raiz.position - _posicaoAnterior;
+            _posicaoAnterior = raiz.position;
+            if (Time.deltaTime > 0f) _velocidadeDaRaiz = deslocamento / Time.deltaTime;
+            if (_velocidadeDaRaiz.sqrMagnitude > 144f) _velocidadeDaRaiz = Vector3.zero;
+            float alvoDaMarcha = GiroDaMarcha(raiz.forward, _velocidadeDaRaiz, raiz.up, giroDaMarchaMaximo);
+            _giroDaMarcha = Mathf.SmoothDampAngle(_giroDaMarcha, alvoDaMarcha, ref _velocidadeDoGiroDaMarcha, suavizacaoDaMarcha);
+
             // Corpo primeiro (o tronco mede a referencia do arco ja com o corpo virado): so durante o tiro e fora do pulo.
             float alvoDoCorpo = 0f;
             if (mirar && pesoDoTiro > 0f && !_player.EstaPulando)
             {
-                // Direcao do arco na pose da animacao, descontado o giro do corpo do frame anterior (o transform guarda).
+                // Direcao do arco na pose da animacao, descontado o giro de mira do frame anterior (o transform guarda; a
+                // marcha fica: ela e a base, para onde as pernas correm).
                 float arcoSemCorpo = Angulos(raiz.InverseTransformDirection(direcao.position - origem.position)).x - _giroDoCorpo;
                 float paraOAlvo = Angulos(raiz.InverseTransformDirection(alvo.transform.position - origem.position)).x;
                 float rapidez = _animator.GetFloat(MoveSpeed) / Mathf.Max(0.1f, _player.velocidade);
@@ -288,7 +315,7 @@ namespace Loopia.Hex
             }
             _giroDoCorpo = Mathf.SmoothDampAngle(_giroDoCorpo, alvoDoCorpo, ref _velocidadeDoGiroDoCorpo,
                 alvoDoCorpo != 0f ? 0.07f : 0.16f);
-            transform.localRotation = Quaternion.AngleAxis(_giroDoCorpo, Vector3.up) * _rotacaoBase;
+            transform.localRotation = Quaternion.AngleAxis(_giroDaMarcha + _giroDoCorpo, Vector3.up) * _rotacaoBase;
 
             Vector2 ajuste = Vector2.zero;
             if (mirar)
@@ -326,6 +353,18 @@ namespace Loopia.Hex
         /// </summary>
         public static float LimiteDoCorpo(float parado, float correndo, float rapidez) =>
             Mathf.Lerp(parado, Mathf.Min(correndo, parado), Mathf.Clamp01(rapidez));
+
+        /// <summary>
+        /// Quanto (graus, com sinal, em torno de cima) o corpo precisa girar a partir da frente da raiz para olhar na direcao
+        /// da velocidade. Zero abaixo de velocidadeMinima (parado ou arrancando, a direcao nao e confiavel); limitado a maximo.
+        /// </summary>
+        public static float GiroDaMarcha(Vector3 frente, Vector3 velocidade, Vector3 cima, float maximo, float velocidadeMinima = 0.5f)
+        {
+            Vector3 plano = Vector3.ProjectOnPlane(velocidade, cima);
+            if (plano.magnitude < velocidadeMinima) return 0f;
+            float angulo = Vector3.SignedAngle(Vector3.ProjectOnPlane(frente, cima), plano, cima);
+            return Mathf.Clamp(angulo, -maximo, maximo);
+        }
 
         /// <summary>Angulo (graus) entre dois vetores projetados no plano horizontal.</summary>
         public static float ErroHorizontal(Vector3 arco, Vector3 alvo, Vector3 cima) =>

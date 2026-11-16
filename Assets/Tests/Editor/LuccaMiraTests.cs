@@ -49,6 +49,20 @@ namespace Loopia.Hex.Tests
         }
 
         [Test]
+        public void GiroDaMarcha_OlhaParaAVelocidade_ComLimite_EZeroDevagar()
+        {
+            Vector3 frente = Vector3.forward;
+            Vector3 cima = Vector3.up;
+            Vector3 direita60 = Quaternion.AngleAxis(60f, cima) * frente * 3.5f;
+            Assert.AreEqual(60f, LuccaAnimationBridge.GiroDaMarcha(frente, direita60, cima, 75f), 1e-3f, "sinal: para a direita e +");
+            Assert.AreEqual(-60f, LuccaAnimationBridge.GiroDaMarcha(frente, Quaternion.AngleAxis(-60f, cima) * frente * 3.5f, cima, 75f), 1e-3f);
+            Assert.AreEqual(75f, LuccaAnimationBridge.GiroDaMarcha(frente, Vector3.right * 3.5f + Vector3.back * 0.5f, cima, 75f), 1e-3f, "limite");
+            Assert.AreEqual(0f, LuccaAnimationBridge.GiroDaMarcha(frente, direita60.normalized * 0.3f, cima, 75f), "devagar: sem giro");
+            Assert.AreEqual(0f, LuccaAnimationBridge.GiroDaMarcha(frente, Vector3.up * 5f, cima, 75f), "so vertical: sem giro");
+            Assert.AreEqual(0f, LuccaAnimationBridge.GiroDaMarcha(frente, direita60, cima, 0f), "desligado");
+        }
+
+        [Test]
         public void ErroHorizontal_IgnoraAAltura()
         {
             Assert.AreEqual(0f, LuccaAnimationBridge.ErroHorizontal(new Vector3(0, 0, 1), new Vector3(0, 5, 3), Vector3.up), 1e-3f);
