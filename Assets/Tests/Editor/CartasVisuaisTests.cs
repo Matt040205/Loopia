@@ -69,9 +69,15 @@ namespace Loopia.Hex.Tests
             Object.FindFirstObjectByType<HexLoopRunner>().andando = false;
             Object.FindFirstObjectByType<InimigoSpawner>().nascerMorcegos = false;
             var ui = Object.FindFirstObjectByType<CartasUI>();
-            var prefab = AssetDatabase.LoadAssetAtPath<HudDeCartas>(Arte + "HUD de Cartas.prefab");
-            HudDeCartas hud = Object.Instantiate(prefab);
-            hud.origem = ui;
+            // A cena oficial ja traz a HUD (consolidacao); numa cena sem ela o teste instala o prefab.
+            HudDeCartas hud = Object.FindFirstObjectByType<HudDeCartas>();
+            bool criada = hud == null;
+            if (criada)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<HudDeCartas>(Arte + "HUD de Cartas.prefab");
+                hud = Object.Instantiate(prefab);
+                hud.origem = ui;
+            }
             var configuracaoOriginal = InputSystem.settings;
             var configuracao = Object.Instantiate(configuracaoOriginal);
             configuracao.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
@@ -153,7 +159,7 @@ namespace Loopia.Hex.Tests
                 InputSystem.RemoveDevice(mouse);
                 InputSystem.settings = configuracaoOriginal;
                 Object.Destroy(configuracao);
-                Object.Destroy(hud.gameObject);
+                if (criada) Object.Destroy(hud.gameObject);
             }
         }
 
