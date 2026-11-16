@@ -13,7 +13,7 @@ namespace Loopia.Hex
     [Serializable]
     public class VarianteDoChefe
     {
-        public string nome = "Morcego Anciao";
+        public string nome = "Morcego Ancião";
         public Color cor = new Color(0.45f, 0.08f, 0.12f);
 
         [Header("Multiplicadores sobre o inimigo base")]

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59850aeba616ac34894a5ec83e38f57c, type: 3}
   m_Name: CampoPacifico
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaSimplesDef
-  nomeExibido: Campo Pacifico
-  descricao: +2 de PV maximo ao Lucca.
+  nomeExibido: "Campo Pac\xEDfico"
+  descricao: "+2 de PV m\xE1ximo ao Lucca."
   cor: {r: 0.55, g: 0.85, b: 0.5, a: 1}
   onde: 1
   podeSerSubstituida: 1
@@ -25,3 +25,5 @@ MonoBehaviour:
   ocultarDecoracao: 1
   bonusDePv: 2
   bonusDeDano: 0
+  bonusDeFlechas: 0
+  bonusDeCuraPorCoracao: 0

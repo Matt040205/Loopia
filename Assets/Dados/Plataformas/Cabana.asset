@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cabana
   m_EditorClassIdentifier: Assembly-CSharp:Loopia.Hex:PlataformaVizinhancaDef
   nomeExibido: Cabana
-  descricao: +2 de PV, e mais +2 para cada Campo Pacifico vizinho.
+  descricao: "+2 de PV, e mais +2 para cada Campo Pac\xEDfico vizinho."
   cor: {r: 0.72, g: 0.5, b: 0.32, a: 1}
   onde: 1
   podeSerSubstituida: 1
@@ -25,6 +25,8 @@ MonoBehaviour:
   ocultarDecoracao: 0
   bonusDePv: 2
   bonusDeDano: 0
+  bonusDeFlechas: 0
+  bonusDeCuraPorCoracao: 0
   tipoQueConta: {fileID: 11400000, guid: 5a82117b50fb09241b2c461714cd92cb, type: 2}
   raio: 1
   pvPorVizinha: 2

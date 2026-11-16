@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59850aeba616ac34894a5ec83e38f57c, type: 3}
   m_Name: Santuario
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.PlataformaSimplesDef
-  nomeExibido: Santuario
-  descricao: +3 de PV maximo ao Lucca.
+  nomeExibido: "Santu\xE1rio"
+  descricao: "+3 de PV m\xE1ximo ao Lucca."
   cor: {r: 0.93, g: 0.88, b: 0.68, a: 1}
   onde: 1
   podeSerSubstituida: 1

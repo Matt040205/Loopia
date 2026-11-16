@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Floresta
   m_EditorClassIdentifier: Assembly-CSharp:Loopia.Hex:PlataformaFlorestaDef
   nomeExibido: Floresta
-  descricao: Todo loop nasce um lobo nesta casa.
+  descricao: A cada volta, nasce um lobo nesta casa.
   cor: {r: 0.16, g: 0.42, b: 0.22, a: 1}
   onde: 0
   podeSerSubstituida: 1

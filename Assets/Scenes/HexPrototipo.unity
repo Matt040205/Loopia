@@ -6326,7 +6326,7 @@ MonoBehaviour:
   status: {fileID: 30939188}
   chefe: {fileID: 0}
   variante:
-    nome: Morcego Anciao
+    nome: "Morcego Anci\xE3o"
     cor: {r: 0.45, g: 0.08, b: 0.12, a: 1}
     multiplicadorDePv: 10
     multiplicadorDeAtaque: 1.2
