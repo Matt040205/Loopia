@@ -15,7 +15,7 @@ namespace Loopia.Hex
     /// casa sob o mouse: verde quando da para soltar, vermelho quando nao da, e o motivo aparece
     /// escrito. Quem decide se pode e sempre o MapaDePlataformas — aqui so se pergunta.
     ///
-    /// Isto e IMGUI de prototipo, para a mecanica poder ser jogada antes da HUD de verdade.
+    /// A apresentacao Canvas e opcional. Na sua ausencia, a barra IMGUI continua disponivel.
     /// </summary>
     [DisallowMultipleComponent]
     public class CartasUI : MonoBehaviour
@@ -45,6 +45,10 @@ namespace Loopia.Hex
         Transform _marcador;
         MeshRenderer _marcadorRenderer;
         MaterialPropertyBlock _bloco;
+
+        HudDeCartas _hud;
+        Mesh _malhaMarcador;
+        Material _materialMarcador;
 
         GUIStyle _estiloCarta;
         GUIStyle _estiloTexto;
@@ -80,22 +84,86 @@ namespace Loopia.Hex
         /// <summary>Lucca morto ou jornada encerrada (vitoria/derrota): sem arraste e sem barra de cartas.</summary>
         bool JornadaEncerrada => LuccaMorreu || (mapa != null && mapa.diretor != null && mapa.diretor.Terminou);
 
+        internal bool AtivarHud(HudDeCartas hud)
+        {
+            if (!isActiveAndEnabled || _hud != null || mao == null || mundo == null || !hud.Preparar(mao, mundo))
+                return false;
+            CancelarArraste();
+            _hud = hud;
+            return true;
+        }
+
+        internal void DesativarHud(HudDeCartas hud)
+        {
+            if (_hud != hud) return;
+            CancelarArraste();
+            _hud = null;
+        }
+
+        void OnDisable()
+        {
+            CancelarArraste();
+            if (_hud != null) _hud.Visivel(false);
+        }
+
+        void OnDestroy()
+        {
+            if (_marcador != null) Destroy(_marcador.gameObject);
+            Destroy(_malhaMarcador);
+            Destroy(_materialMarcador);
+        }
+
+        void OnApplicationFocus(bool temFoco)
+        {
+            if (!temFoco && _espacoArrastado >= 0) CancelarArraste();
+        }
+
         void Update()
         {
-            if (JornadaEncerrada)
+            bool encerrada = JornadaEncerrada;
+            if (_hud != null) _hud.Visivel(!encerrada);
+            if (encerrada)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
                 return;
             }
 
-            if (CartaArrastada == null)
+            bool temPonteiro = TryPosicaoDoMouse(out Vector3 ponteiro);
+            float dt = Time.unscaledDeltaTime;
+
+            if (_hud != null && temPonteiro)
+            {
+                Plataforma apontada = null;
+                if (_espacoArrastado < 0 && !_hud.SobreAMao(ponteiro))
+                    ApontandoPlataforma(out apontada);
+                _hud.Observar(ponteiro, apontada, dt);
+
+                if (_espacoArrastado < 0 && BotaoEsquerdoPressionado())
+                {
+                    int espaco = _hud.EspacoSobCursor(ponteiro);
+                    var carta = mao.CartaNoEspaco(espaco);
+                    if (carta != null)
+                    {
+                        ComecarArraste(espaco);
+                        _hud.IniciarArraste(espaco, carta, ponteiro);
+                    }
+                }
+            }
+
+            if (CartaArrastada == null || !temPonteiro)
             {
                 if (_espacoArrastado >= 0) CancelarArraste();
                 return;
             }
 
-            AtualizarCasaSobOMouse();
+            AtualizarCasaSobOMouse(ponteiro);
             AtualizarMarcador();
+            if (_hud != null)
+            {
+                string retorno = _podeSoltarAqui ? "Solte para construir"
+                    : _motivo ?? "Aponte para uma casa do tabuleiro";
+                _hud.Arrastando(ponteiro, _podeSoltarAqui, retorno, dt);
+            }
 
             if (BotaoEsquerdoSolto()) Soltar();
         }
@@ -111,6 +179,7 @@ namespace Loopia.Hex
         void CancelarArraste()
         {
             _espacoArrastado = -1;
+            if (_hud != null) _hud.EncerrarArraste();
             if (grade != null) grade.Esconder();
             if (_marcador != null) _marcador.gameObject.SetActive(false);
         }
@@ -121,19 +190,24 @@ namespace Loopia.Hex
 
             if (carta != null && _casaValida && _podeSoltarAqui)
             {
-                if (mapa.Colocar(carta, _casaSobOMouse) != null) mao.Gastar(_espacoArrastado);
+                if (mapa.Colocar(carta, _casaSobOMouse) != null && mao.Gastar(_espacoArrastado) && _hud != null)
+                    _hud.Consumir(carta, _casaSobOMouse);
             }
 
             CancelarArraste();
         }
 
-        void AtualizarCasaSobOMouse()
+        void AtualizarCasaSobOMouse(Vector3 naTela)
         {
             _casaValida = false;
             _podeSoltarAqui = false;
             _motivo = null;
 
-            if (!TryPosicaoDoMouse(out Vector3 naTela)) return;
+            if (_hud != null && _hud.SobreAMao(naTela))
+            {
+                _motivo = "Aponte para fora da mão";
+                return;
+            }
 
             Ray raio = camera3d.ScreenPointToRay(naTela);
             if (!mundo.TryCasaNoRaio(raio, out _casaSobOMouse)) return;
@@ -152,11 +226,12 @@ namespace Loopia.Hex
             // viraria chao andavel no proximo bake.
             go.AddComponent<Unity.AI.Navigation.NavMeshModifier>().ignoreFromBuild = true;
 
-            go.AddComponent<MeshFilter>().sharedMesh =
-                HexMesh.Create(mundo.tamanhoDoHexagono * (1f - mundo.folgaEntreHexagonos), 0f);
+            _malhaMarcador = HexMesh.Create(mundo.tamanhoDoHexagono * (1f - mundo.folgaEntreHexagonos), 0f);
+            go.AddComponent<MeshFilter>().sharedMesh = _malhaMarcador;
 
+            _materialMarcador = CriarMaterialTransparente();
             _marcadorRenderer = go.AddComponent<MeshRenderer>();
-            _marcadorRenderer.sharedMaterial = CriarMaterialTransparente();
+            _marcadorRenderer.sharedMaterial = _materialMarcador;
             _marcadorRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             _marcadorRenderer.receiveShadows = false;
 
@@ -180,7 +255,9 @@ namespace Loopia.Hex
             // Um pouco acima da superficie, senao briga por profundidade com a ilha embaixo.
             _marcador.position = mundo.PosicaoDe(_casaSobOMouse) + mundo.transform.up * 0.05f;
 
-            Color cor = _podeSoltarAqui ? corPodeColocar : corNaoPode;
+            Color cor = _hud == null
+                ? (_podeSoltarAqui ? corPodeColocar : corNaoPode)
+                : (_podeSoltarAqui ? new Color(.43f, .89f, .69f, .40f) : new Color(.95f, .44f, .42f, .36f));
             _marcadorRenderer.GetPropertyBlock(_bloco);
             _bloco.SetColor("_BaseColor", cor);
             _bloco.SetColor("_Color", cor);
@@ -207,7 +284,7 @@ namespace Loopia.Hex
         void OnGUI()
         {
             // IMGUI desenha por cima de qualquer Canvas: no fim da jornada sai da frente da tela de resultado.
-            if (mao == null || JornadaEncerrada) return;
+            if (_hud != null || mao == null || JornadaEncerrada) return;
 
             if (_estiloCarta == null)
             {
@@ -341,6 +418,15 @@ namespace Loopia.Hex
         }
 
         // --- Entrada ---
+
+        static bool BotaoEsquerdoPressionado()
+        {
+#if ENABLE_INPUT_SYSTEM
+            return Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+#else
+            return Input.GetMouseButtonDown(0);
+#endif
+        }
 
         static bool BotaoEsquerdoSolto()
         {
