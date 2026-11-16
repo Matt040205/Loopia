@@ -11,9 +11,9 @@
 - Testes: **427/427** depois do Bloco C (Logic+SceneStatic 398, job `f9bde7ad…`; PlayModeSmoke 25, job `606df17d…`;
   PlayModeMedicao 4, job `9e92549d…`). Antes do Bloco C: 417/417.
 - Builds mais novas (`6dd6206`, com o Bloco C): Release `Documents\Loopia_Builds\mvp-estabilizacao-6dd6206-release\`
-  (apresentação) e Development `...-6dd6206-dev\` (QA); só a fumaça (abre/fecha) foi feita nelas, a jornada não foi
-  jogada. As `a7a5c56` (última com jornada validada na linha: vitória na `7bf6492`) e `7bf6492` ficam como versões
-  anteriores; fallback `mvp-20261117-dev-55442a5` intacto.
+  (apresentação) e Development `...-6dd6206-dev\` (QA). Na Release: **vitória e derrota com mouse real**, botão,
+  acampamento, save de QA (+25 e +35, iguais às telas) e reabertura, 0 exceções (`BUILD_VALIDATION.md` §4.1). As
+  `a7a5c56` e `7bf6492` ficam como versões anteriores; fallback `mvp-20261117-dev-55442a5` intacto.
 - Validado na build com mouse real: **vitória** → resultado → botão → acampamento → save (1 vitória) → reabertura
   (Release `7bf6492`, perfil QA); derrota → retorno (fallback); instalação nova e antiga com migração (Release). A
   build final só teve abertura/fechamento (acesso do computer use negado); difere só pela correção da moeda.

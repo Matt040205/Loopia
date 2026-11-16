@@ -109,10 +109,26 @@ Fumaça da Release (2026-11-16 ~02:25, sem computer use): aberta com `-loopia-pe
 da própria janela (`evidencias/release_6dd6206_abertura.png`: Acampamento do perfil de QA, "Moedas: 47", "Recorde de
 voltas: 4"), fechada; log sem exceções; save do jogador com o mesmo hash antes e depois (`76e429e4…`).
 
-**A jornada nesta build não foi jogada.** O Bloco C só mexe no visual do Lucca (`LuccaAnimationBridge`) e na tela de
-resultado (fade); regras, save, cenas e troca de cena não mudaram, e os PlayModeSmoke de vitória/derrota do chefe e do
-Mirante cobrem os caminhos. Para conferir à mão na Release: roteiro do §2.2, olhando também (a) o Lucca virando o corpo
-para atirar no chefe e num alvo atrás no Mirante, (b) a corrida antes dos pulos sem os pés escorregando de lado, (c) a
-pose de comemoração ou de queda e o fade da tela de resultado.
+### 4.1 Release `6dd6206` — vitória e derrota com mouse real (2026-11-16 ~02:50–03:00, `-loopia-perfil qa`)
+Tela cheia sem borda 1920×1080, computer use liberado pelo responsável. Save de QA antes: 47 moedas, 1 vitória.
+
+| Passo | Resultado | Evidência |
+|---|---|---|
+| Jornada 1: cartas pela UI real | Flechas e Coração no anel; Torre fora; Área de Treino vizinha da Torre; 2º Coração no anel; Oficina de Arqueiro e Fonte Restauradora fora do anel (grade verde/vermelha no arraste) | — |
+| 4 voltas → chefe → **vitória** | "O Lucca derrotou o chefe depois de 4 voltas! Moedas nesta jornada: 25"; log `Chefe -> Vitoria` | `evidencias/release_6dd6206_vitoria_tela.png` |
+| Botão "Volte ao acampamento" (clique real) | Acampamento "Moedas: 72" | `evidencias/release_6dd6206_vitoria_volta_acampamento.png` |
+| Save de QA | moedas 47 → 72 (**+25, igual à tela**: a correção da moeda vale na build), vitórias 1 → 2 (uma vez) | — |
+| Jornada 2, sem jogar cartas → **derrota** no chefe | "O Lucca caiu diante do chefe. Moedas nesta jornada: 35" (chefe a 347/732); log `Chefe -> Derrota` | `evidencias/release_6dd6206_derrota_tela.png` |
+| Botão "Volte ao acampamento" | Acampamento "Moedas: 107" (72 + 35); vitórias seguem 2 | `evidencias/release_6dd6206_derrota_volta_acampamento.png` |
+| Fechar e reabrir com o mesmo perfil | 107 moedas, recorde 4 | `evidencias/release_6dd6206_reabertura.png` |
+| Exceções no log | 0 na jornada, 0 na reabertura | — |
+| Save do jogador | mesmo hash antes e depois (`76e429e4…`) | — |
+
+Observações:
+- A build pausa sem foco: uma mensagem no app do Claude levou o foco e a jornada 2 parou até um clique na janela do jogo.
+- O giro do corpo nos tiros e as poses do fim **não foram vistos de perto nesta build**: na câmera padrão o Lucca é
+  pequeno, a captura da janela pegou o chefe já caindo e a pose fica atrás do painel escurecido. Esses pontos ficam
+  cobertos pelos PlayModeSmoke (Mirante, chefe) e pelas capturas do Editor (`evidencias/pes_e_mira`,
+  `evidencias/fim_de_partida`). Para olhar à mão: zoom com a roda do mouse no Lucca durante o chefe.
 
 As builds `a7a5c56` e `7bf6492` continuam como versões anteriores; o fallback `mvp-20261117-dev-55442a5` não foi tocado.

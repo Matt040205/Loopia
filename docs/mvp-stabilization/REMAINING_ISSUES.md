@@ -4,7 +4,7 @@ O que ficou em aberto, por quê e o que fazer a seguir. Atualizado ao fim de cad
 
 | Prioridade | Item | Situação | Próximo passo |
 |---|---|---|---|
-| Validação | Jornada jogada nas builds `a7a5c56` e **`6dd6206`** (Bloco C); derrota numa build nova | vitória validada na `7bf6492`; a `a7a5c56` difere só pela moeda e a `6dd6206` só no visual do Lucca e no fade (cobertos por PlayModeSmoke); só fumaça nas duas; derrota validada no fallback | roteiro em `BUILD_VALIDATION.md` §2.2 e §4 |
+| Validação | Olhar de perto, na build, o giro do corpo nos tiros e as poses do fim | vitória **e derrota** validadas com mouse real na Release `6dd6206` (resultado, botão, acampamento, save, reabertura); o visual do Lucca só foi conferido no Editor | zoom no Lucca durante o chefe numa partida à mão |
 | **Saves** | Outras frentes (worktrees `loopia-cards`, `loopia-hud-preview`, Editors abertos 21:48 e 22:41) gravaram no save do jogador: `Loopia\loopia_save.json` 209 → 210 (15/11 21:41) e `GameJam13-06\loopia_save.json` 209 → 212 (22:09) | não foi esta sessão; **não restaurado** sem confirmação do responsável | decidir se volta a `3d27854e…` (cópia em `Documents\Loopia_Recovery_20261115\save\`); orientar as outras frentes a usar `-loopia-perfil` ou backup |
 | P2 | Mira correndo com o alvo bem atrás (> ~95°): o corpo só gira 30° correndo para não deslizar os pés | parado (Mirante) corrigido: ~99° → ~15°; de lado (chefe) corrigido | clipes de corrida lateral/de costas no Blender (com backup) ou IK de braço; sem eles, mais giro = mais deslize |
 | P2 | Contato do arco com a túnica/saia na mistura de tiro | não mexido (não piorou: o tronco continua ≤ 65°) | editar o clipe Bow Shot no Blender com backup; varredura de ângulos no Unity |
