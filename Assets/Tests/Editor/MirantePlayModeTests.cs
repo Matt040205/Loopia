@@ -193,6 +193,48 @@ namespace Loopia.Hex.Tests
         }
 
         [UnityTest]
+        public IEnumerator Mirante_AlvoAtras_OArcoApontaParaOAlvoNaSoltura()
+        {
+            yield return new EnterPlayMode();
+            yield return MiraVisualAtras();
+            yield return new ExitPlayMode();
+        }
+
+        /// <summary>
+        /// Estabilizacao do MVP (P2-1): de costas para o alvo, o corpo visual vira o que o tronco (65°) nao alcanca. Mede o
+        /// angulo horizontal entre o arco e o alvo na soltura com o giro do corpo e, para comparar, sem ele (como antes).
+        /// </summary>
+        static IEnumerator MiraVisualAtras()
+        {
+            var c = new Campo();
+            yield return Montar(c);
+            var ponte = Object.FindFirstObjectByType<LuccaAnimationBridge>();
+            if (ponte == null || !ponte.AnimaTiros) Assert.Inconclusive("sem o modelo animado do Lucca na cena");
+            Inimigo alvo = c.inimigos.Nascer(c.def, c.longe);
+            Assert.IsNotNull(alvo);
+            int tiros = 0;
+            c.combate.AoDisparar += (a, _) => { if (a == alvo) tiros++; };
+            Quaternion raizAntes = c.player.transform.rotation;
+
+            ColocarDeCostas(c, c.alta, alvo);
+            raizAntes = c.player.transform.rotation;
+            yield return Aguardar(() => tiros >= 1, "flecha solta no alvo atras do Lucca");
+            float comCorpo = ponte.ErroDeMiraNaSoltura;
+            Assert.Less(Quaternion.Angle(raizAntes, c.player.transform.rotation), 1f, "a raiz de navegacao nao pode girar");
+
+            Reflexao.DefinirCampo(ponte, "giroMaximoDoCorpo", 0f);
+            yield return Aguardar(() => tiros >= 2, "segunda flecha, sem o giro do corpo");
+            float soTronco = ponte.ErroDeMiraNaSoltura;
+            Reflexao.DefinirCampo(ponte, "giroMaximoDoCorpo", 120f);
+
+            Debug.Log("[Mirante] erro horizontal da mira na soltura, alvo atras: com o corpo " + comCorpo.ToString("0.0") +
+                      " graus; so o tronco (antes) " + soTronco.ToString("0.0") + " graus");
+            Assert.Less(comCorpo, 25f, "o arco tem que apontar para o alvo atras");
+            Assert.Greater(soTronco, 45f, "sem o giro do corpo o tronco nao alcanca (caracterizacao do defeito)");
+            Object.Destroy(c.def);
+        }
+
+        [UnityTest]
         public IEnumerator Mirante_TiroReservado_ECanceladoSeOLuccaSairAntesDaSoltura()
         {
             yield return new EnterPlayMode();

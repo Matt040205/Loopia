@@ -25,6 +25,13 @@ namespace Loopia.Hex
         [SerializeField, Range(0, 70)] float giroMaximo = 65f;
         [SerializeField, Range(0, 35)] float inclinacaoMaxima = 25f;
 
+        [Header("Tiro alem do tronco (Mirante e chefe atiram em qualquer direcao)")]
+        [Tooltip("O que passa da folga do tronco vira o CORPO visual inteiro (este objeto), ate este angulo, so durante o " +
+                 "tiro. A raiz de navegacao (NavMeshAgent) nao gira; o tronco continua limitado a giroMaximo.")]
+        [SerializeField, Range(0, 150)] float giroMaximoDoCorpo = 120f;
+        [Tooltip("Fracao do giroMaximo do tronco usada antes de o corpo comecar a virar (sobra para a mira fina).")]
+        [SerializeField, Range(0.3f, 1f)] float folgaDoTronco = 0.8f;
+
         [Header("Fim da jornada (sem clipe proprio: reaproveita os saltos, a raiz fica com o NavMeshAgent)")]
         [Tooltip("Vitoria: o Spring Jump no lugar para neste ponto (0..1), com o braco erguido.")]
         [SerializeField, Range(0f, 1f)] float poseDaVitoria = 0.78f;
@@ -38,6 +45,15 @@ namespace Loopia.Hex
         LuccaStatus _status;
         int _estadoDoFim;
         float _congelarEm = -1f;
+        Quaternion _rotacaoBase = Quaternion.identity;
+        float _giroDoCorpo;
+        float _velocidadeDoGiroDoCorpo;
+
+        /// <summary>Angulo horizontal (graus) entre o arco e o alvo no instante da ultima soltura. NaN antes do 1o tiro.</summary>
+        public float ErroDeMiraNaSoltura { get; private set; } = float.NaN;
+
+        /// <summary>Giro atual do corpo visual em relacao a raiz (graus).</summary>
+        public float GiroDoCorpoAtual => _giroDoCorpo;
         int _idDoTiro;
         bool _esperandoEstadoDeTiro;
         bool _recebeuSoltura;
@@ -65,6 +81,7 @@ namespace Loopia.Hex
             _player = GetComponentInParent<HexPlayer>();
             _combate = GetComponentInParent<LuccaCombate>();
             _status = GetComponentInParent<LuccaStatus>();
+            _rotacaoBase = transform.localRotation;
             _animator.applyRootMotion = false;
             if (bowShot == null) return;
             foreach (AnimationEvent evento in bowShot.events)
@@ -238,6 +255,10 @@ namespace Loopia.Hex
             if (!_combate.CadenciaPermiteSoltar) return;
             int id = _idDoTiro;
             _idDoTiro = 0;
+            Inimigo alvoDoTiro = _combate.AlvoDaPreparacao;
+            if (alvoDoTiro != null && origem != null && direcao != null)
+                ErroDeMiraNaSoltura = ErroHorizontal(direcao.position - origem.position,
+                    alvoDoTiro.transform.position - origem.position, _player.transform.up);
             _combate.SoltarTiro(id, origem);
         }
 
@@ -246,12 +267,26 @@ namespace Loopia.Hex
             if (peito == null || origem == null || direcao == null) return;
             Inimigo alvo = _combate.AlvoDaPreparacao != null ? _combate.AlvoDaPreparacao : _combate.AlvoAtual;
             bool mirar = _combate.PodeAgir && alvo != null && (!_player.EstaPulando || progresso > 0f);
+            Transform raiz = _player.transform;
+            float pesoDoTiro = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.14f, 0.42f, progresso))
+                * (1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.56f, 0.93f, progresso)));
+
+            // Corpo primeiro (o tronco mede a referencia do arco ja com o corpo virado): so durante o tiro e fora do pulo.
+            float alvoDoCorpo = 0f;
+            if (mirar && pesoDoTiro > 0f && !_player.EstaPulando)
+            {
+                // Direcao do arco na pose da animacao, descontado o giro do corpo do frame anterior (o transform guarda).
+                float arcoSemCorpo = Angulos(raiz.InverseTransformDirection(direcao.position - origem.position)).x - _giroDoCorpo;
+                float paraOAlvo = Angulos(raiz.InverseTransformDirection(alvo.transform.position - origem.position)).x;
+                alvoDoCorpo = GiroDoCorpo(Mathf.DeltaAngle(arcoSemCorpo, paraOAlvo), giroMaximo * folgaDoTronco, giroMaximoDoCorpo);
+            }
+            _giroDoCorpo = Mathf.SmoothDampAngle(_giroDoCorpo, alvoDoCorpo, ref _velocidadeDoGiroDoCorpo,
+                alvoDoCorpo != 0f ? 0.07f : 0.16f);
+            transform.localRotation = Quaternion.AngleAxis(_giroDoCorpo, Vector3.up) * _rotacaoBase;
+
             Vector2 ajuste = Vector2.zero;
             if (mirar)
             {
-                Transform raiz = _player.transform;
-                float pesoDoTiro = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.14f, 0.42f, progresso))
-                    * (1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.56f, 0.93f, progresso)));
                 Vector2 referencia = Angulos(raiz.InverseTransformDirection(direcao.position - origem.position));
                 Vector2 desejado = Angulos(raiz.InverseTransformDirection(alvo.transform.position - origem.position));
                 ajuste.x = Mathf.Clamp(Mathf.LerpAngle(desejado.x * 0.22f,
@@ -268,6 +303,20 @@ namespace Loopia.Hex
             Vector3 eixoLateral = Vector3.Cross(eixoVertical, seta.normalized);
             peito.rotation = Quaternion.AngleAxis(-_mira.y, eixoLateral.normalized) * giro * peito.rotation;
         }
+
+        /// <summary>
+        /// Parte do giro horizontal desejado (graus, relativo a raiz) que vai para o corpo inteiro: o que passa da folga do
+        /// tronco, com o mesmo sinal, limitado a maximoDoCorpo. Dentro da folga, zero (so o tronco mira).
+        /// </summary>
+        public static float GiroDoCorpo(float desejado, float folgaDoTronco, float maximoDoCorpo)
+        {
+            float excesso = Mathf.Abs(Mathf.DeltaAngle(0f, desejado)) - folgaDoTronco;
+            return excesso <= 0f ? 0f : Mathf.Sign(Mathf.DeltaAngle(0f, desejado)) * Mathf.Min(excesso, maximoDoCorpo);
+        }
+
+        /// <summary>Angulo (graus) entre dois vetores projetados no plano horizontal.</summary>
+        public static float ErroHorizontal(Vector3 arco, Vector3 alvo, Vector3 cima) =>
+            Vector3.Angle(Vector3.ProjectOnPlane(arco, cima), Vector3.ProjectOnPlane(alvo, cima));
 
         static Vector2 Angulos(Vector3 vetor)
         {
