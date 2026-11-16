@@ -25,9 +25,19 @@ namespace Loopia.Hex
         [SerializeField, Range(0, 70)] float giroMaximo = 65f;
         [SerializeField, Range(0, 35)] float inclinacaoMaxima = 25f;
 
+        [Header("Fim da jornada (sem clipe proprio: reaproveita os saltos, a raiz fica com o NavMeshAgent)")]
+        [Tooltip("Vitoria: o Spring Jump no lugar para neste ponto (0..1), com o braco erguido.")]
+        [SerializeField, Range(0f, 1f)] float poseDaVitoria = 0.78f;
+        [Tooltip("Derrota: segundos do Jump onde o Lucca fica agachado (0 = o agachamento da preparacao).")]
+        [SerializeField, Range(0f, 0.35f)] float poseDaDerrota = 0f;
+        [SerializeField, Range(0f, 0.5f)] float misturaDoFim = 0.2f;
+
         Animator _animator;
         HexPlayer _player;
         LuccaCombate _combate;
+        LuccaStatus _status;
+        int _estadoDoFim;
+        float _congelarEm = -1f;
         int _idDoTiro;
         bool _esperandoEstadoDeTiro;
         bool _recebeuSoltura;
@@ -54,6 +64,7 @@ namespace Loopia.Hex
             _animator = GetComponent<Animator>();
             _player = GetComponentInParent<HexPlayer>();
             _combate = GetComponentInParent<LuccaCombate>();
+            _status = GetComponentInParent<LuccaStatus>();
             _animator.applyRootMotion = false;
             if (bowShot == null) return;
             foreach (AnimationEvent evento in bowShot.events)
@@ -86,8 +97,9 @@ namespace Loopia.Hex
                     _encerrado = true;
                     _animator.SetFloat(MoveSpeed, 0f);
                     _animator.SetLayerWeight(Tronco, 0f);
-                    _animator.CrossFadeInFixedTime(Locomotion, 0.1f, Base, 0f);
+                    ComecarPoseDoFim(_status != null && _status.EstaVivo);
                 }
+                AtualizarPoseDoFim();
                 return;
             }
 
@@ -111,6 +123,44 @@ namespace Loopia.Hex
             // O agente pode devolver zero no primeiro frame apos fechar o link.
             if (retoma && Time.time < _fimDaJanelaDeRetomada && velocidade < 0.1f) return;
             _animator.SetFloat(MoveSpeed, velocidade < 0.06f ? 0f : velocidade, amortecimentoVelocidade, Time.deltaTime);
+        }
+
+        /// <summary>Pose do fim da jornada: comemoracao na vitoria, agachado na derrota (antes: parava em Idle).</summary>
+        public bool FimComVitoria { get; private set; }
+
+        /// <summary>A pose do fim ja parou (RitmoPulo 0).</summary>
+        public bool PoseDoFimParada => _encerrado && _congelarEm < 0f;
+
+        void ComecarPoseDoFim(bool vitoria)
+        {
+            FimComVitoria = vitoria;
+            if (vitoria)
+            {
+                // Spring Jump no lugar ate o braco erguido; para ali (o estado nao tem transicao de volta).
+                _estadoDoFim = SpringJump;
+                _congelarEm = poseDaVitoria;
+                _animator.SetFloat(RitmoPulo, 1f);
+                _animator.CrossFadeInFixedTime(SpringJump, misturaDoFim, Base, 0f);
+            }
+            else
+            {
+                // Agachado no comeco do Jump, parado desde o inicio: postura de derrota.
+                _estadoDoFim = Jump;
+                _congelarEm = -1f;
+                _animator.SetFloat(RitmoPulo, 0f);
+                _animator.CrossFadeInFixedTime(Jump, misturaDoFim, Base, poseDaDerrota);
+            }
+        }
+
+        void AtualizarPoseDoFim()
+        {
+            if (_congelarEm < 0f) return;
+            AnimatorStateInfo estado = _animator.IsInTransition(Base)
+                ? _animator.GetNextAnimatorStateInfo(Base)
+                : _animator.GetCurrentAnimatorStateInfo(Base);
+            if (estado.fullPathHash != _estadoDoFim || estado.normalizedTime < _congelarEm) return;
+            _animator.SetFloat(RitmoPulo, 0f);
+            _congelarEm = -1f;
         }
 
         void IniciarPulo(bool usaMola, float duracao)

@@ -310,6 +310,9 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(moedasDaJornada, p.status.Moedas, "moeda depois da vitoria entrou na jornada");
             Assert.AreEqual(moedasNoSave, dados.MoedasTotais, "moeda depois da vitoria entrou no save");
 
+            // Estabilizacao do MVP (P2-3): comemoracao (Spring Jump parado com o braco erguido) em vez de Idle.
+            yield return ConferirPoseDoFim(vitoria: true);
+
             // Nada desfaz a vitoria: Lucca morrendo depois, ou o chefe "caindo" de novo.
             p.status.ReceberDano(p.status.PvMaximoTotal + 1000);
             Reflexao.Chamar(p.diretor, "ChefeDerrotado");
@@ -383,6 +386,26 @@ namespace Loopia.Hex.Tests
             Assert.AreEqual(vitoriasAntes, DadosDoJogador.Instancia.Vitorias, "derrota nao conta vitoria");
             StringAssert.Contains("diante do chefe", p.tela.textoResumo.text, "a tela nao trocou para vitoria");
             yield return null;
+
+            // Estabilizacao do MVP (P2-3): postura de derrota (agachado no Jump, parado) em vez de Idle.
+            yield return ConferirPoseDoFim(vitoria: false);
+        }
+
+        /// <summary>Pose do fim da jornada na ponte de animacao do Lucca (P2-3). Sem modelo animado na cena, nao ha o que conferir.</summary>
+        static IEnumerator ConferirPoseDoFim(bool vitoria)
+        {
+            var ponte = UnityEngine.Object.FindFirstObjectByType<LuccaAnimationBridge>();
+            if (ponte == null || !ponte.AnimaTiros) yield break;
+            var animator = ponte.GetComponent<Animator>();
+            int esperado = Animator.StringToHash(vitoria ? "Base Layer.Spring Jump" : "Base Layer.Jump");
+            float limite = Time.realtimeSinceStartup + 5f;
+            while (!ponte.PoseDoFimParada && Time.realtimeSinceStartup < limite) yield return null;
+            Assert.IsTrue(ponte.PoseDoFimParada, "a pose do fim nao parou");
+            Assert.AreEqual(vitoria, ponte.FimComVitoria);
+            AnimatorStateInfo estado = animator.IsInTransition(0) ? animator.GetNextAnimatorStateInfo(0) : animator.GetCurrentAnimatorStateInfo(0);
+            Assert.AreEqual(esperado, estado.fullPathHash, vitoria ? "esperava a comemoracao (Spring Jump)" : "esperava o agachamento (Jump)");
+            Assert.AreEqual(0f, animator.GetFloat("RitmoPulo"), 1e-4f, "a pose tem que ficar parada");
+            Assert.AreEqual(0f, animator.GetLayerWeight(1), 1e-4f, "sem a camada do arco no fim");
         }
 
         [UnityTest]
