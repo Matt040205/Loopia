@@ -3,8 +3,20 @@
 ## Prévia local da interface
 
 Esta worktree combina localmente os snapshots dos PRs #12 e #13 para revisar a interface.
-Os dois PRs continuam com suas branches próprias. A ativação de revisão usa cópias de cenas
-em Assets/Previa, abertas pelo Editor.
+As cópias locais em **Assets/Previa/Hud** têm o tema aplicado em Acampamento e HexPrototipo.
+O menu **Loopia → Prévia da interface → Recriar cópias locais** refaz a montagem nesta worktree.
+Inicie no Acampamento da prévia. Os botões navegam entre as cópias. O Editor de revisão usa
+o perfil de save **hud-preview**. F3 alterna a depuração durante a jornada e o caminho de save no Acampamento.
+
+- Jornada normal e F3, barra do chefe com Revoada, dica até o primeiro zoom, pendentes e tooltips,
+  Acampamento e três resultados aplicados. As cenas versionadas mantêm os assets de estabilização.
+- Test Runner EditMode **418/418**, ID XML **2** em **%TEMP%/Loopia-Cards-QA/hud-suite.xml**.
+  O save padrão manteve o estado anterior. A QA visual usou o perfil separado.
+- Validação guiada em Play Mode confirmou ida e volta pelo botão, dois perfis do painel, Revoada no
+  HUD e no mundo, dica dispensada pelo zoom e três desfechos. Evidências **hud-*.png** na mesma pasta.
+  A captura de Revoada em **3440 × 1440** foi renderizada fora de tela.
+- O Editor registrou uma exceção de indexação da Unity Search na inicialização. A prévia e os estados
+  da HUD rodaram após a inicialização.
 
 ## Sprint de estabilização do MVP — **comece por aqui**
 - Branch `fix/mvp-stabilization` (base `integration/mvp-20261117` @ `f49cee1` + os 7 commits de legibilidade),

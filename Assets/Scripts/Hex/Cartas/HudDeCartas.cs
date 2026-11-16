@@ -13,7 +13,7 @@ namespace Loopia.Hex
         [SerializeField] CartaVisual prefabDeCarta;
         public CartasUI origem;
 
-        const float EscalaCompacta = .405f;
+        const float EscalaCompacta = .445f;
         const float EscalaArraste = .465f;
         const float Folga = 9f;
         static readonly Color Valida = new Color32(165, 239, 207, 255);
@@ -26,6 +26,7 @@ namespace Loopia.Hex
         CartaVisual _arrastada;
         CartaVisual _consumida;
         TooltipDeCarta _tooltip;
+        RectTransform _placaPendentes;
         TextMeshProUGUI _pendentes;
         RectTransform _faixaStatus;
         TextMeshProUGUI _status;
@@ -126,18 +127,20 @@ namespace Loopia.Hex
                     new Rect(i * (espaco.x + Folga), 0, CartaVisual.Tamanho.x, CartaVisual.Tamanho.y));
             }
 
-            _pendentes = ElementosDaCarta.Texto(_maoVisual, "Fila de recompensas", catalogo.fonteCorpo, 14,
-                ElementosDaCarta.Cor("#FFF0CB"), TextAlignmentOptions.MidlineRight);
-            ElementosDaCarta.Retangulo(_pendentes.rectTransform, Vector2.one, new Vector2(1, 0),
-                new Rect(0, 12, 144, 20));
+            _placaPendentes = TemaDaJornada.Janela(_maoVisual, "Fila de recompensas", Vector2.one,
+                new Vector2(1, 0), new Rect(0, 12, 134, 26));
+            _pendentes = ElementosDaCarta.Texto(_placaPendentes, "Contador", catalogo.fonteCorpo, 14,
+                TemaDaJornada.Ouro);
+            ElementosDaCarta.Preencher(_pendentes.rectTransform, 3f);
 
             _tooltip = new TooltipDeCarta(_conteudo, prefabDeCarta, catalogo);
             _faixaStatus = ElementosDaCarta.Painel(_conteudo, "Validade da colocacao",
                 ElementosDaCarta.Cor("#211C30EF")).rectTransform;
             ElementosDaCarta.Retangulo(_faixaStatus, Vector2.right, Vector2.right,
-                new Rect(-22, 19, 406, 38));
+                new Rect(-22, 19, 426, 45));
             _status = ElementosDaCarta.Texto(_faixaStatus, "Motivo da colocacao", catalogo.fonteCorpo, 16, Valida);
             ElementosDaCarta.Preencher(_status.rectTransform, 6f);
+            ElementosDaCarta.AjustarFonte(_status, 13, 16);
             _faixaStatus.gameObject.SetActive(false);
 
             _arrastada = Instanciar(_conteudo, "Carta arrastada", EscalaArraste);
@@ -182,7 +185,7 @@ namespace Loopia.Hex
         void AtualizarPendentes()
         {
             int n = _mao.Pendentes;
-            _pendentes.gameObject.SetActive(n > 0);
+            _placaPendentes.gameObject.SetActive(n > 0);
             if (n > 0) _pendentes.text = n == 1 ? "+1 pendente" : $"+{n} pendentes";
         }
 

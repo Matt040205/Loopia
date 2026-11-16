@@ -17,20 +17,23 @@ namespace Loopia.Hex
         public TooltipDeCarta(RectTransform pai, CartaVisual prefab, CatalogoVisualDeCartas catalogo)
         {
             _raiz = ElementosDaCarta.Caixa(pai, "Detalhes da carta");
-            ElementosDaCarta.Retangulo(_raiz, Vector2.right, Vector2.right, new Rect(-22, 19, 392, 223));
+            ElementosDaCarta.Retangulo(_raiz, Vector2.right, Vector2.right, new Rect(-22, 19, 426, 237));
 
             _previa = Object.Instantiate(prefab, _raiz, false);
             ElementosDaCarta.Retangulo(_previa.Caixa, Vector2.zero, Vector2.zero, new Rect(0, 0, 256, 356));
             _previa.Caixa.localScale = Vector3.one * .61f;
 
             var filete = ElementosDaCarta.Painel(_raiz, "Filete do tooltip", ElementosDaCarta.Cor("#A68A57"));
-            ElementosDaCarta.Retangulo(filete.rectTransform, Vector2.right, Vector2.right, new Rect(0, 0, 226, 218));
+            ElementosDaCarta.Retangulo(filete.rectTransform, Vector2.right, Vector2.right, new Rect(0, 0, 256, 234));
             var painel = ElementosDaCarta.Painel(filete.transform, "Fundo do tooltip", ElementosDaCarta.Cor("#211C30F7"));
             ElementosDaCarta.Preencher(painel.rectTransform, 1f);
             _texto = painel.rectTransform;
-            _titulo = Rotulo("Nome", catalogo.fonteTitulo, 21, "#FFE8B3", 12, 40);
-            _corpo = Rotulo("Efeito", catalogo.fonteCorpo, 16, "#F0E4D2", 57, 84);
-            _regra = Rotulo("Regra", catalogo.fonteCorpo, 14.5f, "#E5C887", 145, 62);
+            _titulo = Rotulo("Nome", catalogo.fonteTitulo, 23, "#FFE8B3", 12, 48);
+            ElementosDaCarta.AjustarFonte(_titulo, 17, 23);
+            _corpo = Rotulo("Efeito", catalogo.fonteCorpo, 16, "#F0E4D2", 67, 86);
+            ElementosDaCarta.AjustarFonte(_corpo, 13.5f, 16);
+            _regra = Rotulo("Regra", catalogo.fonteCorpo, 15, "#E5C887", 166, 56);
+            ElementosDaCarta.AjustarFonte(_regra, 13, 15);
             Ocultar();
         }
 
@@ -38,7 +41,7 @@ namespace Loopia.Hex
         {
             var texto = ElementosDaCarta.Texto(_texto, nome, fonte, tamanho, ElementosDaCarta.Cor(cor),
                 TextAlignmentOptions.TopLeft);
-            ElementosDaCarta.Retangulo(texto.rectTransform, Vector2.up, Vector2.up, new Rect(13, -y, 198, altura));
+            ElementosDaCarta.Retangulo(texto.rectTransform, Vector2.up, Vector2.up, new Rect(13, -y, 228, altura));
             return texto;
         }
 

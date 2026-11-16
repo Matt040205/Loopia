@@ -98,7 +98,7 @@ namespace Loopia.Hex.Tests
                 Assert.IsFalse(ilhaAlta.DisponivelParaCompra(ui.mapa));
                 mao.status.GanharXp(mao.status.XpParaOProximoNivel);
                 Assert.AreEqual(1, mao.Pendentes);
-                Assert.AreEqual("+1 pendente", maoVisual.GetChild(4).GetComponent<TMP_Text>().text);
+                Assert.AreEqual("+1 pendente", maoVisual.GetChild(4).GetComponentInChildren<TMP_Text>().text);
 
                 yield return Ponteiro(mouse, centro, false);
                 Assert.IsTrue(grupo.Find("Detalhes da carta").gameObject.activeSelf,
