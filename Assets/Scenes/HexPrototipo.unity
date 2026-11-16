@@ -631,6 +631,7 @@ MonoBehaviour:
   meiaLargura: 64
   meiaProfundidade: 52
   celula: 2
+  bordaDeChao: 24
   arvores:
   - {fileID: 919132149155446097, guid: 4a4d18f8a5aba6d4fb91a7333aeabdea, type: 3}
   arvoresAltas:
@@ -2046,7 +2047,7 @@ MonoBehaviour:
   cartasGarantidas:
   - {fileID: 11400000, guid: 85d0fb63f0c23fb4aa6190eec7f58282, type: 2}
   - {fileID: 11400000, guid: be4a71fe52b619d4ca0a5e31eadbe565, type: 2}
-  - {fileID: 11400000, guid: 895105c7e323f204095d0c6837f252d9, type: 2}
+  - {fileID: 11400000, guid: 8f741c52845874a4db81fda60351466b, type: 2}
   - {fileID: 11400000, guid: 7e072abf0d8d1cf448bd24d4e5fba522, type: 2}
   cartaAoLiberar: {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
   cartasPorNivel: 1
@@ -2481,6 +2482,11 @@ MonoBehaviour:
   margem: 1.14
   zoomManual: 5
   distancia: 70
+  permitirZoom: 1
+  menorMeiaAltura: 7
+  passoDoZoom: 0.85
+  suavizacao: 0.08
+  mostrarDica: 1
 --- !u!114 &1895346080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,7 +2581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.HexLoopGenerator
   mundo: {fileID: 1960774342}
   raioMinimo: 4
-  raioMaximo: 6
+  raioMaximo: 5
   deformacoes: 400
   mioloMinimo: 9
   usarSementeFixa: 0

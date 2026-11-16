@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HexPrototipo.unity
     guid: 353c34180e7aa7a4abe37f2d1a018240
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: a5f844f090b9b7745864aad49197f49d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testes.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: 7bde523a7d5334c4cb7152a1d28ec01f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Win.unity
     guid: 0de03488fb9093a4d93a6e3a601839c1
   m_configObjects:

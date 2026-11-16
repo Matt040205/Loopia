@@ -19,6 +19,19 @@ namespace Loopia.Hex
         const string NomeDoArquivo = "loopia_save.json";
 
         /// <summary>
+        /// Argumento de linha de comando que escolhe um save separado, para builds de QA e validacoes nao mexerem
+        /// no progresso do jogador: <c>Loopia.exe -loopia-perfil qa</c> grava em <c>loopia_save_qa.json</c>.
+        /// Sem o argumento o arquivo e o de sempre: a versao final nao muda de lugar.
+        /// </summary>
+        public const string ArgumentoDoPerfil = "-loopia-perfil";
+
+        /// <summary>
+        /// productName ate a estabilizacao do MVP. Ao renomear o produto para Loopia, a pasta do
+        /// Application.persistentDataPath muda; o save antigo fica em .../companyName/GameJam13-06/.
+        /// </summary>
+        public const string PastaDoProdutoAntigo = "GameJam13-06";
+
+        /// <summary>
         /// O formato do arquivo. Os nomes dos campos sao as chaves do JSON. Campo novo precisa ter 0 como
         /// padrao valido: o JsonUtility deixa o padrao quando a chave nao existe, e e isso que mantem os
         /// saves antigos (sem "vitorias") carregando sem erro.
@@ -56,7 +69,10 @@ namespace Loopia.Hex
         /// <summary>Quantas jornadas terminaram com o chefe derrotado.</summary>
         public int Vitorias { get; private set; }
 
-        public string CaminhoDoArquivo => Path.Combine(Application.persistentDataPath, NomeDoArquivo);
+        /// <summary>Perfil escolhido por <see cref="ArgumentoDoPerfil"/>; null = save do jogador.</summary>
+        public string Perfil { get; private set; }
+
+        public string CaminhoDoArquivo => Path.Combine(Application.persistentDataPath, NomeDoArquivoDoPerfil(Perfil));
 
         public event Action AoMudar;
 
@@ -75,6 +91,8 @@ namespace Loopia.Hex
 
             _instancia = this;
             if (Application.isPlaying) DontDestroyOnLoad(gameObject);
+            Perfil = PerfilDaLinhaDeComando(Environment.GetCommandLineArgs());
+            if (Perfil != null) Debug.Log("[DadosDoJogador] Perfil '" + Perfil + "': save em " + CaminhoDoArquivo, this);
             Carregar();
         }
 
@@ -128,6 +146,20 @@ namespace Loopia.Hex
             RecordeDeVoltas = 0;
             Vitorias = 0;
 
+            // Produto renomeado (GameJam13-06 -> Loopia): na primeira abertura o save antigo e copiado para a pasta
+            // nova. So para o save do jogador; perfis de QA comecam vazios.
+            if (Perfil == null)
+            {
+                string antigo = CaminhoDoSaveAntigo(Application.persistentDataPath);
+                ResultadoDaMigracao migracao = MigrarSaveAntigo(CaminhoDoArquivo, antigo, out string erroDaMigracao);
+                if (migracao == ResultadoDaMigracao.Copiado)
+                    Debug.Log("[DadosDoJogador] Save copiado de " + antigo + " para " + CaminhoDoArquivo +
+                              " (o original continua la).", this);
+                else if (migracao == ResultadoDaMigracao.Falhou)
+                    Debug.LogWarning("[DadosDoJogador] Nao consegui copiar o save antigo de " + antigo + ": " +
+                                     erroDaMigracao, this);
+            }
+
             if (!File.Exists(CaminhoDoArquivo)) return;
 
             string json;
@@ -151,6 +183,71 @@ namespace Loopia.Hex
             MoedasTotais = moedas;
             RecordeDeVoltas = recorde;
             Vitorias = vitorias;
+        }
+
+        /// <summary>Nome do arquivo do perfil: null/vazio = <c>loopia_save.json</c>; "qa" = <c>loopia_save_qa.json</c>.</summary>
+        public static string NomeDoArquivoDoPerfil(string perfil) =>
+            string.IsNullOrEmpty(perfil) ? NomeDoArquivo : "loopia_save_" + perfil + ".json";
+
+        /// <summary>
+        /// Le <c>-loopia-perfil nome</c>. O nome vira parte do arquivo, entao so aceita letras/numeros ASCII, '-' e '_'
+        /// (ate 32); fora disso, ou sem o argumento, devolve null (save do jogador).
+        /// </summary>
+        public static string PerfilDaLinhaDeComando(string[] argumentos)
+        {
+            if (argumentos == null) return null;
+            for (int i = 0; i < argumentos.Length - 1; i++)
+            {
+                if (!string.Equals(argumentos[i], ArgumentoDoPerfil, StringComparison.OrdinalIgnoreCase)) continue;
+                string nome = argumentos[i + 1];
+                if (string.IsNullOrEmpty(nome) || nome.Length > 32) return null;
+                foreach (char c in nome)
+                {
+                    bool valido = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' || c == '_';
+                    if (!valido) return null;
+                }
+                return nome.ToLowerInvariant();
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Save do produto antigo (<see cref="PastaDoProdutoAntigo"/>), irmao da pasta atual. Null se a pasta atual ja e a
+        /// antiga (produto ainda nao renomeado) ou se nao der para montar o caminho.
+        /// </summary>
+        public static string CaminhoDoSaveAntigo(string pastaAtual)
+        {
+            if (string.IsNullOrEmpty(pastaAtual)) return null;
+            string limpa = pastaAtual.TrimEnd('/', '\\');
+            DirectoryInfo pai = Directory.GetParent(limpa);
+            if (pai == null) return null;
+            if (string.Equals(Path.GetFileName(limpa), PastaDoProdutoAntigo, StringComparison.OrdinalIgnoreCase)) return null;
+            return Path.Combine(pai.FullName, PastaDoProdutoAntigo, NomeDoArquivo);
+        }
+
+        public enum ResultadoDaMigracao { NadaAFazer, Copiado, Falhou }
+
+        /// <summary>
+        /// Copia o save antigo para o caminho novo quando so o antigo existe. Nunca apaga nem altera o antigo e nunca
+        /// sobrescreve um save novo que ja exista.
+        /// </summary>
+        public static ResultadoDaMigracao MigrarSaveAntigo(string caminhoNovo, string caminhoAntigo, out string erro)
+        {
+            erro = null;
+            if (string.IsNullOrEmpty(caminhoNovo) || string.IsNullOrEmpty(caminhoAntigo)) return ResultadoDaMigracao.NadaAFazer;
+            if (File.Exists(caminhoNovo) || !File.Exists(caminhoAntigo)) return ResultadoDaMigracao.NadaAFazer;
+            try
+            {
+                string pasta = Path.GetDirectoryName(caminhoNovo);
+                if (!string.IsNullOrEmpty(pasta)) Directory.CreateDirectory(pasta);
+                File.Copy(caminhoAntigo, caminhoNovo, false);
+                return ResultadoDaMigracao.Copiado;
+            }
+            catch (Exception e)
+            {
+                erro = e.Message;
+                return ResultadoDaMigracao.Falhou;
+            }
         }
 
         /// <summary>

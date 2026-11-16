@@ -36,6 +36,17 @@ namespace Loopia.Hex
         public float meiaProfundidade = 52f;
         public float celula = 2f;
 
+        [Tooltip("Faixa so de chao (sem arvores, pedras nem lagoas) em volta do vale. A vista do anel inteiro pode passar " +
+                 "de +-52 no chao (4:3, 16:10, anel grande); alem da borda aparecia a cor de fundo da camera (a faixa rosa " +
+                 "do fim de tarde). O detalhe do vale continua so dentro de meiaLargura x meiaProfundidade. 0 = vale antigo.")]
+        [Min(0f)] public float bordaDeChao = 24f;
+
+        /// <summary>Meia largura do chao gerado (vale + borda).</summary>
+        public float MeiaLarguraDoChao => meiaLargura + bordaDeChao;
+
+        /// <summary>Meia profundidade do chao gerado (vale + borda).</summary>
+        public float MeiaProfundidadeDoChao => meiaProfundidade + bordaDeChao;
+
         [Header("Modelos (KayKit Forest Nature Pack, CC0)")]
         public GameObject[] arvores;        // borda de mata, bosquetes, solitarias
         public GameObject[] arvoresAltas;   // emergentes
@@ -137,13 +148,15 @@ namespace Loopia.Hex
             }
 
             // ---------- terreno low-poly (cantos deslocados, um tom por faceta) ----------
-            int nu = Mathf.RoundToInt(2 * meiaLargura / celula), nv = Mathf.RoundToInt(2 * meiaProfundidade / celula);
+            // O chao vai alem do vale (bordaDeChao) para a vista nunca alcancar a borda; o resto do detalhe fica no vale.
+            float mu = MeiaLarguraDoChao, mv = MeiaProfundidadeDoChao;
+            int nu = Mathf.RoundToInt(2 * mu / celula), nv = Mathf.RoundToInt(2 * mv / celula);
             var vert = new List<Vector3>(); var uv = new List<Vector2>(); var tri = new List<int>();
             for (int i = 0; i < nu; i++)
                 for (int j = 0; j < nv; j++)
                 {
-                    var a = Canto(i, j, nu, nv); var b = Canto(i + 1, j, nu, nv);
-                    var c = Canto(i + 1, j + 1, nu, nv); var d = Canto(i, j + 1, nu, nv);
+                    var a = Canto(i, j, nu, nv, mu, mv); var b = Canto(i + 1, j, nu, nv, mu, mv);
+                    var c = Canto(i + 1, j + 1, nu, nv, mu, mv); var d = Canto(i, j + 1, nu, nv, mu, mv);
                     bool diag = ((i + j) & 1) == 0;
                     Triangulo(diag ? new[] { a, d, c } : new[] { a, d, b }, centro, vert, uv, tri);
                     Triangulo(diag ? new[] { a, c, b } : new[] { b, d, c }, centro, vert, uv, tri);
@@ -152,7 +165,7 @@ namespace Loopia.Hex
 
             // ---------- agua: rio + lagoas ----------
             vert.Clear(); uv.Clear(); tri.Clear();
-            for (float u = -meiaLargura; u <= meiaLargura + 0.01f; u += 1f)
+            for (float u = -mu; u <= mu + 0.01f; u += 1f) // o rio segue ate a borda do chao, sem leito seco nas laterais
             {
                 float vr = RioV(u), w = RioLargura(u) * 0.5f;
                 var nrm = new Vector2(-(RioV(u + 0.5f) - RioV(u - 0.5f)), 1f).normalized;
@@ -356,9 +369,9 @@ namespace Loopia.Hex
             return Mathf.SmoothStep(0f, 1f, Mathf.Clamp01((f - 0.32f) / 0.32f));
         }
 
-        Vector2 Canto(int i, int j, int nu, int nv)
+        Vector2 Canto(int i, int j, int nu, int nv, float mu, float mv)
         {
-            float u = -meiaLargura + i * celula, v = -meiaProfundidade + j * celula;
+            float u = -mu + i * celula, v = -mv + j * celula;
             if (i == 0 || j == 0 || i == nu || j == nv) return new Vector2(u, v);
             float hx = Mathf.Repeat(Mathf.Sin(i * 12.9898f + j * 78.233f) * 43758.5453f, 1f) - 0.5f;
             float hz = Mathf.Repeat(Mathf.Sin(i * 39.3468f + j * 11.135f) * 24634.6345f, 1f) - 0.5f;
@@ -366,6 +379,30 @@ namespace Loopia.Hex
         }
 
         static Vector3 Mundo(Vector3 centro, float u, float v, float h) => centro + Direita * u + Fundo * v + Vector3.up * h;
+
+        /// <summary>
+        /// Menor folga, em unidades do vale, entre os cantos de uma vista ortografica (projetados no plano do chao) e a
+        /// borda do chao gerado. Negativa = a vista passa da borda e aparece a cor de fundo da camera. O relevo da
+        /// borda (morros de ~3 u) come uns 5 u disso, entao quem usa deve exigir folga acima disso.
+        /// </summary>
+        public static float FolgaDaVista(Vector3 posicaoDaCamera, Quaternion rotacao, float meiaAltura, float aspecto,
+            float alturaDoChao, float meiaLarguraDoChao, float meiaProfundidadeDoChao)
+        {
+            Vector3 centro = new Vector3(0f, alturaDoChao, 0f) + Fundo * (-alturaDoChao * 1.7320508f);
+            var plano = new Plane(Vector3.up, new Vector3(0f, alturaDoChao, 0f));
+            float folga = float.MaxValue;
+            for (int c = 0; c < 4; c++)
+            {
+                float x = (c % 2) * 2f - 1f, y = (c / 2) * 2f - 1f;
+                var raio = new Ray(posicaoDaCamera + rotacao * new Vector3(x * meiaAltura * aspecto, y * meiaAltura, 0f),
+                    rotacao * Vector3.forward);
+                if (!plano.Raycast(raio, out float distancia)) return float.NegativeInfinity;
+                Vector3 p = raio.GetPoint(distancia) - centro;
+                float u = Vector3.Dot(p, Direita), v = Vector3.Dot(p, Fundo);
+                folga = Mathf.Min(folga, Mathf.Min(meiaLarguraDoChao - Mathf.Abs(u), meiaProfundidadeDoChao - Mathf.Abs(v)));
+            }
+            return folga;
+        }
 
         float Retalho(float u, float v)
         {
