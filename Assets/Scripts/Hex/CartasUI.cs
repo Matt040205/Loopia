@@ -168,7 +168,7 @@ namespace Loopia.Hex
             {
                 string retorno = _podeSoltarAqui ? "Solte para construir"
                     : _motivo ?? "Aponte para uma casa do tabuleiro";
-                _hud.Arrastando(ponteiro, _podeSoltarAqui, retorno, dt);
+                _hud.Arrastando(ponteiro, _podeSoltarAqui, retorno, RaioDaCasaNaTela(), dt);
             }
 
             if (BotaoEsquerdoSolto()) Soltar();
@@ -219,6 +219,18 @@ namespace Loopia.Hex
             if (!mundo.TryCasaNoRaio(raio, out _casaSobOMouse)) return;
             _casaValida = true;
             _podeSoltarAqui = mapa.PodeColocar(CartaArrastada, _casaSobOMouse, out _motivo);
+        }
+
+        /// <summary>Raio (px) da casa sob o cursor na tela, para o fantasma da carta nao cobrir o alvo.</summary>
+        float RaioDaCasaNaTela()
+        {
+            if (!_casaValida) return 0f;
+            Vector3 centro = mundo.PosicaoDe(_casaSobOMouse);
+            Vector3 a = camera3d.WorldToScreenPoint(centro);
+            Vector3 b = camera3d.WorldToScreenPoint(centro + camera3d.transform.right * mundo.tamanhoDoHexagono);
+            Vector3 c = camera3d.WorldToScreenPoint(centro + Vector3.ProjectOnPlane(camera3d.transform.up, Vector3.up).normalized * mundo.tamanhoDoHexagono);
+            if (a.z <= 0f) return 0f;
+            return Mathf.Max(Vector2.Distance(a, b), Vector2.Distance(a, c));
         }
 
         // --- Marcador da casa ---
@@ -393,8 +405,8 @@ namespace Loopia.Hex
             {
                 titulo = CartaArrastada.nomeExibido;
                 corpo = _podeSoltarAqui
-                    ? "Solte para construir em " + _casaSobOMouse
-                    : "Nao da: " + (_motivo ?? "fora do mapa");
+                    ? "Solte para construir"
+                    : TextoDoJogador.Motivo(_motivo ?? "fora do mapa");
             }
             else if (carta != null)
             {

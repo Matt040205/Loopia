@@ -13,9 +13,12 @@ namespace Loopia.Hex
         [SerializeField] CartaVisual prefabDeCarta;
         public CartasUI origem;
 
-        const float EscalaCompacta = .445f;
-        const float EscalaArraste = .465f;
-        const float Folga = 9f;
+        // 0,6 x 256 x 356 = 154 x 214 px em 1080p: titulo da placa entre ~12 e ~18 px (antes ~8-11 px).
+        internal const float EscalaCompacta = .6f;
+        internal const float EscalaArraste = .5f;
+        const float Folga = 12f;
+        const float LarguraDoAviso = 420f;
+        const float AlturaDoAviso = 45f;
         static readonly Color Valida = new Color32(165, 239, 207, 255);
         static readonly Color Invalida = new Color32(255, 169, 165, 255);
 
@@ -132,19 +135,21 @@ namespace Loopia.Hex
             }
 
             _placaPendentes = TemaDaJornada.Janela(_maoVisual, "Fila de recompensas", Vector2.one,
-                new Vector2(1, 0), new Rect(0, 12, 134, 26));
-            _pendentes = ElementosDaCarta.Texto(_placaPendentes, "Contador", catalogo.fonteCorpo, 14,
+                new Vector2(1, 0), new Rect(0, 12, 160, 32));
+            _pendentes = ElementosDaCarta.Texto(_placaPendentes, "Contador", catalogo.fonteCorpo, 17,
                 TemaDaJornada.Ouro);
+            _pendentes.fontStyle = FontStyles.Bold;
             ElementosDaCarta.Preencher(_pendentes.rectTransform, 3f);
 
             _tooltip = new TooltipDeCarta(_conteudo, prefabDeCarta, catalogo);
+            // O aviso acompanha o fantasma (ao lado do cursor), nunca em cima da casa-alvo.
             _faixaStatus = ElementosDaCarta.Painel(_conteudo, "Validade da colocacao",
                 ElementosDaCarta.Cor("#211C30EF")).rectTransform;
-            ElementosDaCarta.Retangulo(_faixaStatus, Vector2.right, Vector2.right,
-                new Rect(-22, 19, 426, 45));
-            _status = ElementosDaCarta.Texto(_faixaStatus, "Motivo da colocacao", catalogo.fonteCorpo, 16, Valida);
+            ElementosDaCarta.Retangulo(_faixaStatus, new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+                new Rect(0, 0, LarguraDoAviso, AlturaDoAviso));
+            _status = ElementosDaCarta.Texto(_faixaStatus, "Motivo da colocacao", catalogo.fonteCorpo, 18, Valida);
             ElementosDaCarta.Preencher(_status.rectTransform, 6f);
-            ElementosDaCarta.AjustarFonte(_status, 13, 16);
+            ElementosDaCarta.AjustarFonte(_status, 14, 18);
             _faixaStatus.gameObject.SetActive(false);
 
             _arrastada = Instanciar(_conteudo, "Carta arrastada", EscalaArraste);
@@ -171,6 +176,7 @@ namespace Loopia.Hex
             var visual = Instantiate(prefabDeCarta, pai, false);
             visual.name = nome;
             visual.Caixa.localScale = Vector3.one * escala;
+            visual.Compactar(true);
             return visual;
         }
 
@@ -285,20 +291,41 @@ namespace Loopia.Hex
             _tooltip.Ocultar();
         }
 
-        void MoverArraste(Vector2 tela)
+        /// <summary>
+        /// Fantasma ao lado do cursor, afastado do raio da casa-alvo na tela: o cursor (e o raycast) continua na casa
+        /// e o hexagono e o marcador ficam a vista. Troca de lado perto da borda direita e fica dentro do quadro.
+        /// </summary>
+        void MoverArraste(Vector2 tela, float raioDoAlvo = 0f)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(_conteudo, tela, CameraDaUi, out Vector2 ponto);
-            // Mantem o cursor livre para apontar a ilha e limita o fantasma ao quadro.
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_conteudo, tela, CameraDaUi, out Vector2 cursor);
+            float escalaDoCanvas = _canvas != null && _canvas.scaleFactor > 0f ? _canvas.scaleFactor : 1f;
+            float folga = Mathf.Max(raioDoAlvo / escalaDoCanvas, 26f) + 12f;
             Vector2 meia = CartaVisual.Tamanho * (EscalaArraste * .5f);
             Rect seguro = _conteudo.rect;
-            ponto.x = Mathf.Clamp(ponto.x + meia.x + 14f, seguro.xMin + meia.x, seguro.xMax - meia.x);
-            ponto.y = Mathf.Clamp(ponto.y + meia.y * .18f, seguro.yMin + meia.y, seguro.yMax - meia.y);
-            _arrastada.Caixa.anchoredPosition = ponto;
+
+            bool aDireita = cursor.x + folga + 2f * meia.x <= seguro.xMax - 8f;
+            float x = aDireita ? cursor.x + folga + meia.x : cursor.x - folga - meia.x;
+            float y = Mathf.Clamp(cursor.y + meia.y * .2f, seguro.yMin + meia.y + 4f, seguro.yMax - meia.y - 4f);
+            x = Mathf.Clamp(x, seguro.xMin + meia.x + 4f, seguro.xMax - meia.x - 4f);
+            _arrastada.Caixa.anchoredPosition = new Vector2(x, y);
+            _ladoDoFantasma = aDireita;
+
+            // Aviso embaixo do fantasma (ou em cima, sem espaco), alinhado pela borda que fica longe do cursor.
+            float avisoX = aDireita ? x - meia.x + LarguraDoAviso * .5f : x + meia.x - LarguraDoAviso * .5f;
+            float abaixo = y - meia.y - 8f - AlturaDoAviso * .5f;
+            float avisoY = abaixo - AlturaDoAviso * .5f >= seguro.yMin + 4f ? abaixo : y + meia.y + 8f + AlturaDoAviso * .5f;
+            avisoX = Mathf.Clamp(avisoX, seguro.xMin + LarguraDoAviso * .5f + 4f, seguro.xMax - LarguraDoAviso * .5f - 4f);
+            _faixaStatus.anchoredPosition = new Vector2(avisoX, avisoY);
         }
 
-        internal void Arrastando(Vector2 ponto, bool valida, string motivo, float dt)
+        /// <summary>Lado em que o fantasma ficou no ultimo quadro (true = a direita do cursor). Usado em teste.</summary>
+        internal bool FantasmaADireita => _ladoDoFantasma;
+        bool _ladoDoFantasma = true;
+
+        internal void Arrastando(Vector2 ponto, bool valida, string motivo, float raioDoAlvo, float dt)
         {
-            MoverArraste(ponto);
+            MoverArraste(ponto, raioDoAlvo);
+            motivo = TextoDoJogador.Motivo(motivo);
             _arrastada.Animar(DirecaoDoCursor(_arrastada.Caixa, ponto) * .64f, false, true, dt);
             if (_mensagem != motivo)
             {
@@ -313,7 +340,7 @@ namespace Loopia.Hex
         {
             if (_origemDoArraste < 0) return;
             var entrada = _espacos[_origemDoArraste];
-            entrada.Opacidade(entrada.Def == null ? .31f : 1f);
+            entrada.Opacidade(entrada.Def == null ? CartaVisual.AlfaDoVazio : 1f);
             _origemDoArraste = -1;
             _acabouDeSoltar = true;
             _tooltip.Ocultar();
