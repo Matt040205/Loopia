@@ -1,5 +1,26 @@
 # Estado atual — 2026-11-16
 
+## Prévia local da interface
+
+A branch **sprint-4/revisao-interface** reúne os snapshots dos PRs #12 e #13 para revisar a interface.
+Abra o projeto no Unity e use **Loopia → Prévia da interface → Recriar cópias locais**. O gerador
+grava Acampamento e HexPrototipo em **Assets/Previa/Hud**, onde os botões navegam entre as cópias.
+A primeira tela exibe o título **Loopia**. O gerador e a navegação ficam versionados. As cópias
+geradas ficam no diretório ignorado pelo Git.
+
+No Editor, pressione **Play** no Acampamento da prévia. Para isolar o save, inicie o Editor com
+**-loopia-perfil hud-preview**. F3 alterna a depuração durante a jornada e o caminho de save no Acampamento.
+
+- Jornada normal e F3, barra do chefe com Revoada, dica até o primeiro zoom, pendentes e tooltips,
+  Acampamento e três resultados aplicados. As cenas versionadas mantêm os assets de estabilização.
+- Test Runner EditMode **418/418**, ID XML **2** em **%TEMP%/Loopia-Cards-QA/hud-suite.xml**.
+  O save padrão manteve o estado anterior. A QA visual usou o perfil separado.
+- Validação guiada em Play Mode confirmou ida e volta pelo botão, dois perfis do painel, Revoada no
+  HUD e no mundo, dica dispensada pelo zoom e três desfechos. Evidências **hud-*.png** na mesma pasta.
+  A captura de Revoada em **3440 × 1440** foi renderizada fora de tela.
+- O Editor registrou uma exceção de indexação da Unity Search na inicialização. A prévia e os estados
+  da HUD rodaram após a inicialização.
+
 ## Sprint de estabilização do MVP — **comece por aqui**
 - Branch `fix/mvp-stabilization` (base `integration/mvp-20261117` @ `f49cee1` + os 7 commits de legibilidade),
   Draft PR #12 → `integration/mvp-20261117`. Nada na `main`. Documentos em `docs/mvp-stabilization/`

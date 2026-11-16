@@ -384,10 +384,14 @@ namespace Loopia.Hex
 #endif
         }
 
+        public bool DesenharDicaImGui { get; set; } = true;
+
+        public bool DicaDeZoomVisivel => Application.isPlaying && mostrarDica && !_usouZoom &&
+            ZoomAtivo && !JornadaEncerrada && ZoomMinimo(_meiaAlturaBase, menorMeiaAltura) < 1f;
+
         void OnGUI()
         {
-            if (!Application.isPlaying || !mostrarDica || _usouZoom || !ZoomAtivo || JornadaEncerrada) return;
-            if (ZoomMinimo(_meiaAlturaBase, menorMeiaAltura) >= 1f) return;
+            if (!DesenharDicaImGui || !DicaDeZoomVisivel) return;
 
             if (_estiloDaDica == null)
                 _estiloDaDica = new GUIStyle(GUI.skin.box) { fontSize = 10, alignment = TextAnchor.MiddleLeft };
@@ -395,7 +399,7 @@ namespace Loopia.Hex
             Matrix4x4 anterior = EscalaDaInterface.Aplicar(out _, out float alturaDaTela);
             try
             {
-                GUI.Box(new Rect(12f, alturaDaTela - 30f, 236f, 22f), "Roda do mouse: zoom    Botao direito: mover", _estiloDaDica);
+                GUI.Box(new Rect(12f, alturaDaTela - 30f, 275f, 22f), "Roda do mouse: zoom    Botao direito: mover camera", _estiloDaDica);
             }
             finally
             {

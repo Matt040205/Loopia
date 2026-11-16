@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6960444c5c73904fa452390f588caa8, type: 3}
+  m_Name: Catalogo
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.CatalogoVisualDeCartas
+  moldura: {fileID: 2800000, guid: 19a79ccb3735b5b47a9e3b0b675bb345, type: 3}
+  recorte: {fileID: 21300000, guid: c8273c4ccd376f34d9b6e67bc15d71d6, type: 3}
+  ouro: {fileID: 2100000, guid: 7f54dfd0391671540bdc2093ad2081d3, type: 2}
+  pulsoNoMapa: {fileID: 2100000, guid: 36c75d5f224694644b59008eb5084da6, type: 2}
+  fonteTitulo: {fileID: 11400000, guid: 5420f45583ed9e04ab4ea756eaba24ad, type: 2}
+  fonteCorpo: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  cartas:
+  - carta: {fileID: 11400000, guid: ac6f1ca4c96cf2545b214828df7b70fa, type: 2}
+    titulo: "B\xE1sica"
+    resumo: Caminho comum
+    valor: 
+    condicao: 
+    fundo: {fileID: 2800000, guid: ca71a886762d98741b9abf5f14439ed8, type: 3}
+    atmosfera: {fileID: 2800000, guid: 48771419b010ba74a9b8319e6f9e6373, type: 3}
+    objeto: {fileID: 2800000, guid: 069b4d684601d5e4fba308f76d3a0c65, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: 8f0cfcb68bfbb914787bd4566c43ca74, type: 3}
+    destaque: {r: 0.8750196, g: 0.8077255, b: 0.46639216, a: 1}
+  - carta: {fileID: 11400000, guid: 4a2341174819b204fa6bd217816039b5, type: 2}
+    titulo: Floresta
+    resumo: Lobo por volta
+    valor: 1
+    condicao: 
+    fundo: {fileID: 2800000, guid: ca71a886762d98741b9abf5f14439ed8, type: 3}
+    atmosfera: {fileID: 2800000, guid: 48771419b010ba74a9b8319e6f9e6373, type: 3}
+    objeto: {fileID: 2800000, guid: 56dc9fbe34d71694db4b91a7b4c624c0, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: d00ce5c5841bf27479630513fb7c31ed, type: 3}
+    destaque: {r: 0.7370196, g: 0.6997255, b: 0.40639216, a: 1}
+  - carta: {fileID: 11400000, guid: 8bb00675d3b582b4cad2a30eb4999ad5, type: 2}
+    titulo: Ilha Alta
+    resumo: Relevo e mirante
+    valor: 2,2 m
+    condicao: Lucca precisa passar por uma Mola antes da subida.
+    fundo: {fileID: 2800000, guid: 7c29de2201b7af8419108dd4ca9f37d2, type: 3}
+    atmosfera: {fileID: 2800000, guid: 31c90716755d8124bb82e0c20217c247, type: 3}
+    objeto: {fileID: 2800000, guid: a70ec9efec1a83547be83f718e3c9799, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: 8f0cfcb68bfbb914787bd4566c43ca74, type: 3}
+    destaque: {r: 0.90501964, g: 0.7237255, b: 0.62539214, a: 1}
+  - carta: {fileID: 11400000, guid: 85d0fb63f0c23fb4aa6190eec7f58282, type: 2}
+    titulo: Mola
+    resumo: Impulso
+    valor: 
+    condicao: 
+    fundo: {fileID: 2800000, guid: e0c9e94eeef12e04ca1ab5189b73fb79, type: 3}
+    atmosfera: {fileID: 2800000, guid: bbec36e74627e494a9039921122dcc1c, type: 3}
+    objeto: {fileID: 2800000, guid: fdf14832932197c43b20edbfaf7bd24c, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: 8f0cfcb68bfbb914787bd4566c43ca74, type: 3}
+    destaque: {r: 0.7790196, g: 0.8137255, b: 0.62539214, a: 1}
+  - carta: {fileID: 11400000, guid: 7e072abf0d8d1cf448bd24d4e5fba522, type: 2}
+    titulo: Flechas
+    resumo: Flechas por volta
+    valor: +10
+    condicao: 
+    fundo: {fileID: 2800000, guid: 35bfe895225e1c54b86659f219b963fa, type: 3}
+    atmosfera: {fileID: 2800000, guid: 5c894d4a5946a1c4e830611d370b5079, type: 3}
+    objeto: {fileID: 2800000, guid: 1513feec2070996478a71bf6cab13aa1, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: a32897f396216a745a67dc6eccaf4352, type: 3}
+    destaque: {r: 0.9740196, g: 0.8197255, b: 0.44539216, a: 1}
+  - carta: {fileID: 11400000, guid: be4a71fe52b619d4ca0a5e31eadbe565, type: 2}
+    titulo: "Cora\xE7\xE3o"
+    resumo: Cura por volta
+    valor: +5
+    condicao: 
+    fundo: {fileID: 2800000, guid: e0c9e94eeef12e04ca1ab5189b73fb79, type: 3}
+    atmosfera: {fileID: 2800000, guid: bbec36e74627e494a9039921122dcc1c, type: 3}
+    objeto: {fileID: 2800000, guid: a5b8c7319f5b82847b65eefee852fa76, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: d047f03a7b235494998dfc0dacd1f560, type: 3}
+    destaque: {r: 0.9590196, g: 0.6697255, b: 0.46039215, a: 1}
+  - carta: {fileID: 11400000, guid: 895105c7e323f204095d0c6837f252d9, type: 2}
+    titulo: Moedas
+    resumo: Moedas por volta
+    valor: +3
+    condicao: 
+    fundo: {fileID: 2800000, guid: 35bfe895225e1c54b86659f219b963fa, type: 3}
+    atmosfera: {fileID: 2800000, guid: 5c894d4a5946a1c4e830611d370b5079, type: 3}
+    objeto: {fileID: 2800000, guid: e100bbcba0808034aa73fddf484848fd, type: 3}
+    poseA: {fileID: 2800000, guid: 0eef41058a482f148898c5ec93861114, type: 3}
+    poseB: {fileID: 2800000, guid: b13933d6d3d208b4fb7cd440ba3c638b, type: 3}
+    categoria: {fileID: 2800000, guid: cec5e2bd4053de342ada2c94496e662f, type: 3}
+    destaque: {r: 0.9830196, g: 0.7897255, b: 0.40039214, a: 1}
+  - carta: {fileID: 11400000, guid: 8f741c52845874a4db81fda60351466b, type: 2}
+    titulo: Torre
+    resumo: Dano de flechas
+    valor: +8%
+    condicao: 
+    fundo: {fileID: 2800000, guid: 7c29de2201b7af8419108dd4ca9f37d2, type: 3}
+    atmosfera: {fileID: 2800000, guid: 31c90716755d8124bb82e0c20217c247, type: 3}
+    objeto: {fileID: 2800000, guid: 7f1d1e1dbb6a3c44db2bc18f5d907de1, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: a32897f396216a745a67dc6eccaf4352, type: 3}
+    destaque: {r: 0.8630196, g: 0.7537255, b: 0.54439217, a: 1}
+  - carta: {fileID: 11400000, guid: fa0395c276dc1014995d0d3265abe06b, type: 2}
+    titulo: "\xC1rea de Treino"
+    resumo: "Dano e adjac\xEAncia"
+    valor: +8%
+    condicao: 
+    fundo: {fileID: 2800000, guid: 35bfe895225e1c54b86659f219b963fa, type: 3}
+    atmosfera: {fileID: 2800000, guid: 5c894d4a5946a1c4e830611d370b5079, type: 3}
+    objeto: {fileID: 2800000, guid: 3df5ec7f3b8034d4e8efac8e2b7e4128, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: a32897f396216a745a67dc6eccaf4352, type: 3}
+    destaque: {r: 0.9440196, g: 0.7597255, b: 0.47539216, a: 1}
+  - carta: {fileID: 11400000, guid: 883cce0ec61a66641a24ac7d6e9120d4, type: 2}
+    titulo: Cabana
+    resumo: "PV e adjac\xEAncia"
+    valor: +2
+    condicao: 
+    fundo: {fileID: 2800000, guid: e0c9e94eeef12e04ca1ab5189b73fb79, type: 3}
+    atmosfera: {fileID: 2800000, guid: bbec36e74627e494a9039921122dcc1c, type: 3}
+    objeto: {fileID: 2800000, guid: 5738b7f96c10479469d76013ea903ce8, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: 41b34bf31292bd44097749517d97889e, type: 3}
+    destaque: {r: 0.90501964, g: 0.7237255, b: 0.43639216, a: 1}
+  - carta: {fileID: 11400000, guid: 5a82117b50fb09241b2c461714cd92cb, type: 2}
+    titulo: "Campo Pac\xEDfico"
+    resumo: "PV m\xE1ximo"
+    valor: +2
+    condicao: 
+    fundo: {fileID: 2800000, guid: ca71a886762d98741b9abf5f14439ed8, type: 3}
+    atmosfera: {fileID: 2800000, guid: 48771419b010ba74a9b8319e6f9e6373, type: 3}
+    objeto: {fileID: 2800000, guid: 37c7d6bae345ecc43ad11fcf6a4803b9, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: d047f03a7b235494998dfc0dacd1f560, type: 3}
+    destaque: {r: 0.8540196, g: 0.8287255, b: 0.49039215, a: 1}
+  - carta: {fileID: 11400000, guid: 5bcfc580a5c534145a3d4c1ae226d151, type: 2}
+    titulo: "Santu\xE1rio"
+    resumo: "PV m\xE1ximo"
+    valor: +3
+    condicao: 
+    fundo: {fileID: 2800000, guid: 7c29de2201b7af8419108dd4ca9f37d2, type: 3}
+    atmosfera: {fileID: 2800000, guid: 31c90716755d8124bb82e0c20217c247, type: 3}
+    objeto: {fileID: 2800000, guid: a9d4740d36d72984cb1b19a71fde4741, type: 3}
+    poseA: {fileID: 2800000, guid: 078ee246e777deb4d81beb50752347ae, type: 3}
+    poseB: {fileID: 2800000, guid: ac4245da535053942912a93458051f4e, type: 3}
+    categoria: {fileID: 2800000, guid: d047f03a7b235494998dfc0dacd1f560, type: 3}
+    destaque: {r: 0.9680196, g: 0.8377255, b: 0.54439217, a: 1}
+  - carta: {fileID: 11400000, guid: 105e39fc7bdebb149bebfb8ae5ced98f, type: 2}
+    titulo: Fonte Restauradora
+    resumo: "Cura por cora\xE7\xE3o"
+    valor: +2
+    condicao: 
+    fundo: {fileID: 2800000, guid: 091c5f7911ebe674a9dd8d756305b4a4, type: 3}
+    atmosfera: {fileID: 2800000, guid: 6645ef94e862f9e4b8e35fdcc8f3e3ee, type: 3}
+    objeto: {fileID: 2800000, guid: 673b795b7a79c1a4c9b291be093ba4d9, type: 3}
+    poseA: {fileID: 2800000, guid: 7f2aa85802f7cbc439e218a2d5faa8ed, type: 3}
+    poseB: {fileID: 2800000, guid: 32e7a685efc6c4049b9e368671a4d803, type: 3}
+    categoria: {fileID: 2800000, guid: d047f03a7b235494998dfc0dacd1f560, type: 3}
+    destaque: {r: 0.8150196, g: 0.7597255, b: 0.62539214, a: 1}
+  - carta: {fileID: 11400000, guid: b8f02e8d9615e7348b0b1f0b653b074a, type: 2}
+    titulo: Oficina de Arqueiro
+    resumo: Limite de flechas
+    valor: +2
+    condicao: 
+    fundo: {fileID: 2800000, guid: 35bfe895225e1c54b86659f219b963fa, type: 3}
+    atmosfera: {fileID: 2800000, guid: 5c894d4a5946a1c4e830611d370b5079, type: 3}
+    objeto: {fileID: 2800000, guid: 301c09f1aba285e4fb64e52b195029d0, type: 3}
+    poseA: {fileID: 0}
+    poseB: {fileID: 0}
+    categoria: {fileID: 2800000, guid: a32897f396216a745a67dc6eccaf4352, type: 3}
+    destaque: {r: 0.90501964, g: 0.7717255, b: 0.43039215, a: 1}
