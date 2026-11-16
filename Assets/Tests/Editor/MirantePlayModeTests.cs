@@ -204,7 +204,7 @@ namespace Loopia.Hex.Tests
         /// Estabilizacao do MVP (P2-1): de costas para o alvo, o corpo visual vira o que o tronco (65°) nao alcanca. Mede o
         /// angulo horizontal entre o arco e o alvo na soltura com o giro do corpo e, para comparar, sem ele (como antes).
         /// </summary>
-        static IEnumerator MiraVisualAtras()
+        internal static IEnumerator MiraVisualAtras()
         {
             var c = new Campo();
             yield return Montar(c);
@@ -220,11 +220,13 @@ namespace Loopia.Hex.Tests
             raizAntes = c.player.transform.rotation;
             yield return Aguardar(() => tiros >= 1, "flecha solta no alvo atras do Lucca");
             float comCorpo = ponte.ErroDeMiraNaSoltura;
+            CapturaDeEvidencia.Salvar(c.player.transform, "mira_atras_depois_corpo_vira");
             Assert.Less(Quaternion.Angle(raizAntes, c.player.transform.rotation), 1f, "a raiz de navegacao nao pode girar");
 
             Reflexao.DefinirCampo(ponte, "giroMaximoDoCorpo", 0f);
             yield return Aguardar(() => tiros >= 2, "segunda flecha, sem o giro do corpo");
             float soTronco = ponte.ErroDeMiraNaSoltura;
+            CapturaDeEvidencia.Salvar(c.player.transform, "mira_atras_antes_so_tronco");
             Reflexao.DefinirCampo(ponte, "giroMaximoDoCorpo", 120f);
 
             Debug.Log("[Mirante] erro horizontal da mira na soltura, alvo atras: com o corpo " + comCorpo.ToString("0.0") +

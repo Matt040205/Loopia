@@ -60,6 +60,24 @@ namespace Loopia.Hex.Tests
             yield return new ExitPlayMode();
         }
 
+        /// <summary>
+        /// Captura antes/depois para o relatorio (%TEMP%/loopia_mira_atras_*.png): o tiro no alvo atras no Mirante com e sem
+        /// o giro do corpo, no mesmo cenario do PlayModeSmoke. Uma renderizacao por imagem.
+        /// </summary>
+        [UnityTest, Category("PlayModeMedicao")]
+        public IEnumerator Captura_MiraAtras_AntesEDepois()
+        {
+            try
+            {
+                yield return new EnterPlayMode();
+                // Entrar em Play Mode recarrega o dominio: a chave estatica so vale se for ligada depois.
+                CapturaDeEvidencia.Ativa = true;
+                yield return MirantePlayModeTests.MiraVisualAtras();
+                yield return new ExitPlayMode();
+            }
+            finally { CapturaDeEvidencia.Ativa = false; }
+        }
+
         sealed class Amostras
         {
             public readonly Dictionary<string, List<float>> porContexto = new Dictionary<string, List<float>>();
@@ -184,6 +202,12 @@ namespace Loopia.Hex.Tests
         public IEnumerator Medicao_ApoioDosPes_SoLocomocao_MarchaLigadaEDesligada()
         {
             yield return new EnterPlayMode();
+            yield return Medicao_ApoioDosPes_SoLocomocao();
+            yield return new ExitPlayMode();
+        }
+
+        static IEnumerator Medicao_ApoioDosPes_SoLocomocao()
+        {
             Application.runInBackground = true;
             Time.timeScale = 1f;
             for (int i = 0; i < 5; i++) yield return null;
@@ -228,7 +252,6 @@ namespace Loopia.Hex.Tests
             Debug.Log(texto);
             try { File.WriteAllText(Path.Combine(Path.GetTempPath(), "loopia_apoio_locomocao.txt"), texto); }
             catch (Exception) { /* so registro */ }
-            yield return new ExitPlayMode();
         }
 
         static Amostras _amostras;
