@@ -1,6 +1,29 @@
 # Estado atual — 2026-11-16
 
-## Prévia local da interface
+## Consolidação definitiva — **comece por aqui**
+- **Uma versão só:** `integration/loopia-unified` (estabilização PR #12 + revisão de interface, que já contém as cartas
+  do Codex PR #13). Relatório completo, PR e SHA final:
+  [FINAL_CONSOLIDATION_REPORT.md](../integration/FINAL_CONSOLIDATION_REPORT.md).
+- **Um Editor, uma worktree:** `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. As demais worktrees são backup (não
+  abrir Editors nelas; nenhuma sprint nova em branch antiga). O que pode ser removido: relatório, §8.
+- **Cenas oficiais com a interface aprovada:** `Acampamento` e `HexPrototipo` trazem HUD de Cartas (prefab do Codex,
+  ligada ao `CartasUI`), Interface da jornada, barra do chefe, acampamento e resultado novos. Botões nos métodos
+  runtime; nada Editor-only nas cenas. `Loopia > Interface > Aplicar nas cenas oficiais` reaplica numa cena sem
+  interface (recusa se já houver). `Loopia > Prévia da interface` só copia as cenas e troca a navegação.
+- **Testes:** suíte inteira sem filtro 436/436 (Logic + SceneStatic 404, PlayModeSmoke 28, PlayModeMedicao 4).
+  XMLs em `docs/integration/evidencias/`.
+- **Build:** Release `Documents\Loopia_Builds\loopia-unified-d05dfd8-release\` (validada com mouse real: arraste,
+  tooltip, inválida não consome, válida consome, pendente entra, chefe, derrota, vitória, save e reabertura) e
+  Development `...-dev\`. Rode com `-loopia-perfil qa-consolidacao` (ou outro perfil) para não tocar o save pessoal.
+- **Save pessoal:** `...\DefaultCompany\Loopia\loopia_save.json` = `76e429e4…` (210 moedas). Já divergia da
+  referência `3d27854e…` antes desta sessão; não foi restaurado. Backup de todos os saves em
+  `Documents\Loopia_Backups\consolidacao-20261116\saves\`.
+- **Pendente:** 2560×1440 e 3440×1440 com entrada física; FPS e frame time na build.
+- **Próximo:** backlog P1/P2 e sondagem (§6–7 do relatório). Os cinco maiores problemas percebidos: inimigos como
+  esferas, Lucca pequena no combate, jornada de ~1,5 min, cartas compactas ilegíveis (e tooltip preso), construções
+  sem leitura no mundo.
+
+## Prévia local da interface (histórico, antes da consolidação)
 
 A branch **sprint-4/revisao-interface** reúne os snapshots dos PRs #12 e #13 para revisar a interface.
 Abra o projeto no Unity e use **Loopia → Prévia da interface → Recriar cópias locais**. O gerador
@@ -21,7 +44,7 @@ No Editor, pressione **Play** no Acampamento da prévia. Para isolar o save, ini
 - O Editor registrou uma exceção de indexação da Unity Search na inicialização. A prévia e os estados
   da HUD rodaram após a inicialização.
 
-## Sprint de estabilização do MVP — **comece por aqui**
+## Sprint de estabilização do MVP (histórico)
 - Branch `fix/mvp-stabilization` (base `integration/mvp-20261117` @ `f49cee1` + os 7 commits de legibilidade),
   Draft PR #12 → `integration/mvp-20261117`. Nada na `main`. Documentos em `docs/mvp-stabilization/`
   (`ISSUE_AUDIT`, `FIX_REPORT`, `TEST_RESULTS`, `BUILD_VALIDATION`, `REMAINING_ISSUES`).
@@ -64,7 +87,7 @@ No Editor, pressione **Play** no Acampamento da prévia. Para isolar o save, ini
   `GraphicsSettings`, batching em `ProjectSettings`, `TimeManager`) continuam fora dos commits; do `PC_RPAsset` e do
   `ProjectSettings` só entram `m_MSAA` e `resizableWindow`.
 
-## Integração do MVP (base para o polimento) — **comece por aqui**
+## Integração do MVP (histórico)
 - Branch `integration/mvp-20261117`, worktree `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. É a única base com tudo
   junto: G1 + arte (PR #8), Lucca do Codex (PR #10), G2 (PR #9), Mirante ligado ao combate e as 3 cartas G2 no baralho.
 - Editor de trabalho: o Unity aberto em `loopia-mvp`. As worktrees `loopia`, `loopia-lucca`, `loopia-gameplay` e

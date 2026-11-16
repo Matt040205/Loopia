@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="41,085187">
+  <test-suite type="TestSuite" id="1000" name="Loopia" fullname="Loopia" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="41.085187" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1514" name="Assembly-CSharp-Editor.dll" fullname="C:/Users/Sitr3n/Documents/Github/loopia-mvp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="41.005129" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="27364" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1515" name="Loopia" fullname="Loopia" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="41.000873" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1516" name="Hex" fullname="Loopia.Hex" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="40.993135" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="SetUpFixture" id="1488" name="Tests" fullname="Loopia.Hex.Tests.GuardaDaSuite" classname="Loopia.Hex.Tests.GuardaDaSuite" runstate="Runnable" testcasecount="436" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="40.983883" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="ApoioDosPesMedicaoTests" fullname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests" classname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-16 12:46:09Z" end-time="2026-11-16 12:47:03Z" duration="54.334152" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1003" name="Captura_MiraAtras_AntesEDepois" fullname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests.Captura_MiraAtras_AntesEDepois" methodname="Captura_MiraAtras_AntesEDepois" classname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests" runstate="Runnable" seed="313922825" result="Passed" start-time="2026-11-16 12:43:11Z" end-time="2026-11-16 12:43:20Z" duration="8.936709" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeMedicao" />
+                </properties>
+                <output><![CDATA[[Captura] C:\Users\Sitr3n\AppData\Local\Temp\loopia_mira_atras_depois_corpo_vira.png
+[Captura] C:\Users\Sitr3n\AppData\Local\Temp\loopia_mira_atras_antes_so_tronco.png
+[Mirante] erro horizontal da mira na soltura, alvo atras: com o corpo 14,4 graus; so o tronco (antes) 99,7 graus
+]]></output>
+              </test-case>
+              <test-case id="1002" name="Medicao_ApoioDosPes_PorContexto" fullname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests.Medicao_ApoioDosPes_PorContexto" methodname="Medicao_ApoioDosPes_PorContexto" classname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests" runstate="Runnable" seed="1790643338" result="Passed" start-time="2026-11-16 12:43:20Z" end-time="2026-11-16 12:46:02Z" duration="161.802870" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeMedicao" />
+                </properties>
+                <output><![CDATA[[ApoioDosPes] sola parada 0,018 u; limiar de contato +0,035 u
+[ApoioDosPes] alvos no anel, corpo parado 120 / correndo 30: 15 tiros, giro do corpo maximo visto 30 graus; todas n 2156, mediana 0,98, P95 5,62 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) sem tiros; alvo atras (mais de 100 graus) n 4, mediana 122, maximo 137 graus
+  reta: n 692, mediana 0,79, P95 5,29 u/s
+  tiro, alvo a frente: n 519, mediana 0,96, P95 6,04 u/s
+  pouso (0,15 s): n 511, mediana 0,88, P95 3,47 u/s
+  curva ate 0,3 s antes do pulo: n 208, mediana 0,75, P95 5,83 u/s
+  tiro, alvo a mais de 52 graus: n 184, mediana 2,12, P95 5,90 u/s
+  curva longe de pulo: n 36, mediana 5,56, P95 5,75 u/s
+  aceleracao: n 6, mediana 7,08, P95 9,07 u/s
+[ApoioDosPes] alvos no anel, corpo parado 0 / correndo 0: 15 tiros, giro do corpo maximo visto 0 graus; todas n 2217, mediana 0,84, P95 5,54 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) sem tiros; alvo atras (mais de 100 graus) n 4, mediana 145, maximo 163 graus
+  reta: n 806, mediana 0,79, P95 5,31 u/s
+  pouso (0,15 s): n 554, mediana 0,93, P95 3,50 u/s
+  tiro, alvo a frente: n 551, mediana 0,79, P95 5,65 u/s
+  tiro, alvo a mais de 52 graus: n 190, mediana 1,01, P95 5,77 u/s
+  curva ate 0,3 s antes do pulo: n 99, mediana 0,80, P95 5,93 u/s
+  curva longe de pulo: n 14, mediana 5,62, P95 5,69 u/s
+  aceleracao: n 3, mediana 7,82, P95 8,20 u/s
+[ApoioDosPes] alvos no anel, corpo parado 120 / correndo 120: 15 tiros, giro do corpo maximo visto 118 graus; todas n 2482, mediana 1,07, P95 5,95 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) n 3, mediana 12, maximo 14 graus; alvo atras (mais de 100 graus) n 5, mediana 21, maximo 173 graus
+  reta: n 941, mediana 0,76, P95 5,31 u/s
+  pouso (0,15 s): n 584, mediana 1,02, P95 3,71 u/s
+  tiro, alvo a frente: n 452, mediana 1,13, P95 7,15 u/s
+  tiro, alvo a mais de 52 graus: n 343, mediana 3,72, P95 7,57 u/s
+  curva ate 0,3 s antes do pulo: n 128, mediana 1,27, P95 5,89 u/s
+  curva longe de pulo: n 28, mediana 5,65, P95 6,18 u/s
+  aceleracao: n 6, mediana 7,80, P95 8,67 u/s
+[ApoioDosPes] alvo grande no miolo (como o chefe), corpo parado 120 / correndo 30: 15 tiros, giro do corpo maximo visto 30 graus; todas n 2403, mediana 1,12, P95 5,64 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) n 8, mediana 6, maximo 17 graus; alvo atras (mais de 100 graus) n 5, mediana 43, maximo 93 graus
+  reta: n 790, mediana 0,89, P95 5,31 u/s
+  tiro, alvo a mais de 52 graus: n 694, mediana 1,34, P95 5,92 u/s
+  pouso (0,15 s): n 577, mediana 1,22, P95 3,65 u/s
+  curva ate 0,3 s antes do pulo: n 229, mediana 0,79, P95 5,87 u/s
+  tiro, alvo a frente: n 54, mediana 1,17, P95 5,38 u/s
+  curva longe de pulo: n 49, mediana 5,65, P95 5,95 u/s
+  aceleracao: n 10, mediana 7,65, P95 9,12 u/s
+[ApoioDosPes] alvo grande no miolo (como o chefe), corpo parado 0 / correndo 0: 15 tiros, giro do corpo maximo visto 0 graus; todas n 2419, mediana 0,91, P95 5,59 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) n 7, mediana 9, maximo 16 graus; alvo atras (mais de 100 graus) n 8, mediana 63, maximo 82 graus
+  reta: n 819, mediana 0,86, P95 5,32 u/s
+  tiro, alvo a mais de 52 graus: n 797, mediana 0,90, P95 5,68 u/s
+  pouso (0,15 s): n 566, mediana 0,96, P95 3,46 u/s
+  curva ate 0,3 s antes do pulo: n 183, mediana 0,69, P95 5,75 u/s
+  curva longe de pulo: n 43, mediana 5,57, P95 5,78 u/s
+  aceleracao: n 11, mediana 7,05, P95 9,10 u/s
+[ApoioDosPes] alvo grande no miolo (como o chefe), corpo parado 120 / correndo 120: 15 tiros, giro do corpo maximo visto 102 graus; todas n 2366, mediana 1,24, P95 5,64 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) n 5, mediana 8, maximo 18 graus; alvo atras (mais de 100 graus) n 7, mediana 7, maximo 37 graus
+  reta: n 845, mediana 1,06, P95 5,32 u/s
+  pouso (0,15 s): n 553, mediana 1,30, P95 3,79 u/s
+  tiro, alvo a mais de 52 graus: n 537, mediana 2,47, P95 6,10 u/s
+  curva ate 0,3 s antes do pulo: n 223, mediana 0,75, P95 5,82 u/s
+  tiro, alvo a frente: n 158, mediana 0,75, P95 5,29 u/s
+  curva longe de pulo: n 43, mediana 5,64, P95 6,09 u/s
+  aceleracao: n 7, mediana 7,61, P95 8,06 u/s
+
+]]></output>
+              </test-case>
+              <test-case id="1004" name="Medicao_ApoioDosPes_SoLocomocao_MarchaLigadaEDesligada" fullname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests.Medicao_ApoioDosPes_SoLocomocao_MarchaLigadaEDesligada" methodname="Medicao_ApoioDosPes_SoLocomocao_MarchaLigadaEDesligada" classname="Loopia.Hex.Tests.ApoioDosPesMedicaoTests" runstate="Runnable" seed="2026286222" result="Passed" start-time="2026-11-16 12:46:02Z" end-time="2026-11-16 12:47:03Z" duration="61.218014" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeMedicao" />
+                </properties>
+                <output><![CDATA[[ApoioDosPes] so locomocao, sem alvos; sola parada 0,018 u
+[ApoioDosPes] giroDaMarchaMaximo 0: 0 tiros, giro do corpo maximo visto 0 graus; todas n 2479, mediana 1,32, P95 5,27 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) sem tiros; alvo atras (mais de 100 graus) sem tiros
+  reta: n 1207, mediana 0,81, P95 5,30 u/s
+  pouso (0,15 s): n 586, mediana 0,94, P95 3,49 u/s
+  curva ate 0,3 s antes do pulo: n 548, mediana 2,95, P95 4,65 u/s
+  curva longe de pulo: n 118, mediana 4,71, P95 5,38 u/s
+  aceleracao: n 20, mediana 7,47, P95 8,68 u/s
+[ApoioDosPes] giroDaMarchaMaximo 75: 0 tiros, giro do corpo maximo visto 0 graus; todas n 2388, mediana 0,87, P95 5,68 u/s
+  erro da mira na soltura: alvo de lado (52 a 100 graus) sem tiros; alvo atras (mais de 100 graus) sem tiros
+  reta: n 1083, mediana 0,74, P95 5,28 u/s
+  pouso (0,15 s): n 594, mediana 0,98, P95 3,46 u/s
+  curva ate 0,3 s antes do pulo: n 580, mediana 0,79, P95 6,04 u/s
+  curva longe de pulo: n 106, mediana 5,58, P95 5,80 u/s
+  aceleracao: n 25, mediana 7,28, P95 8,86 u/s
+--- giroDaMarchaMaximo 0, quadros antes do pulo 1
+7,360 vel 3,26 MoveSpeed 3,28 raiz-vs-vel 45 visual-vs-vel 45 link 1,48
+7,365 vel 3,35 MoveSpeed 3,29 raiz-vs-vel 48 visual-vs-vel 48 link 1,47
+7,370 vel 3,47 MoveSpeed 3,31 raiz-vs-vel 51 visual-vs-vel 51 link 1,45
+7,374 vel 3,50 MoveSpeed 3,32 raiz-vs-vel 51 visual-vs-vel 51 link 1,44
+7,378 vel 3,50 MoveSpeed 3,34 raiz-vs-vel 50 visual-vs-vel 50 link 1,42
+7,383 vel 3,50 MoveSpeed 3,35 raiz-vs-vel 49 visual-vs-vel 49 link 1,40
+7,387 vel 3,50 MoveSpeed 3,37 raiz-vs-vel 48 visual-vs-vel 48 link 1,39
+7,392 vel 3,50 MoveSpeed 3,38 raiz-vs-vel 47 visual-vs-vel 47 link 1,37
+7,395 vel 3,50 MoveSpeed 3,39 raiz-vs-vel 46 visual-vs-vel 46 link 1,36
+7,399 vel 3,50 MoveSpeed 3,40 raiz-vs-vel 45 visual-vs-vel 45 link 1,35
+7,403 vel 3,50 MoveSpeed 3,41 raiz-vs-vel 44 visual-vs-vel 44 link 1,33
+7,407 vel 3,50 MoveSpeed 3,41 raiz-vs-vel 44 visual-vs-vel 44 link 1,32
+7,411 vel 3,50 MoveSpeed 3,42 raiz-vs-vel 43 visual-vs-vel 43 link 1,31
+7,415 vel 3,50 MoveSpeed 3,43 raiz-vs-vel 42 visual-vs-vel 42 link 1,29
+7,419 vel 3,50 MoveSpeed 3,43 raiz-vs-vel 41 visual-vs-vel 41 link 1,28
+7,422 vel 3,50 MoveSpeed 3,44 raiz-vs-vel 41 visual-vs-vel 41 link 1,27
+7,426 vel 3,50 MoveSpeed 3,44 raiz-vs-vel 40 visual-vs-vel 40 link 1,25
+7,430 vel 3,50 MoveSpeed 3,45 raiz-vs-vel 39 visual-vs-vel 39 link 1,24
+7,434 vel 3,50 MoveSpeed 3,45 raiz-vs-vel 39 visual-vs-vel 39 link 1,23
+7,438 vel 3,50 MoveSpeed 3,45 raiz-vs-vel 38 visual-vs-vel 38 link 1,21
+7,442 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 37 visual-vs-vel 37 link 1,20
+7,445 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 37 visual-vs-vel 37 link 1,19
+7,449 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 36 visual-vs-vel 36 link 1,17
+7,452 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 36 visual-vs-vel 36 link 1,16
+7,456 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 35 visual-vs-vel 35 link 1,15
+7,459 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 34 visual-vs-vel 34 link 1,14
+7,463 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 34 visual-vs-vel 34 link 1,12
+7,466 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 33 visual-vs-vel 33 link 1,11
+7,470 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 33 visual-vs-vel 33 link 1,10
+7,473 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 32 visual-vs-vel 32 link 1,09
+7,477 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 32 visual-vs-vel 32 link 1,08
+7,480 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 31 visual-vs-vel 31 link 1,06
+7,483 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 31 visual-vs-vel 31 link 1,05
+7,487 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 30 visual-vs-vel 30 link 1,04
+7,491 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 30 visual-vs-vel 30 link 1,03
+7,494 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 29 visual-vs-vel 29 link 1,01
+7,498 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 29 visual-vs-vel 29 link 1,00
+7,501 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel 28 link 0,99
+7,505 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel 28 link 0,98
+7,508 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel 28 link 0,97
+7,512 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 27 visual-vs-vel 27 link 0,95
+7,516 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 27 visual-vs-vel 27 link 0,94
+7,520 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 26 visual-vs-vel 26 link 0,92
+7,524 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 26 visual-vs-vel 26 link 0,91
+7,528 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 25 visual-vs-vel 25 link 0,90
+7,532 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 25 visual-vs-vel 25 link 0,88
+7,535 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 24 visual-vs-vel 24 link 0,87
+7,540 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 24 visual-vs-vel 24 link 0,86
+7,543 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 24 visual-vs-vel 24 link 0,84
+7,548 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 23 visual-vs-vel 23 link 0,83
+7,552 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 23 visual-vs-vel 23 link 0,81
+7,555 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel 22 link 0,80
+7,558 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel 22 link 0,79
+7,562 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel 22 link 0,78
+7,565 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel 21 link 0,77
+7,569 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel 21 link 0,75
+7,572 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel 21 link 0,74
+7,575 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel 20 link 0,73
+7,579 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel 20 link 0,72
+7,582 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel 20 link 0,71
+7,586 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel 19 link 0,69
+7,590 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel 19 link 0,68
+7,593 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel 19 link 0,67
+7,597 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel 18 link 0,66
+7,600 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel 18 link 0,64
+7,603 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel 18 link 0,63
+7,607 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel 18 link 0,62
+7,610 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel 17 link 0,61
+7,614 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel 17 link 0,60
+7,617 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel 17 link 0,58
+7,621 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel 17 link 0,57
+7,625 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel 16 link 0,56
+7,628 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel 16 link 0,55
+7,632 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel 16 link 0,53
+7,635 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel 15 link 0,52
+7,639 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel 15 link 0,51
+7,642 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel 15 link 0,50
+7,646 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel 15 link 0,48
+7,649 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel 15 link 0,47
+7,653 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 14 visual-vs-vel 14 link 0,46
+7,656 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 14 visual-vs-vel 14 link -
+--- giroDaMarchaMaximo 0, quadros antes do pulo 2
+8,475 vel 3,27 MoveSpeed 3,28 raiz-vs-vel -45 visual-vs-vel -45 link 1,48
+8,478 vel 3,34 MoveSpeed 3,29 raiz-vs-vel -48 visual-vs-vel -48 link 1,47
+8,482 vel 3,43 MoveSpeed 3,30 raiz-vs-vel -50 visual-vs-vel -50 link 1,46
+8,485 vel 3,50 MoveSpeed 3,31 raiz-vs-vel -52 visual-vs-vel -52 link 1,45
+8,489 vel 3,50 MoveSpeed 3,32 raiz-vs-vel -51 visual-vs-vel -51 link 1,44
+8,492 vel 3,50 MoveSpeed 3,34 raiz-vs-vel -50 visual-vs-vel -50 link 1,42
+8,496 vel 3,50 MoveSpeed 3,35 raiz-vs-vel -49 visual-vs-vel -49 link 1,41
+8,499 vel 3,50 MoveSpeed 3,36 raiz-vs-vel -49 visual-vs-vel -49 link 1,40
+8,503 vel 3,50 MoveSpeed 3,37 raiz-vs-vel -48 visual-vs-vel -48 link 1,39
+8,506 vel 3,50 MoveSpeed 3,38 raiz-vs-vel -47 visual-vs-vel -47 link 1,38
+8,510 vel 3,50 MoveSpeed 3,39 raiz-vs-vel -46 visual-vs-vel -46 link 1,36
+8,514 vel 3,50 MoveSpeed 3,40 raiz-vs-vel -45 visual-vs-vel -45 link 1,35
+8,518 vel 3,50 MoveSpeed 3,40 raiz-vs-vel -45 visual-vs-vel -45 link 1,34
+8,521 vel 3,50 MoveSpeed 3,41 raiz-vs-vel -44 visual-vs-vel -44 link 1,32
+8,525 vel 3,50 MoveSpeed 3,42 raiz-vs-vel -43 visual-vs-vel -43 link 1,31
+8,529 vel 3,50 MoveSpeed 3,43 raiz-vs-vel -42 visual-vs-vel -42 link 1,30
+8,533 vel 3,50 MoveSpeed 3,43 raiz-vs-vel -42 visual-vs-vel -42 link 1,28
+8,537 vel 3,50 MoveSpeed 3,44 raiz-vs-vel -41 visual-vs-vel -41 link 1,27
+8,541 vel 3,50 MoveSpeed 3,44 raiz-vs-vel -40 visual-vs-vel -40 link 1,25
+8,545 vel 3,50 MoveSpeed 3,45 raiz-vs-vel -39 visual-vs-vel -39 link 1,24
+8,549 vel 3,50 MoveSpeed 3,45 raiz-vs-vel -39 visual-vs-vel -39 link 1,23
+8,553 vel 3,50 MoveSpeed 3,45 raiz-vs-vel -38 visual-vs-vel -38 link 1,21
+8,556 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -37 visual-vs-vel -37 link 1,20
+8,560 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -37 visual-vs-vel -37 link 1,19
+8,563 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -36 visual-vs-vel -36 link 1,18
+8,567 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -36 visual-vs-vel -36 link 1,16
+8,570 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -35 visual-vs-vel -35 link 1,15
+8,574 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -35 visual-vs-vel -35 link 1,14
+8,577 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -34 visual-vs-vel -34 link 1,13
+8,581 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -33 visual-vs-vel -33 link 1,11
+8,585 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -33 visual-vs-vel -33 link 1,10
+8,589 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -32 visual-vs-vel -32 link 1,09
+8,593 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -32 visual-vs-vel -32 link 1,07
+8,596 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -31 visual-vs-vel -31 link 1,06
+8,600 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -31 visual-vs-vel -31 link 1,05
+8,604 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -30 visual-vs-vel -30 link 1,03
+8,607 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -30 visual-vs-vel -30 link 1,02
+8,611 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -29 visual-vs-vel -29 link 1,01
+8,615 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -29 visual-vs-vel -29 link 1,00
+8,618 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -28 visual-vs-vel -28 link 0,98
+8,622 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -28 visual-vs-vel -28 link 0,97
+8,626 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -27 visual-vs-vel -27 link 0,96
+8,629 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -27 visual-vs-vel -27 link 0,94
+8,633 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -26 visual-vs-vel -26 link 0,93
+8,637 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -26 visual-vs-vel -26 link 0,92
+8,641 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel -25 link 0,90
+8,645 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel -25 link 0,89
+8,648 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel -25 link 0,88
+8,652 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -24 visual-vs-vel -24 link 0,87
+8,655 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -24 visual-vs-vel -24 link 0,85
+8,659 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -23 visual-vs-vel -23 link 0,84
+8,663 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -23 visual-vs-vel -23 link 0,83
+8,666 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -23 visual-vs-vel -23 link 0,82
+8,670 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel -22 link 0,80
+8,673 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel -22 link 0,79
+8,676 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel -22 link 0,78
+8,680 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -21 visual-vs-vel -21 link 0,77
+8,683 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -21 visual-vs-vel -21 link 0,76
+8,687 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -21 visual-vs-vel -21 link 0,74
+8,690 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel -20 link 0,73
+8,693 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel -20 link 0,72
+8,697 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel -20 link 0,71
+8,700 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel -19 link 0,70
+8,704 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel -19 link 0,68
+8,707 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel -19 link 0,67
+8,711 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel -19 link 0,66
+8,714 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel -18 link 0,65
+8,717 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel -18 link 0,64
+8,721 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel -18 link 0,62
+8,724 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel -17 link 0,61
+8,728 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel -17 link 0,60
+8,731 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel -17 link 0,59
+8,735 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel -17 link 0,58
+8,738 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel -16 link 0,56
+8,741 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel -16 link 0,55
+8,745 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel -16 link 0,54
+8,748 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel -16 link 0,53
+8,752 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel -15 link 0,52
+8,755 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel -15 link 0,51
+8,758 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel -15 link 0,49
+8,762 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel -15 link 0,48
+8,765 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel -15 link 0,47
+8,768 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -14 visual-vs-vel -14 link 0,46
+8,772 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -14 visual-vs-vel -14 link -
+--- giroDaMarchaMaximo 75, quadros antes do pulo 1
+31,906 vel 3,20 MoveSpeed 3,28 raiz-vs-vel 42 visual-vs-vel 26 link 1,49
+31,910 vel 3,26 MoveSpeed 3,28 raiz-vs-vel 45 visual-vs-vel 26 link 1,48
+31,914 vel 3,35 MoveSpeed 3,29 raiz-vs-vel 48 visual-vs-vel 26 link 1,47
+31,917 vel 3,44 MoveSpeed 3,30 raiz-vs-vel 50 visual-vs-vel 26 link 1,46
+31,920 vel 3,50 MoveSpeed 3,31 raiz-vs-vel 52 visual-vs-vel 25 link 1,45
+31,923 vel 3,50 MoveSpeed 3,32 raiz-vs-vel 51 visual-vs-vel 22 link 1,44
+31,927 vel 3,50 MoveSpeed 3,33 raiz-vs-vel 50 visual-vs-vel 19 link 1,42
+31,930 vel 3,50 MoveSpeed 3,35 raiz-vs-vel 49 visual-vs-vel 16 link 1,41
+31,933 vel 3,50 MoveSpeed 3,36 raiz-vs-vel 49 visual-vs-vel 13 link 1,40
+31,937 vel 3,50 MoveSpeed 3,37 raiz-vs-vel 48 visual-vs-vel 11 link 1,39
+31,940 vel 3,50 MoveSpeed 3,38 raiz-vs-vel 47 visual-vs-vel 9 link 1,38
+31,944 vel 3,50 MoveSpeed 3,38 raiz-vs-vel 46 visual-vs-vel 6 link 1,37
+31,947 vel 3,50 MoveSpeed 3,39 raiz-vs-vel 46 visual-vs-vel 5 link 1,35
+31,950 vel 3,50 MoveSpeed 3,40 raiz-vs-vel 45 visual-vs-vel 3 link 1,34
+31,954 vel 3,50 MoveSpeed 3,41 raiz-vs-vel 44 visual-vs-vel 2 link 1,33
+31,957 vel 3,50 MoveSpeed 3,41 raiz-vs-vel 44 visual-vs-vel 1 link 1,32
+31,961 vel 3,50 MoveSpeed 3,42 raiz-vs-vel 43 visual-vs-vel 0 link 1,31
+31,964 vel 3,50 MoveSpeed 3,43 raiz-vs-vel 42 visual-vs-vel -1 link 1,29
+31,968 vel 3,50 MoveSpeed 3,43 raiz-vs-vel 42 visual-vs-vel -2 link 1,28
+31,971 vel 3,50 MoveSpeed 3,44 raiz-vs-vel 41 visual-vs-vel -3 link 1,27
+31,974 vel 3,50 MoveSpeed 3,44 raiz-vs-vel 40 visual-vs-vel -3 link 1,26
+31,978 vel 3,50 MoveSpeed 3,44 raiz-vs-vel 40 visual-vs-vel -4 link 1,25
+31,981 vel 3,50 MoveSpeed 3,45 raiz-vs-vel 39 visual-vs-vel -4 link 1,23
+31,984 vel 3,50 MoveSpeed 3,45 raiz-vs-vel 39 visual-vs-vel -4 link 1,22
+31,988 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 38 visual-vs-vel -5 link 1,21
+31,991 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 37 visual-vs-vel -5 link 1,20
+31,995 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 37 visual-vs-vel -5 link 1,19
+31,998 vel 3,50 MoveSpeed 3,46 raiz-vs-vel 36 visual-vs-vel -5 link 1,18
+32,001 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 36 visual-vs-vel -5 link 1,16
+32,005 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 35 visual-vs-vel -5 link 1,15
+32,009 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 35 visual-vs-vel -5 link 1,14
+32,012 vel 3,50 MoveSpeed 3,47 raiz-vs-vel 34 visual-vs-vel -5 link 1,13
+32,015 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 34 visual-vs-vel -5 link 1,11
+32,019 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 33 visual-vs-vel -5 link 1,10
+32,022 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 33 visual-vs-vel -5 link 1,09
+32,026 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 32 visual-vs-vel -5 link 1,08
+32,029 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 32 visual-vs-vel -5 link 1,07
+32,032 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 31 visual-vs-vel -5 link 1,05
+32,036 vel 3,50 MoveSpeed 3,48 raiz-vs-vel 31 visual-vs-vel -5 link 1,04
+32,039 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 30 visual-vs-vel -5 link 1,03
+32,043 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 30 visual-vs-vel -5 link 1,02
+32,046 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 29 visual-vs-vel -5 link 1,01
+32,049 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 29 visual-vs-vel -5 link 1,00
+32,053 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel -5 link 0,98
+32,056 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel -5 link 0,97
+32,059 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 28 visual-vs-vel -5 link 0,96
+32,063 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 27 visual-vs-vel -5 link 0,95
+32,066 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 27 visual-vs-vel -5 link 0,94
+32,070 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 26 visual-vs-vel -4 link 0,92
+32,074 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 26 visual-vs-vel -4 link 0,91
+32,077 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 25 visual-vs-vel -4 link 0,90
+32,081 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 25 visual-vs-vel -4 link 0,89
+32,084 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 25 visual-vs-vel -4 link 0,87
+32,087 vel 3,50 MoveSpeed 3,49 raiz-vs-vel 24 visual-vs-vel -4 link 0,86
+32,091 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 24 visual-vs-vel -4 link 0,85
+32,094 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 23 visual-vs-vel -4 link 0,84
+32,098 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 23 visual-vs-vel -4 link 0,82
+32,102 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 23 visual-vs-vel -4 link 0,81
+32,105 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel -4 link 0,80
+32,109 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel -4 link 0,79
+32,112 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 22 visual-vs-vel -4 link 0,78
+32,116 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel -4 link 0,76
+32,119 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel -4 link 0,75
+32,123 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 21 visual-vs-vel -4 link 0,74
+32,126 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel -3 link 0,73
+32,130 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel -3 link 0,71
+32,133 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 20 visual-vs-vel -3 link 0,70
+32,137 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel -3 link 0,69
+32,140 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel -3 link 0,68
+32,143 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 19 visual-vs-vel -3 link 0,67
+32,147 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel -3 link 0,65
+32,150 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel -3 link 0,64
+32,154 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel -3 link 0,63
+32,157 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 18 visual-vs-vel -3 link 0,62
+32,161 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel -3 link 0,60
+32,165 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel -3 link 0,59
+32,168 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel -3 link 0,58
+32,171 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 17 visual-vs-vel -3 link 0,57
+32,175 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel -3 link 0,56
+32,178 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel -3 link 0,54
+32,181 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel -3 link 0,53
+32,185 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 16 visual-vs-vel -3 link 0,52
+32,188 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel -3 link 0,51
+32,191 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel -3 link 0,50
+32,195 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel -3 link 0,49
+32,198 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 15 visual-vs-vel -3 link 0,47
+32,202 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 14 visual-vs-vel -2 link 0,46
+32,205 vel 3,50 MoveSpeed 3,50 raiz-vs-vel 14 visual-vs-vel -3 link -
+--- giroDaMarchaMaximo 75, quadros antes do pulo 2
+33,023 vel 3,23 MoveSpeed 3,28 raiz-vs-vel -44 visual-vs-vel -26 link 1,49
+33,027 vel 3,30 MoveSpeed 3,28 raiz-vs-vel -46 visual-vs-vel -26 link 1,48
+33,030 vel 3,39 MoveSpeed 3,29 raiz-vs-vel -49 visual-vs-vel -26 link 1,47
+33,034 vel 3,48 MoveSpeed 3,30 raiz-vs-vel -51 visual-vs-vel -26 link 1,45
+33,037 vel 3,50 MoveSpeed 3,32 raiz-vs-vel -51 visual-vs-vel -23 link 1,44
+33,041 vel 3,50 MoveSpeed 3,33 raiz-vs-vel -50 visual-vs-vel -19 link 1,43
+33,045 vel 3,50 MoveSpeed 3,35 raiz-vs-vel -49 visual-vs-vel -16 link 1,41
+33,052 vel 3,50 MoveSpeed 3,37 raiz-vs-vel -48 visual-vs-vel -10 link 1,39
+33,056 vel 3,50 MoveSpeed 3,38 raiz-vs-vel -47 visual-vs-vel -8 link 1,38
+33,060 vel 3,50 MoveSpeed 3,39 raiz-vs-vel -46 visual-vs-vel -6 link 1,36
+33,063 vel 3,50 MoveSpeed 3,40 raiz-vs-vel -45 visual-vs-vel -4 link 1,35
+33,067 vel 3,50 MoveSpeed 3,40 raiz-vs-vel -45 visual-vs-vel -3 link 1,34
+33,071 vel 3,50 MoveSpeed 3,41 raiz-vs-vel -44 visual-vs-vel -1 link 1,32
+33,074 vel 3,50 MoveSpeed 3,42 raiz-vs-vel -43 visual-vs-vel 0 link 1,31
+33,078 vel 3,50 MoveSpeed 3,42 raiz-vs-vel -43 visual-vs-vel 1 link 1,30
+33,081 vel 3,50 MoveSpeed 3,43 raiz-vs-vel -42 visual-vs-vel 2 link 1,29
+33,084 vel 3,50 MoveSpeed 3,43 raiz-vs-vel -41 visual-vs-vel 2 link 1,28
+33,088 vel 3,50 MoveSpeed 3,44 raiz-vs-vel -41 visual-vs-vel 3 link 1,26
+33,092 vel 3,50 MoveSpeed 3,44 raiz-vs-vel -40 visual-vs-vel 3 link 1,25
+33,096 vel 3,50 MoveSpeed 3,45 raiz-vs-vel -39 visual-vs-vel 4 link 1,24
+33,100 vel 3,50 MoveSpeed 3,45 raiz-vs-vel -39 visual-vs-vel 4 link 1,22
+33,104 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -38 visual-vs-vel 5 link 1,21
+33,107 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -37 visual-vs-vel 5 link 1,20
+33,111 vel 3,50 MoveSpeed 3,46 raiz-vs-vel -37 visual-vs-vel 5 link 1,18
+33,115 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -36 visual-vs-vel 5 link 1,17
+33,118 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -35 visual-vs-vel 5 link 1,16
+33,122 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -35 visual-vs-vel 5 link 1,15
+33,125 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -34 visual-vs-vel 5 link 1,13
+33,129 vel 3,50 MoveSpeed 3,47 raiz-vs-vel -34 visual-vs-vel 5 link 1,12
+33,134 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -33 visual-vs-vel 5 link 1,10
+33,143 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -32 visual-vs-vel 5 link 1,07
+33,147 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -31 visual-vs-vel 5 link 1,06
+33,151 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -31 visual-vs-vel 5 link 1,04
+33,154 vel 3,50 MoveSpeed 3,48 raiz-vs-vel -30 visual-vs-vel 5 link 1,03
+33,158 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -30 visual-vs-vel 5 link 1,02
+33,162 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -29 visual-vs-vel 5 link 1,01
+33,165 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -29 visual-vs-vel 5 link 0,99
+33,169 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -28 visual-vs-vel 5 link 0,98
+33,172 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -28 visual-vs-vel 5 link 0,97
+33,175 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -27 visual-vs-vel 5 link 0,96
+33,179 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -27 visual-vs-vel 4 link 0,94
+33,182 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -26 visual-vs-vel 4 link 0,93
+33,186 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -26 visual-vs-vel 4 link 0,92
+33,189 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -26 visual-vs-vel 4 link 0,91
+33,193 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel 4 link 0,90
+33,196 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel 4 link 0,89
+33,199 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -25 visual-vs-vel 4 link 0,87
+33,203 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -24 visual-vs-vel 4 link 0,86
+33,206 vel 3,50 MoveSpeed 3,49 raiz-vs-vel -24 visual-vs-vel 4 link 0,85
+33,210 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -23 visual-vs-vel 4 link 0,84
+33,220 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel 4 link 0,80
+33,224 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel 4 link 0,79
+33,228 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -22 visual-vs-vel 4 link 0,77
+33,232 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -21 visual-vs-vel 4 link 0,76
+33,236 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -21 visual-vs-vel 3 link 0,75
+33,239 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel 3 link 0,73
+33,243 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel 3 link 0,72
+33,246 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -20 visual-vs-vel 3 link 0,71
+33,250 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel 3 link 0,70
+33,254 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel 3 link 0,68
+33,257 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel 3 link 0,67
+33,261 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -19 visual-vs-vel 3 link 0,66
+33,264 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel 3 link 0,65
+33,268 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel 3 link 0,63
+33,271 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -18 visual-vs-vel 3 link 0,62
+33,274 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel 3 link 0,61
+33,278 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel 3 link 0,60
+33,281 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel 3 link 0,59
+33,285 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -17 visual-vs-vel 3 link 0,57
+33,289 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel 3 link 0,56
+33,293 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel 3 link 0,55
+33,299 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -16 visual-vs-vel 3 link 0,52
+33,308 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel 3 link 0,49
+33,313 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -15 visual-vs-vel 2 link 0,48
+33,317 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -14 visual-vs-vel 2 link 0,46
+33,322 vel 3,50 MoveSpeed 3,50 raiz-vs-vel -14 visual-vs-vel 3 link -
+
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1435" name="PartidaRealPlayModeTests" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-16 12:47:10Z" end-time="2026-11-16 12:47:51Z" duration="40.955363" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1437" name="Medicao_ComFlechasNoCaminhoETorre" fullname="Loopia.Hex.Tests.PartidaRealPlayModeTests.Medicao_ComFlechasNoCaminhoETorre" methodname="Medicao_ComFlechasNoCaminhoETorre" classname="Loopia.Hex.Tests.PartidaRealPlayModeTests" runstate="Runnable" seed="116250008" result="Passed" start-time="2026-11-16 12:47:03Z" end-time="2026-11-16 12:47:51Z" duration="47.801586" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="Category" value="PlayModeMedicao" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[[LoopDirector] 4 voltas completas: hora do chefe.
+[LoopDirector] Estado: Correndo -> Chefe.
+[EncontroDoChefe] Morcego Anciao nasceu em (0, 0) com 732 PV (alcance extra como alvo: 2).
+[LoopDirector] Estado: Chefe -> Vitoria.
+[Metricas] anel=30 casas, resultado=Vitoria, total=161.5s
+  volta 1: 33.9s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 34.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 34.0s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 33.9s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 25.4s, flechas no chefe 21, em outros 4, recargas 0, dano recebido 41 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 5.8s (maior trecho 5.2s)
+[LoopDirector] Vitoria: o chefe caiu depois de 4 voltas.
+[flechas+torre] [Metricas] anel=30 casas, resultado=Vitoria, total=161.5s
+  volta 1: 33.9s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 2: 34.2s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 3: 34.0s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  volta 4: 33.9s, flechas 0, dano 0, abates 0, PV ao fechar 50
+  chefe: 25.4s, flechas no chefe 21, em outros 4, recargas 0, dano recebido 41 (PV inicial 50), revoadas 1 (2 morcegos), sem flechas 5.8s (maior trecho 5.2s)
+[Testes] SHA-256 do save: backup=76e429e46548d036bb103995389d92d6d5116328e12d29d03ed8422544c61da9 depois=76e429e46548d036bb103995389d92d6d5116328e12d29d03ed8422544c61da9
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/Sitr3n/AppData/LocalLow/DefaultCompany/Loopia\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
