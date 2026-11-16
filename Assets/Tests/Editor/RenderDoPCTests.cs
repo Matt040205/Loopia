@@ -31,6 +31,18 @@ namespace Loopia.Hex.Tests
                     Assert.IsFalse(f.isActive, "SSAO religado: o prepass de DepthNormals dobra a geometria desenhada");
         }
 
+        /// <summary>
+        /// Sprint 4 (legibilidade): sem anti-aliasing, os detalhes das ilhas (cones, cogumelos, pedras de 3 a 15 px)
+        /// serrilhavam e "piscavam" no playtest. MSAA 4x suaviza a borda da geometria sem borrar a imagem como o FXAA.
+        /// </summary>
+        [Test]
+        public void PipelineDoPC_MSAA4x()
+        {
+            var urp = AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>("Assets/Settings/PC_RPAsset.asset");
+            Assert.IsNotNull(urp);
+            Assert.AreEqual(4, urp.msaaSampleCount, "MSAA do PC voltou a desligado: os detalhes das ilhas serrilham");
+        }
+
         [Test]
         public void ShadersDaCena_NaoDependemDaCorDaCena()
         {

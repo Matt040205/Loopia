@@ -85,7 +85,9 @@ namespace Loopia.Hex.Tests
 
             var g = Unico<HexLoopGenerator>();
             Assert.AreEqual(4, g.raioMinimo);
-            Assert.AreEqual(6, g.raioMaximo);
+            // Sprint 4 (legibilidade): 6 gerava aneis de 36 casas, que nunca foram validados e deixavam as ilhas com
+            // ~60% do tamanho medido no Pass A (anel 24-30). Com 5 todos os aneis ficam na faixa validada.
+            Assert.AreEqual(5, g.raioMaximo);
             Assert.AreEqual(400, g.deformacoes);
             Assert.AreEqual(9, g.mioloMinimo);
             Assert.IsFalse(g.usarSementeFixa, "o jogo sorteia um mapa novo a cada partida");
@@ -230,6 +232,20 @@ namespace Loopia.Hex.Tests
             Assert.Greater(mao.baralho.Count, 0, "baralho vazio");
             for (int i = 0; i < mao.baralho.Count; i++) Assert.IsNotNull(mao.baralho[i], "baralho[" + i + "] nulo");
             foreach (PlataformaDef g in mao.cartasGarantidas) Assert.IsNotNull(g, "carta garantida nula");
+        }
+
+        [Test]
+        public void MaoInicial_TemUmaCartaDeDano_MoedasContinuaNoBaralho()
+        {
+            // Estabilizacao do MVP (P1-3, docs/mvp-stabilization/FIX_REPORT.md): com 2 cartas de dano em 14, ~54% das
+            // jornadas chegavam ao chefe sem nenhuma; sem dano, 0/3 vitorias medidas. Moedas (so moeda, sem efeito no
+            // confronto) saiu da mao garantida para dar uma ferramenta de dano que o jogador posiciona. Nao garante vitoria.
+            var mao = Unico<MaoDeCartas>();
+            var nomes = new System.Collections.Generic.List<string>();
+            foreach (PlataformaDef g in mao.cartasGarantidas) nomes.Add(g.name);
+            CollectionAssert.AreEqual(new[] { "Mola", "Coracao", "Torre", "Flechas" }, nomes);
+            Assert.IsTrue(mao.baralho.Exists(c => c != null && c.name == "Moedas"), "Moedas continua sorteavel");
+            Assert.IsTrue(mao.baralho.Exists(c => c != null && c.name == "Torre"), "Torre continua sorteavel");
         }
     }
 }

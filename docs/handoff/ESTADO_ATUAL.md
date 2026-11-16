@@ -1,4 +1,47 @@
-# Estado atual — 2026-11-15
+# Estado atual — 2026-11-16
+
+## Sprint de estabilização do MVP — **comece por aqui**
+- Branch `fix/mvp-stabilization` (base `integration/mvp-20261117` @ `f49cee1` + os 7 commits de legibilidade),
+  Draft PR #12 → `integration/mvp-20261117`. Nada na `main`. Documentos em `docs/mvp-stabilization/`
+  (`ISSUE_AUDIT`, `FIX_REPORT`, `TEST_RESULTS`, `BUILD_VALIDATION`, `REMAINING_ISSUES`).
+- Feito: perfil de save para QA (`-loopia-perfil <nome>`), produto **Loopia** com migração do save de `GameJam13-06`
+  (copia, nunca apaga), cenas legadas fora do build, settings que o build regravava versionados, faixa rosa corrigida
+  (borda de chão no `FundoDePaisagem`), painel de jogo enxuto (dados técnicos com F3 / Development), moeda pós-morte,
+  mão inicial com Torre no lugar de Moedas (medido: 0/3 → 2/3 vitórias).
+- Testes: **427/427** depois do Bloco C (Logic+SceneStatic 398, job `f9bde7ad…`; PlayModeSmoke 25, job `606df17d…`;
+  PlayModeMedicao 4, job `9e92549d…`). Antes do Bloco C: 417/417.
+- Builds mais novas (`6dd6206`, com o Bloco C): Release `Documents\Loopia_Builds\mvp-estabilizacao-6dd6206-release\`
+  (apresentação) e Development `...-6dd6206-dev\` (QA). Na Release: **vitória e derrota com mouse real**, botão,
+  acampamento, save de QA (+25 e +35, iguais às telas) e reabertura, 0 exceções (`BUILD_VALIDATION.md` §4.1). As
+  `a7a5c56` e `7bf6492` ficam como versões anteriores; fallback `mvp-20261117-dev-55442a5` intacto.
+- Validado na build com mouse real: **vitória** → resultado → botão → acampamento → save (1 vitória) → reabertura
+  (Release `7bf6492`, perfil QA); derrota → retorno (fallback); instalação nova e antiga com migração (Release). A
+  build final só teve abertura/fechamento (acesso do computer use negado); difere só pela correção da moeda.
+- Save do responsável: em `...\DefaultCompany\Loopia\loopia_save.json` (migrado). **Atenção:** outras frentes
+  (`loopia-cards`, `loopia-hud-preview`) gravaram nele e no antigo depois das validações (210 e 212 moedas); não
+  restaurado sem o responsável decidir. Ao validar no Editor ou na build, use backup ou `-loopia-perfil qa`.
+- **Bloco C (P2) feito** em 16/11: fim de partida com pose (`295f7d0`); mira do Mirante com o corpo visual girando o
+  excesso além do tronco, 120° parado e 30° correndo (`2b9ba2d`, `478751d`; erro na soltura ~99° → ~15°); pés: o
+  corpo visual olha para onde a raiz anda, a causa medida era a raiz do agente atrasada antes de cada pulo (`c615e42`;
+  3,05 → 0,76 u/s antes do pulo, mediana). Arco × túnica e corrida com alvo bem atrás ficaram pendentes (Blender).
+  Medição reprodutível: `ApoioDosPesMedicaoTests` (PlayModeMedicao); detalhes em `FIX_REPORT.md` P2-1/2/3.
+- Ferramentas: `tools/balanceamento/medir_chefe.py` (cenários do chefe), `tools/build/construir.cs` (build pelo
+  bridge). **Nunca** dezenas de `Camera.Render()` num `execute_code` (derrubou a Unity).
+
+## Sprint 4, passo 1 — Legibilidade em telas grandes
+- Branch `sprint-4/legibilidade-tela` (base `integration/mvp-20261117` @ `f49cee1`), worktree `loopia-mvp`.
+  Registro completo, backlog da sprint (problemas do playtest + §9 do relatório do MVP) e medidas:
+  [SPRINT-4.md](../sprints/SPRINT-4.md).
+- Feito: zoom do jogador (roda + arraste, padrão = anel inteiro), nuvens presas ao mundo no zoom, resolução nativa no
+  build (`ResolucaoDaTela`, só no player), HUD IMGUI escalando acima de 1080p, MSAA 4× no PC, janela redimensionável,
+  anel de no máximo 30 casas (`raioMaximo` 5). Topo da ilha no caso do playtest: ~52 px → 109–125 px sem zoom.
+- Testes: **396/396** (Logic + SceneStatic 371/371 job `eb1ff800…`; PlayModeSmoke + PlayModeMedicao 25/25,
+  `TestResults.xml` 22:29Z). Console limpo (só o `LogAssert` esperado). Save restaurado (SHA `3d27854e…`).
+- **Pendente:** custo do MSAA e `ResolucaoDaTela` só se validam num build novo. A Unity caiu numa medição minha de
+  custo do MSAA (muitos `Camera.Render()` num frame, sem memória D3D12); nada se perdeu. Não repetir esse método.
+- Arquivos regravados pelo build (`PC_RPAsset` pré-filtragem, `UniversalRenderPipelineGlobalSettings`,
+  `GraphicsSettings`, batching em `ProjectSettings`, `TimeManager`) continuam fora dos commits; do `PC_RPAsset` e do
+  `ProjectSettings` só entram `m_MSAA` e `resizableWindow`.
 
 ## Integração do MVP (base para o polimento) — **comece por aqui**
 - Branch `integration/mvp-20261117`, worktree `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. É a única base com tudo

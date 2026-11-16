@@ -253,4 +253,51 @@ namespace Loopia.Hex.Tests
             fi.SetValue(alvo, valor);
         }
     }
+    /// <summary>
+    /// Captura de evidencia (antes/depois) para os relatorios: UMA renderizacao por imagem, de uma camera temporaria com a
+    /// mesma orientacao da camera do jogo, fechada no Lucca. Desligada por padrao; so os testes PlayModeMedicao ligam.
+    /// Nunca chamar em lote: dezenas de Camera.Render num quadro ja derrubaram a Unity (D3D12 sem memoria).
+    /// </summary>
+    public static class CapturaDeEvidencia
+    {
+        public static bool Ativa;
+
+        public static string Salvar(Transform foco, string nome, float meiaAltura = 1.1f, int lado = 720)
+        {
+            if (!Ativa || foco == null) return null;
+            Camera principal = Camera.main;
+            if (principal == null) return null;
+            var objeto = new GameObject("Camera da captura (teste)");
+            var camera = objeto.AddComponent<Camera>();
+            camera.CopyFrom(principal);
+            camera.orthographic = true;
+            camera.orthographicSize = meiaAltura;
+            camera.aspect = 1f;
+            camera.transform.rotation = principal.transform.rotation;
+            camera.transform.position = foco.position + Vector3.up * 0.45f - camera.transform.forward * 12f;
+            RenderTexture alvo = RenderTexture.GetTemporary(lado, lado, 24);
+            RenderTexture anterior = RenderTexture.active;
+            var imagem = new Texture2D(lado, lado, TextureFormat.RGB24, false);
+            try
+            {
+                camera.targetTexture = alvo;
+                camera.Render();
+                RenderTexture.active = alvo;
+                imagem.ReadPixels(new Rect(0, 0, lado, lado), 0, 0);
+                imagem.Apply();
+                string caminho = Path.Combine(Path.GetTempPath(), "loopia_" + nome + ".png");
+                File.WriteAllBytes(caminho, imagem.EncodeToPNG());
+                Debug.Log("[Captura] " + caminho);
+                return caminho;
+            }
+            finally
+            {
+                RenderTexture.active = anterior;
+                camera.targetTexture = null;
+                RenderTexture.ReleaseTemporary(alvo);
+                UnityEngine.Object.Destroy(imagem);
+                UnityEngine.Object.Destroy(objeto);
+            }
+        }
+    }
 }
