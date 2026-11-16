@@ -1,5 +1,15 @@
 # Estado atual — 2026-11-15
 
+## Frente visual das cartas
+
+- Branch **feature/card-visual-system**, worktree **C:/Users/Sitr3n/Documents/Github/loopia-cards**, base **f49cee1** da integração do MVP.
+- Prefab **HUD de Cartas** em **Assets/Arte/Cartas**, com a moldura fornecida, 14 apresentações e conexão opcional ao componente
+  CartasUI. A cena versionada mantém a HUD atual enquanto o PR #12 edita **HexPrototipo**.
+- Leia o [relatório e a sequência de ativação](../card-visual-system/IMPLEMENTATION_REPORT.md) e o
+  [catálogo de arte](../card-visual-system/CARD_ART_CATALOG.md).
+- Na integração, preserve o ajuste de escala IMGUI do PR #12 no caminho de fallback de **CartasUI.OnGUI**.
+  O Canvas das cartas tem escala própria por altura. Ative o prefab pelo Editor em PR de cena e reexecute a suíte e o player.
+
 ## Integração do MVP (base para o polimento) — **comece por aqui**
 - Branch `integration/mvp-20261117`, worktree `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. É a única base com tudo
   junto: G1 + arte (PR #8), Lucca do Codex (PR #10), G2 (PR #9), Mirante ligado ao combate e as 3 cartas G2 no baralho.
