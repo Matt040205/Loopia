@@ -4,9 +4,11 @@
 // Nos clipes Walk e Run, o balanco do braco esquerdo (ombro, braco e cotovelo) vira o do braco direito com meio ciclo de
 // defasagem: a passada e simetrica, entao o braco esquerdo vai a frente com a perna direita, no estilo que o artista
 // animou o direito. A pegada (torcao do braco e do antebraco, mao) e ajustada quadro a quadro para o arco (Bow_Grip)
-// manter a orientacao que tem no Idle: o punho compensa o vaivem e o arco nao gira em torno da mao. Dedos continuam os
-// do clipe (fechados no arco). O tiro (camada Upper Body, Bow Shot) nao muda. Idempotente: deriva do braco direito e
-// do Idle.
+// manter uma orientacao fixa em relacao ao corpo: o punho compensa o vaivem e o arco nao gira em torno da mao. No Walk
+// e a do Idle (arco de pe); no Run o arco deita, como o arqueiro carrega correndo: pontas para frente e para tras, o
+// arco no plano horizontal ao lado da perna e o lado da flecha voltado para o corpo (Idle girado 90 graus no eixo
+// lateral e 90 no eixo do arco; foi a orientacao horizontal que o punho alcanca sem sair dos limites dos musculos). Dedos continuam os do clipe (fechados no arco). O
+// tiro (camada Upper Body, Bow Shot) nao muda. Idempotente: deriva do braco direito e do Idle.
 using UnityEditor;
 using UnityEngine;
 
@@ -14,27 +16,32 @@ public static class BracosDaLucca
 {
     public const string Pasta = "Assets/Modelos/Lucca/Animacoes/";
     public static readonly string[] Clipes = { "Walk", "Run" };
+    /// <summary>Inclinacao do arco (graus, eixo lateral do corpo) em relacao ao Idle, por clipe: Walk de pe, Run deitado.</summary>
+    public static readonly float[] Inclinacao = { 0f, 90f };
+    /// <summary>Giro extra do arco (graus) em torno do proprio eixo, por clipe.</summary>
+    public static readonly float[] Rolagem = { 0f, 90f };
     /// <summary>Balanco: copiado do braco direito com meio ciclo de defasagem.</summary>
     public static readonly string[] Balanco =
     {
         "Shoulder Down-Up", "Shoulder Front-Back", "Arm Down-Up", "Arm Front-Back", "Forearm Stretch",
     };
 
-    /// <summary>Pegada do arco: ajustada por quadro para o Bow_Grip ficar como no Idle.</summary>
+    /// <summary>Pegada do arco: ajustada por quadro para o Bow_Grip ficar fixo em relacao ao corpo.</summary>
     public static readonly string[] Pegada = { "Arm Twist In-Out", "Forearm Twist In-Out", "Hand Down-Up", "Hand In-Out" };
 
     [MenuItem("Loopia/Lucca/Braco do arco acompanha a marcha")]
     public static void Aplicar()
     {
         var idle = AssetDatabase.LoadAssetAtPath<AnimationClip>(Pasta + "Idle.anim");
-        foreach (string nome in Clipes)
+        for (int c = 0; c < Clipes.Length; c++)
         {
+            string nome = Clipes[c];
             var clipe = AssetDatabase.LoadAssetAtPath<AnimationClip>(Pasta + nome + ".anim");
             if (clipe == null || idle == null) { Debug.LogError("[BracosDaLucca] faltou " + nome + " ou Idle"); continue; }
             Espelhar(clipe, idle);
-            float residuo = AjustarPegada(clipe, idle);
+            float residuo = AjustarPegada(clipe, idle, Inclinacao[c], 1f, Rolagem[c]);
             EditorUtility.SetDirty(clipe);
-            Debug.Log("[BracosDaLucca] " + nome + ": desvio maximo do arco em relacao ao Idle " + residuo.ToString("0.0") + " graus");
+            Debug.Log("[BracosDaLucca] " + nome + ": desvio maximo do arco em relacao ao alvo " + residuo.ToString("0.0") + " graus");
         }
         AssetDatabase.SaveAssets();
         Debug.Log("[BracosDaLucca] braco esquerdo de Walk e Run = braco direito com meio ciclo de defasagem.");
@@ -63,9 +70,12 @@ public static class BracosDaLucca
 
     /// <summary>
     /// Para cada quadro: avalia o clipe no LuccaVisual, e busca (coordenada a coordenada) os musculos da Pegada que deixam
-    /// o Bow_Grip, no espaco do personagem, o mais perto possivel da orientacao do Idle. Devolve o maior desvio (graus).
+    /// o Bow_Grip, no espaco do personagem, o mais perto possivel da orientacao do Idle girada de `inclinacao` graus no
+    /// eixo lateral (90: a ponta de cima vai para frente, o lado da flecha para baixo). Devolve o maior desvio (graus).
     /// </summary>
-    public static float AjustarPegada(AnimationClip clipe, AnimationClip idle)
+    /// <param name="pesoDoGiro">peso do giro em torno do eixo do arco no erro (0: so o eixo do arco conta)</param>
+    /// <param name="rolagem">giro extra (graus) do alvo em torno do eixo do arco</param>
+    public static float AjustarPegada(AnimationClip clipe, AnimationClip idle, float inclinacao, float pesoDoGiro, float rolagem)
     {
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Modelos/Lucca/LuccaVisual.prefab");
         var inst = Object.Instantiate(prefab);
@@ -82,7 +92,9 @@ public static class BracosDaLucca
             Quaternion Orientacao() => Quaternion.Inverse(an.transform.rotation) * grip.rotation;
 
             Avaliar(an, idle, 0f);
-            Quaternion alvo = Orientacao();
+            Quaternion alvo = Quaternion.AngleAxis(inclinacao, Vector3.right) * Orientacao();
+            alvo = alvo * Quaternion.AngleAxis(rolagem, Vector3.forward); // eixo do arco = Z do Bow_Grip
+            Vector3 eixoAlvo = alvo * Vector3.forward, flechaAlvo = alvo * Vector3.up;
 
             float duracao = clipe.length, passo = 1f / Mathf.Max(1f, clipe.frameRate);
             int n = Mathf.RoundToInt(duracao / passo);
@@ -92,7 +104,15 @@ public static class BracosDaLucca
             {
                 Avaliar(an, clipe, Mathf.Min(duracao, i * passo));
                 handler.GetHumanPose(ref pose);
-                float Erro() { handler.SetHumanPose(ref pose); return Quaternion.Angle(alvo, Orientacao()); }
+                if (i > 0) for (int k = 0; k < indices.Length; k++) pose.muscles[indices[k]] = valores[k, i - 1]; // parte do quadro anterior: curva lisa
+                float Erro()
+                {
+                    handler.SetHumanPose(ref pose);
+                    var o = Orientacao();
+                    float eixo = Vector3.Angle(eixoAlvo, o * Vector3.forward);
+                    float giro = Vector3.Angle(Vector3.ProjectOnPlane(flechaAlvo, eixoAlvo), Vector3.ProjectOnPlane(o * Vector3.up, eixoAlvo));
+                    return eixo + pesoDoGiro * giro;
+                }
                 float melhor = Erro();
                 foreach (float salto in new[] { .4f, .2f, .1f, .05f, .025f, .0125f })
                 {
