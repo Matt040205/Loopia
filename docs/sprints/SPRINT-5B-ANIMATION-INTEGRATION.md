@@ -17,9 +17,9 @@ extraído em `Documents\Loopia_Sprint5B\00_Input` (fora de `Assets`).
 | Membranas sem deformação inválida nos clipes aprovados | **0 falhas** em 784 amostras + 2 576 Hit aditivo + 4 440 cross-fades |
 | Personagens reconhecíveis na câmera oficial | Morcego 18 → **26 px** (critério da Bible ≥ 20 px) |
 | Gameplay intacto (dano 1×, recompensas 1×, Revoada, vitória) | Testes de integração verdes — §10; build — §11 |
-| Suíte completa | **458/458** (base 445 + 13 novos) — §10 |
+| Suíte completa | **458/458** (base 445 + 13 novos) — §10; depois da rodada 2: **461/461** em `b8b651f` — §11b |
 | Build Windows x64 | Release e Development, 0 erros/0 avisos; 3 jornadas na Release (vitória, derrota, save, reabertura) — §11 |
-| Lobo visto na build | **Não** nesta sessão (regra da Floresta, §11) — regra **corrigida** depois (§11a); build nova PENDENTE |
+| Lobo visto na build | **Não** nesta sessão (regra da Floresta, §11) — regra **corrigida** depois (§11a) e coberta por teste; build nova `b8b651f` gerada, **jogada com o lobo ainda PENDENTE** |
 
 ## 1. Auditoria dos modelos recebidos
 
@@ -305,8 +305,7 @@ de custo estão no Editor (§12).
 
 ### 11b. Correções pedidas depois do playtest (rodada 2)
 
-Implementadas e compiladas (0 erros/avisos); **suíte completa e build nova PENDENTES** (combinado: rodar tudo junto
-no fim desta rodada). Evidências em `sprint-5b/correcoes/`.
+Implementadas, testadas (suíte completa abaixo) e com build nova. Evidências em `sprint-5b/correcoes/`.
 
 | Pedido | O que mudou | Commit |
 |---|---|---|
@@ -314,13 +313,31 @@ no fim desta rodada). Evidências em `sprint-5b/correcoes/`.
 | Moedas e corações se atravessando | Com item de carta no centro da ilha, a moeda fica 1,05 u ao lado (direita da tela), inclusive se a carta vier depois; coleta continua por casa | `7f75c62` |
 | Lucca corre com o braço esticado | Em Walk/Run o braço do arco (esquerdo) repete o balanço do direito com meio ciclo de defasagem; a pegada fica a do Idle (arco de pé, apontado para baixo). Tiro inalterado. Menu `Loopia/Lucca/Braco do arco acompanha a marcha`. Os `.blend` da 2C.2 continuam com o braço antigo | `2e47f27` |
 | Arco girava em torno da mão na marcha | O balanço do braço (até 80° no Run, 27° no Walk) girava o arco junto. A pegada (torção do braço e do antebraço, punho) agora é ajustada quadro a quadro por `HumanPoseHandler` para o `Bow_Grip` manter, no espaço do personagem, a orientação do Idle: desvio medido ≤ 1° nos dois clipes. Capturas `correcoes/lucca_{run,walk}_arco_fixo.jpg` | `681cb71` |
-| Arco de pé na corrida (arqueiro carrega deitado) | No Run o alvo da pegada passa a ser o arco deitado: pontas para frente e para trás, no plano horizontal ao lado da perna, lado da flecha voltado para o corpo (Idle girado 90° no eixo lateral e 90° no eixo do arco — a orientação horizontal que o punho alcança dentro dos limites dos músculos; a de flecha para baixo sobrava 45°). Desvio ≤ 1,2°. O Walk (só na aceleração/frenagem; cruzeiro 3,5 = Run puro) mantém o arco de pé. Captura `correcoes/lucca_run_arco_horizontal.jpg` | este commit |
+| Arco de pé na corrida (arqueiro carrega deitado) | No Run o alvo da pegada passa a ser o arco deitado: pontas para frente e para trás, no plano horizontal ao lado da perna, lado da flecha voltado para o corpo (Idle girado 90° no eixo lateral e 90° no eixo do arco — a orientação horizontal que o punho alcança dentro dos limites dos músculos; a de flecha para baixo sobrava 45°). Desvio ≤ 1,2°. O Walk (só na aceleração/frenagem; cruzeiro 3,5 = Run puro) mantém o arco de pé. Captura `correcoes/lucca_run_arco_horizontal.jpg` | `20712d6` |
 | Miniatura do lobo na carta Floresta | O exportador de miniaturas põe o `Wolf_Common` (pose do Idle) na ilustração; `Floresta_Arte.png` recomposta | `91326e5` |
 | Desativar a Mola | `PlataformaDef.desativada`; Mola fora da mão, do sorteio, das recompensas e da colocação. **Consequência de design:** a Ilha Alta, que exige Mola no mapa, deixa de aparecer. A mão inicial passa a Coração, Torre, Flechas + 1 sorteada (antes Mola, Coração, Torre, Flechas). A mecânica da Mola segue no código | `62dbe5d` |
 
-Testes ajustados/novos (ainda não executados): `CartasDesativadasTests` (novo), `HudDeCartasInteracaoTests` e
-`CartasVisuaisTests` (espaço 0 agora é o Coração), `EscalaDeArteSceneTests`, `InimigosAnimadosTests` e
-`InimigosAnimadosPlayModeTests` (escalas novas).
+Testes ajustados/novos: `CartasDesativadasTests` (novo), `HudDeCartasInteracaoTests` e `CartasVisuaisTests` (espaço 0
+agora é o Coração), `EscalaDeArteSceneTests`, `InimigosAnimadosTests` e `InimigosAnimadosPlayModeTests` (escalas
+novas). A primeira rodada do PlayModeSmoke deu 31/38: os 7 testes que exercitam a mecânica da Mola (pulo da Mola,
+Mirante e marcador da Ilha Alta) não conseguiam mais colocá-la. A mecânica continua no código, então esses testes
+passam a usar uma cópia da Mola em memória com `desativada = false`; o asset não muda (`b8b651f`).
+
+**Suíte completa da rodada 2** (Editor 6000.3.10f1, código em `b8b651f`, perfil `qa-sprint5b`; save pessoal
+`76e429e4…` intacto antes e depois):
+
+| Categoria | Resultado | Job / evidência |
+|---|---|---|
+| Logic + SceneStatic | **419/419** | job `3c528fc5…` (16,9 s) |
+| PlayModeSmoke | **38/38** | `sprint-5b/testes/TestResults_PlayModeSmoke_rodada2.xml` (18:42Z) |
+| PlayModeMedicao | **4/4** | `sprint-5b/testes/TestResults_PlayModeMedicao_rodada2.xml` (18:47Z) |
+| **Total** | **461/461** | console: só os 4 avisos que os testes provocam de propósito (recompensas pendentes, fundo sem modelos, gerador sem mundo, troca de Básica fixa) |
+
+**Builds da rodada 2:** `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-release` (156 MB) e `-dev` (220 MB),
+Windows x64, Acampamento + HexPrototipo, **0 erros e 0 avisos**. Release aberta com o perfil `qa-sprint5b`: chega
+ao acampamento e o `Player.log` não tem erro nem exceção. **Não verificado ainda na build:** a jornada jogada com o
+lobo da Floresta, o arco deitado da Lucca correndo, a moeda ao lado do item e a escala nova dos inimigos em jogo
+(tudo verificado no Editor e nos testes).
 
 ## 12. Desempenho
 
