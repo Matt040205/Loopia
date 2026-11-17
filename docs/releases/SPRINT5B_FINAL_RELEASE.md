@@ -15,8 +15,8 @@ build Release Windows x64 gerada da `main`, pacote ZIP testado depois de extraí
 | Plataforma | Windows x64, Release (Development Build e Script Debugging desligados), D3D12 |
 | Cenas | `Acampamento` (0) e `HexPrototipo` (1) |
 
-Este documento entra na `main` por um PR só de documentação; o SHA final da `main` depois dele está no handoff
-(`docs/handoff/ESTADO_ATUAL.md`).
+Este documento entra na `main` pelo PR #18 (só documentação, sem código). A build e o pacote correspondem ao código
+de `80488ec`; o merge do PR #18 não muda nenhum arquivo do jogo.
 
 ## O que esta versão traz
 
