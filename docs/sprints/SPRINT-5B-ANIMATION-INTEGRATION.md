@@ -5,6 +5,9 @@ Uma worktree (`loopia-mvp`), um Editor (Unity 6000.3.10f1, URP 17.3, perfil de s
 Entrada: `Loopia_Sprint5_3D_Models_Review_v1.1.zip` (SHA-256 `21cf7a4f…1b512`, 204 arquivos, `testzip` sem erro),
 extraído em `Documents\Loopia_Sprint5B\00_Input` (fora de `Assets`).
 
+**Encerramento:** PR #17 mesclado na `main` @ `80488ec` (2026-11-17). Validação final, desempenho na Release e pacote
+de distribuição: [SPRINT5B_FINAL_RELEASE.md](../releases/SPRINT5B_FINAL_RELEASE.md).
+
 ## Resumo
 
 | Critério | Estado |
