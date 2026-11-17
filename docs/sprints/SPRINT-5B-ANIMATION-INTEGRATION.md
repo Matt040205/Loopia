@@ -303,6 +303,23 @@ no Editor (teste `Lobo_MantemNavMeshAgent_AnimaLocomocaoEAtaqueSemDanoExtra`, ca
 FPS/frame time na build: **não medidos** (o jogo não tem contador e o Profiler da build não foi conectado); os números
 de custo estão no Editor (§12).
 
+### 11b. Correções pedidas depois do playtest (rodada 2)
+
+Implementadas e compiladas (0 erros/avisos); **suíte completa e build nova PENDENTES** (combinado: rodar tudo junto
+no fim desta rodada). Evidências em `sprint-5b/correcoes/`.
+
+| Pedido | O que mudou | Commit |
+|---|---|---|
+| Inimigos muito pequenos | Morcego 0,85 → **1,3** (26 → 40 px na câmera oficial), lobo 1,5 → **1,8**, Ancião 3,0 → **4,5** (`tamanhoDoVisual`, padrão e cena). Só visual. O lobo subiu menos porque morde a 0,52–0,65 u da Lucca e, maior, a cabeça a atravessaria. Scene Bible e testes de escala atualizados | `95619ba` |
+| Moedas e corações se atravessando | Com item de carta no centro da ilha, a moeda fica 1,05 u ao lado (direita da tela), inclusive se a carta vier depois; coleta continua por casa | `7f75c62` |
+| Lucca corre com o braço esticado | Em Walk/Run o braço do arco (esquerdo) repete o balanço do direito com meio ciclo de defasagem; a pegada fica a do Idle (arco de pé, apontado para baixo). Tiro inalterado. Menu `Loopia/Lucca/Braco do arco acompanha a marcha`. Os `.blend` da 2C.2 continuam com o braço antigo | `2e47f27` |
+| Miniatura do lobo na carta Floresta | O exportador de miniaturas põe o `Wolf_Common` (pose do Idle) na ilustração; `Floresta_Arte.png` recomposta | `91326e5` |
+| Desativar a Mola | `PlataformaDef.desativada`; Mola fora da mão, do sorteio, das recompensas e da colocação. **Consequência de design:** a Ilha Alta, que exige Mola no mapa, deixa de aparecer. A mão inicial passa a Coração, Torre, Flechas + 1 sorteada (antes Mola, Coração, Torre, Flechas). A mecânica da Mola segue no código | `62dbe5d` |
+
+Testes ajustados/novos (ainda não executados): `CartasDesativadasTests` (novo), `HudDeCartasInteracaoTests` e
+`CartasVisuaisTests` (espaço 0 agora é o Coração), `EscalaDeArteSceneTests`, `InimigosAnimadosTests` e
+`InimigosAnimadosPlayModeTests` (escalas novas).
+
 ## 12. Desempenho
 
 **Editor (Play Mode, mesma sessão e mapa, semente 12345, 12 h).** Carga máxima prevista: `maximoDeMorcegos` = 6
@@ -344,8 +361,8 @@ medida não renderiza nada fora do quadro normal.
 
 ## 14. Pendências para polimento
 
-0. **Suíte completa + build nova** depois da correção da Floresta (§11a) e das próximas correções; conferir o lobo
-   na build.
+0. **Suíte completa + build nova** com as correções de §11a e §11b; conferir na build o lobo (Floresta), o braço da
+   Lucca correndo, as moedas ao lado dos itens e o tamanho dos inimigos.
 
 1. **Prega do quadril no galope** (`Wolf_Run`): até 39 pares de triângulos do corpo se cruzam por dentro da prega
    quando a traseira vai à frente; na caminhada, 4 pares no carpo. Não aparece na câmera do jogo; resolver com

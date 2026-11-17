@@ -21,6 +21,9 @@
 - **Correção depois do playtest (aprovada):** a Floresta contava qualquer inimigo na casa e um morcego pousado
   impedia o lobo; agora conta só lobos (`InimigoSpawner.QuantosEm(casa, def)`), teste novo
   `FlorestaPlayModeTests` (§11a do registro).
+- **Rodada 2 (pedidos depois do playtest), feita e compilada:** inimigos maiores (morcego 1,3, lobo 1,8, Ancião 4,5);
+  moeda não atravessa o item da carta; braço do arco da Lucca acompanha a corrida; lobo na arte da Floresta; Mola
+  desativada (e a Ilha Alta some junto). Detalhes: §11b do registro.
 - **Pendente / não verificado:** por decisão do responsável, a **suíte completa e a build nova ficam para depois
   das próximas correções** — a correção da Floresta só foi compilada, o teste novo não rodou e o lobo ainda não foi
   visto numa build; FPS na build não medido (custos no Editor, §12); prega do quadril no galope. Lista: §14.
