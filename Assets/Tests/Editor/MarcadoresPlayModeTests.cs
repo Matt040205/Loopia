@@ -41,7 +41,20 @@ namespace Loopia.Hex.Tests
             yield return new ExitPlayMode();
         }
 
-        static PlataformaDef D(string n) => AssetDatabase.LoadAssetAtPath<PlataformaDef>("Assets/Dados/Plataformas/" + n + ".asset");
+        // A Mola esta fora do jogo (PlataformaDef.desativada), mas a mecanica segue no codigo: o teste a exercita com uma
+        // copia em memoria ligada. O asset nao muda.
+        static PlataformaDef D(string nome)
+        {
+            var d = AssetDatabase.LoadAssetAtPath<PlataformaDef>("Assets/Dados/Plataformas/" + nome + ".asset");
+            if (d != null && d.desativada)
+            {
+                d = UnityEngine.Object.Instantiate(d);
+                d.name = nome;
+                d.desativada = false;
+                d.hideFlags = HideFlags.DontSave;
+            }
+            return d;
+        }
 
         static IEnumerator Verificar_EmPlayMode()
         {

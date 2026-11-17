@@ -29,7 +29,7 @@ namespace Loopia.Hex
         }
 
         /// <summary>Altura do peito do Lucca, medida do pe: e para la que o morcego mergulha.</summary>
-        const float AlturaDoPeito = 0.6f;
+        public const float AlturaDoPeito = 0.6f;
 
         [Header("Eventos")]
         [Tooltip("Disparado quando o golpe acerta, com o dano ja escalado pela volta.")]
@@ -51,6 +51,18 @@ namespace Loopia.Hex
 
         public bool EstaVivo => PvAtual > 0;
         public bool EstaEmRasante => _estado != Estado.Pousado;
+
+        /// <summary>Indo para o Lucca (o trecho do rasante que pode acertar). Leitura para o visual animado.</summary>
+        public bool EstaMergulhando => _estado == Estado.Mergulhando;
+
+        /// <summary>Ponto de descanso (a casa + altura de voo). Leitura para o visual animado.</summary>
+        public Vector3 Poleiro => _poleiro;
+
+        /// <summary>
+        /// Dano recebido que tirou PV (letal ou nao), depois de descontar. So para feedback visual: quem aplica o dano
+        /// e as recompensas continuam sendo ReceberDano/aoSerDerrotado.
+        /// </summary>
+        public event System.Action<Inimigo, int> AoSofrerDano;
 
         /// <summary>
         /// Casas a mais de alcance para o tiro do Lucca acertar este inimigo. 0 para os comuns. O chefe fica
@@ -275,6 +287,7 @@ namespace Loopia.Hex
             if (!EstaVivo || dano <= 0) return;
 
             PvAtual = Mathf.Max(0, PvAtual - dano);
+            AoSofrerDano?.Invoke(this, dano);
             if (PvAtual > 0) return;
 
             if (Def.efeitoDeMorte != null)
@@ -287,7 +300,13 @@ namespace Loopia.Hex
         void MontarVisual(InimigoDef def)
         {
             GameObject corpo;
-            if (def.prefab != null)
+            if (def.prefab != null && def.prefab.GetComponent<AnimacaoDoInimigo>() != null)
+            {
+                // Sprint 5B: modelo animado. Pivo preservado (ancora de voo / centro das patas) e uma escala so.
+                corpo = VisualDeIlha.CriarCriatura(def.prefab, transform, def.escala, out float escalaVisual);
+                corpo.GetComponent<AnimacaoDoInimigo>().Ligar(this, escalaVisual);
+            }
+            else if (def.prefab != null)
             {
                 corpo = VisualDeIlha.Criar(def.prefab, transform, def.escala);
             }

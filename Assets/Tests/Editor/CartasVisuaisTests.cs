@@ -98,8 +98,8 @@ namespace Loopia.Hex.Tests
                 var mao = ui.mao;
                 Assert.AreEqual(0, mao.EspacosLivres);
 
-                var mola = mao.CartaNoEspaco(0);
-                Assert.AreEqual("Mola", mola.name);
+                var primeira = mao.CartaNoEspaco(0);
+                Assert.AreEqual("Coracao", primeira.name, "Mola fora do jogo: a mao comeca pelo Coracao");
                 var ilhaAlta = AssetDatabase.LoadAssetAtPath<PlataformaDef>(Dados + "IlhaAlta.asset");
                 Assert.IsFalse(ilhaAlta.DisponivelParaCompra(ui.mapa));
                 mao.status.GanharXp(mao.status.XpParaOProximoNivel);
@@ -111,10 +111,10 @@ namespace Loopia.Hex.Tests
                     $"O slot em {centro} nao abriu o tooltip em {Screen.width}x{Screen.height}.");
 
                 yield return Ponteiro(mouse, centro, true);
-                Assert.AreSame(mola, ui.CartaArrastada);
+                Assert.AreSame(primeira, ui.CartaArrastada);
                 Assert.IsTrue(grupo.Find("Carta arrastada").gameObject.activeSelf);
                 yield return Ponteiro(mouse, centro, false);
-                Assert.AreSame(mola, mao.CartaNoEspaco(0), "soltar sobre a mao nao consome");
+                Assert.AreSame(primeira, mao.CartaNoEspaco(0), "soltar sobre a mao nao consome");
                 Assert.IsNull(ui.CartaArrastada);
                 Assert.AreEqual(1, mao.Pendentes);
 
@@ -123,7 +123,7 @@ namespace Loopia.Hex.Tests
                 bool achou = false;
                 foreach (HexCoord casa in Object.FindFirstObjectByType<HexLoopGenerator>().Loop.Casas)
                 {
-                    if (!ui.mapa.PodeColocar(mola, casa, out _)) continue;
+                    if (!ui.mapa.PodeColocar(primeira, casa, out _)) continue;
                     Vector3 ponto = ui.camera3d.WorldToScreenPoint(ui.mundo.PosicaoDe(casa));
                     if (ponto.z <= 0 || ponto.x < 2 || ponto.x > Screen.width - 2 ||
                         ponto.y < Screen.height * .21f || ponto.y > Screen.height - 2) continue;
@@ -141,8 +141,8 @@ namespace Loopia.Hex.Tests
                     grupo.Find("Validade da colocacao").GetComponentInChildren<TMP_Text>().text);
                 yield return Ponteiro(mouse, soltar, false);
                 Assert.IsTrue(ui.mapa.TryGet(alvo, out Plataforma colocada));
-                Assert.AreSame(mola, colocada.Def);
-                Assert.IsTrue(ilhaAlta.DisponivelParaCompra(ui.mapa));
+                Assert.AreSame(primeira, colocada.Def);
+                Assert.IsFalse(ilhaAlta.PodeAparecer(ui.mapa), "sem Mola no jogo a Ilha Alta nao aparece");
                 Assert.AreEqual(0, mao.Pendentes);
                 Assert.AreEqual(0, mao.EspacosLivres, "a pendente preencheu o espaco consumido");
                 Assert.IsFalse(maoVisual.GetChild(4).gameObject.activeSelf);

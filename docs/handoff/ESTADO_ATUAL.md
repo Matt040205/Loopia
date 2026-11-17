@@ -1,8 +1,45 @@
-# Estado atual — 2026-11-16
+# Estado atual — 2026-11-17
 
-## Sprint corretiva de UI/UX — **comece por aqui**
-- Branch `fix/sprint-ui-polish` (base `main` @ `5f5f532`), PR para `main` **aguardando aprovação do responsável**
-  (não mesclar sem ele). Registro completo: [SPRINT-UI-POLISH.md](../sprints/SPRINT-UI-POLISH.md).
+## Sprint 5B — animação e integração dos inimigos 3D — **comece por aqui**
+- Branch `feature/sprint5b-enemy-animation` (base `main` @ `ef78f01`), PR para `main` **aguardando revisão do
+  responsável** (não mesclar sem ele). Registro completo:
+  [SPRINT-5B-ANIMATION-INTEGRATION.md](../sprints/SPRINT-5B-ANIMATION-INTEGRATION.md).
+- Feito: Bat_Common, Bat_AncientBoss e Wolf_Common (pacote 5A.1 v1.1, GUIDs preservados) com **17 clipes de
+  produção** feitos no Blender sobre os rigs aprovados (`ArtSource/Inimigos/Sprint-5B/`, ações de QA preservadas);
+  Animator Controllers, prefabs `<Modelo>_Visual` e importadores reproduzíveis por `Loopia > Inimigos > Configurar
+  modelos animados`; `AnimacaoDoInimigo` (só visual: Attack/Revoada sincronizados por motion time aos eventos reais,
+  Hit aditivo, morte num visual destacado); morcego sem esfera; chefe com prefab próprio
+  (`VarianteDoChefe.prefab` + `tamanhoDoVisual` 3,0); lobo animado no NavMeshAgent.
+- **Decisão para revisão:** escala do morcego 0,6 → **0,85** (0,6 = 18 px na câmera oficial, abaixo do critério de
+  20 px da Scene Bible). Scene Bible e `EscalaDeArteSceneTests.Morcego_TemEscalaDaSceneBible` atualizados.
+- Validação Blender dos clipes reais: 0 falhas nas membranas (inclusive Hit aditivo e cross-fades); lobo sem
+  atravessar o chão e com deslizamento ≤ 5% no apoio.
+- Testes: **458/458** (Logic + SceneStatic 417, PlayModeSmoke 37, PlayModeMedicao 4) até `59cbb7d`; 13 novos.
+  Depois da rodada 2: **461/461** em `b8b651f` (abaixo).
+- Builds: `Documents\Loopia_Builds\loopia-sprint5b-59cbb7d-{release,dev}\` (0 erros, 0 avisos). Release jogada com
+  mouse real, perfil `qa-sprint5b`: derrota, **vitória**, derrota; Revoada; save e reabertura; `Player.log` limpo.
+- **Correção depois do playtest (aprovada):** a Floresta contava qualquer inimigo na casa e um morcego pousado
+  impedia o lobo; agora conta só lobos (`InimigoSpawner.QuantosEm(casa, def)`), teste novo
+  `FlorestaPlayModeTests` (§11a do registro).
+- **Rodada 2 (pedidos depois do playtest), feita e testada:** inimigos maiores (morcego 1,3, lobo 1,8, Ancião 4,5);
+  moeda não atravessa o item da carta; braço do arco da Lucca acompanha a marcha, sem o arco girar na mão e, na
+  corrida, com o arco deitado (`Loopia/Lucca/Braco do arco acompanha a marcha`); lobo na arte da Floresta; Mola
+  desativada (e a Ilha Alta some junto; os testes da mecânica da Mola usam uma cópia ligada em memória). §11b.
+- **Suíte da rodada 2: 461/461** em `b8b651f` (Logic + SceneStatic 419, PlayModeSmoke 38, PlayModeMedicao 4).
+  Builds `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-{release,dev}\` (0 erros, 0 avisos). Release jogada
+  (3 jornadas): Mola fora da mão, lobo na carta e na Floresta (ataca, apanha, morre), arco de pé parada e deitado
+  correndo, moeda ao lado do coração, Ancião e lobo na escala nova; `Player.log` limpo; save pessoal intacto.
+  Capturas: `docs/sprints/sprint-5b/build-rodada2/`.
+- **Pendente / não verificado:** FPS na build não medido (custos no Editor, §12); prega do quadril no galope. §14.
+- Fora do repo: pacote extraído, renders, GIFs completos e capturas em `Documents\Loopia_Sprint5B\`.
+  `Assets/_Recovery/` (cópia de recuperação da Unity, sem versionar) e os settings regravados pelo build continuam
+  fora dos commits.
+- Sessões de teste em Play Mode: com o Editor fora de foco o Play congela no frame 1–2; os testes novos ligam
+  `Application.runInBackground` logo de início (ver memória do pipeline em `tools/sprint5b/` e no registro).
+
+## Sprint corretiva de UI/UX (concluída, na `main`)
+- **Mesclada:** PR #16 (`fix/sprint-ui-polish`) → `main` @ `ef78f01` em 2026-11-16 (o texto anterior deste handoff
+  ainda dizia "aguardando aprovação"). Registro completo: [SPRINT-UI-POLISH.md](../sprints/SPRINT-UI-POLISH.md).
 - Feito: tooltip não fica preso depois de soltar (causa: a plataforma recém-construída sob o cursor virava hover);
   mão legível em 1080p (escala 0,6, títulos 11–16 px, valor e ícone maiores, resumo no tooltip); tooltip ampliado com
   nome, resumo · valor, efeito, regra e condição; fantasma do arraste afastado da casa-alvo e aviso junto dele;
@@ -12,8 +49,8 @@
 - Build Release validada com mouse real (hover, cancelar, soltar inválido e válido, recompensa, chefe, vitória,
   volta ao acampamento, reabertura; `Player.log` limpo) — §9 do registro. Ao validar com computer use, evitar a
   faixa superior da tela (outra janela intercepta o cursor ali).
-- Próxima sprint: proposta em [PROPOSTA-PROXIMA-SPRINT.md](../sprints/PROPOSTA-PROXIMA-SPRINT.md) (medição do ritmo,
-  leitura da Lucca, morcego/chefe com modelo, feedback de combate, construções). Não iniciada.
+- Proposta seguinte: [PROPOSTA-PROXIMA-SPRINT.md](../sprints/PROPOSTA-PROXIMA-SPRINT.md); a frente "A. Inimigos"
+  virou a Sprint 5A (modelos, GPT) + 5B (animação e integração, acima).
 
 ## Consolidação definitiva
 - **Uma versão só, na `main`:** `main` @ `5a0944d` = merge do PR #14 (`integration/loopia-unified`: estabilização

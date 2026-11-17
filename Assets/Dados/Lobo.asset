@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.InimigoDef
   nome: Lobo
   cor: {r: 0.72, g: 0.74, b: 0.78, a: 1}
-  prefab: {fileID: 919132149155446097, guid: 02a84f498627bda4c9e3e2b3b89c63d7, type: 3}
-  escala: 1.5
+  prefab: {fileID: 2439481584512536512, guid: f479d5077a862f846baa01f5d0d5d916, type: 3}
+  escala: 1.8
   pv: 100
   ataque: 15
   xp: 100

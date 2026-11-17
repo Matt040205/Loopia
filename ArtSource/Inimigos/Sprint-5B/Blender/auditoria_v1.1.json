@@ -1,0 +1,3051 @@
+[
+ {
+  "arquivo": "Bat_Common.blend",
+  "blender": "5.2.0 LTS",
+  "fps": 24.0,
+  "frame_atual": 1,
+  "intervalo_da_cena": [
+   1,
+   621
+  ],
+  "armature": "Bat_Common",
+  "armature_matriz_identidade": true,
+  "pose_position": "POSE",
+  "acao_ativa": "QA v1.1 · envelope de voo",
+  "ossos": 25,
+  "hierarquia": {
+   "Root": null,
+   "Body": "Root",
+   "Head": "Body",
+   "Jaw": "Head",
+   "Ear.L": "Head",
+   "Ear.R": "Head",
+   "Tail": "Body",
+   "Wing_Shoulder.L": "Body",
+   "Wing_Elbow.L": "Wing_Shoulder.L",
+   "Wing_Wrist.L": "Wing_Elbow.L",
+   "Wing_Digit_01.L": "Wing_Wrist.L",
+   "Wing_Digit_02.L": "Wing_Wrist.L",
+   "Wing_Digit_03.L": "Wing_Wrist.L",
+   "Wing_Digit_04.L": "Wing_Wrist.L",
+   "Leg.L": "Body",
+   "Foot.L": "Leg.L",
+   "Wing_Shoulder.R": "Body",
+   "Wing_Elbow.R": "Wing_Shoulder.R",
+   "Wing_Wrist.R": "Wing_Elbow.R",
+   "Wing_Digit_01.R": "Wing_Wrist.R",
+   "Wing_Digit_02.R": "Wing_Wrist.R",
+   "Wing_Digit_03.R": "Wing_Wrist.R",
+   "Wing_Digit_04.R": "Wing_Wrist.R",
+   "Leg.R": "Body",
+   "Foot.R": "Leg.R"
+  },
+  "ossos_com_pose_no_frame_1": [],
+  "grupos_sem_osso": [],
+  "pesos": {
+   "vertices": 2160,
+   "sem_peso": 0,
+   "max_influencias": 4,
+   "soma_fora_de_1": 0
+  },
+  "malhas": [
+   {
+    "nome": "Torso · ombros e quadril",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 146,
+    "faces": 160
+   },
+   {
+    "nome": "Peito · plastrão",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Cauda · uropatágio",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Perna e pata.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Garra 1.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 2.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Perna e pata.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Garra 1.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 2.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Cabeça · crânio",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 130,
+    "faces": 144
+   },
+   {
+    "nome": "Mandíbula",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Queixo",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Focinho",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Nariz",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · contorno.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Brilho do olho.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Sobrancelha.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Presa.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Mecha · bochecha.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Orelha · contorno.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Brilho do olho.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Sobrancelha.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Presa.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Mecha · bochecha.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Asa · membrana contínua.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 194,
+    "faces": 216
+   },
+   {
+    "nome": "Asa · bordo anterior.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Asa · polegar.L",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Asa · membrana contínua.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 194,
+    "faces": 216
+   },
+   {
+    "nome": "Asa · bordo anterior.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Asa · polegar.R",
+    "pai": "Bat_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_Common_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   }
+  ],
+  "acoes": [
+   {
+    "nome": "QA v1.1 · envelope de voo",
+    "fake_user": true,
+    "usuarios": 2,
+    "intervalo": [
+     1.0,
+     621.0
+    ],
+    "fcurves": 96
+   },
+   {
+    "nome": "QA · poses de verificação",
+    "fake_user": true,
+    "usuarios": 1,
+    "intervalo": [
+     1.0,
+     73.0
+    ],
+    "fcurves": 100
+   }
+  ],
+  "marcadores": [
+   [
+    1,
+    "Neutral"
+   ],
+   [
+    21,
+    "Up_Start"
+   ],
+   [
+    39,
+    "Up_Mid"
+   ],
+   [
+    59,
+    "Up_Max"
+   ],
+   [
+    81,
+    "Up_Return"
+   ],
+   [
+    99,
+    "Neutral_Return"
+   ],
+   [
+    115,
+    "Down_Start"
+   ],
+   [
+    133,
+    "Down_Mid"
+   ],
+   [
+    153,
+    "Down_Max"
+   ],
+   [
+    177,
+    "Recovery"
+   ],
+   [
+    201,
+    "Loop_Close"
+   ],
+   [
+    211,
+    "Asym_Start"
+   ],
+   [
+    239,
+    "Left_Ahead"
+   ],
+   [
+    269,
+    "Cross_Phase"
+   ],
+   [
+    287,
+    "Old_Failure"
+   ],
+   [
+    307,
+    "Reverse_Phase"
+   ],
+   [
+    333,
+    "Dive_Prep"
+   ],
+   [
+    363,
+    "Asym_Extension"
+   ],
+   [
+    389,
+    "Asym_Recover"
+   ],
+   [
+    411,
+    "Asym_End"
+   ],
+   [
+    421,
+    "Regression_Neutral"
+   ],
+   [
+    471,
+    "Historic_Downstroke"
+   ],
+   [
+    515,
+    "Historic_Adjacent"
+   ],
+   [
+    565,
+    "Historic_Recovery"
+   ],
+   [
+    621,
+    "Regression_Return"
+   ]
+  ],
+  "imagens": [
+   {
+    "nome": "Bat_Common_BaseColor.png",
+    "empacotada": true,
+    "tamanho": [
+     1024,
+     1024
+    ]
+   }
+  ],
+  "materiais": [
+   "Bat_Common_Atlas"
+  ]
+ },
+ {
+  "arquivo": "Bat_AncientBoss.blend",
+  "blender": "5.2.0 LTS",
+  "fps": 24.0,
+  "frame_atual": 1,
+  "intervalo_da_cena": [
+   1,
+   621
+  ],
+  "armature": "Bat_AncientBoss",
+  "armature_matriz_identidade": true,
+  "pose_position": "POSE",
+  "acao_ativa": "QA v1.1 · envelope de voo",
+  "ossos": 26,
+  "hierarquia": {
+   "Root": null,
+   "Body": "Root",
+   "Head": "Body",
+   "Jaw": "Head",
+   "Crest": "Head",
+   "Ear.L": "Head",
+   "Ear.R": "Head",
+   "Tail": "Body",
+   "Wing_Shoulder.L": "Body",
+   "Wing_Elbow.L": "Wing_Shoulder.L",
+   "Wing_Wrist.L": "Wing_Elbow.L",
+   "Wing_Digit_01.L": "Wing_Wrist.L",
+   "Wing_Digit_02.L": "Wing_Wrist.L",
+   "Wing_Digit_03.L": "Wing_Wrist.L",
+   "Wing_Digit_04.L": "Wing_Wrist.L",
+   "Leg.L": "Body",
+   "Foot.L": "Leg.L",
+   "Wing_Shoulder.R": "Body",
+   "Wing_Elbow.R": "Wing_Shoulder.R",
+   "Wing_Wrist.R": "Wing_Elbow.R",
+   "Wing_Digit_01.R": "Wing_Wrist.R",
+   "Wing_Digit_02.R": "Wing_Wrist.R",
+   "Wing_Digit_03.R": "Wing_Wrist.R",
+   "Wing_Digit_04.R": "Wing_Wrist.R",
+   "Leg.R": "Body",
+   "Foot.R": "Leg.R"
+  },
+  "ossos_com_pose_no_frame_1": [],
+  "grupos_sem_osso": [],
+  "pesos": {
+   "vertices": 3210,
+   "sem_peso": 0,
+   "max_influencias": 4,
+   "soma_fora_de_1": 0
+  },
+  "malhas": [
+   {
+    "nome": "Torso · ombros e quadril",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 182,
+    "faces": 200
+   },
+   {
+    "nome": "Peito · plastrão",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Cauda · uropatágio",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Juba · pluma 0.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 38,
+    "faces": 48
+   },
+   {
+    "nome": "Juba · pluma 1.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 38,
+    "faces": 48
+   },
+   {
+    "nome": "Perna e pata.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Garra 1.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 2.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 3.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Juba · pluma 0.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 38,
+    "faces": 48
+   },
+   {
+    "nome": "Juba · pluma 1.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 38,
+    "faces": 48
+   },
+   {
+    "nome": "Perna e pata.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Garra 1.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 2.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Garra 3.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 20,
+    "faces": 24
+   },
+   {
+    "nome": "Peito · marca",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Cabeça · crânio",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 162,
+    "faces": 180
+   },
+   {
+    "nome": "Mandíbula",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Queixo",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Focinho",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Nariz",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · contorno.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Brilho do olho.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Sobrancelha.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Presa.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Mecha · bochecha.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Coroa · chanfro.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Orelha · contorno.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Brilho do olho.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Sobrancelha.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Presa.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Mecha · bochecha.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Coroa · chanfro.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Crista · lâmina central",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 58,
+    "faces": 70
+   },
+   {
+    "nome": "Crista · engaste",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 100,
+    "faces": 112
+   },
+   {
+    "nome": "Crista · pedra",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Asa · membrana contínua.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 434,
+    "faces": 468
+   },
+   {
+    "nome": "Asa · bordo anterior.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Asa · polegar.L",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   },
+   {
+    "nome": "Asa · membrana contínua.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 434,
+    "faces": 468
+   },
+   {
+    "nome": "Asa · bordo anterior.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Asa · polegar.R",
+    "pai": "Bat_AncientBoss",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Bat_AncientBoss"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Bat_AncientBoss_Atlas"
+    ],
+    "vertices": 32,
+    "faces": 40
+   }
+  ],
+  "acoes": [
+   {
+    "nome": "QA v1.1 · envelope de voo",
+    "fake_user": true,
+    "usuarios": 2,
+    "intervalo": [
+     1.0,
+     621.0
+    ],
+    "fcurves": 100
+   },
+   {
+    "nome": "QA · poses de verificação",
+    "fake_user": true,
+    "usuarios": 1,
+    "intervalo": [
+     1.0,
+     73.0
+    ],
+    "fcurves": 104
+   }
+  ],
+  "marcadores": [
+   [
+    1,
+    "Neutral"
+   ],
+   [
+    21,
+    "Up_Start"
+   ],
+   [
+    39,
+    "Up_Mid"
+   ],
+   [
+    59,
+    "Up_Max"
+   ],
+   [
+    81,
+    "Up_Return"
+   ],
+   [
+    99,
+    "Neutral_Return"
+   ],
+   [
+    115,
+    "Down_Start"
+   ],
+   [
+    133,
+    "Down_Mid"
+   ],
+   [
+    153,
+    "Down_Max"
+   ],
+   [
+    177,
+    "Recovery"
+   ],
+   [
+    201,
+    "Loop_Close"
+   ],
+   [
+    211,
+    "Asym_Start"
+   ],
+   [
+    239,
+    "Left_Ahead"
+   ],
+   [
+    269,
+    "Cross_Phase"
+   ],
+   [
+    287,
+    "Old_Failure"
+   ],
+   [
+    307,
+    "Reverse_Phase"
+   ],
+   [
+    333,
+    "Dive_Prep"
+   ],
+   [
+    351,
+    "Revoada_Raise"
+   ],
+   [
+    367,
+    "Revoada_Open"
+   ],
+   [
+    389,
+    "Asym_Recover"
+   ],
+   [
+    411,
+    "Asym_End"
+   ],
+   [
+    421,
+    "Regression_Neutral"
+   ],
+   [
+    471,
+    "Historic_Downstroke"
+   ],
+   [
+    515,
+    "Historic_Adjacent"
+   ],
+   [
+    565,
+    "Historic_Recovery"
+   ],
+   [
+    621,
+    "Regression_Return"
+   ]
+  ],
+  "imagens": [
+   {
+    "nome": "Bat_AncientBoss_BaseColor.png",
+    "empacotada": true,
+    "tamanho": [
+     1024,
+     1024
+    ]
+   }
+  ],
+  "materiais": [
+   "Bat_AncientBoss_Atlas"
+  ]
+ },
+ {
+  "arquivo": "Wolf_Common.blend",
+  "blender": "5.2.0 LTS",
+  "fps": 24.0,
+  "frame_atual": 1,
+  "intervalo_da_cena": [
+   1,
+   73
+  ],
+  "armature": "Wolf_Common",
+  "armature_matriz_identidade": true,
+  "pose_position": "POSE",
+  "acao_ativa": "QA · poses de verificação",
+  "ossos": 36,
+  "hierarquia": {
+   "Root": null,
+   "Pelvis": "Root",
+   "Spine": "Pelvis",
+   "Chest": "Spine",
+   "Neck": "Chest",
+   "Head": "Neck",
+   "Jaw": "Head",
+   "Ear.L": "Head",
+   "Ear.R": "Head",
+   "Fore_Base.L": "Chest",
+   "Fore_Upper.L": "Fore_Base.L",
+   "Fore_Lower.L": "Fore_Upper.L",
+   "Fore_Ankle.L": "Fore_Lower.L",
+   "Fore_Paw.L": "Fore_Ankle.L",
+   "Fore_Toes.L": "Fore_Paw.L",
+   "Fore_Base.R": "Chest",
+   "Fore_Upper.R": "Fore_Base.R",
+   "Fore_Lower.R": "Fore_Upper.R",
+   "Fore_Ankle.R": "Fore_Lower.R",
+   "Fore_Paw.R": "Fore_Ankle.R",
+   "Fore_Toes.R": "Fore_Paw.R",
+   "Tail_01": "Pelvis",
+   "Tail_02": "Tail_01",
+   "Tail_03": "Tail_02",
+   "Hind_Base.L": "Pelvis",
+   "Hind_Upper.L": "Hind_Base.L",
+   "Hind_Lower.L": "Hind_Upper.L",
+   "Hind_Ankle.L": "Hind_Lower.L",
+   "Hind_Paw.L": "Hind_Ankle.L",
+   "Hind_Toes.L": "Hind_Paw.L",
+   "Hind_Base.R": "Pelvis",
+   "Hind_Upper.R": "Hind_Base.R",
+   "Hind_Lower.R": "Hind_Upper.R",
+   "Hind_Ankle.R": "Hind_Lower.R",
+   "Hind_Paw.R": "Hind_Ankle.R",
+   "Hind_Toes.R": "Hind_Paw.R"
+  },
+  "ossos_com_pose_no_frame_1": [],
+  "grupos_sem_osso": [],
+  "pesos": {
+   "vertices": 3092,
+   "sem_peso": 0,
+   "max_influencias": 4,
+   "soma_fora_de_1": 0
+  },
+  "malhas": [
+   {
+    "nome": "Corpo · quatro patas soldadas",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 1074,
+    "faces": 1120
+   },
+   {
+    "nome": "Peito · garganta clara",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 74,
+    "faces": 84
+   },
+   {
+    "nome": "Cauda · três segmentos",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 110,
+    "faces": 120
+   },
+   {
+    "nome": "Juba · lâmina 1.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Juba · lâmina 2.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Fore · dedo 1.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Fore · dedo 2.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Fore · dedo 3.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 1.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 2.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 3.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Juba · lâmina 1.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Juba · lâmina 2.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Fore · dedo 1.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Fore · dedo 2.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Fore · dedo 3.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 1.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 2.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Hind · dedo 3.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 48
+   },
+   {
+    "nome": "Mandíbula · volume claro",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 110,
+    "faces": 126
+   },
+   {
+    "nome": "Mandíbula · linha da boca",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 66,
+    "faces": 80
+   },
+   {
+    "nome": "Trufa · focinho largo",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 66,
+    "faces": 80
+   },
+   {
+    "nome": "Orelha · silhueta.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Brilho do olho.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Frontal · supercílio.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Maxilar · bochecha.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 72,
+    "faces": 84
+   },
+   {
+    "nome": "Canino.L",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 32
+   },
+   {
+    "nome": "Orelha · silhueta.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Orelha · painel.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 42,
+    "faces": 50
+   },
+   {
+    "nome": "Órbita.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Olho.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 52,
+    "faces": 60
+   },
+   {
+    "nome": "Pupila.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 62,
+    "faces": 72
+   },
+   {
+    "nome": "Brilho do olho.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 30
+   },
+   {
+    "nome": "Frontal · supercílio.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 50,
+    "faces": 60
+   },
+   {
+    "nome": "Maxilar · bochecha.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 72,
+    "faces": 84
+   },
+   {
+    "nome": "Canino.R",
+    "pai": "Wolf_Common",
+    "parent_type": "OBJECT",
+    "matriz_identidade": true,
+    "modificadores": [
+     [
+      "ARMATURE",
+      "Wolf_Common"
+     ]
+    ],
+    "uv": [
+     "Atlas"
+    ],
+    "materiais": [
+     "Wolf_Common_Atlas"
+    ],
+    "vertices": 26,
+    "faces": 32
+   }
+  ],
+  "acoes": [
+   {
+    "nome": "QA · poses de verificação",
+    "fake_user": true,
+    "usuarios": 2,
+    "intervalo": [
+     1.0,
+     73.0
+    ],
+    "fcurves": 144
+   }
+  ],
+  "marcadores": [
+   [
+    1,
+    "Neutra · quatro apoios"
+   ],
+   [
+    25,
+    "Flexão · preparação"
+   ],
+   [
+    49,
+    "Passada · diagonal"
+   ],
+   [
+    73,
+    "Ataque · mandíbula e cauda"
+   ]
+  ],
+  "imagens": [
+   {
+    "nome": "Wolf_Common_BaseColor.png",
+    "empacotada": true,
+    "tamanho": [
+     1024,
+     1024
+    ]
+   }
+  ],
+  "materiais": [
+   "Wolf_Common_Atlas"
+  ]
+ }
+]

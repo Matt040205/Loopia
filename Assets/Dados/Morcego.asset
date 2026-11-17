@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.InimigoDef
   nome: Morcego
   cor: {r: 0.42, g: 0.3, b: 0.54, a: 1}
-  prefab: {fileID: 0}
-  escala: 0.6
+  prefab: {fileID: 6135135311727814649, guid: b2d2521cb7c66524dbd1343e968138eb, type: 3}
+  escala: 1.3
   pv: 50
   ataque: 5
   xp: 50
