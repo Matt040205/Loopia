@@ -1,0 +1,770 @@
+[
+ {
+  "Main Thread": {
+   "amostras": 98,
+   "media": 3.844619387755102,
+   "max": 5.0225,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 98,
+   "media": 1.187241836734694,
+   "max": 1.7609,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 98,
+   "media": 0.050187755102040814,
+   "max": 0.0716,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 98,
+   "media": 0.027438775510204082,
+   "max": 0.0481,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 98,
+   "media": 0.03792040816326531,
+   "max": 0.0615,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 98,
+   "media": 0.022932653061224488,
+   "max": 0.0319,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 98,
+   "media": 0.03556530612244898,
+   "max": 0.0471,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 98,
+   "media": 0.009635714285714286,
+   "max": 0.0163,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 98,
+   "media": 0.008708163265306122,
+   "max": 0.0173,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 98,
+   "media": 24796.683673469386,
+   "max": 46941.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 98,
+   "media": 2918506913.9591837,
+   "max": 2918760448.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 98,
+   "media": 464637870.20408165,
+   "max": 464766936.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 98,
+   "media": 2604973090.357143,
+   "max": 2605889953.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 98,
+   "media": 50.93877551020408,
+   "max": 51.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 98,
+   "media": 297.7142857142857,
+   "max": 298.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 98,
+   "media": 297.6530612244898,
+   "max": 298.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 98,
+   "media": 489643.44897959183,
+   "max": 489691.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 3.53546,
+   "gpuMs": 0.4005119999999999
+  },
+  "UnityStats": {
+   "batches": 298,
+   "drawCalls": 298,
+   "setPass": 51,
+   "triangulos": 489691,
+   "vertices": 549629,
+   "frameMs": 3.8851,
+   "renderMs": 1.34229994,
+   "skinnedMeshesVisiveis": 3
+  },
+  "memoriaAlocadaMB": 1287.246042251587,
+  "materiais": 3299,
+  "montagem": {
+   "visual": "antigo",
+   "inimigos": 9,
+   "skinned": 2,
+   "animators": 0
+  },
+  "repeticao": 0
+ },
+ {
+  "Main Thread": {
+   "amostras": 239,
+   "media": 4.101680334728033,
+   "max": 6.3646,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 239,
+   "media": 1.3082305439330544,
+   "max": 1.9482,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 239,
+   "media": 0.11897698744769875,
+   "max": 0.2963,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 239,
+   "media": 0.07367949790794978,
+   "max": 0.2658,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 239,
+   "media": 0.07933849372384938,
+   "max": 0.2601,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 239,
+   "media": 0.027207112970711295,
+   "max": 0.0612,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 239,
+   "media": 0.0373836820083682,
+   "max": 0.0497,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 239,
+   "media": 0.031005439330543935,
+   "max": 0.1787,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 239,
+   "media": 0.025815899581589957,
+   "max": 0.0493,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 239,
+   "media": 24424.94560669456,
+   "max": 38894.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 239,
+   "media": 2913464337.1380754,
+   "max": 2914377728.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 239,
+   "media": 467431429.0878661,
+   "max": 467564352.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 239,
+   "media": 2651341530.037657,
+   "max": 2653778213.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 239,
+   "media": 52.76987447698745,
+   "max": 53.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 239,
+   "media": 299.5062761506276,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 239,
+   "media": 299.3430962343096,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 239,
+   "media": 522913.32217573223,
+   "max": 523017.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 3.7516499999999993,
+   "gpuMs": 0.4021746666666666
+  },
+  "UnityStats": {
+   "batches": 299,
+   "drawCalls": 299,
+   "setPass": 52,
+   "triangulos": 523015,
+   "vertices": 574364,
+   "frameMs": 3.93640018,
+   "renderMs": 1.3883,
+   "skinnedMeshesVisiveis": 10
+  },
+  "memoriaAlocadaMB": 1298.4861898422241,
+  "materiais": 3301,
+  "montagem": {
+   "visual": "novo",
+   "inimigos": 9,
+   "skinned": 10,
+   "animators": 9
+  },
+  "repeticao": 0
+ },
+ {
+  "Main Thread": {
+   "amostras": 85,
+   "media": 4.0359823529411765,
+   "max": 5.1894,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 85,
+   "media": 1.2270670588235293,
+   "max": 1.9119,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 85,
+   "media": 0.05329647058823529,
+   "max": 0.079,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 85,
+   "media": 0.02986470588235294,
+   "max": 0.0506,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 85,
+   "media": 0.03967176470588235,
+   "max": 0.0599,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 85,
+   "media": 0.024482352941176472,
+   "max": 0.0307,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 85,
+   "media": 0.036015294117647055,
+   "max": 0.0421,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 85,
+   "media": 0.010750588235294118,
+   "max": 0.0344,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 85,
+   "media": 0.00917764705882353,
+   "max": 0.0172,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 85,
+   "media": 24747.870588235295,
+   "max": 46917.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 85,
+   "media": 2918271241.035294,
+   "max": 2918838272.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 85,
+   "media": 466342302.4,
+   "max": 466414392.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 85,
+   "media": 2609830874.5058823,
+   "max": 2610477763.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 85,
+   "media": 52.90588235294118,
+   "max": 53.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 85,
+   "media": 301.7647058823529,
+   "max": 302.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 85,
+   "media": 301.6235294117647,
+   "max": 302.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 85,
+   "media": 491519.5882352941,
+   "max": 491641.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 4.377060000000001,
+   "gpuMs": 0.3875773333333333
+  },
+  "UnityStats": {
+   "batches": 302,
+   "drawCalls": 302,
+   "setPass": 53,
+   "triangulos": 491641,
+   "vertices": 551400,
+   "frameMs": 4.7799,
+   "renderMs": 1.4548,
+   "skinnedMeshesVisiveis": 4
+  },
+  "memoriaAlocadaMB": 1294.1680517196655,
+  "materiais": 3301,
+  "montagem": {
+   "visual": "antigo",
+   "inimigos": 9,
+   "skinned": 10,
+   "animators": 8
+  },
+  "repeticao": 1
+ },
+ {
+  "Main Thread": {
+   "amostras": 56,
+   "media": 4.219421428571428,
+   "max": 5.714,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 56,
+   "media": 1.344105357142857,
+   "max": 1.7319,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 56,
+   "media": 0.1194392857142857,
+   "max": 0.1519,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 56,
+   "media": 0.06660178571428571,
+   "max": 0.0911,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 56,
+   "media": 0.08285892857142857,
+   "max": 0.1091,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 56,
+   "media": 0.02890714285714286,
+   "max": 0.0356,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 56,
+   "media": 0.03695,
+   "max": 0.0431,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 56,
+   "media": 0.027017857142857142,
+   "max": 0.0375,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 56,
+   "media": 0.02948214285714286,
+   "max": 0.0431,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 56,
+   "media": 24803.178571428572,
+   "max": 46805.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 56,
+   "media": 2875268461.714286,
+   "max": 2875691008.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 56,
+   "media": 467533360.5714286,
+   "max": 467682572.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 56,
+   "media": 2647775838.017857,
+   "max": 2648344394.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 56,
+   "media": 51.875,
+   "max": 52.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 56,
+   "media": 299.5357142857143,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 56,
+   "media": 299.32142857142856,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 56,
+   "media": 527036.0357142857,
+   "max": 527183.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 3.794446666666666,
+   "gpuMs": 0.39422266666666667
+  },
+  "UnityStats": {
+   "batches": 299,
+   "drawCalls": 299,
+   "setPass": 51,
+   "triangulos": 527181,
+   "vertices": 577508,
+   "frameMs": 4.1275,
+   "renderMs": 1.48460007,
+   "skinnedMeshesVisiveis": 11
+  },
+  "memoriaAlocadaMB": 1297.7030792236328,
+  "materiais": 3301,
+  "montagem": {
+   "visual": "novo",
+   "inimigos": 9,
+   "skinned": 11,
+   "animators": 9
+  },
+  "repeticao": 1
+ },
+ {
+  "Main Thread": {
+   "amostras": 87,
+   "media": 4.044845977011494,
+   "max": 4.9051,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 87,
+   "media": 1.249251724137931,
+   "max": 1.7601,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 87,
+   "media": 0.054732183908045975,
+   "max": 0.1237,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 87,
+   "media": 0.03126896551724138,
+   "max": 0.0492,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 87,
+   "media": 0.04056896551724138,
+   "max": 0.1096,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 87,
+   "media": 0.02407241379310345,
+   "max": 0.0322,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 87,
+   "media": 0.03565402298850575,
+   "max": 0.0471,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 87,
+   "media": 0.011241379310344827,
+   "max": 0.018,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 87,
+   "media": 0.009405747126436782,
+   "max": 0.0189,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 87,
+   "media": 24908.436781609194,
+   "max": 40135.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 87,
+   "media": 2880506350.3448277,
+   "max": 2882326528.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 87,
+   "media": 466366746.57471263,
+   "max": 466496312.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 87,
+   "media": 2608267318.7011495,
+   "max": 2608694174.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 87,
+   "media": 50.98850574712644,
+   "max": 51.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 87,
+   "media": 299.7586206896552,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 87,
+   "media": 299.58620689655174,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 87,
+   "media": 491622.1954022989,
+   "max": 491637.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 3.6440133333333335,
+   "gpuMs": 0.40954399999999996
+  },
+  "UnityStats": {
+   "batches": 300,
+   "drawCalls": 300,
+   "setPass": 51,
+   "triangulos": 491637,
+   "vertices": 551392,
+   "frameMs": 4.2227,
+   "renderMs": 1.42720008,
+   "skinnedMeshesVisiveis": 4
+  },
+  "memoriaAlocadaMB": 1293.2793016433716,
+  "materiais": 3301,
+  "montagem": {
+   "visual": "antigo",
+   "inimigos": 9,
+   "skinned": 11,
+   "animators": 9
+  },
+  "repeticao": 2
+ },
+ {
+  "Main Thread": {
+   "amostras": 171,
+   "media": 4.649778362573099,
+   "max": 6.1084,
+   "unidade": "ms"
+  },
+  "PlayerLoop": {
+   "amostras": 171,
+   "media": 1.4791643274853803,
+   "max": 2.1018,
+   "unidade": "ms"
+  },
+  "Animators.Update": {
+   "amostras": 171,
+   "media": 0.1283561403508772,
+   "max": 0.312,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationBegin": {
+   "amostras": 171,
+   "media": 0.07316608187134503,
+   "max": 0.1587,
+   "unidade": "ms"
+  },
+  "PreLateUpdate.DirectorUpdateAnimationEnd": {
+   "amostras": 171,
+   "media": 0.08815146198830409,
+   "max": 0.2703,
+   "unidade": "ms"
+  },
+  "MeshSkinning.Update": {
+   "amostras": 171,
+   "media": 0.03102046783625731,
+   "max": 0.0878,
+   "unidade": "ms"
+  },
+  "MeshSkinning.SkinOnGPU": {
+   "amostras": 171,
+   "media": 0.040063742690058475,
+   "max": 0.1628,
+   "unidade": "ms"
+  },
+  "Animators.ProcessGraphJob": {
+   "amostras": 171,
+   "media": 0.030121052631578948,
+   "max": 0.1127,
+   "unidade": "ms"
+  },
+  "Animators.WriteJob": {
+   "amostras": 171,
+   "media": 0.03216140350877193,
+   "max": 0.0663,
+   "unidade": "ms"
+  },
+  "GC Allocated In Frame": {
+   "amostras": 171,
+   "media": 24670.78947368421,
+   "max": 46805.0,
+   "unidade": "Bytes"
+  },
+  "System Used Memory": {
+   "amostras": 171,
+   "media": 2901340854.643275,
+   "max": 2902900736.0,
+   "unidade": "Bytes"
+  },
+  "Gfx Used Memory": {
+   "amostras": 171,
+   "media": 467480250.1988304,
+   "max": 467690272.0,
+   "unidade": "Bytes"
+  },
+  "Total Used Memory": {
+   "amostras": 171,
+   "media": 2639095220.1754384,
+   "max": 2640767660.0,
+   "unidade": "Bytes"
+  },
+  "SetPass Calls Count": {
+   "amostras": 171,
+   "media": 51.95906432748538,
+   "max": 52.0,
+   "unidade": "Count"
+  },
+  "Draw Calls Count": {
+   "amostras": 171,
+   "media": 299.7543859649123,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Batches Count": {
+   "amostras": 171,
+   "media": 299.6900584795322,
+   "max": 300.0,
+   "unidade": "Count"
+  },
+  "Triangles Count": {
+   "amostras": 171,
+   "media": 527179.4269005848,
+   "max": 527183.0,
+   "unidade": "Count"
+  },
+  "FrameTimingManager": {
+   "quadros": 30,
+   "cpuMs": 4.65098,
+   "gpuMs": 0.38126933333333324
+  },
+  "UnityStats": {
+   "batches": 300,
+   "drawCalls": 300,
+   "setPass": 52,
+   "triangulos": 527183,
+   "vertices": 577512,
+   "frameMs": 4.5614,
+   "renderMs": 1.8867,
+   "skinnedMeshesVisiveis": 11
+  },
+  "memoriaAlocadaMB": 1296.7053890228271,
+  "materiais": 3301,
+  "montagem": {
+   "visual": "novo",
+   "inimigos": 9,
+   "skinned": 11,
+   "animators": 9
+  },
+  "repeticao": 2
+ }
+]

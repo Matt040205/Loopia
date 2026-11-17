@@ -1,0 +1,95 @@
+{
+ "escalas": {
+  "montagem": {
+   "centro": [
+    15.3945446,
+    0.88,
+    2.09583664
+   ],
+   "itens": [
+    {
+     "tipo": "esfera",
+     "escala": 0.6,
+     "nome": "Morcego (2, 1)",
+     "x": 14.1924629,
+     "y": 1.1,
+     "z": 3.29791832,
+     "animado": false
+    },
+    {
+     "tipo": "morcego",
+     "escala": 0.6,
+     "nome": "Morcego (2, 1)",
+     "x": 15.3945446,
+     "y": 1.1,
+     "z": 2.09583664,
+     "animado": true
+    },
+    {
+     "tipo": "morcego",
+     "escala": 0.85,
+     "nome": "Morcego (2, 1)",
+     "x": 16.5966263,
+     "y": 1.1,
+     "z": 0.893754959,
+     "animado": true
+    },
+    {
+     "tipo": "morcego",
+     "escala": 1.034,
+     "nome": "Morcego (2, 1)",
+     "x": 17.798708,
+     "y": 1.1,
+     "z": -0.308326721,
+     "animado": true
+    }
+   ]
+  },
+  "projecao": {
+   "ortho": 16.8288536,
+   "pxPorUnidade": 32.0877457,
+   "itens": [
+    {
+     "nome": "Lucca",
+     "escala": 0.0,
+     "px": [
+      19.4609375,
+      32.7970276
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 1.034,
+     "px": [
+      31.441925,
+      14.46228
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.85,
+     "px": [
+      25.84668,
+      11.8886414
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.6,
+     "px": [
+      18.2444153,
+      8.392029
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.6,
+     "px": [
+      19.2156219,
+      19.12291
+     ]
+    }
+   ]
+  }
+ }
+}

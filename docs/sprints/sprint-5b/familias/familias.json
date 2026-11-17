@@ -1,0 +1,255 @@
+{
+ "morcego_novo_x_esfera": {
+  "montagem": {
+   "centro": [
+    14.1217527,
+    0.733333349,
+    3.36862922
+   ],
+   "itens": [
+    {
+     "tipo": "esfera",
+     "escala": 0.6,
+     "nome": "Morcego (2, 1)",
+     "x": 14.1217518,
+     "y": 1.1,
+     "z": 3.368629,
+     "animado": false
+    },
+    {
+     "tipo": "morcego",
+     "escala": 0.85,
+     "nome": "Morcego (2, 1)",
+     "x": 15.2531233,
+     "y": 1.1,
+     "z": 2.2372582,
+     "animado": true
+    }
+   ]
+  },
+  "projecao": {
+   "ortho": 16.8288536,
+   "pxPorUnidade": 32.0877457,
+   "itens": [
+    {
+     "nome": "Lucca",
+     "escala": 0.0,
+     "px": [
+      19.4609375,
+      32.7970276
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.85,
+     "px": [
+      25.8468018,
+      11.8887024
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.6,
+     "px": [
+      19.2156372,
+      19.12297
+     ]
+    }
+   ]
+  }
+ },
+ "lobo_novo_x_antigo": {
+  "montagem": {
+   "centro": [
+    14.3338842,
+    0.0,
+    3.156497
+   ],
+   "itens": [
+    {
+     "tipo": "loboantigo",
+     "escala": 1.5,
+     "nome": "Lobo (2, 1)",
+     "x": 14.3338842,
+     "y": 0.0,
+     "z": 3.156497,
+     "animado": false
+    },
+    {
+     "tipo": "lobo",
+     "escala": 1.5,
+     "nome": "Lobo (2, 1)",
+     "x": 15.6773872,
+     "y": 0.0,
+     "z": 1.812994,
+     "animado": true
+    }
+   ]
+  },
+  "projecao": {
+   "ortho": 16.8288536,
+   "pxPorUnidade": 32.0877457,
+   "itens": [
+    {
+     "nome": "Lucca",
+     "escala": 0.0,
+     "px": [
+      19.4609375,
+      32.7970276
+     ]
+    },
+    {
+     "nome": "Lobo (2, 1)",
+     "escala": 1.5,
+     "px": [
+      17.4270325,
+      30.61467
+     ]
+    },
+    {
+     "nome": "Lobo (2, 1)",
+     "escala": 1.5,
+     "px": [
+      20.4933014,
+      30.3579254
+     ]
+    }
+   ]
+  }
+ },
+ "chefe_novo_x_esfera": {
+  "montagem": {
+   "centro": [
+    15.535965,
+    1.4666667,
+    1.95441544
+   ],
+   "itens": [
+    {
+     "tipo": "esferachefe",
+     "escala": 3.0,
+     "nome": "Morcego Ancião (2, 1)",
+     "x": 15.535965,
+     "y": 2.2,
+     "z": 1.95441556,
+     "animado": false
+    },
+    {
+     "tipo": "chefe",
+     "escala": 3.0,
+     "nome": "Morcego Ancião (2, 1)",
+     "x": 18.08155,
+     "y": 2.2,
+     "z": -0.5911689,
+     "animado": true
+    }
+   ]
+  },
+  "projecao": {
+   "ortho": 16.8288536,
+   "pxPorUnidade": 32.0877457,
+   "itens": [
+    {
+     "nome": "Lucca",
+     "escala": 0.0,
+     "px": [
+      19.4609375,
+      32.7970276
+     ]
+    },
+    {
+     "nome": "Morcego Ancião (2, 1)",
+     "escala": 3.0,
+     "px": [
+      90.40701,
+      45.17958
+     ]
+    },
+    {
+     "nome": "Morcego Ancião (2, 1)",
+     "escala": 3.0,
+     "px": [
+      96.07858,
+      95.6147461
+     ]
+    }
+   ]
+  }
+ },
+ "lucca_e_os_tres": {
+  "montagem": {
+   "centro": [
+    15.3238335,
+    0.825000048,
+    2.1665473
+   ],
+   "itens": [
+    {
+     "tipo": "morcego",
+     "escala": 0.85,
+     "nome": "Morcego (2, 1)",
+     "x": 14.5460167,
+     "y": 1.1,
+     "z": 2.944365,
+     "animado": true
+    },
+    {
+     "tipo": "lobo",
+     "escala": 1.5,
+     "nome": "Lobo (2, 1)",
+     "x": 16.10165,
+     "y": 0.0,
+     "z": 1.38872981,
+     "animado": true
+    },
+    {
+     "tipo": "chefe",
+     "escala": 3.0,
+     "nome": "Morcego Ancião (2, 1)",
+     "x": 17.6572857,
+     "y": 2.2,
+     "z": -0.1669054,
+     "animado": true
+    }
+   ]
+  },
+  "projecao": {
+   "ortho": 16.8288536,
+   "pxPorUnidade": 32.0877457,
+   "itens": [
+    {
+     "nome": "Lucca",
+     "escala": 0.0,
+     "px": [
+      19.4609375,
+      32.7970276
+     ]
+    },
+    {
+     "nome": "Morcego Ancião (2, 1)",
+     "escala": 3.0,
+     "px": [
+      90.40701,
+      45.17958
+     ]
+    },
+    {
+     "nome": "Lobo (2, 1)",
+     "escala": 1.5,
+     "px": [
+      17.4272766,
+      30.61467
+     ]
+    },
+    {
+     "nome": "Morcego (2, 1)",
+     "escala": 0.85,
+     "px": [
+      25.8468018,
+      11.8887024
+     ]
+    }
+   ]
+  }
+ }
+}
