@@ -47,6 +47,7 @@ public static class ExportarMiniaturasDeCarta
                 float raio = def.name == "Torre" ? 1.19f : 1.94f;
                 bool alta = def.name == "IlhaAlta";
                 AddIlha(raiz.transform, raio, alta ? 1.64f : .47f, materiais, malhas, def.name);
+                if (def.name == "Floresta") AdicionarLobo(raiz.transform, malhas);
             }
             else
             {
@@ -103,6 +104,46 @@ public static class ExportarMiniaturasDeCarta
             previa.Cleanup();
             foreach (var mat in materiais) Object.DestroyImmediate(mat);
             foreach (var mesh in malhas) Object.DestroyImmediate(mesh);
+        }
+    }
+
+    // Sprint 5B: a Floresta "faz nascer lobos" — a ilustracao mostra o lobo de verdade (Wolf_Common na pose do Wolf_Idle),
+    // na frente das arvores (que ficam no lado longe da camera), voltado de tres quartos para quem olha a carta.
+    public static readonly Vector3 PosicaoDoLobo = new Vector3(-.05f, 0f, -.55f);
+    public const float TamanhoDoLobo = 1.75f;
+
+    static void AdicionarLobo(Transform raiz, System.Collections.Generic.List<Mesh> malhas)
+    {
+        var modelo = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Modelos/Inimigos/Wolf_Common/Wolf_Common.fbx");
+        if (modelo == null) return;
+        // Pose do Wolf_Idle assada numa malha estatica: o PreviewRenderUtility nao desenha SkinnedMeshRenderer.
+        var instancia = Object.Instantiate(modelo);
+        instancia.hideFlags = HideFlags.HideAndDontSave;
+        try
+        {
+            foreach (var clipe in AssetDatabase.LoadAllAssetsAtPath("Assets/Modelos/Inimigos/Wolf_Common/Wolf_Common_Animacoes.fbx"))
+                if (clipe is AnimationClip c && c.name == "Wolf_Idle") c.SampleAnimation(instancia, .4f);
+            var smr = instancia.GetComponentInChildren<SkinnedMeshRenderer>();
+            var malha = new Mesh { name = "Lobo da floresta" };
+            smr.BakeMesh(malha, true);
+            malhas.Add(malha);
+            var lobo = new GameObject("Lobo da floresta");
+            lobo.transform.SetParent(raiz, false);
+            var corpo = new GameObject("Corpo");
+            corpo.transform.SetParent(lobo.transform, false);
+            corpo.transform.localPosition = instancia.transform.InverseTransformPoint(smr.transform.position);
+            corpo.transform.localRotation = Quaternion.Inverse(instancia.transform.rotation) * smr.transform.rotation;
+            corpo.AddComponent<MeshFilter>().sharedMesh = malha;
+            corpo.AddComponent<MeshRenderer>().sharedMaterials = smr.sharedMaterials;
+            Bounds b = VisualDeIlha.LimitesLocais(lobo.transform);
+            float escala = TamanhoDoLobo / Mathf.Max(b.size.x, b.size.y, b.size.z);
+            lobo.transform.localScale = Vector3.one * escala;
+            lobo.transform.localPosition = PosicaoDoLobo;
+            lobo.transform.localRotation = Quaternion.LookRotation(new Vector3(-.21f, 0f, -1.13f), Vector3.up);
+        }
+        finally
+        {
+            Object.DestroyImmediate(instancia);
         }
     }
 
