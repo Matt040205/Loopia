@@ -115,7 +115,10 @@ namespace Loopia.Hex.Tests
         [Test]
         public void Morcego_TemEscalaDaSceneBible()
         {
-            Assert.That(Def("Morcego").escala, Is.InRange(0.5f, 0.7f), "morcego 0.5 a 0.7 L");
+            // Sprint 5B: com o modelo animado (Bat_Common) a escala e a envergadura. A 0,6 o morcego ficava com 18 px na
+            // camera oficial em 1080p, abaixo do criterio "morcego >= 20 px" da propria Bible (secao 5); 0,85 = 26 px.
+            // Comparacao 0,60 / 0,85 / 1,034: docs/sprints/SPRINT-5B-ANIMATION-INTEGRATION.md (Escala).
+            Assert.That(Def("Morcego").escala, Is.InRange(0.8f, 0.9f), "morcego 0.8 a 0.9 L de envergadura (Bible, Sprint 5B)");
         }
     }
 }

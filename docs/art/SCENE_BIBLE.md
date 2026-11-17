@@ -32,7 +32,7 @@ diâmetro 4,2 u (≈ 4,2 L).
 | Tronco / cepo | 0,25–0,5 (comp. ≤ 1,0) | 1,0 L | vértices | 0,28–0,65 |
 | Item de carta (flutuante) | 0,8–1,0 | 0,9 L | centro da ilha | 0,8–0,95 ✔ |
 | Construção de carta (torre, cabana) | 1,5–2,5 | 0,6 R | centro da ilha | inexistente |
-| Morcego | 0,5–0,7 | — | voo ~1,1 u acima do topo | 0,38 ✘ |
+| Morcego | 0,8–0,9 de envergadura (Sprint 5B: 0,85; antes 0,5–0,7 para a esfera) | — | voo ~1,1 u acima do topo | 0,85 ✔ |
 | Lobo | 0,8–1,1 (comp. ≤ 1,6) | — | ilha | 7,65 ✘ (bug) |
 | Paisagem de fundo | parecer **menor** que as árvores das ilhas na tela (perspectiva aérea) | — | ≥ 7 u abaixo das ilhas | ≈ 10× maior ✘ |
 
