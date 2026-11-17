@@ -41,6 +41,28 @@ namespace Loopia.Hex
             return raiz.gameObject;
         }
 
+        /// <summary>
+        /// Criatura animada (Sprint 5B): instancia o prefab sem recentrar pelos limites, porque o pivo do modelo ja e a
+        /// ancora certa (centro do voo no morcego, chao entre as patas no lobo) e os limites mudam a cada pose. So
+        /// iguala o maior eixo da malha em repouso a <paramref name="tamanho"/>, numa escala uniforme aplicada uma vez
+        /// na raiz do prefab. Plataformas e decoracao continuam usando <see cref="Criar(GameObject, Transform, float, bool)"/>.
+        /// </summary>
+        public static GameObject CriarCriatura(GameObject prefab, Transform pai, float tamanho, out float escala)
+        {
+            escala = 1f;
+            if (prefab == null) return null;
+            var raiz = Object.Instantiate(prefab, pai);
+            raiz.name = prefab.name;
+            raiz.transform.localPosition = Vector3.zero;
+            raiz.transform.localRotation = Quaternion.identity;
+            raiz.transform.localScale = Vector3.one;
+            float medida = Medida(LimitesLocais(raiz.transform).size, false, EixoDeMedida.MaiorEixo);
+            escala = tamanho / Mathf.Max(0.001f, medida);
+            raiz.transform.localScale = Vector3.one * escala;
+            PrepararArte(raiz);
+            return raiz;
+        }
+
         /// <summary>Arte pura: fora do bake do NavMesh (vale para os filhos) e sem collider ligado.</summary>
         public static void PrepararArte(GameObject arte)
         {

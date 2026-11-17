@@ -4,8 +4,9 @@ using UnityEngine;
 namespace Loopia.Hex
 {
     /// <summary>
-    /// Como transformar um inimigo comum (o morcego) no chefe, sem modelo nem asset novo: multiplicadores
-    /// sobre os numeros do GDD e o comportamento do mergulho ajustado para quem fica no centro do anel.
+    /// Como transformar um inimigo comum (o morcego) no chefe, sem InimigoDef novo: multiplicadores sobre os numeros
+    /// do GDD e o comportamento do mergulho ajustado para quem fica no centro do anel. O visual pode ser proprio
+    /// (campo prefab); os numeros continuam todos derivados do morcego base.
     ///
     /// Todos os valores sao hipoteses de balanceamento (docs/gameplay/BALANCE_BASELINE.md §7), nao numeros
     /// medidos. O resultado ainda passa pela escala da volta no InimigoSpawner (x1,4641 na 4a volta).
@@ -15,6 +16,13 @@ namespace Loopia.Hex
     {
         public string nome = "Morcego Ancião";
         public Color cor = new Color(0.45f, 0.08f, 0.12f);
+
+        [Tooltip("Visual proprio do chefe (Sprint 5B: Bat_AncientBoss). Vazio: herda o prefab do inimigo base.")]
+        public GameObject prefab;
+
+        [Tooltip("Maior dimensao do visual proprio (u). So vale com prefab proprio: o modelo do Anciao ja tem o tamanho " +
+                 "de chefe, entao nao se multiplica a escala do morcego de novo. Sem prefab: escala do base x multiplicador.")]
+        [Min(0.1f)] public float tamanhoDoVisual = 3f;
 
         [Header("Multiplicadores sobre o inimigo base")]
         [Min(1f)] public float multiplicadorDePv = 10f;
@@ -45,8 +53,8 @@ namespace Loopia.Hex
 
             def.nome = nome;
             def.cor = cor;
-            def.prefab = baseDef.prefab;
-            def.escala = baseDef.escala * multiplicadorDeEscala;
+            def.prefab = prefab != null ? prefab : baseDef.prefab;
+            def.escala = prefab != null ? tamanhoDoVisual : baseDef.escala * multiplicadorDeEscala;
 
             def.pv = Mathf.Max(1, Mathf.RoundToInt(baseDef.pv * multiplicadorDePv));
             def.ataque = Mathf.Max(0, Mathf.RoundToInt(baseDef.ataque * multiplicadorDeAtaque));
