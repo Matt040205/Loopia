@@ -101,7 +101,7 @@ namespace Loopia.Hex.Tests
             yield return null;
         }
 
-        /// <summary>Casa do anel onde a Mola (no caminho) pode ir, visivel acima da mao.</summary>
+        /// <summary>Casa do anel onde a carta (do caminho) pode ir, visivel acima da mao.</summary>
         HexCoord CasaValida(PlataformaDef carta, out Vector2 tela, HexCoord? exceto = null)
         {
             foreach (HexCoord casa in Object.FindFirstObjectByType<HexLoopGenerator>().Loop.Casas)
@@ -121,23 +121,23 @@ namespace Loopia.Hex.Tests
             AntesDoPlay();
             yield return new EnterPlayMode();
             yield return Preparar();
-            var mola = _s.Mao.CartaNoEspaco(0);
-            Assert.AreEqual("Mola", mola.name);
+            var primeira = _s.Mao.CartaNoEspaco(0);
+            Assert.AreEqual("Coracao", primeira.name, "Mola fora do jogo: a mao comeca pelo Coracao");
             Vector2 slot = _s.CentroDoEspaco(0);
-            HexCoord alvo = CasaValida(mola, out Vector2 soltar);
-            CasaValida(mola, out Vector2 vazia, alvo);
+            HexCoord alvo = CasaValida(primeira, out Vector2 soltar);
+            CasaValida(primeira, out Vector2 vazia, alvo);
 
             yield return Ponteiro(slot, false);
             Assert.IsTrue(_s.TooltipAberto && _s.TooltipAmpliado, "hover na carta abre o tooltip ampliado");
 
             yield return Ponteiro(slot, true);
-            Assert.AreSame(mola, _s.ui.CartaArrastada);
+            Assert.AreSame(primeira, _s.ui.CartaArrastada);
             Assert.IsFalse(_s.TooltipAberto, "iniciar o arraste fecha o tooltip");
             yield return Ponteiro(soltar, true);
             Assert.IsFalse(_s.TooltipAberto, "durante o arraste so o feedback de colocacao aparece");
 
             yield return Ponteiro(soltar, false);
-            Assert.IsTrue(_s.ui.mapa.TryGet(alvo, out Plataforma colocada) && colocada.Def == mola, "a carta foi construida");
+            Assert.IsTrue(_s.ui.mapa.TryGet(alvo, out Plataforma colocada) && colocada.Def == primeira, "a carta foi construida");
             Assert.IsFalse(_s.TooltipAberto, "soltar nao abre o tooltip da plataforma recem-construida");
             yield return Ponteiro(soltar + Vector2.right * 1f, false);
             Assert.IsFalse(_s.TooltipAberto, "o cursor parado sobre a construcao nao conta como hover novo");
@@ -146,7 +146,7 @@ namespace Loopia.Hex.Tests
             Assert.IsFalse(_s.TooltipAberto, "casa sem plataforma: sem tooltip");
             yield return Ponteiro(soltar, false);
             Assert.IsTrue(_s.TooltipAberto && !_s.TooltipAmpliado, "hover voluntario na plataforma mostra suas informacoes");
-            Assert.AreEqual("Mola", _s.TituloDoTooltip);
+            Assert.AreEqual("Coração", _s.TituloDoTooltip);
             yield return Ponteiro(vazia, false);
             Assert.IsFalse(_s.TooltipAberto, "sair da plataforma fecha o tooltip");
 
@@ -160,7 +160,7 @@ namespace Loopia.Hex.Tests
             AntesDoPlay();
             yield return new EnterPlayMode();
             yield return Preparar();
-            var mola = _s.Mao.CartaNoEspaco(0);
+            var primeira = _s.Mao.CartaNoEspaco(0);
             Vector2 slot = _s.CentroDoEspaco(0);
             var gerador = Object.FindFirstObjectByType<HexLoopGenerator>();
             Assert.IsTrue(_s.PontoDaCasa(gerador.CentroDoMiolo, out Vector2 miolo), "o centro do miolo esta visivel");
@@ -174,7 +174,7 @@ namespace Loopia.Hex.Tests
 
             Assert.IsNull(_s.ui.CartaArrastada);
             Assert.IsFalse(_s.Fantasma.activeSelf, "o fantasma some");
-            Assert.AreSame(mola, _s.Mao.CartaNoEspaco(0), "a carta volta ao espaco");
+            Assert.AreSame(primeira, _s.Mao.CartaNoEspaco(0), "a carta volta ao espaco");
             Assert.AreEqual(livresAntes, _s.Mao.EspacosLivres, "nada consumido");
             Assert.IsFalse(_s.ui.mapa.Tem(gerador.CentroDoMiolo));
             Assert.IsFalse(_s.TooltipAberto, "sem tooltip preso depois de soltar no lugar invalido");
@@ -191,24 +191,24 @@ namespace Loopia.Hex.Tests
             AntesDoPlay();
             yield return new EnterPlayMode();
             yield return Preparar();
-            var mola = _s.Mao.CartaNoEspaco(0);
-            HexCoord alvo = CasaValida(mola, out Vector2 ponto);
-            Assert.IsNotNull(_s.ui.mapa.Colocar(mola, alvo));
+            var primeira = _s.Mao.CartaNoEspaco(0);
+            HexCoord alvo = CasaValida(primeira, out Vector2 ponto);
+            Assert.IsNotNull(_s.ui.mapa.Colocar(primeira, alvo));
             Assert.IsTrue(_s.Mao.Gastar(0));
-            CasaValida(_s.Mao.CartaNoEspaco(1) ?? mola, out Vector2 vazia, alvo);
+            CasaValida(_s.Mao.CartaNoEspaco(2) ?? primeira, out Vector2 vazia, alvo); // espaco 2 = Flechas (caminho); o 1 e a Torre
 
             yield return Ponteiro(ponto, false);
             Assert.IsTrue(_s.TooltipAberto && !_s.TooltipAmpliado);
-            Assert.AreEqual("Mola", _s.TituloDoTooltip);
+            Assert.AreEqual("Coração", _s.TituloDoTooltip);
 
             yield return Ponteiro(_s.CentroDoEspaco(2), false);
             string carta = _s.TituloDoTooltip;
             Assert.IsTrue(_s.TooltipAberto && _s.TooltipAmpliado);
-            Assert.AreNotEqual("Mola", carta, "o tooltip troca para a carta");
+            Assert.AreNotEqual("Coração", carta, "o tooltip troca para a carta");
 
             yield return Ponteiro(ponto, false);
             Assert.IsTrue(_s.TooltipAberto && !_s.TooltipAmpliado);
-            Assert.AreEqual("Mola", _s.TituloDoTooltip, "e volta para a plataforma");
+            Assert.AreEqual("Coração", _s.TituloDoTooltip, "e volta para a plataforma");
 
             yield return Ponteiro(vazia, false);
             Assert.IsFalse(_s.TooltipAberto);
@@ -220,8 +220,8 @@ namespace Loopia.Hex.Tests
             AntesDoPlay();
             yield return new EnterPlayMode();
             yield return Preparar();
-            var mola = _s.Mao.CartaNoEspaco(0);
-            HexCoord alvo = CasaValida(mola, out Vector2 soltar);
+            var primeira = _s.Mao.CartaNoEspaco(0);
+            HexCoord alvo = CasaValida(primeira, out Vector2 soltar);
             yield return Ponteiro(_s.CentroDoEspaco(0), false);
             yield return Ponteiro(_s.CentroDoEspaco(0), true);
             yield return Ponteiro(soltar, true);
@@ -237,7 +237,7 @@ namespace Loopia.Hex.Tests
 
             yield return Ponteiro(soltar, false);
             Assert.IsFalse(_s.ui.mapa.Tem(alvo), "soltar depois de perder o foco nao constroi");
-            Assert.AreSame(mola, _s.Mao.CartaNoEspaco(0));
+            Assert.AreSame(primeira, _s.Mao.CartaNoEspaco(0));
             Assert.IsFalse(_s.TooltipAberto, "sem tooltip preso");
         }
 
@@ -247,8 +247,8 @@ namespace Loopia.Hex.Tests
             AntesDoPlay();
             yield return new EnterPlayMode();
             yield return Preparar();
-            var mola = _s.Mao.CartaNoEspaco(0);
-            HexCoord alvo = CasaValida(mola, out Vector2 soltar);
+            var primeira = _s.Mao.CartaNoEspaco(0);
+            HexCoord alvo = CasaValida(primeira, out Vector2 soltar);
             yield return Ponteiro(_s.CentroDoEspaco(0), false);
             yield return Ponteiro(_s.CentroDoEspaco(0), true);
             yield return Ponteiro(soltar, true);
@@ -276,27 +276,27 @@ namespace Loopia.Hex.Tests
                 var visual = espacos.GetChild(i).GetComponent<CartaVisual>();
                 Assert.AreSame(_s.Mao.CartaNoEspaco(i), visual.Def, "espaco " + i);
             }
-            // Coracao (espaco 1): colocar a Mola liberaria a Ilha alta, que ocuparia o espaco na hora.
-            var coracao = _s.Mao.CartaNoEspaco(1);
+            // Coracao (espaco 0; a Mola, que liberaria a Ilha alta, esta fora do jogo).
+            var coracao = _s.Mao.CartaNoEspaco(0);
             Assert.AreEqual("Coracao", coracao.name);
             HexCoord alvo = CasaValida(coracao, out Vector2 soltar);
-            yield return Ponteiro(_s.CentroDoEspaco(1), false);
-            yield return Ponteiro(_s.CentroDoEspaco(1), true);
+            yield return Ponteiro(_s.CentroDoEspaco(0), false);
+            yield return Ponteiro(_s.CentroDoEspaco(0), true);
             yield return Ponteiro(soltar, true);
             yield return Ponteiro(soltar, false);
             Assert.IsTrue(_s.ui.mapa.Tem(alvo));
             Assert.AreEqual(1, _s.Mao.EspacosLivres, "uma carta consumida, sem pendente");
-            var vazio = espacos.GetChild(1).GetComponent<CartaVisual>();
+            var vazio = espacos.GetChild(0).GetComponent<CartaVisual>();
             Assert.IsNull(vazio.Def);
             Assert.IsTrue(vazio.Vazio, "o espaco vazio tem leitura propria");
-            Assert.IsFalse(espacos.GetChild(0).GetComponent<CartaVisual>().Vazio);
+            Assert.IsFalse(espacos.GetChild(1).GetComponent<CartaVisual>().Vazio);
 
             _s.Mao.status.GanharXp(_s.Mao.status.XpParaOProximoNivel);
             yield return null;
             Assert.AreEqual(0, _s.Mao.EspacosLivres, "a recompensa preenche o espaco vazio");
-            Assert.IsNotNull(_s.Mao.CartaNoEspaco(1));
+            Assert.IsNotNull(_s.Mao.CartaNoEspaco(0));
             Assert.IsFalse(vazio.Vazio);
-            Assert.AreSame(_s.Mao.CartaNoEspaco(1), vazio.Def);
+            Assert.AreSame(_s.Mao.CartaNoEspaco(0), vazio.Def);
         }
     }
 }

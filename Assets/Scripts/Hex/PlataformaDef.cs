@@ -54,7 +54,15 @@ namespace Loopia.Hex
         [Tooltip("Esconde a decoracao da ilha enquanto a carta estiver nela (o marcador a substitui).")]
         public bool ocultarDecoracao;
 
+        [Header("Design")]
+        [Tooltip("Fora do jogo por decisao de design: nao entra na mao inicial, no sorteio nem nas recompensas e nao pode " +
+                 "ser colocada. Cartas que dependem dela tambem deixam de aparecer (sem Mola nao ha Ilha Alta).")]
+        public bool desativada;
+
         public virtual bool DisponivelParaCompra(MapaDePlataformas mapa) => true;
+
+        /// <summary>Pode aparecer na mao/sorteio e ser colocada agora: nao esta desativada e o mapa cumpre o pre-requisito.</summary>
+        public bool PodeAparecer(MapaDePlataformas mapa) => !desativada && DisponivelParaCompra(mapa);
 
         // --- Ganchos ---
 

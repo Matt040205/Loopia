@@ -137,6 +137,11 @@ namespace Loopia.Hex
             }
 
             bool noAnel = mundo.TryGetIlha(casa, out HexTile ilha) && ilha.EstaNoCaminho;
+            if (def.desativada)
+            {
+                motivo = "esta carta esta fora do jogo";
+                return false;
+            }
             if (!def.DisponivelParaCompra(this))
             {
                 motivo = "coloque uma ilha de mola primeiro";

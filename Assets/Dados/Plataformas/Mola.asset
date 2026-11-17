@@ -24,4 +24,5 @@ MonoBehaviour:
   girarModelo: 0
   marcador: {fileID: 0}
   ocultarDecoracao: 0
+  desativada: 1
   alturaDoImpulso: 3

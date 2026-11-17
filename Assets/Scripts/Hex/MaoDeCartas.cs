@@ -106,11 +106,11 @@ namespace Loopia.Hex
                 _inscritoNoMapa = true;
             }
 
-            for (int i = 0; i < cartasIniciais; i++)
-            {
-                if (i < cartasGarantidas.Count && DarCarta(cartasGarantidas[i])) continue;
-                Comprar();
-            }
+            // Garantidas disponiveis primeiro (uma desativada, como a Mola, e pulada); o resto da mao vem do sorteio.
+            int dadas = 0;
+            for (int i = 0; i < cartasGarantidas.Count && dadas < cartasIniciais; i++)
+                if (DarCarta(cartasGarantidas[i])) dadas++;
+            for (; dadas < cartasIniciais; dadas++) Comprar();
         }
 
         void OnDestroy()
@@ -148,7 +148,7 @@ namespace Loopia.Hex
         /// <summary>Entrega uma carta disponível no primeiro espaço livre.</summary>
         public bool DarCarta(PlataformaDef carta)
         {
-            if (carta == null || !carta.DisponivelParaCompra(mapa)) return false;
+            if (carta == null || !carta.PodeAparecer(mapa)) return false;
             int espaco = PrimeiroEspacoLivre();
             if (espaco < 0) return false;
 
@@ -171,7 +171,7 @@ namespace Loopia.Hex
             int espaco = PrimeiroEspacoLivre();
             if (espaco < 0) return false;
 
-            var disponiveis = baralho.FindAll(carta => carta != null && carta.DisponivelParaCompra(mapa));
+            var disponiveis = baralho.FindAll(carta => carta != null && carta.PodeAparecer(mapa));
             if (disponiveis.Count == 0) return false;
 
             comprada = disponiveis[UnityEngine.Random.Range(0, disponiveis.Count)];
