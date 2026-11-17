@@ -21,6 +21,7 @@ namespace Loopia.Hex
         public HexLoopRunner corredor;
         public HexPlayer player;
         public LuccaStatus status;
+        public MapaDePlataformas mapa;
 
         [Header("Queda")]
         [Tooltip("Chance de cada ilha do caminho ganhar uma moeda, sorteada no comeco e a cada volta.")]
@@ -34,6 +35,13 @@ namespace Loopia.Hex
         public GameObject modeloDaMoeda;
         [Min(0f)] public float alturaDaMoeda = 0.5f;
         public float velocidadeDeGiro = 180f;
+
+        [Tooltip("Ilha com item de carta no centro (Coracao, Moedas, Flechas...): a moeda vai para o lado, a esta " +
+                 "distancia do centro, em vez de atravessar o item. A coleta continua sendo por casa.")]
+        [Min(0f)] public float afastamentoDoItem = 1.05f;
+
+        /// <summary>Direita da tela no chao (camera 30/45/0): a moeda afastada fica a vista, nao atras do item.</summary>
+        static readonly Vector3 LadoDaMoeda = new Vector3(0.70710678f, 0f, -0.70710678f);
 
         readonly Dictionary<HexCoord, Transform> _moedas = new Dictionary<HexCoord, Transform>();
 
@@ -52,6 +60,7 @@ namespace Loopia.Hex
             if (corredor == null) corredor = FindFirstObjectByType<HexLoopRunner>();
             if (player == null) player = FindFirstObjectByType<HexPlayer>();
             if (status == null) status = FindFirstObjectByType<LuccaStatus>();
+            if (mapa == null) mapa = FindFirstObjectByType<MapaDePlataformas>();
 
             if (mundo == null || gerador == null || player == null || status == null)
             {
@@ -94,11 +103,20 @@ namespace Loopia.Hex
 
                 // Cada moeda flutua numa fase propria, para nao subirem todas juntas.
                 float flutuacao = Mathf.Sin(agora * 3f + par.Key.q * 1.7f + par.Key.r) * 0.06f;
-                moeda.position = mundo.PosicaoDe(par.Key) + Vector3.up * (alturaDaMoeda + flutuacao);
+                moeda.position = PosicaoDaMoeda(par.Key) + Vector3.up * (alturaDaMoeda + flutuacao);
             }
         }
 
         void VoltaFechou(int volta) => Sortear();
+
+        /// <summary>Centro da ilha, ou o lado dela se uma carta ja tem item no centro (um nao atravessa o outro).</summary>
+        public Vector3 PosicaoDaMoeda(HexCoord casa)
+        {
+            Vector3 centro = mundo.PosicaoDe(casa);
+            if (mapa != null && mapa.TryGet(casa, out Plataforma plataforma) && plataforma != null && plataforma.TemItemNoCentro)
+                return centro + LadoDaMoeda * afastamentoDoItem;
+            return centro;
+        }
 
         /// <summary>Da a cada ilha do anel, fora o acampamento e a casa do Lucca, a chance de ganhar moeda.</summary>
         public void Sortear()
@@ -144,7 +162,7 @@ namespace Loopia.Hex
         {
             Transform moeda = new GameObject("Moeda " + casa).transform;
             moeda.SetParent(_raiz, false);
-            moeda.position = mundo.PosicaoDe(casa) + Vector3.up * alturaDaMoeda;
+            moeda.position = PosicaoDaMoeda(casa) + Vector3.up * alturaDaMoeda;
 
             if (modeloDaMoeda != null)
             {

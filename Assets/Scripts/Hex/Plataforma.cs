@@ -50,6 +50,9 @@ namespace Loopia.Hex
 
         public GameObject Marcador => _marcador;
 
+        /// <summary>A carta mostra um item no centro da ilha agora (Coracao, Moedas, Flechas...).</summary>
+        public bool TemItemNoCentro => _modelo != null && _modelo.activeSelf;
+
         /// <summary>O marcador e filho da ilha (sobe junto com o relevo), alinhado ao mundo e fora do bake.</summary>
         void MontarMarcador()
         {
