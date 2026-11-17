@@ -1,0 +1,286 @@
+{
+ "Bat_Common": {
+  "acoes_de_qa": [
+   "QA v1.1 · envelope de voo",
+   "QA · poses de verificação"
+  ],
+  "acao_ativa_preservada": "QA v1.1 · envelope de voo",
+  "assinatura_dos_dados": "b79d95f6bdb080c28d4cc95d946b8156347410cda05ff6ebdffadaa4e453c23f",
+  "acoes_de_producao": [
+   {
+    "nome": "Idle",
+    "quadros": [
+     1.0,
+     33.0
+    ],
+    "duracao_s": 1.3333333333333333,
+    "laco": true,
+    "marcadores": {
+     "Batida_1": 1,
+     "Batida_2": 17
+    }
+   },
+   {
+    "nome": "Fly",
+    "quadros": [
+     1.0,
+     25.0
+    ],
+    "duracao_s": 1.0,
+    "laco": true,
+    "marcadores": {
+     "Batida_1": 1,
+     "Batida_2": 13
+    }
+   },
+   {
+    "nome": "Attack",
+    "quadros": [
+     1.0,
+     19.0
+    ],
+    "duracao_s": 0.75,
+    "laco": false,
+    "marcadores": {
+     "Antecipacao": 4,
+     "Investida": 8,
+     "Mordida": 11,
+     "Recuperacao": 14
+    }
+   },
+   {
+    "nome": "Hit",
+    "quadros": [
+     1.0,
+     9.0
+    ],
+    "duracao_s": 0.3333333333333333,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 3
+    }
+   },
+   {
+    "nome": "Death",
+    "quadros": [
+     1.0,
+     25.0
+    ],
+    "duracao_s": 1.0,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 3,
+     "Queda": 13
+    }
+   }
+  ]
+ },
+ "Bat_AncientBoss": {
+  "acoes_de_qa": [
+   "QA v1.1 · envelope de voo",
+   "QA · poses de verificação"
+  ],
+  "acao_ativa_preservada": "QA v1.1 · envelope de voo",
+  "assinatura_dos_dados": "a8673191d1765a74f95b50891867e5de6aac5dec0c368850fe67bb4ee263576b",
+  "acoes_de_producao": [
+   {
+    "nome": "Boss_Idle",
+    "quadros": [
+     1.0,
+     49.0
+    ],
+    "duracao_s": 2.0,
+    "laco": true,
+    "marcadores": {
+     "Batida_1": 1,
+     "Batida_2": 25
+    }
+   },
+   {
+    "nome": "Boss_Fly",
+    "quadros": [
+     1.0,
+     37.0
+    ],
+    "duracao_s": 1.5,
+    "laco": true,
+    "marcadores": {
+     "Batida_1": 1,
+     "Batida_2": 19
+    }
+   },
+   {
+    "nome": "Boss_Attack",
+    "quadros": [
+     1.0,
+     25.0
+    ],
+    "duracao_s": 1.0,
+    "laco": false,
+    "marcadores": {
+     "Antecipacao": 7,
+     "Investida": 11,
+     "Mordida": 14,
+     "Recuperacao": 18
+    }
+   },
+   {
+    "nome": "Boss_Hit",
+    "quadros": [
+     1.0,
+     11.0
+    ],
+    "duracao_s": 0.4166666666666667,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 3
+    }
+   },
+   {
+    "nome": "Boss_Death",
+    "quadros": [
+     1.0,
+     43.0
+    ],
+    "duracao_s": 1.75,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 6,
+     "Queda": 19
+    }
+   },
+   {
+    "nome": "Boss_Revoada",
+    "quadros": [
+     1.0,
+     85.0
+    ],
+    "duracao_s": 3.5,
+    "laco": false,
+    "marcadores": {
+     "Preparacao": 13,
+     "Revoada_Raise": 49,
+     "Revoada_Open": 57,
+     "Retorno": 65
+    }
+   }
+  ]
+ },
+ "Wolf_Common": {
+  "acoes_de_qa": [
+   "QA · poses de verificação"
+  ],
+  "acao_ativa_preservada": "QA · poses de verificação",
+  "autoteste_ik_graus": 0.03956468205889273,
+  "ik_recortes": [
+   [
+    "LF",
+    4.5,
+    0.0035
+   ],
+   [
+    "LF",
+    5.0,
+    0.0012
+   ],
+   [
+    "RF",
+    12.0,
+    0.0035
+   ],
+   [
+    "RF",
+    12.5,
+    0.0012
+   ]
+  ],
+  "ik_recortes_total": 4,
+  "velocidade_walk": 0.9890909090909091,
+  "velocidade_run": 4.571428571428571,
+  "assinatura_dos_dados": "9e583c4668fc2c46bc8bbe5d5fd1ad349bc5b0a5e98217c3aa9d82a7533725b0",
+  "acoes_de_producao": [
+   {
+    "nome": "Wolf_Idle",
+    "quadros": [
+     1.0,
+     73.0
+    ],
+    "duracao_s": 3.0,
+    "laco": true,
+    "marcadores": {}
+   },
+   {
+    "nome": "Wolf_Walk",
+    "quadros": [
+     1.0,
+     16.0
+    ],
+    "duracao_s": 0.625,
+    "laco": true,
+    "marcadores": {
+     "Apoio_LH": 1,
+     "Apoio_RH": 8,
+     "Apoio_LF": 5,
+     "Apoio_RF": 12
+    },
+    "velocidade_modelo": 0.9890909090909091
+   },
+   {
+    "nome": "Wolf_Run",
+    "quadros": [
+     1.0,
+     10.0
+    ],
+    "duracao_s": 0.375,
+    "laco": true,
+    "marcadores": {
+     "Apoio_LH": 1,
+     "Apoio_RH": 2,
+     "Apoio_LF": 5,
+     "Apoio_RF": 6
+    },
+    "velocidade_modelo": 4.571428571428571
+   },
+   {
+    "nome": "Wolf_Attack",
+    "quadros": [
+     1.0,
+     16.0
+    ],
+    "duracao_s": 0.625,
+    "laco": false,
+    "marcadores": {
+     "Antecipacao": 3,
+     "Mordida": 5,
+     "Recuperacao": 9
+    }
+   },
+   {
+    "nome": "Wolf_Hit",
+    "quadros": [
+     1.0,
+     9.0
+    ],
+    "duracao_s": 0.3333333333333333,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 3
+    }
+   },
+   {
+    "nome": "Wolf_Death",
+    "quadros": [
+     1.0,
+     31.0
+    ],
+    "duracao_s": 1.25,
+    "laco": false,
+    "marcadores": {
+     "Impacto": 5,
+     "Pernas_cedem": 11,
+     "No_chao": 30
+    }
+   }
+  ]
+ }
+}
