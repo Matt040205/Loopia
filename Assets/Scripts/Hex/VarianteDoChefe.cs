@@ -22,7 +22,7 @@ namespace Loopia.Hex
 
         [Tooltip("Maior dimensao do visual proprio (u). So vale com prefab proprio: o modelo do Anciao ja tem o tamanho " +
                  "de chefe, entao nao se multiplica a escala do morcego de novo. Sem prefab: escala do base x multiplicador.")]
-        [Min(0.1f)] public float tamanhoDoVisual = 3f;
+        [Min(0.1f)] public float tamanhoDoVisual = 4.5f;
 
         [Header("Multiplicadores sobre o inimigo base")]
         [Min(1f)] public float multiplicadorDePv = 10f;

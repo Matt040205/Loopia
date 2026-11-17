@@ -3846,12 +3846,14 @@ MonoBehaviour:
   corredor: {fileID: 30939189}
   player: {fileID: 30939190}
   status: {fileID: 30939188}
+  mapa: {fileID: 0}
   chancePorIlha: 0.2
   valorDaMoeda: 1
   corDaMoeda: {r: 1, g: 0.8, b: 0.2, a: 1}
   modeloDaMoeda: {fileID: 3222942014257985404, guid: accdf55a3ad22284692d9c9e04c2917b, type: 3}
   alturaDaMoeda: 0.5
   velocidadeDeGiro: 180
+  afastamentoDoItem: 1.05
 --- !u!4 &1117084399
 Transform:
   m_ObjectHideFlags: 0
@@ -6329,7 +6331,7 @@ MonoBehaviour:
     nome: "Morcego Anci\xE3o"
     cor: {r: 0.45, g: 0.08, b: 0.12, a: 1}
     prefab: {fileID: 160806551051678011, guid: 0b0ec8eaf0406094da8b5ae04b377de0, type: 3}
-    tamanhoDoVisual: 3
+    tamanhoDoVisual: 4.5
     multiplicadorDePv: 10
     multiplicadorDeAtaque: 1.2
     multiplicadorDeXp: 4

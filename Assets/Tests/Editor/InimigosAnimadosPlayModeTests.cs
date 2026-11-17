@@ -300,7 +300,7 @@ namespace Loopia.Hex.Tests
             float envergadura = VisualDeIlha.Medida(VisualDeIlha.LimitesLocais(visual.transform).size, false,
                 EixoDeMedida.MaiorEixo) * visual.transform.localScale.x;
             Assert.AreEqual(c.encontro.variante.tamanhoDoVisual, envergadura, 0.02f, "escala do chefe aplicada uma vez");
-            Assert.Less(envergadura, 3.2f, "sem multiplicar a escala do morcego de novo");
+            Assert.Less(envergadura, c.encontro.variante.tamanhoDoVisual + 0.2f, "sem multiplicar a escala do morcego de novo");
 
             float avisou = -1f, usou = -1f, tNoUso = -1f;
             c.encontro.AoAvisarEspecial += _ => avisou = Time.time;

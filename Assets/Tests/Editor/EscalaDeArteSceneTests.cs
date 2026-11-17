@@ -108,8 +108,9 @@ namespace Loopia.Hex.Tests
             float f = lobo.escala / Mathf.Max(b.size.x, b.size.y, b.size.z);
             float altura = b.size.y * f;
             float comprimento = Mathf.Max(b.size.x, b.size.z) * f;
-            Assert.That(altura, Is.InRange(0.8f, 1.1f), "altura do lobo (Bible 0.8 a 1.1 L)");
-            Assert.LessOrEqual(comprimento, 1.6f, "comprimento do lobo (Bible <= 1.6 L)");
+            // Responsavel, depois da Sprint 5B: inimigos maiores. Lobo 1,8 de comprimento (antes 1,5), ~1,1 L de altura.
+            Assert.That(altura, Is.InRange(1.0f, 1.25f), "altura do lobo (Bible 1,0 a 1,25 L)");
+            Assert.LessOrEqual(comprimento, 1.9f, "comprimento do lobo (Bible <= 1,9 L)");
         }
 
         [Test]
@@ -118,7 +119,8 @@ namespace Loopia.Hex.Tests
             // Sprint 5B: com o modelo animado (Bat_Common) a escala e a envergadura. A 0,6 o morcego ficava com 18 px na
             // camera oficial em 1080p, abaixo do criterio "morcego >= 20 px" da propria Bible (secao 5); 0,85 = 26 px.
             // Comparacao 0,60 / 0,85 / 1,034: docs/sprints/SPRINT-5B-ANIMATION-INTEGRATION.md (Escala).
-            Assert.That(Def("Morcego").escala, Is.InRange(0.8f, 0.9f), "morcego 0.8 a 0.9 L de envergadura (Bible, Sprint 5B)");
+            // Depois do playtest o responsavel pediu inimigos maiores: 1,3 (39 px na camera oficial em 1080p).
+            Assert.That(Def("Morcego").escala, Is.InRange(1.2f, 1.4f), "morcego 1,2 a 1,4 L de envergadura (Bible, Sprint 5B)");
         }
     }
 }

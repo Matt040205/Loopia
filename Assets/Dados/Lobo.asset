@@ -15,7 +15,7 @@ MonoBehaviour:
   nome: Lobo
   cor: {r: 0.72, g: 0.74, b: 0.78, a: 1}
   prefab: {fileID: 2439481584512536512, guid: f479d5077a862f846baa01f5d0d5d916, type: 3}
-  escala: 1.5
+  escala: 1.8
   pv: 100
   ataque: 15
   xp: 100

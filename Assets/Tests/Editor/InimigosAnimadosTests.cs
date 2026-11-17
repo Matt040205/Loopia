@@ -238,7 +238,7 @@ namespace Loopia.Hex.Tests
             {
                 Assert.AreSame(anciao, chefe.prefab, "o chefe usa o proprio modelo");
                 Assert.AreEqual(v.tamanhoDoVisual, chefe.escala, 1e-5f, "envergadura do chefe = tamanhoDoVisual");
-                Assert.AreEqual(3f, v.tamanhoDoVisual, 1e-5f);
+                Assert.AreEqual(4.5f, v.tamanhoDoVisual, 1e-5f);
                 Assert.AreEqual(500, chefe.pv, "numeros continuam derivados do morcego");
             }
             finally { Object.DestroyImmediate(chefe); }
