@@ -226,5 +226,16 @@ namespace Loopia.Hex
             }
             return total;
         }
+
+        /// <summary>Quantos inimigos vivos DESTE TIPO estao nesta casa (ex.: so os lobos de uma floresta).</summary>
+        public int QuantosEm(HexCoord casa, InimigoDef def)
+        {
+            int total = 0;
+            for (int i = 0; i < _vivos.Count; i++)
+            {
+                if (_vivos[i] != null && _vivos[i].Casa == casa && _vivos[i].Def == def) total++;
+            }
+            return total;
+        }
     }
 }
