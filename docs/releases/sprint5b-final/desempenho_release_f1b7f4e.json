@@ -1,0 +1,45 @@
+{
+ "acampamento_s0_9": {
+  "quadros": 23280,
+  "fps_medio": 2586.7,
+  "frame_ms_medio": 0.387,
+  "mediana_ms": 0.36,
+  "p99_ms": 0.832,
+  "p99_9_ms": 1.057,
+  "max_ms": 15.86,
+  "acima_16_7ms": 0,
+  "acima_33_3ms": 0
+ },
+ "jornada_s10_153": {
+  "quadros": 131399,
+  "fps_medio": 918.9,
+  "frame_ms_medio": 1.088,
+  "mediana_ms": 1.041,
+  "p99_ms": 1.885,
+  "p99_9_ms": 2.368,
+  "max_ms": 7.01,
+  "acima_16_7ms": 0,
+  "acima_33_3ms": 0
+ },
+ "final_chefe_s128_153": {
+  "quadros": 22922,
+  "fps_medio": 916.9,
+  "frame_ms_medio": 1.091,
+  "mediana_ms": 1.043,
+  "p99_ms": 1.887,
+  "p99_9_ms": 2.562,
+  "max_ms": 4.16,
+  "acima_16_7ms": 0,
+  "acima_33_3ms": 0
+ },
+ "processo": {
+  "cpu_pct_maquina_media": 22.5,
+  "cpu_pct_max": 28.4,
+  "ws_mb_media": 622,
+  "ws_mb_max": 644,
+  "private_mb_max": 1074,
+  "gpu3d_pct_media": 59.4,
+  "gpu3d_pct_max": 69.7,
+  "gpu_dedicada_mb_max": 467
+ }
+}

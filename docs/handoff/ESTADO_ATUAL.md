@@ -1,41 +1,28 @@
 # Estado atual — 2026-11-17
 
-## Sprint 5B — animação e integração dos inimigos 3D — **comece por aqui**
-- Branch `feature/sprint5b-enemy-animation` (base `main` @ `ef78f01`), PR para `main` **aguardando revisão do
-  responsável** (não mesclar sem ele). Registro completo:
-  [SPRINT-5B-ANIMATION-INTEGRATION.md](../sprints/SPRINT-5B-ANIMATION-INTEGRATION.md).
-- Feito: Bat_Common, Bat_AncientBoss e Wolf_Common (pacote 5A.1 v1.1, GUIDs preservados) com **17 clipes de
-  produção** feitos no Blender sobre os rigs aprovados (`ArtSource/Inimigos/Sprint-5B/`, ações de QA preservadas);
-  Animator Controllers, prefabs `<Modelo>_Visual` e importadores reproduzíveis por `Loopia > Inimigos > Configurar
-  modelos animados`; `AnimacaoDoInimigo` (só visual: Attack/Revoada sincronizados por motion time aos eventos reais,
-  Hit aditivo, morte num visual destacado); morcego sem esfera; chefe com prefab próprio
-  (`VarianteDoChefe.prefab` + `tamanhoDoVisual` 3,0); lobo animado no NavMeshAgent.
-- **Decisão para revisão:** escala do morcego 0,6 → **0,85** (0,6 = 18 px na câmera oficial, abaixo do critério de
-  20 px da Scene Bible). Scene Bible e `EscalaDeArteSceneTests.Morcego_TemEscalaDaSceneBible` atualizados.
-- Validação Blender dos clipes reais: 0 falhas nas membranas (inclusive Hit aditivo e cross-fades); lobo sem
-  atravessar o chão e com deslizamento ≤ 5% no apoio.
-- Testes: **458/458** (Logic + SceneStatic 417, PlayModeSmoke 37, PlayModeMedicao 4) até `59cbb7d`; 13 novos.
-  Depois da rodada 2: **461/461** em `b8b651f` (abaixo).
-- Builds: `Documents\Loopia_Builds\loopia-sprint5b-59cbb7d-{release,dev}\` (0 erros, 0 avisos). Release jogada com
-  mouse real, perfil `qa-sprint5b`: derrota, **vitória**, derrota; Revoada; save e reabertura; `Player.log` limpo.
-- **Correção depois do playtest (aprovada):** a Floresta contava qualquer inimigo na casa e um morcego pousado
-  impedia o lobo; agora conta só lobos (`InimigoSpawner.QuantosEm(casa, def)`), teste novo
-  `FlorestaPlayModeTests` (§11a do registro).
-- **Rodada 2 (pedidos depois do playtest), feita e testada:** inimigos maiores (morcego 1,3, lobo 1,8, Ancião 4,5);
-  moeda não atravessa o item da carta; braço do arco da Lucca acompanha a marcha, sem o arco girar na mão e, na
-  corrida, com o arco deitado (`Loopia/Lucca/Braco do arco acompanha a marcha`); lobo na arte da Floresta; Mola
-  desativada (e a Ilha Alta some junto; os testes da mecânica da Mola usam uma cópia ligada em memória). §11b.
-- **Suíte da rodada 2: 461/461** em `b8b651f` (Logic + SceneStatic 419, PlayModeSmoke 38, PlayModeMedicao 4).
-  Builds `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-{release,dev}\` (0 erros, 0 avisos). Release jogada
-  (3 jornadas): Mola fora da mão, lobo na carta e na Floresta (ataca, apanha, morre), arco de pé parada e deitado
-  correndo, moeda ao lado do coração, Ancião e lobo na escala nova; `Player.log` limpo; save pessoal intacto.
-  Capturas: `docs/sprints/sprint-5b/build-rodada2/`.
-- **Pendente / não verificado:** FPS na build não medido (custos no Editor, §12); prega do quadril no galope. §14.
-- Fora do repo: pacote extraído, renders, GIFs completos e capturas em `Documents\Loopia_Sprint5B\`.
-  `Assets/_Recovery/` (cópia de recuperação da Unity, sem versionar) e os settings regravados pelo build continuam
-  fora dos commits.
-- Sessões de teste em Play Mode: com o Editor fora de foco o Play congela no frame 1–2; os testes novos ligam
-  `Application.runInBackground` logo de início (ver memória do pipeline em `tools/sprint5b/` e no registro).
+## Sprint 5B — animação e integração dos inimigos 3D — **concluída, na `main`** — comece por aqui
+- **Mesclada:** PR #17 (`feature/sprint5b-enemy-animation`) → `main` @ `80488ec` em 2026-11-17 (merge commit,
+  histórico preservado). Release final e pacote: [SPRINT5B_FINAL_RELEASE.md](../releases/SPRINT5B_FINAL_RELEASE.md).
+  Registro técnico: [SPRINT-5B-ANIMATION-INTEGRATION.md](../sprints/SPRINT-5B-ANIMATION-INTEGRATION.md).
+- **A `main` é a versão oficial.** Worktree principal `loopia-mvp` na `main`. Nenhuma sprint nova foi iniciada.
+- Entregue: Morcego comum, Morcego Ancião (prefab próprio, Revoada) e Lobo (NavMeshAgent) animados com 17 clipes de
+  produção (`ArtSource/Inimigos/Sprint-5B/`, reconfiguração por `Loopia > Inimigos > Configurar modelos animados`);
+  escalas visuais 1,3 / 4,5 / 1,8; Lucca com o arco revisado (`Loopia/Lucca/Braco do arco acompanha a marcha`);
+  Floresta com lobo na carta e spawn corrigido; moeda ao lado do item da carta; Mola desativada (Ilha Alta
+  indisponível; mecânica mantida no código e coberta por testes com cópia ligada em memória).
+- Testes: **461/461** no head `f1b7f4e` (Logic + SceneStatic 419, PlayModeSmoke 38, PlayModeMedicao 4); na `main`
+  depois do merge, Logic + SceneStatic 419/419.
+- Playtest final na Release: jornada até a **vitória** (Revoada, lobo, morcegos), save 61 moedas / 1 vitória,
+  reabertura persistida; `Player.log` sem erros. Desempenho na Release: ~919 FPS em jogo, frame time médio 1,09 ms,
+  pior quadro 7,0 ms, nenhum quadro > 16,7 ms (ETW DXGI).
+- Pacote: `Documents\Loopia_Releases\Loopia_Sprint5B_Final\Loopia_Sprint5B_Windows_x64_Final.zip` (47,3 MB,
+  SHA-256 `b9bf4728…072dd8`), testado depois de extraído.
+- **Atenção para a próxima fase:** (P1) o jogo não limita quadros (VSync 0, sem `targetFrameRate`): ~900 FPS em
+  jogo; uma build Development com Profiler caiu com erro de dispositivo D3D12 nessa condição. (P2) Os testes PlayMode
+  e snippets do bridge ligam `Application.runInBackground`, o que muda `PlayerSettings.runInBackground` no Editor: antes
+  de gerar build, conferir que está 0 como na `main`. (P2) prega interna do quadril do lobo no galope.
+- Fora do repo: pacote 5A.1 extraído, renders e capturas em `Documents\Loopia_Sprint5B\`. `Assets/_Recovery/` (cópia
+  de recuperação da Unity) e os settings regravados pelo build continuam fora dos commits.
 
 ## Sprint corretiva de UI/UX (concluída, na `main`)
 - **Mesclada:** PR #16 (`fix/sprint-ui-polish`) → `main` @ `ef78f01` em 2026-11-16 (o texto anterior deste handoff
