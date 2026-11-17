@@ -10,10 +10,15 @@ var nomes = new[] {
 };
 if ("%%ACAO%%" == "iniciar") {
     var lista = new System.Collections.Generic.List<object>();
-    foreach (var nome in nomes) {
-        var r = Unity.Profiling.ProfilerRecorder.StartNew(Unity.Profiling.ProfilerCategory.Any, nome, 240);
-        dom.SetData("s5b_" + nome, r);
-        lista.Add(nome);
+    var handles = new System.Collections.Generic.List<Unity.Profiling.LowLevel.Unsafe.ProfilerRecorderHandle>();
+    Unity.Profiling.LowLevel.Unsafe.ProfilerRecorderHandle.GetAvailable(handles);
+    foreach (var h in handles) {
+        string n = Unity.Profiling.LowLevel.Unsafe.ProfilerRecorderHandle.GetDescription(h).Name;
+        if (System.Array.IndexOf(nomes, n) < 0 || dom.GetData("s5b_" + n) != null) continue;
+        var r = new Unity.Profiling.ProfilerRecorder(h, 240, Unity.Profiling.ProfilerRecorderOptions.Default);
+        r.Start();
+        dom.SetData("s5b_" + n, r);
+        lista.Add(n);
     }
     UnityEngine.FrameTimingManager.CaptureFrameTimings();
     return Newtonsoft.Json.JsonConvert.SerializeObject(lista);
@@ -40,8 +45,7 @@ if (got > 0) {
 o["UnityStats"] = new { batches = UnityEditor.UnityStats.batches, drawCalls = UnityEditor.UnityStats.drawCalls,
     setPass = UnityEditor.UnityStats.setPassCalls, triangulos = UnityEditor.UnityStats.triangles,
     vertices = UnityEditor.UnityStats.vertices, frameMs = UnityEditor.UnityStats.frameTime * 1000f,
-    renderMs = UnityEditor.UnityStats.renderTime * 1000f, skinnedMeshesVisiveis = UnityEditor.UnityStats.visibleSkinnedMeshes,
-    animacoesVisiveis = UnityEditor.UnityStats.visibleAnimations };
+    renderMs = UnityEditor.UnityStats.renderTime * 1000f, skinnedMeshesVisiveis = UnityEditor.UnityStats.visibleSkinnedMeshes };
 o["memoriaAlocadaMB"] = UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong() / 1048576.0;
 o["materiais"] = UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Length;
 return Newtonsoft.Json.JsonConvert.SerializeObject(o);
