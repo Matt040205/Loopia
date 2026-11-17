@@ -14,12 +14,16 @@
   20 px da Scene Bible). Scene Bible e `EscalaDeArteSceneTests.Morcego_TemEscalaDaSceneBible` atualizados.
 - Validação Blender dos clipes reais: 0 falhas nas membranas (inclusive Hit aditivo e cross-fades); lobo sem
   atravessar o chão e com deslizamento ≤ 5% no apoio.
-- Testes: **458/458** (Logic + SceneStatic 417, PlayModeSmoke 37, PlayModeMedicao 4); 13 novos.
+- Testes: **458/458** (Logic + SceneStatic 417, PlayModeSmoke 37, PlayModeMedicao 4) até `59cbb7d`; 13 novos.
+  Depois disso: +1 teste (Floresta), ainda não executado.
 - Builds: `Documents\Loopia_Builds\loopia-sprint5b-59cbb7d-{release,dev}\` (0 erros, 0 avisos). Release jogada com
   mouse real, perfil `qa-sprint5b`: derrota, **vitória**, derrota; Revoada; save e reabertura; `Player.log` limpo.
-- **Pendente / não verificado:** lobo não apareceu na build (a Floresta conta qualquer inimigo na casa — regra
-  pré-existente; validado no Editor); FPS na build não medido (custos medidos no Editor, §12 do registro);
-  prega do quadril no galope (autointerseção interna). Lista completa: §14 do registro.
+- **Correção depois do playtest (aprovada):** a Floresta contava qualquer inimigo na casa e um morcego pousado
+  impedia o lobo; agora conta só lobos (`InimigoSpawner.QuantosEm(casa, def)`), teste novo
+  `FlorestaPlayModeTests` (§11a do registro).
+- **Pendente / não verificado:** por decisão do responsável, a **suíte completa e a build nova ficam para depois
+  das próximas correções** — a correção da Floresta só foi compilada, o teste novo não rodou e o lobo ainda não foi
+  visto numa build; FPS na build não medido (custos no Editor, §12); prega do quadril no galope. Lista: §14.
 - Fora do repo: pacote extraído, renders, GIFs completos e capturas em `Documents\Loopia_Sprint5B\`.
   `Assets/_Recovery/` (cópia de recuperação da Unity, sem versionar) e os settings regravados pelo build continuam
   fora dos commits.

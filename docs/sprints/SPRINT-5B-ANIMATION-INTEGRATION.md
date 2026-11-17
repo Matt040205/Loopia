@@ -19,7 +19,7 @@ extraído em `Documents\Loopia_Sprint5B\00_Input` (fora de `Assets`).
 | Gameplay intacto (dano 1×, recompensas 1×, Revoada, vitória) | Testes de integração verdes — §10; build — §11 |
 | Suíte completa | **458/458** (base 445 + 13 novos) — §10 |
 | Build Windows x64 | Release e Development, 0 erros/0 avisos; 3 jornadas na Release (vitória, derrota, save, reabertura) — §11 |
-| Lobo visto na build | **Não** nesta sessão (regra pré-existente da Floresta, §11); validado no Editor |
+| Lobo visto na build | **Não** nesta sessão (regra da Floresta, §11) — regra **corrigida** depois (§11a); build nova PENDENTE |
 
 ## 1. Auditoria dos modelos recebidos
 
@@ -283,12 +283,22 @@ em `sprint-5b/build/`:
 
 `Player.log` das duas sessões: **0 erros, 0 exceções**, nenhum aviso de parâmetro de Animator.
 
-**Limitação encontrada (pré-existente, fora do escopo):** na jornada 3 a carta Floresta não fez nascer o lobo:
-`PlataformaFlorestaDef.Povoar` conta **qualquer** inimigo na casa (`InimigoSpawner.QuantosEm`), e havia um morcego
-pousado nela (`09_floresta_com_morcego_recorte`). O lobo animado não foi visto na build nesta sessão; está validado
+**Defeito encontrado (pré-existente):** na jornada 3 a carta Floresta não fez nascer o lobo:
+`PlataformaFlorestaDef.Povoar` contava **qualquer** inimigo na casa (`InimigoSpawner.QuantosEm`), e havia um morcego
+pousado nela (`09_floresta_com_morcego_recorte`). O lobo animado não foi visto na build desta sessão; está validado
 no Editor (teste `Lobo_MantemNavMeshAgent_AnimaLocomocaoEAtaqueSemDanoExtra`, capturas `sprint-5b/unity/` e
-`familias/`). Sugestão: `Povoar` contar só lobos (`QuantosVivos(loboQueNasce)` na casa) — mudança de gameplay, para
-o responsável decidir.
+`familias/`).
+
+### 11a. Correção da Floresta (aprovada pelo responsável depois do playtest)
+
+- `InimigoSpawner.QuantosEm(casa, def)` (novo): conta só os inimigos daquele tipo na casa.
+- `PlataformaFlorestaDef.Povoar` repõe até `lobosNaCasa` **lobos** (`QuantosEm(casa, loboQueNasce)`): morcego
+  pousado não ocupa mais a vaga. Continua sem empilhar (repõe só o que falta).
+- Teste novo `FlorestaPlayModeTests.Floresta_MorcegoPousadoNaCasa_NaoImpedeOLobo_ENaoEmpilha` (PlayModeSmoke):
+  morcego na casa → Floresta colocada → 1 lobo; volta fechada → continua 1; lobo morto → a volta seguinte repõe 1.
+- **PENDENTE (combinado com o responsável):** rodar a suíte completa e gerar build nova junto com as próximas
+  correções. A correção só foi compilada; o teste novo ainda não foi executado, nem a regra antiga para ver o
+  vermelho.
 
 FPS/frame time na build: **não medidos** (o jogo não tem contador e o Profiler da build não foi conectado); os números
 de custo estão no Editor (§12).
@@ -333,6 +343,9 @@ medida não renderiza nada fora do quadro normal.
 - Ferramentas: `tools/sprint5b/` (capturas.py, cs/, montar_gifs.py) — um render por chamada.
 
 ## 14. Pendências para polimento
+
+0. **Suíte completa + build nova** depois da correção da Floresta (§11a) e das próximas correções; conferir o lobo
+   na build.
 
 1. **Prega do quadril no galope** (`Wolf_Run`): até 39 pares de triângulos do corpo se cruzam por dentro da prega
    quando a traseira vai à frente; na caminhada, 4 pares no carpo. Não aparece na câmera do jogo; resolver com
