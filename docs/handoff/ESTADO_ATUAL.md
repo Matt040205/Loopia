@@ -26,11 +26,11 @@
   corrida, com o arco deitado (`Loopia/Lucca/Braco do arco acompanha a marcha`); lobo na arte da Floresta; Mola
   desativada (e a Ilha Alta some junto; os testes da mecânica da Mola usam uma cópia ligada em memória). §11b.
 - **Suíte da rodada 2: 461/461** em `b8b651f` (Logic + SceneStatic 419, PlayModeSmoke 38, PlayModeMedicao 4).
-  Builds `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-{release,dev}\` (0 erros, 0 avisos); a Release abre e
-  chega ao acampamento com `Player.log` limpo.
-- **Pendente / não verificado:** jornada jogada na build nova (lobo da Floresta, arco deitado na corrida, moeda ao
-  lado do item, escala dos inimigos em jogo); FPS na build não medido (custos no Editor, §12); prega do quadril no
-  galope. Lista: §14.
+  Builds `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-{release,dev}\` (0 erros, 0 avisos). Release jogada
+  (3 jornadas): Mola fora da mão, lobo na carta e na Floresta (ataca, apanha, morre), arco de pé parada e deitado
+  correndo, moeda ao lado do coração, Ancião e lobo na escala nova; `Player.log` limpo; save pessoal intacto.
+  Capturas: `docs/sprints/sprint-5b/build-rodada2/`.
+- **Pendente / não verificado:** FPS na build não medido (custos no Editor, §12); prega do quadril no galope. §14.
 - Fora do repo: pacote extraído, renders, GIFs completos e capturas em `Documents\Loopia_Sprint5B\`.
   `Assets/_Recovery/` (cópia de recuperação da Unity, sem versionar) e os settings regravados pelo build continuam
   fora dos commits.

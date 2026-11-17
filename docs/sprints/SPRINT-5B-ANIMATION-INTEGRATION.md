@@ -19,7 +19,7 @@ extraído em `Documents\Loopia_Sprint5B\00_Input` (fora de `Assets`).
 | Gameplay intacto (dano 1×, recompensas 1×, Revoada, vitória) | Testes de integração verdes — §10; build — §11 |
 | Suíte completa | **458/458** (base 445 + 13 novos) — §10; depois da rodada 2: **461/461** em `b8b651f` — §11b |
 | Build Windows x64 | Release e Development, 0 erros/0 avisos; 3 jornadas na Release (vitória, derrota, save, reabertura) — §11 |
-| Lobo visto na build | **Não** nesta sessão (regra da Floresta, §11) — regra **corrigida** depois (§11a) e coberta por teste; build nova `b8b651f` gerada, **jogada com o lobo ainda PENDENTE** |
+| Lobo visto na build | Não na build `59cbb7d` (regra da Floresta, §11); regra **corrigida** (§11a) e **visto na Release `b8b651f`**: nasce na Floresta, ataca, é atingido e morre (§11b) |
 
 ## 1. Auditoria dos modelos recebidos
 
@@ -334,10 +334,22 @@ passam a usar uma cópia da Mola em memória com `desativada = false`; o asset n
 | **Total** | **461/461** | console: só os 4 avisos que os testes provocam de propósito (recompensas pendentes, fundo sem modelos, gerador sem mundo, troca de Básica fixa) |
 
 **Builds da rodada 2:** `Documents\Loopia_Builds\loopia-sprint5b-b8b651f-release` (156 MB) e `-dev` (220 MB),
-Windows x64, Acampamento + HexPrototipo, **0 erros e 0 avisos**. Release aberta com o perfil `qa-sprint5b`: chega
-ao acampamento e o `Player.log` não tem erro nem exceção. **Não verificado ainda na build:** a jornada jogada com o
-lobo da Floresta, o arco deitado da Lucca correndo, a moeda ao lado do item e a escala nova dos inimigos em jogo
-(tudo verificado no Editor e nos testes).
+Windows x64, Acampamento + HexPrototipo, **0 erros e 0 avisos**. Release jogada com mouse real
+(computer use, tela cheia 1920×1080, perfil `qa-sprint5b`), três jornadas: duas derrotas diante do chefe e uma
+interrompida de propósito. Evidências em `sprint-5b/build-rodada2/`:
+
+| O que conferir | Visto na Release `b8b651f` | Captura |
+|---|---|---|
+| Mola fora do jogo | Mão inicial sem Mola (Coração, Torre, Flechas + 1 sorteada); nenhuma Mola nas recompensas | `01_mao_com_floresta_1080.jpg` |
+| Carta Floresta com o lobo | Lobo na ilustração da carta | `02_carta_floresta_com_lobo.jpg` |
+| Lobo na Floresta | Nasce ao colocar a carta, anima o Idle, ataca a Lucca, é atingido e morre (cai de lado) | `03_lobo_na_floresta.jpg`, `04_lucca_x_lobo_ataque_e_morte.jpg` |
+| Arco da Lucca | Parada: arco de pé. Correndo: arco deitado na altura do quadril, pontas para frente e para trás, sem girar | `05_lucca_correndo_seguida.jpg`, `06_lucca_arco_de_pe_parada_e_deitado_correndo.jpg` |
+| Moeda × item da carta | Moeda sorteada na ilha do Coração aparece ao lado do coração, sem atravessá-lo | `07_moeda_ao_lado_do_coracao.jpg` |
+| Escala dos inimigos | Ancião com envergadura quase da largura da ilha; lobo do tamanho da Lucca; morcegos maiores que antes | `08_anciao_escala_4_5.jpg`, `03_…`, `04_…` |
+
+Save QA 284 → 314 ao voltar da primeira jornada; save pessoal `76e429e4…` intacto; `Player.log` (81 linhas) sem
+erro, exceção ou aviso (`build-rodada2/Player_release_b8b651f.log`). A câmera oficial não aproxima pela roda do
+mouse via computer use; os detalhes são recortes ampliados das capturas 1080p.
 
 ## 12. Desempenho
 
