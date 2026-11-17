@@ -4,7 +4,8 @@
 - **Mesclada:** PR #17 (`feature/sprint5b-enemy-animation`) → `main` @ `80488ec` em 2026-11-17 (merge commit,
   histórico preservado). Release final e pacote: [SPRINT5B_FINAL_RELEASE.md](../releases/SPRINT5B_FINAL_RELEASE.md).
   Registro técnico: [SPRINT-5B-ANIMATION-INTEGRATION.md](../sprints/SPRINT-5B-ANIMATION-INTEGRATION.md).
-- **A `main` é a versão oficial.** Worktree principal `loopia-mvp` na `main`. Nenhuma sprint nova foi iniciada.
+- **A `main` é a versão oficial.** Uma pasta só: `C:\Users\Sitr3n\Documents\Github\loopia` (na `main`); as demais
+  worktrees foram removidas em 2026-11-17 (branches preservados). Nenhuma sprint nova foi iniciada.
 - Entregue: Morcego comum, Morcego Ancião (prefab próprio, Revoada) e Lobo (NavMeshAgent) animados com 17 clipes de
   produção (`ArtSource/Inimigos/Sprint-5B/`, reconfiguração por `Loopia > Inimigos > Configurar modelos animados`);
   escalas visuais 1,3 / 4,5 / 1,8; Lucca com o arco revisado (`Loopia/Lucca/Braco do arco acompanha a marcha`);
@@ -15,13 +16,15 @@
 - Playtest final na Release: jornada até a **vitória** (Revoada, lobo, morcegos), save 61 moedas / 1 vitória,
   reabertura persistida; `Player.log` sem erros. Desempenho na Release: ~919 FPS em jogo, frame time médio 1,09 ms,
   pior quadro 7,0 ms, nenhum quadro > 16,7 ms (ETW DXGI).
-- Pacote: `Documents\Loopia_Releases\Loopia_Sprint5B_Final\Loopia_Sprint5B_Windows_x64_Final.zip` (47,3 MB,
+- Pacote: `Github\loopia\_Arquivos\Releases\Loopia_Sprint5B_Final\Loopia_Sprint5B_Windows_x64_Final.zip` (47,3 MB,
   SHA-256 `b9bf4728…072dd8`), testado depois de extraído.
 - **Atenção para a próxima fase:** (P1) o jogo não limita quadros (VSync 0, sem `targetFrameRate`): ~900 FPS em
   jogo; uma build Development com Profiler caiu com erro de dispositivo D3D12 nessa condição. (P2) Os testes PlayMode
   e snippets do bridge ligam `Application.runInBackground`, o que muda `PlayerSettings.runInBackground` no Editor: antes
   de gerar build, conferir que está 0 como na `main`. (P2) prega interna do quadril do lobo no galope.
-- Fora do repo: pacote 5A.1 extraído, renders e capturas em `Documents\Loopia_Sprint5B\`. `Assets/_Recovery/` (cópia
+- Fora do git: `Github\loopia\_Arquivos\` (ignorada pelo git e pela Unity) reúne release, última build, trabalho da
+  5B, entregas, pesquisa de assets e backups; índice em `_Arquivos\LEIA-ME.md`. Os caminhos `Documents\Loopia_*`
+  citados nas seções antigas deste arquivo e nos registros de sprint são de antes dessa mudança. `Assets/_Recovery/` (cópia
   de recuperação da Unity) e os settings regravados pelo build continuam fora dos commits.
 
 ## Sprint corretiva de UI/UX (concluída, na `main`)
@@ -43,8 +46,8 @@
 - **Uma versão só, na `main`:** `main` @ `5a0944d` = merge do PR #14 (`integration/loopia-unified`: estabilização
   PR #12 + revisão de interface, que já contém as cartas do Codex PR #13). Novas sprints partem da `main`. Relatório:
   [FINAL_CONSOLIDATION_REPORT.md](../integration/FINAL_CONSOLIDATION_REPORT.md).
-- **Um Editor, uma worktree:** `C:\Users\Sitr3n\Documents\Github\loopia-mvp`. As demais worktrees são backup (não
-  abrir Editors nelas; nenhuma sprint nova em branch antiga). O que pode ser removido: relatório, §8.
+- **Um Editor, uma pasta:** desde 2026-11-17, `C:\Users\Sitr3n\Documents\Github\loopia` (antes era a worktree
+  `loopia-mvp`; todas as worktrees extras foram removidas). Nenhuma sprint nova em branch antiga.
 - **Cenas oficiais com a interface aprovada:** `Acampamento` e `HexPrototipo` trazem HUD de Cartas (prefab do Codex,
   ligada ao `CartasUI`), Interface da jornada, barra do chefe, acampamento e resultado novos. Botões nos métodos
   runtime; nada Editor-only nas cenas. `Loopia > Interface > Aplicar nas cenas oficiais` reaplica numa cena sem
