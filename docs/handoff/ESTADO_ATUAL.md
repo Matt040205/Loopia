@@ -1,6 +1,34 @@
-# Estado atual — 2026-11-17
+# Estado atual — 2026-11-23
 
-## Sprint 5B — animação e integração dos inimigos 3D — **concluída, na `main`** — comece por aqui
+## Sprint 6 — critérios de render do trabalho — **concluída** — comece por aqui
+- Branch `sprint-6/criterios-render` (base `main` @ `c305bca`), commit do trabalho `387ba60`; PR para a `main` (ver
+  linha abaixo). Registro completo:
+  [SPRINT-6-CRITERIOS-RENDER.md](../sprints/SPRINT-6-CRITERIOS-RENDER.md).
+- O trabalho exige ≥ 3 de: 3 Shader Graphs, 3 VFX Graphs, luz baked (lightmaps + probes), luz dinâmica com cookie,
+  Decal Projector instanciado. Feitos: **cookie** (Sun Realtime + `CookieSombraDasNuvens`, `SombraDasNuvens` anda
+  com o vento), **decal** (Decal Renderer Feature no `PC_Renderer`; `MarcaDeMorte.prefab` instanciado na morte de
+  lobo/morcego) e **3 VFX Graph** (SmoothSmoke + `BrilhoDaMoeda` na coleta + `FagulhasDaConstrucao` ao colocar carta).
+- Testes: Logic + SceneStatic **435/435** (+16 em `CriteriosDeRenderTests`); PlayModeSmoke + PlayModeMedicao **43/43**
+  (+1: `NuvensZonaPlayModeTests`).
+  Console limpo. Build **não** validada.
+- **Save:** o shell dos agentes é isolado e vê outro `LocalLow` (save com 321 moedas, perfis `qa-*`); o save real (o
+  que a Unity lê) ganhou pelo menos +4 moedas nas primeiras capturas desta sprint (239 depois delas; 249 em 23/11 às
+  11h, após uma sessão do responsável). Desde então cada sessão de Play faz backup e restaura pelo `execute_code`
+  (`_Arquivos/Sprint6/save-backup/`); nunca pelo shell. Correção das +4: decisão do responsável.
+- **Nuvens toon** (opção 2 entre 4 prévias, refeitas após análise com medidas): luz da cena, faixas presas à câmera,
+  teto de brilho, névoa por altura; gomos irregulares em 3 portes. **Zona protegida**: envoltória das ilhas na tela,
+  nenhuma nuvem passa por cima do tabuleiro (0 pixel em 6 checagens; 0 de 5.400 passos); moldura equilibrada pela
+  capacidade de cada quadrante. **Vida**: nascer/viver/dissipar com dissolução por ruído; gomos que incham e brotam no
+  shader. Sombra no chão por Decal Projector. Detalhes, medidas e GIFs: registro da sprint §4.
+- **Pixelização no Editor:** era a Game view com *Low Resolution Aspect Ratios* ligada (Windows em 125%), não o MSAA
+  (medido: MSAA 4× ativo; Decal não interfere). Desligada na Game view. **Nuvens se fundindo ao nascer:** nasciam em
+  cima de outras (66% do tempo); agora é proibido e há separação suave (0%). Registro da sprint §4.4.
+- **Rio com água viva:** a água da paisagem gerada usa agora o Shader Graph `WaterLowPoly` na paleta da paisagem
+  (`Paisagem_AguaViva.mat`, variante B de uma prévia A/B); a versão original (azul saturado) foi descartada. O Shader
+  Graph volta a estar em uso no jogo (1 dos 3 que o critério pediria). Registro da sprint §4.5.
+- `ProjectSettings/TimeManager.asset` já estava modificado antes da sprint: fora do commit.
+
+## Sprint 5B — animação e integração dos inimigos 3D — **concluída, na `main`**
 - **Mesclada:** PR #17 (`feature/sprint5b-enemy-animation`) → `main` @ `80488ec` em 2026-11-17 (merge commit,
   histórico preservado). Release final e pacote: [SPRINT5B_FINAL_RELEASE.md](../releases/SPRINT5B_FINAL_RELEASE.md).
   Registro técnico: [SPRINT-5B-ANIMATION-INTEGRATION.md](../sprints/SPRINT-5B-ANIMATION-INTEGRATION.md).
