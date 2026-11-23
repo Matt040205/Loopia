@@ -72,6 +72,7 @@ namespace Loopia.Hex
             def.raioDeDeteccao = baseDef.raioDeDeteccao;
             def.distanciaCorpoACorpo = baseDef.distanciaCorpoACorpo;
             def.efeitoDeMorte = baseDef.efeitoDeMorte;
+            def.marcaNoChao = baseDef.marcaNoChao;
 
             def.velocidadeDoRasante = velocidadeDoRasante;
             def.duracaoMaximaDoRasante = duracaoMaximaDoRasante;

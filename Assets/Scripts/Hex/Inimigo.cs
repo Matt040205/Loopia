@@ -292,9 +292,20 @@ namespace Loopia.Hex
 
             if (Def.efeitoDeMorte != null)
                 Instantiate(Def.efeitoDeMorte, transform.position + Vector3.up * 0.35f, Quaternion.identity);
+            DeixarMarcaNoChao();
 
             aoSerDerrotado.Invoke(this);
             Destroy(gameObject);
+        }
+
+        /// <summary>Decal de fuligem no chao da ilha sob o inimigo. Sem ilha embaixo (morreu sobre o vazio), nada.</summary>
+        void DeixarMarcaNoChao()
+        {
+            if (Def.marcaNoChao == null || _mundo == null) return;
+            HexCoord casa = _mundo.MundoParaHex(transform.position);
+            if (!_mundo.TemIlha(casa)) return;
+            Vector3 chao = _mundo.PosicaoDe(casa);
+            MarcaNoChao.Criar(Def.marcaNoChao, new Vector3(transform.position.x, chao.y, transform.position.z));
         }
 
         void MontarVisual(InimigoDef def)

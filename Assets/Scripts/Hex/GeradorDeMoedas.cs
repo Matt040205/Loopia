@@ -33,6 +33,8 @@ namespace Loopia.Hex
         [Header("Visual")]
         public Color corDaMoeda = new Color(1f, 0.80f, 0.20f);
         public GameObject modeloDaMoeda;
+        [Tooltip("VFX Graph tocado onde a moeda e coletada (BrilhoDaMoeda).")]
+        public GameObject efeitoDeColeta;
         [Min(0f)] public float alturaDaMoeda = 0.5f;
         public float velocidadeDeGiro = 180f;
 
@@ -142,7 +144,11 @@ namespace Loopia.Hex
             if (!_moedas.TryGetValue(casa, out Transform moeda)) return;
 
             _moedas.Remove(casa);
-            if (moeda != null) Destroy(moeda.gameObject);
+            if (moeda != null)
+            {
+                EfeitoPassageiro.Tocar(efeitoDeColeta, moeda.position);
+                Destroy(moeda.gameObject);
+            }
 
             status.GanharMoedas(valorDaMoeda);
         }

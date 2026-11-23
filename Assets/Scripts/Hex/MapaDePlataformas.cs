@@ -27,6 +27,10 @@ namespace Loopia.Hex
         [Tooltip("Com a jornada encerrada (vitoria ou derrota) nenhuma carta pode ser colocada.")]
         public LoopDirector diretor;
 
+        [Header("Efeitos")]
+        [Tooltip("VFX Graph tocado na casa quando uma carta e colocada (FagulhasDaConstrucao).")]
+        public GameObject efeitoAoColocar;
+
         readonly Dictionary<HexCoord, Plataforma> _plataformas = new Dictionary<HexCoord, Plataforma>();
 
         Transform _raiz;
@@ -249,6 +253,7 @@ namespace Loopia.Hex
             def.AoColocar(plataforma);
             AtualizarRelevo();
             Recalcular();
+            EfeitoPassageiro.Tocar(efeitoAoColocar, mundo.PosicaoDe(casa));
             return plataforma;
         }
 

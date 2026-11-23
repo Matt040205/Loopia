@@ -1321,6 +1321,7 @@ GameObject:
   - component: {fileID: 301879347}
   - component: {fileID: 301879346}
   - component: {fileID: 301879348}
+  - component: {fileID: 301879349}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -1370,7 +1371,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: c59e69b35eb1390478fa27a09e4a6ea1, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -1378,7 +1379,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1423,7 +1424,7 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_CustomShadowLayers: 0
-  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieSize: {x: 34, y: 34}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
   m_RenderingLayersMask:
@@ -1437,6 +1438,21 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &301879349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301879345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa59fa56be344c418ba30d6f663b018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.SombraDasNuvens
+  cookie: {fileID: 2800000, guid: c59e69b35eb1390478fa27a09e4a6ea1, type: 3}
+  tamanho: {x: 34, y: 34}
+  vento: {x: 0.9, y: 0.25}
 --- !u!1 &425822241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2177,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 76a88f4bbbedc6440a94ef9882a654a3, type: 2}
   acento: {fileID: 2100000, guid: c387b6bd5ccde8c4aa8aac1effd3ced6, type: 2}
   solo: {fileID: 2100000, guid: 932aae495b0bd3245883d0b97061acdf, type: 2}
-  agua: {fileID: 2100000, guid: 0daee08d8c265a84f882aac5d38e493b, type: 2}
+  agua: {fileID: 2100000, guid: f06164c9edad85e4dade1ebfd573615c, type: 2}
 --- !u!4 &584884591
 Transform:
   m_ObjectHideFlags: 0
@@ -3851,6 +3867,7 @@ MonoBehaviour:
   valorDaMoeda: 1
   corDaMoeda: {r: 1, g: 0.8, b: 0.2, a: 1}
   modeloDaMoeda: {fileID: 3222942014257985404, guid: accdf55a3ad22284692d9c9e04c2917b, type: 3}
+  efeitoDeColeta: {fileID: 7990515940145111753, guid: 822003a85aaa0ac488190add70083f80, type: 3}
   alturaDaMoeda: 0.5
   velocidadeDeGiro: 180
   afastamentoDoItem: 1.05
@@ -4563,15 +4580,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Loopia.Hex.CamadaDeNuvens
   camera3d: {fileID: 1895346078}
   mundo: {fileID: 1960774342}
-  material: {fileID: 2100000, guid: d3516e8d56c7f0541936213b7680ea13, type: 2}
-  malhaQuad: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-  quantidade: 18
+  material: {fileID: 2100000, guid: c0d6fd38e6acabd41a06a205855c939f, type: 2}
+  quantidade: 20
   semente: 751
-  tamanho: {x: 0.13, y: 0.21}
-  distanciaDasIlhas: 0.85
+  formatos: 10
+  subdivisoes: 3
+  tamanho: {x: 0.08, y: 0.24}
+  distanciaDasIlhas: 1.4
+  profundidade: 2.6
   vento: {x: 1, y: 0.18}
-  velocidade: 0.018
-  opacidade: 0.8
+  velocidade: 0.0035
+  rajadas: 0.3
+  separacao: 0.25
+  margemDaZona: 0.04
+  faixaDeDesvio: 0.12
+  tempoMaximoNaBorda: 12
+  duracaoAoNascer: {x: 6, y: 10}
+  duracaoDaVida: {x: 40, y: 90}
+  duracaoAoDissipar: {x: 5, y: 8}
+  chanceDeEntrarPelaBorda: 0.2
+  balanco: 0.05
+  respiracao: 0.025
+  giroLento: 8
+  animacaoDosGomos: 1
+  dissolverComRuido: 1
+  materialDaSombra: {fileID: 2100000, guid: a155cea5ff11c414888b2c9d90c6ffc7, type: 2}
+  forcaDaSombra: 0.85
+  tamanhoDaSombra: 1.7
+  alcanceDaSombra: 26
+  quedaAteOChao: 12.5
 --- !u!4 &1337786573
 Transform:
   m_ObjectHideFlags: 0
@@ -6275,6 +6312,7 @@ MonoBehaviour:
   gerador: {fileID: 1960774341}
   inimigos: {fileID: 2017468582}
   diretor: {fileID: 1403609353}
+  efeitoAoColocar: {fileID: 137276305385786142, guid: 758181444e7735c45b496ff3334a0533, type: 3}
 --- !u!4 &1763888091
 Transform:
   m_ObjectHideFlags: 0
