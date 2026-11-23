@@ -61,6 +61,9 @@ namespace Loopia.Hex
         [Header("Morte")]
         public GameObject efeitoDeMorte;
 
+        [Tooltip("Prefab com Decal Projector instanciado no chao onde ele morre (MarcaDeMorte).")]
+        public GameObject marcaNoChao;
+
         [Tooltip("Velocidade do mergulho. Precisa ser bem maior que a do Lucca, senao nunca alcanca.")]
         [Min(0.5f)] public float velocidadeDoRasante = 9f;
 

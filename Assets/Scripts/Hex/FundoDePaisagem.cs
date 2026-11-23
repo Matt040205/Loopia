@@ -187,7 +187,12 @@ namespace Loopia.Hex
                 }
                 for (int s = 0; s < lados; s++) tri.AddRange(new[] { c0, c0 + 1 + (s + 1) % lados, c0 + 1 + s });
             }
-            NovoRenderer("Agua", NovaMalha("agua", vert, uv, tri), agua);
+            MeshRenderer rendererDaAgua = NovoRenderer("Agua", NovaMalha("agua", vert, uv, tri), agua);
+            // Agua viva (Shader Graph WaterLowPoly): as ondas sobem e descem a malha plana no shader; o recorte da camera
+            // precisa contar com essa altura.
+            Bounds limitesDaAgua = rendererDaAgua.GetComponent<MeshFilter>().sharedMesh.bounds;
+            limitesDaAgua.Expand(new Vector3(0f, 0.5f, 0f));
+            rendererDaAgua.localBounds = limitesDaAgua;
 
             // ---------- vegetacao e pedras ----------
             var mArvores = Modelos(arvores); var mAltas = Modelos(arvoresAltas); var mSecas = Modelos(secas);
@@ -461,7 +466,7 @@ namespace Loopia.Hex
             return m;
         }
 
-        void NovoRenderer(string nome, Mesh malha, Material mat)
+        MeshRenderer NovoRenderer(string nome, Mesh malha, Material mat)
         {
             var go = new GameObject(nome) { hideFlags = HideFlags.DontSave };
             go.transform.SetParent(_gerado.transform, false);
@@ -474,6 +479,7 @@ namespace Loopia.Hex
             r.reflectionProbeUsage = ReflectionProbeUsage.Off;
             r.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
             for (int i = 0; i < malha.subMeshCount; i++) triangulosGerados += malha.GetIndexCount(i) / 3;
+            return r;
         }
     }
 }
