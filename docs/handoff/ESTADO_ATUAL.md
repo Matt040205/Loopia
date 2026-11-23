@@ -1,8 +1,8 @@
 # Estado atual — 2026-11-23
 
 ## Sprint 6 — critérios de render do trabalho — **concluída** — comece por aqui
-- Branch `sprint-6/criterios-render` (base `main` @ `c305bca`), commit do trabalho `387ba60`; PR para a `main` (ver
-  linha abaixo). Registro completo:
+- **Mesclada na `main` via PR #20** (`sprint-6/criterios-render`, base `c305bca`, commit do trabalho `387ba60`) em
+  2026-11-23, merge commit. Registro completo:
   [SPRINT-6-CRITERIOS-RENDER.md](../sprints/SPRINT-6-CRITERIOS-RENDER.md).
 - O trabalho exige ≥ 3 de: 3 Shader Graphs, 3 VFX Graphs, luz baked (lightmaps + probes), luz dinâmica com cookie,
   Decal Projector instanciado. Feitos: **cookie** (Sun Realtime + `CookieSombraDasNuvens`, `SombraDasNuvens` anda
